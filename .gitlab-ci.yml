@@ -1,0 +1,7 @@
+before_script:
+   - npm-cache install
+job:
+   script:
+      - npm run build
+      - rsync -avzr --stats --delete-after --exclude 'node_modules' --exclude 'assets/src' --exclude '.*' --exclude '.*/' ./dist/ deployer@demos.pixel2html.com:/home/deployer/www/demos/0003024/0004566/
+      - "curl -X POST -F path=0003024/0004566 http://deployer.pixel2html.com/html/demo_links_update"
