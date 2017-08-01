@@ -1,5 +1,8 @@
 # MarketCheck
 
+
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
 [![Demo](web.jpg)](#stack)
 
 Here will live the code for MarketCheck made with React.
