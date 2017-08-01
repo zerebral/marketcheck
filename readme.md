@@ -1,7 +1,8 @@
-# MarketCheck
-
+[![build status](https://code.pixel2html.com/clients/project-4566/badges/master/build.svg)](https://code.pixel2html.com/clients/project-4566/commits/master)
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
+# MarketCheck 
 
 [![Demo](web.jpg)](#stack)
 
