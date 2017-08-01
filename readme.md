@@ -45,6 +45,25 @@ $ yarn test
 * [Recharts.js](http://recharts.org/#/en-US) React + D3 = 🐶
 * [VX](https://github.com/hshoff/vx) React + D3 = 🦄. Too beta 🤔
 
+## Babel Plugins
+
+* root-import: For relative imports use `~/` for `components` and `@/` for `containers`
+* styled-components: So we can use styled-components both on server and client
+
+* inline-react-svg: To import svgs easily as react components:
+
+```javascript
+import Cat from '../svgs/cat.svg'
+
+export default () => (
+  <div>
+    <marquee>SVG Cat!</marquee>
+    <Cat />
+  </div>
+)
+
+```
+
 ## Questions
 
 [Pixel2HTML](https://pixel2html.com/) for support or questions

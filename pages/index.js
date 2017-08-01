@@ -1,7 +1,10 @@
-import styled from 'styled-components'
+import React from 'react'
+import Home from '@/Home'
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
-export default () => <Title>Hello World!</Title>
+class Index extends React.Component {
+  render () {
+    return <Home />
+  }
+}
+
+export default Index

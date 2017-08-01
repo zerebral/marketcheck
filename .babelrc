@@ -14,9 +14,12 @@
     }
   },
   "plugins": [
-    ["root-import", {
+    ["root-import", [{
       "rootPathSuffix": "components"
-    }],
+      }, {
+      "rootPathPrefix": "@",
+      "rootPathSuffix": "containers"
+    }]],
     ["styled-components", {
       "ssr": true,
       "displayName": true,
