@@ -14,7 +14,14 @@
     }
   },
   "plugins": [
-    ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ],
+    ["root-import", {
+      "rootPathSuffix": "components"
+    }],
+    ["styled-components", {
+      "ssr": true,
+      "displayName": true,
+      "preprocess": false
+      }],
     "inline-react-svg"
   ]
 }
