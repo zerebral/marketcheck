@@ -1,0 +1,5 @@
+name: marketcheck
+root: ~/git/marketcheck
+windows:
+  - editor: eval $EDITOR
+  - next: yarn dev
