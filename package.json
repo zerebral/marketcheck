@@ -7,9 +7,9 @@
   "author": "Miguel Palau <mpalauzarza@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "node server",
     "build": "next build",
-    "start": "next start",
+    "start": "node NODE_ENV=production node server",
     "pretest": "standard",
     "test": "jest"
   },
