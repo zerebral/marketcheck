@@ -1,14 +1,13 @@
-import styled from 'styled-components'
 import Logo from './logo.svg'
+import A from '../A'
 
-const A = styled.a`
-  display: block;
+const LogoA = A.extend`
   margin-right: auto;
   max-width: 145px;
 `
 
 export default () => (
-  <A>
+  <LogoA>
     <Logo />
-  </A>
+  </LogoA>
 )
