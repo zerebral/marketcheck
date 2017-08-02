@@ -41,5 +41,12 @@
       "it",
       "expect"
     ]
+  },
+  "now": {
+    "alias": [
+      "marketcheck",
+      "marketcheck.pixel2html.com"
+    ],
+    "public": false
   }
 }
