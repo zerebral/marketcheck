@@ -47,7 +47,22 @@ $ yarn test
 
 ## Babel Plugins
 
-* root-import: For relative imports use `~/` for `components` and `@/` for `containers`
+* root-import: For relative imports:
+  * `~/` for `components` 
+  * `@/` for `containers`
+  * `%/` for `lib`
+
+Example:
+
+```javascript
+import Menu from '~/general/menu'
+
+export default () => (
+  <Menu />
+)
+
+```
+
 * styled-components: So we can use styled-components both on server and client
 
 * inline-react-svg: To import svgs easily as react components:

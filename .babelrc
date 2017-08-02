@@ -20,7 +20,11 @@
       }, {
       "rootPathPrefix": "@",
       "rootPathSuffix": "containers"
-    }]],
+      }, {
+      "rootPathPrefix": "%",
+      "rootPathSuffix": "lib"
+      }
+    ]],
     ["styled-components", {
       "ssr": true,
       "displayName": true,
