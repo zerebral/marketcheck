@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "node server",
     "build": "next build",
-    "start": "node NODE_ENV=production node server",
+    "start": "NODE_ENV=production node server",
     "pretest": "standard",
     "test": "jest"
   },
