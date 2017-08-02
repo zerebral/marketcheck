@@ -15,6 +15,7 @@
   },
   "plugins": [
     ["root-import", [{
+      "rootPathPrefix": "~",
       "rootPathSuffix": "components"
       }, {
       "rootPathPrefix": "@",
