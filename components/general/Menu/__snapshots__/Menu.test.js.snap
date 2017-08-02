@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot test passes Passes the snapshot 1`] = `
+exports[`Menu Component Menu Passes the snapshot 1`] = `
 <nav>
   <div
     className="sc-htoDjs cfRHoD"

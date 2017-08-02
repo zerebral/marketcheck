@@ -1,4 +1,4 @@
-import Menu from '~/general/menu'
+import Menu from '~/general/Menu'
 
 export default () => (
   <Menu />
