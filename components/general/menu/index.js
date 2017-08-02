@@ -1,3 +1,7 @@
+import Logo from './logo'
+
 export default () => (
-  <p>I'm a menu</p>
+  <nav>
+    <Logo />
+  </nav>
 )
