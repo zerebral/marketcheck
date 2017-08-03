@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search Component Search Passes the snapshot 1`] = `
-<a>
+<a
+  className="sc-bdVaJa fpcbkF"
+>
   <svg
-    className="sc-bdVaJa deaFCW"
+    className="sc-bwzfXH leVvom"
     viewBox="0 0 14.86 14.62"
     xmlns="http://www.w3.org/2000/svg"
   >

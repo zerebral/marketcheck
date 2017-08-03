@@ -1,9 +1,13 @@
 import SVG from './search.svg'
 import styled from 'styled-components'
 
-const Search = styled(SVG)`
-  width 15px;
-  fill: #ffffff;
+const A = styled.a`
+  display: block;
 `
 
-export default () => <a><Search /></a>
+const Search = styled(SVG)`
+  fill: #ffffff;
+  width 15px;
+`
+
+export default () => <A><Search /></A>

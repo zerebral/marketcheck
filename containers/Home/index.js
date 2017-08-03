@@ -1,5 +1,14 @@
-import Menu from '~/general/Menu'
+import MenuContainer from '@/general/Menu'
 
 export default () => (
-  <Menu />
+  <div className='home'>
+    <MenuContainer />
+    <style jsx>
+      {`
+      .home {
+      min-height: 5000px;
+      }
+    `}
+    </style>
+  </div>
 )

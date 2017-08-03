@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu Component Menu Passes the snapshot 1`] = `
-<nav>
+<nav
+  className="sc-gqjmRU ieyphg"
+>
   <div
-    className="sc-htoDjs cfRHoD"
+    className="sc-iwsKbI fdDWZ"
   >
     <div
-      className="sc-dnqmqq errLAV"
+      className="sc-gZMcBi gAXAgg"
     >
       <ul
         className="sc-htpNat ekmYoj"
@@ -101,11 +103,13 @@ exports[`Menu Component Menu Passes the snapshot 1`] = `
         </li>
       </ul>
       <div
-        className="sc-gzVnrw knElDU"
+        className="sc-dnqmqq dEpcrB"
       >
-        <a>
+        <a
+          className="sc-gzVnrw kXANwb"
+        >
           <svg
-            className="sc-bZQynM dfoqng"
+            className="sc-htoDjs ldXMzy"
             viewBox="0 0 14.86 14.62"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -114,9 +118,11 @@ exports[`Menu Component Menu Passes the snapshot 1`] = `
             />
           </svg>
         </a>
-        <a>
+        <a
+          className="sc-EHOje dDjMdU"
+        >
           <svg
-            className="sc-EHOje hTbGY"
+            className="sc-bZQynM jXpCaW"
             viewBox="0 0 12.36 15.64"
             xmlns="http://www.w3.org/2000/svg"
           >

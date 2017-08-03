@@ -1,5 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import Reset from '~/general/Reset'
 
 export default class MyDocument extends Document {
   render () {
@@ -18,6 +19,7 @@ export default class MyDocument extends Document {
           {styleTags}
         </Head>
         <body>
+          <Reset />
           <div className='root'>
             {main}
           </div>

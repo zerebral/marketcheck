@@ -2,11 +2,13 @@
 
 exports[`Icons Component Icons Passes the snapshot 1`] = `
 <div
-  className="sc-htpNat hsoLwx"
+  className="sc-ifAKCX hYIKLy"
 >
-  <a>
+  <a
+    className="sc-htpNat dMAkQL"
+  >
     <svg
-      className="sc-bwzfXH dqYcCT"
+      className="sc-bxivhb dLGgeV"
       viewBox="0 0 14.86 14.62"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -15,9 +17,11 @@ exports[`Icons Component Icons Passes the snapshot 1`] = `
       />
     </svg>
   </a>
-  <a>
+  <a
+    className="sc-bdVaJa glPiSN"
+  >
     <svg
-      className="sc-bdVaJa hcpoje"
+      className="sc-bwzfXH fYRUVF"
       viewBox="0 0 12.36 15.64"
       xmlns="http://www.w3.org/2000/svg"
     >

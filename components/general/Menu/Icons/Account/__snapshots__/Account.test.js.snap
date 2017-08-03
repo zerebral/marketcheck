@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Account Component Account Passes the snapshot 1`] = `
-<a>
+<a
+  className="sc-bdVaJa glPiSN"
+>
   <svg
-    className="sc-bdVaJa hcpoje"
+    className="sc-bwzfXH fYRUVF"
     viewBox="0 0 12.36 15.64"
     xmlns="http://www.w3.org/2000/svg"
   >
