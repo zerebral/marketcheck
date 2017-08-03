@@ -2,15 +2,13 @@
 
 exports[`Menu Component Menu Passes the snapshot 1`] = `
 <nav
-  className="menu"
-  data-jsx={2787829796}
+  className="sc-htoDjs bPyOTT"
 >
   <div
     className="sc-bZQynM dEcirT"
   >
     <div
-      className="innerMenu"
-      data-jsx={2787829796}
+      className="sc-gzVnrw eHSzNh"
     >
       <ul
         data-jsx={3220518006}
