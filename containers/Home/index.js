@@ -6,7 +6,8 @@ export default () => (
     <style jsx>
       {`
       .home {
-      min-height: 5000px;
+        min-height: 5000px;
+        background-color: orange;
       }
     `}
     </style>
