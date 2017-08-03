@@ -1,15 +1,12 @@
 import MenuContainer from '@/general/Menu'
+import Hero from '~/home/Hero'
 
 export default () => (
-  <div className='home'>
+  <main>
     <MenuContainer />
-    <style jsx>
-      {`
-      .home {
-        min-height: 5000px;
-        background-color: orange;
-      }
-    `}
-    </style>
-  </div>
+    <Hero
+      image='/static/img/home/hero.jpg'
+      imageRetina='/static/img/home/hero@2x.jpg'
+    />
+  </main>
 )
