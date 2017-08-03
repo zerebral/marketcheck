@@ -55,6 +55,10 @@ export default () => (
         border-collapse: collapse;
         border-spacing: 0;
       }
+
+      img {
+        max-width: 100%;
+      }
     `}</style>
   </div>
 )
