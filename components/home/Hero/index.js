@@ -1,7 +1,16 @@
 import Wrapper from './Wrapper'
+import PropTypes from 'prop-types'
 
-export default () => (
+const Hero = ({ image, imageRetina }) => (
   <Wrapper
-    image='/static/img/home/hero.jpg'
+    image={imageRetina}
+    imageRetina={imageRetina}
   />
 )
+
+Hero.propTypes = {
+  image: PropTypes.string,
+  imageRetina: PropTypes.string
+}
+
+export default Hero
