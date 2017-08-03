@@ -1,10 +1,9 @@
 # MarketCheck
 
 [![build status](https://code.pixel2html.com/clients/project-4566/badges/master/build.svg)](https://code.pixel2html.com/clients/project-4566/commits/master)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
-
-[![Demo](web.jpg)](#stack)
+[![Demo](web.jpg)](https://marketcheck.pixel2html.com/)
 
 Here will live the code for MarketCheck made with React.
 
@@ -49,7 +48,7 @@ $ yarn test
 ## Babel Plugins
 
 * root-import: For relative imports:
-  * `~/` for `components` 
+  * `~/` for `components`
   * `@/` for `containers`
   * `%/` for `lib`
 
