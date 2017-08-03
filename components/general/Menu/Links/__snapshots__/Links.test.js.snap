@@ -2,16 +2,17 @@
 
 exports[`Links Component Links Passes the snapshot 1`] = `
 <ul
-  className="sc-htpNat ekmYoj"
+  data-jsx={3220518006}
 >
   <li
-    className="sc-ifAKCX dtwrhF"
+    className="logo-li"
+    data-jsx={3220518006}
   >
     <a
-      className="sc-bdVaJa hfCwZS"
+      data-jsx={3220518006}
     >
       <svg
-        className="sc-bwzfXH bLxczN"
+        className="sc-bdVaJa NXuRv"
         viewBox="0 0 142.85 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -48,46 +49,46 @@ exports[`Links Component Links Passes the snapshot 1`] = `
     </a>
   </li>
   <li
-    className="sc-bxivhb dUUDXX"
+    data-jsx={3220518006}
   >
     <a
-      className="sc-bdVaJa hfCwZS"
+      data-jsx={3220518006}
     >
       Home
     </a>
   </li>
   <li
-    className="sc-bxivhb dUUDXX"
+    data-jsx={3220518006}
   >
     <a
-      className="sc-bdVaJa hfCwZS"
+      data-jsx={3220518006}
     >
       Research
     </a>
   </li>
   <li
-    className="sc-bxivhb dUUDXX"
+    data-jsx={3220518006}
   >
     <a
-      className="sc-bdVaJa hfCwZS"
+      data-jsx={3220518006}
     >
       About
     </a>
   </li>
   <li
-    className="sc-bxivhb dUUDXX"
+    data-jsx={3220518006}
   >
     <a
-      className="sc-bdVaJa hfCwZS"
+      data-jsx={3220518006}
     >
       FAQ
     </a>
   </li>
   <li
-    className="sc-bxivhb dUUDXX"
+    data-jsx={3220518006}
   >
     <a
-      className="sc-bdVaJa hfCwZS"
+      data-jsx={3220518006}
     >
       For Dealers
     </a>

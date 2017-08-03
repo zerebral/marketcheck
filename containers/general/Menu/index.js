@@ -23,18 +23,21 @@ class MenuContainer extends React.Component {
   }
 
   handleScroll () {
-    const menu = this.menu.childNodes[0].clientHeight
-    const top = document.body.scrollTop
+    const height = this.menu.clientHeight
+    const windowTop = document.body.scrollTop
 
-    this.setState({active: top > menu})
+    const hasScrolledPastHeight = windowTop > height
+
+    return this.setState({active: hasScrolledPastHeight})
   }
 
   render () {
     let { active } = this.state
     return (
-      <div ref={div => { this.menu = div }}>
-        <Menu active={active} />
-      </div>
+      <Menu
+        active={active}
+        custoRef={el => { this.menu = el }}
+      />
     )
   }
 }
