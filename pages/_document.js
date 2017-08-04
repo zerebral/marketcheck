@@ -19,8 +19,8 @@ export default class MyDocument extends Document {
           {styleTags}
         </Head>
         <body>
-          <Reset />
           <div className='root'>
+            <Reset />
             {main}
           </div>
           <NextScript />
