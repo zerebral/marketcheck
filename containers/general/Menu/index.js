@@ -14,6 +14,10 @@ class MenuContainer extends React.Component {
     this.bindScroll()
   }
 
+  componentWillUnmount () {
+    this.unbindScroll()
+  }
+
   bindScroll () {
     window.addEventListener('scroll', this.handleScroll)
   }

@@ -1,3 +1,5 @@
+import { fonts } from '%/styles'
+
 /**
  * Eric Meyer CSS Reset v2
  *
@@ -5,7 +7,6 @@
 export default () => (
   <div className='reset'>
     <style jsx global>{`
-
       *,
       *::before,
       *::after {
@@ -64,6 +65,10 @@ export default () => (
         text-decoration: none;
         color: inherit;
         transition: 0.3s;
+      }
+
+      html {
+        font-family: ${fonts.fontFamily};
       }
     `}</style>
   </div>
