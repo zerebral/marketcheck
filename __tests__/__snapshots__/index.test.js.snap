@@ -147,7 +147,7 @@ exports[`Snapshot test passes Passes the snapshot 1`] = `
     className="sc-gZMcBi jWpDfs"
   >
     <div
-      className="sc-VigVT dRITys"
+      className="sc-cSHVUG HHYOp"
     >
       <div
         className="sc-htoDjs dYtvyk"
@@ -160,6 +160,98 @@ exports[`Snapshot test passes Passes the snapshot 1`] = `
           >
             Search over 14 million Used and New Cars
           </h1>
+          <ul
+            className="sc-fjdhpX KqsZb"
+          >
+            <li
+              className="sc-jzJRlG joCJxo"
+            >
+              <a
+                href="#"
+              >
+                SUV
+              </a>
+            </li>
+            <li
+              className="sc-jzJRlG joCJxo"
+            >
+              <a
+                href="#"
+              >
+                Sedan
+              </a>
+            </li>
+            <li
+              className="sc-jzJRlG joCJxo"
+            >
+              <a
+                href="#"
+              >
+                Pickup
+              </a>
+            </li>
+            <li
+              className="sc-jzJRlG joCJxo"
+            >
+              <a
+                href="#"
+              >
+                Coupe
+              </a>
+            </li>
+            <li
+              className="sc-jzJRlG joCJxo"
+            >
+              <a
+                href="#"
+              >
+                Hatchback
+              </a>
+            </li>
+            <li
+              className="sc-jzJRlG joCJxo"
+            >
+              <a
+                href="#"
+              >
+                Convertible
+              </a>
+            </li>
+            <li
+              className="sc-jzJRlG joCJxo"
+            >
+              <a
+                href="#"
+              >
+                Wagon
+              </a>
+            </li>
+            <li
+              className="sc-jzJRlG joCJxo"
+            >
+              <a
+                href="#"
+              >
+                Crossover
+              </a>
+            </li>
+          </ul>
+          <a
+            className="sc-jTzLTM cYPvdB"
+            href="tel:8017353351"
+          >
+            <svg
+              className="sc-VigVT cqcBPR"
+              viewBox="0 0 11.12 11.12"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 0c.72.69 1.46 1.36 2.15 2.07a.82.82 0 0 1 0 1.06 3.36 3.36 0 0 1-.36.41c-.66.7-.69.41-.14 1.33a7.86 7.86 0 0 0 3 2.87c.24.13.4.15.58-.07a5.84 5.84 0 0 1 .55-.55.92.92 0 0 1 1.41 0c.64.62 1.25 1.27 1.88 1.91v.73a3.44 3.44 0 0 1-1.91 1.37H8.11a7.32 7.32 0 0 1-.92-.24A11.9 11.9 0 0 1 0 3.56V2a3.09 3.09 0 0 1 1.46-2z"
+                fill="#fff"
+              />
+            </svg>
+            801 735 3351
+          </a>
         </div>
       </div>
     </div>
