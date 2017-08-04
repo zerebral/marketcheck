@@ -41,5 +41,10 @@
       "marketcheck.pixel2html.com"
     ],
     "public": false
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }

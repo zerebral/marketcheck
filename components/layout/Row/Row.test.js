@@ -1,13 +1,13 @@
 /* eslint-env jest */
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
+import 'jest-styled-components'
 
 import Row from './index'
 
 describe('Row Component', () => {
-  test('Row Passes the snapshot', () => {
-    const component = renderer.create(<Row />)
-    const tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+  test('Row Passes shallow snapshot', () => {
+    const wrapper = shallow(<Row />)
+    expect(wrapper).toMatchSnapshot()
   })
 })
