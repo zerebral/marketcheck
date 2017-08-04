@@ -18,9 +18,6 @@ const retinaImage = props => {
 }
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: ${colors.gray};
   background-image: ${backgroundImage};
   background-position: center;
@@ -29,14 +26,10 @@ const Wrapper = styled.div`
   min-height: 750px;
   color: ${colors.white};
   padding: 60px;
+  position: relative;
 
   ${hiDPI()} {
     background-image: ${retinaImage};
-  }
-
-
-  > * {
-    margin: auto;
   }
 `
 

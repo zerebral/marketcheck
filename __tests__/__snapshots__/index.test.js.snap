@@ -3,10 +3,10 @@
 exports[`Snapshot test passes Passes the snapshot 1`] = `
 <main>
   <nav
-    className="sc-iwsKbI cPNGXK"
+    className="sc-iwsKbI cFzear"
   >
     <div
-      className="sc-gzVnrw fjpYyZ"
+      className="sc-gzVnrw kmbddt"
     >
       <div
         className="sc-dnqmqq errLAV"
@@ -144,18 +144,22 @@ exports[`Snapshot test passes Passes the snapshot 1`] = `
     </div>
   </nav>
   <div
-    className="sc-gZMcBi gXDUIF"
+    className="sc-gZMcBi jWpDfs"
   >
     <div
-      className="sc-gzVnrw fjpYyZ"
+      className="sc-VigVT dRITys"
     >
       <div
         className="sc-htoDjs dYtvyk"
       >
         <div
-          className="sc-bZQynM bsvUIz"
+          className="sc-bZQynM eDomKd"
         >
-          Porta felis. Fusce tristique leo quis pede. Cras nibh. Sed eget est vitae tortor mollis ullamcorper. Suspendisse placerat dolor a dui. Vestibulum condimentum dui et elit. Pellentesque porttitor ipsum at ipsum. Nam massa. Duis lorem. Donec porta. Proin ligula. Aenean nunc massa, dapibus quis, imperdiet id, commodo a, lacus. Cras sit amet erat et nulla varius aliquet. Aliquam erat volutpat. Praesent feugiat vehicula pede. Suspendisse pulvinar, orci in sollicitudin venenatis, nibh libero hendrerit sem, eu tempor nisi felis et metus. Etiam gravida sem ut mi. Integer volutpat, enim eu varius gravida, risus urna venenatis lectus, ac ultrices quam nulla eu leo. Duis.
+          <h1
+            className="sc-gqjmRU fmWRfg"
+          >
+            Search over 14 million Used and New Cars
+          </h1>
         </div>
       </div>
     </div>

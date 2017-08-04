@@ -13,6 +13,7 @@ const Menu = styled.nav`
   left: 0;
   width: 100%;
   transition: 0.2s;
+  z-index: 5;
 `
 Menu.propTypes = {
   active: PropTypes.bool
