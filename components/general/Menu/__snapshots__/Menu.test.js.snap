@@ -11,14 +11,14 @@ exports[`Menu Component Menu Passes the snapshot 1`] = `
       className="sc-gzVnrw eHSzNh"
     >
       <ul
-        data-jsx={3220518006}
+        data-jsx={2325318923}
       >
         <li
           className="logo-li"
-          data-jsx={3220518006}
+          data-jsx={2325318923}
         >
           <a
-            data-jsx={3220518006}
+            data-jsx={2325318923}
           >
             <svg
               className="sc-bdVaJa NXuRv"
@@ -58,46 +58,51 @@ exports[`Menu Component Menu Passes the snapshot 1`] = `
           </a>
         </li>
         <li
-          data-jsx={3220518006}
+          data-jsx={2325318923}
         >
           <a
-            data-jsx={3220518006}
+            data-jsx={2325318923}
+            href="#"
           >
             Home
           </a>
         </li>
         <li
-          data-jsx={3220518006}
+          data-jsx={2325318923}
         >
           <a
-            data-jsx={3220518006}
+            data-jsx={2325318923}
+            href="#"
           >
             Research
           </a>
         </li>
         <li
-          data-jsx={3220518006}
+          data-jsx={2325318923}
         >
           <a
-            data-jsx={3220518006}
+            data-jsx={2325318923}
+            href="#"
           >
             About
           </a>
         </li>
         <li
-          data-jsx={3220518006}
+          data-jsx={2325318923}
         >
           <a
-            data-jsx={3220518006}
+            data-jsx={2325318923}
+            href="#"
           >
             FAQ
           </a>
         </li>
         <li
-          data-jsx={3220518006}
+          data-jsx={2325318923}
         >
           <a
-            data-jsx={3220518006}
+            data-jsx={2325318923}
+            href="#"
           >
             For Dealers
           </a>
