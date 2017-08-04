@@ -1,8 +1,6 @@
+import { Container, Column, Row } from '~/layout'
 import Wrapper from './Wrapper'
 import PropTypes from 'prop-types'
-import Container from '~/general/Container'
-import Column from '~/general/Column'
-import Row from '~/general/Row'
 
 const Hero = ({ image, imageRetina }) => (
   <Wrapper image={imageRetina} imageRetina={imageRetina}>

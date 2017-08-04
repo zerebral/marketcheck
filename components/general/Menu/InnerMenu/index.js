@@ -1,6 +1,6 @@
 import Links from './Links'
 import Icons from './Icons'
-import Container from '~/general/Container'
+import { Container } from '~/layout'
 
 import styled from 'styled-components'
 
