@@ -57,3 +57,7 @@ a {
   color: inherit;
   transition: 0.3s;
 }
+
+html {
+  font-family: Roboto, sans-serif;
+}

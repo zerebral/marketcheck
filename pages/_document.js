@@ -1,6 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import Reset from '~/general/Reset'
 
 export default class MyDocument extends Document {
   render () {
@@ -16,13 +15,12 @@ export default class MyDocument extends Document {
           <link rel='icon' href='/static/favicon.ico' type='image/x-icon' />
           <meta name='theme-color' content='#13A54E' />
           <title>MarketCheck</title>
+          <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' />
+          <link href='/static/css/reset.css' rel='stylesheet' />
           {styleTags}
         </Head>
         <body>
-          <div className='root'>
-            <Reset />
-            {main}
-          </div>
+          <div className='root'>{main}</div>
           <NextScript />
         </body>
       </html>
