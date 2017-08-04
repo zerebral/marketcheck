@@ -7,13 +7,15 @@ const { gutter } = grid
 
 const padding = rem(gutter / 2)
 
-const responsiveStyling = Object.keys(breakpoints).map(breakpoint => props => {
-  return props[breakpoint]
-    ? `${mediaMin[breakpoint]`
-    width: ${props[breakpoint]}%;
-    `}`
-    : ''
-})
+// ['desktop', 'laptop'...]
+const bpKeysArray = Object.keys(breakpoints)
+
+const responsiveStyling = props => {
+  const usableBreaks = bpKeysArray.filter(bp => props[bp] !== undefined)
+  return usableBreaks.map(bp => mediaMin[bp]`
+    width: ${props[bp]}%;
+  `)
+}
 
 const Column = styled.div`
   padding-left: ${padding};
