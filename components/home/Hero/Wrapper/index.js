@@ -27,6 +27,7 @@ const Wrapper = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 750px;
+  color: ${colors.white};
   padding: 60px;
 
   ${hiDPI()} {
