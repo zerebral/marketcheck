@@ -2,17 +2,23 @@ import Logo from './Logo'
 import { rem } from 'polished'
 import fonts from '%/styles/fonts'
 
+const links = [
+  { name: 'Home', route: '#' },
+  { name: 'Research', route: '#' },
+  { name: 'About', route: '#' },
+  { name: 'FAQ', route: '#' },
+  { name: 'For Dealers', route: '#' }
+]
+
 export default () => (
   <ul>
     <li className='logo-li'>
       <a><Logo /></a>
     </li>
 
-    <li><a>Home</a></li>
-    <li><a>Research</a></li>
-    <li><a>About</a></li>
-    <li><a>FAQ</a></li>
-    <li><a>For Dealers</a></li>
+    {links.map((link, index) => (
+      <li key={link.name + index}><a href={link.route}>{link.name}</a></li>
+    ))}
 
     <style jsx>{`
       ul {
@@ -36,6 +42,12 @@ export default () => (
         font-size: ${rem(14)};
         font-family: ${fonts.fontFamily};
         font-weight: 400;
+      }
+
+      a:hover,
+      a:active {
+        text-decoration: underline;
+        font-weight: 700;
       }
       `}
     </style>
