@@ -16,7 +16,7 @@ describe('Column Component', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('Is has responsive column widths and offsets', () => {
+  test('Responsive column widths and offsets', () => {
     const component = renderer.create(
       <Column
         phablet={{ offset: 3 }}
