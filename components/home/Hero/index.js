@@ -6,7 +6,10 @@ import Column from '~/general/Column'
 const Hero = ({ image, imageRetina }) => (
   <Wrapper image={imageRetina} imageRetina={imageRetina}>
     <Container>
-      <Column desktop={25} laptop={50} phablet={75}>
+      <Column
+        phablet={{ offset: 3 }}
+        laptop={{ cols: 11, offset: 2 }}
+        desktop={{ cols: 10 }} >
         Porta felis.
         Fusce tristique leo quis pede. Cras nibh. Sed eget est vitae tortor mollis
         ullamcorper. Suspendisse placerat dolor a dui. Vestibulum condimentum dui et

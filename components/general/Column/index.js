@@ -1,30 +1,32 @@
 import styled from 'styled-components'
+// Helpers for styling
 import { rem, clearFix } from 'polished'
-import { mediaMin } from '%/styles/mixins'
-import { grid, breakpoints } from '%/styles'
+import { grid, bpKeysArray } from '%/styles'
+// Helper for the magic
+import responsiveStyling from './responsiveStyling'
+import PropTypes from 'prop-types'
 
-const { gutter } = grid
+// Styling helpers
+const padding = rem(grid.gutter / 2)
 
-const padding = rem(gutter / 2)
-
-// ['desktop', 'laptop'...]
-const bpKeysArray = Object.keys(breakpoints)
-
-const responsiveStyling = props => {
-  const usableBreaks = bpKeysArray.filter(bp => props[bp] !== undefined)
-  return usableBreaks.map(bp => mediaMin[bp]`
-    width: ${props[bp]}%;
-  `)
-}
-
+// The component _per se_
 const Column = styled.div`
   padding-left: ${padding};
   padding-right: ${padding};
   float: left;
   width: 100%;
   ${clearFix()}
-
   ${responsiveStyling}
 `
+
+Column.propTypes = {}
+
+// Creative proptyping?
+bpKeysArray.map(bp => {
+  Column.propTypes[bp] = PropTypes.shape({
+    cols: PropTypes.number,
+    offset: PropTypes.number
+  })
+})
 
 export default Column
