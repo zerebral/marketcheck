@@ -1,5 +1,4 @@
-import MenuContainer from '@/general/Menu'
-import Hero from '~/home/Hero'
+import Home from '~/Home'
 
 const carLinks = [
   { name: 'SUV', route: '#' },
@@ -12,13 +11,9 @@ const carLinks = [
   { name: 'Crossover', route: '#' }
 ]
 
-export default () => (
-  <main>
-    <MenuContainer />
-    <Hero
-      image='/static/img/home/hero.jpg'
-      imageRetina='/static/img/home/hero@2x.jpg'
-      carLinks={carLinks}
-    />
-  </main>
-)
+export default () =>
+  <Home
+    heroImage='/static/img/home/hero.jpg'
+    heroImageRetina='/static/img/home/hero@2x.jpg'
+    heroCarLinks={carLinks}
+  />
