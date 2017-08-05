@@ -4,7 +4,7 @@ import { colors } from '%/styles'
 
 const Makers = styled.div`
   padding: ${em(70)} 0 ${em(50)};
-  backgrond-color: ${colors.softgray};
+  background-color: ${colors.softgray};
 `
 
 export default Makers
