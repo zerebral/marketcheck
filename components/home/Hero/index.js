@@ -15,7 +15,7 @@ const Hero = ({
   image,
   imageRetina,
   carLinks
-}) => (
+}) =>
   <Wrapper image={imageRetina} imageRetina={imageRetina}>
     <AlignedContainer>
       <Row>
@@ -27,7 +27,6 @@ const Hero = ({
       </Row>
     </AlignedContainer>
   </Wrapper>
-)
 
 Hero.propTypes = {
   image: PropTypes.string,
