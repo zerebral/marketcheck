@@ -3,6 +3,13 @@ import { rem } from 'polished'
 import { colors } from '%/styles'
 import { placeholder } from '%/styles/mixins'
 
+const placeholderStyles = placeholder`
+  font-size: ${rem(16)};
+  font-weight: 400;
+  line-height: ${19 / 16};
+  color: ${colors.gray};
+`
+
 const Input = styled.input`
   font-size: ${rem(16)};
   font-weight: 400;
@@ -12,12 +19,7 @@ const Input = styled.input`
   background: ${colors.white};
   font-family: inherit;
 
-  ${placeholder`
-    font-size: ${rem(16)};
-    font-weight: 400;
-    line-height: ${19 / 16};
-    color: ${colors.gray};
-  `}
+  ${placeholderStyles}
 `
 
 export default Input

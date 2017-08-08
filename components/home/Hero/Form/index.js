@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
+import { rem } from 'polished'
+
 import FancySelect from './FancySelect'
 import FancySearch from './FancySearch'
-import { rem } from 'polished'
+import Submit from './Submit'
 
 const Form = styled.form`
   position: relative;
@@ -35,4 +37,5 @@ export default ({onSubmit}) =>
       <option>2016</option>
       <option>2015</option>
     </FancySelect>
+    <Submit />
   </Form>
