@@ -27,7 +27,7 @@ const Home = ({
     <Features />
     <Deals />
     <Categories />
-    <Trust>I trust you</Trust>
+    <Trust />
     <Testimonials>Such testify</Testimonials>
     <Makers>Makers gonna make</Makers>
     <Listings>List and list and list</Listings>

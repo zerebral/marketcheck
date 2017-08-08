@@ -1,11 +1,39 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
-import { em } from 'polished'
+import { rem } from 'polished'
 
-const Trust = styled.div`
-  color: ${colors.white};
-  background: ${colors.darkblue};
-  padding: ${em(115)} 0 ${em(95)};
+import { Container, Row, Column } from '~/layout'
+import { H1, P } from '~/general'
+
+import Icon from './shield.svg'
+
+const Deals = styled.div`
+  background-color: ${colors.darkblue};
+  color: #e1e5e7;
+  padding: ${rem(50)} 0 ${rem(80)};
+  overflow: hidden;
 `
 
-export default Trust
+const Shield = styled(Icon)`
+  width: 100%;
+  position: absolute;
+`
+
+const CustomP = P.extend`
+  margin-bottom: 0;
+`
+
+export default () =>
+  <Deals>
+    <Container>
+      <Row>
+        <Column laptop={{ cols: 4, offset: 2 }}>
+          <H1>Trust and Transparency</H1>
+          <CustomP>For every listing, we show you time on market, price history, a full local-market price analysis and dealer reviews. Everything you need to know before you contact the dealer.</CustomP>
+        </Column>
+        <Column laptop={{ cols: 4, offset: 1 }}>
+          <Shield />
+        </Column>
+      </Row>
+    </Container>
+  </Deals>
