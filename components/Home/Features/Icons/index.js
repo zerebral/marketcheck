@@ -7,11 +7,11 @@ import Volume from './volume.svg'
 
 const Icons = FlexRow.extend`
   text-align: center;
-  justify-content: center;
+  justify-content: space-around;
 `
 
 export default () =>
-  <Icons justify='space-around'>
+  <Icons>
     <SingleFeature
       title='Free'
       text='Make your car shopping experience as enjoyable as possible'
