@@ -8,6 +8,8 @@ const SelectWrapper = styled.div`
   background-color: ${props => props.blue ? colors.blue : colors.white};
   color: ${props => props.blue ? colors.white : colors.blue};
   font-size: ${rem(16)};
+  line-height: ${19 / 16};
+  font-weight: 700;
 `
 
 SelectWrapper.propTypes = {

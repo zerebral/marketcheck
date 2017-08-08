@@ -2,8 +2,11 @@ import SelectWrapper from './SelectWrapper'
 import Select from './Select'
 import Caret from './Caret'
 
-export default ({children}) =>
-  <SelectWrapper>
+export default ({
+  children,
+  blue
+}) =>
+  <SelectWrapper blue={blue} >
     <Select>
       { children }
     </Select>

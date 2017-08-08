@@ -5,6 +5,7 @@ import H1 from './H1'
 import Phone from './Phone'
 import PropTypes from 'prop-types'
 import CarLinks from './CarLinks'
+import Form from './Form'
 
 const AlignedContainer = Container.extend`
   width: 100%;
@@ -14,13 +15,15 @@ const AlignedContainer = Container.extend`
 const Hero = ({
   image,
   imageRetina,
-  carLinks
+  carLinks,
+  onSubmit
 }) =>
   <Wrapper image={imageRetina} imageRetina={imageRetina}>
     <AlignedContainer>
       <Row>
         <Column laptop={{ cols: 8, offset: 2 }} >
           <H1>Search over 14 million Used and New Cars</H1>
+          <Form onSubmit={onSubmit} />
           <CarLinks links={carLinks} />
           <Phone />
         </Column>
@@ -34,7 +37,8 @@ Hero.propTypes = {
   carLinks: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     route: PropTypes.string.isRequired
-  })).isRequired
+  })).isRequired,
+  onSubmit: PropTypes.func
 }
 
 export default Hero
