@@ -24,7 +24,7 @@ export default ({
   pic,
   href
 }) =>
-  <Car href={href}>
-    <CarPic src={pic} />
+  <Car href={href} title={title}>
+    <CarPic src={pic} alt={title} />
     <CarTitle>{title}</CarTitle>
   </Car>
