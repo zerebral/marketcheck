@@ -24,7 +24,7 @@ const Home = ({
       imageRetina={heroImageRetina}
       carLinks={heroCarLinks}
     />
-    <Features>Soon to have features</Features>
+    <Features />
     <Deals>Sweet deals</Deals>
     <Categories>Such categories</Categories>
     <Trust>I trust you</Trust>

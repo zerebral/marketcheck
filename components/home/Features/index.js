@@ -5,4 +5,5 @@ const Features = styled.div`
   padding: ${em(70)} 0;
 `
 
-export default Features
+export default () =>
+  <Features>Soon to have Features</Features>
