@@ -20,6 +20,7 @@ const Button = styled.a`
   text-align: center;
   padding: ${em(14, 14)} ${em(27, 14)};
   border-radius: ${rem(4)};
+  min-width: ${em(145, 14)};
 `
 
 export default Button

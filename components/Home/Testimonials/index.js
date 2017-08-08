@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { rem } from 'polished'
 import Title from './Title'
+import Statements from './Statements'
 
 import { Container, Column, Row } from '~/layout'
 
@@ -16,5 +17,6 @@ export default () =>
           <Title />
         </Column>
       </Row>
+      <Statements />
     </Container>
   </Testimonials>
