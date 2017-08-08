@@ -11,6 +11,7 @@ const padding = rem(grid.gutter / 2)
 
 // The component _per se_
 const Column = styled.div`
+  position: relative;
   padding-left: ${padding};
   padding-right: ${padding};
   float: left;

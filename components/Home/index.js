@@ -25,7 +25,7 @@ const Home = ({
       carLinks={heroCarLinks}
     />
     <Features />
-    <Deals>Sweet deals</Deals>
+    <Deals />
     <Categories>Such categories</Categories>
     <Trust>I trust you</Trust>
     <Testimonials>Such testify</Testimonials>
