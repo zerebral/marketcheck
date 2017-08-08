@@ -17,14 +17,14 @@
     "babel-plugin-inline-react-svg": "^0.4.0",
     "babel-plugin-root-import": "^5.1.0",
     "babel-plugin-styled-components": "^1.1.7",
-    "express": "^4.15.3",
+    "express": "^4.15.4",
     "next": "beta",
     "nprogress": "^0.2.0",
     "polished": "^1.3.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "styled-components": "^2.1.1"
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
     "enzyme": "^2.9.1",
@@ -33,7 +33,7 @@
     "jest-styled-components": "^4.3.0",
     "react-addons-test-utils": "^15.6.0",
     "react-test-renderer": "^15.6.1",
-    "standard": "^10.0.2"
+    "standard": "^10.0.3"
   },
   "now": {
     "alias": [
