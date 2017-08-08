@@ -1,11 +1,13 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import Reset from '~/general/Reset'
 
 export default class MyDocument extends Document {
   render () {
     const sheet = new ServerStyleSheet()
     const main = sheet.collectStyles(<Main />)
     const styleTags = sheet.getStyleElement()
+    Reset()
     return (
       <html>
         <Head>
@@ -15,8 +17,7 @@ export default class MyDocument extends Document {
           <link rel='icon' href='/static/favicon.ico' type='image/x-icon' />
           <meta name='theme-color' content='#13A54E' />
           <title>MarketCheck</title>
-          <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' />
-          <link href='/static/css/reset.css' rel='stylesheet' />
+          <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' />
           {styleTags}
         </Head>
         <body>
