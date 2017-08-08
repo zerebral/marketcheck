@@ -3,11 +3,14 @@ import { ServerStyleSheet } from 'styled-components'
 import Reset from '~/general/Reset'
 
 export default class MyDocument extends Document {
+  componentWillMount () {
+    Reset()
+  }
+
   render () {
     const sheet = new ServerStyleSheet()
     const main = sheet.collectStyles(<Main />)
     const styleTags = sheet.getStyleElement()
-    Reset()
     return (
       <html>
         <Head>
