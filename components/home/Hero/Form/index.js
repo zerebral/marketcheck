@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
 import FancySelect from './FancySelect'
+import FancySearch from './FancySearch'
 import { rem } from 'polished'
 
 const Form = styled.form`
@@ -22,6 +23,7 @@ export default ({onSubmit}) =>
       <option>Newer</option>
       <option>Newest</option>
     </FancySelect>
+    <FancySearch />
     <FancySelect>
       <option>All Makes</option>
       <option>Ford</option>
