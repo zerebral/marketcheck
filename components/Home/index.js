@@ -28,11 +28,11 @@ const Home = ({
     <Deals />
     <Categories />
     <Trust />
-    <Testimonials>Such testify</Testimonials>
-    <Makers>Makers gonna make</Makers>
-    <Listings>List and list and list</Listings>
-    <Slider>We Slide in here</Slider>
-    <QuickOverview>So quick</QuickOverview>
+    <Testimonials />
+    <Makers />
+    <Listings />
+    <Slider />
+    <QuickOverview />
   </LayoutPrimary>
 
 Home.propTypes = {
