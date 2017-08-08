@@ -3,7 +3,7 @@ import { colors } from '%/styles'
 import { rem } from 'polished'
 
 import { Container, Row, Column } from '~/layout'
-import { H1, P } from '~/general'
+import { H2, P } from '~/general'
 
 import Icon from './shield.svg'
 
@@ -28,7 +28,7 @@ export default () =>
     <Container>
       <Row>
         <Column laptop={{ cols: 4, offset: 2 }}>
-          <H1>Trust and Transparency</H1>
+          <H2>Trust and Transparency</H2>
           <CustomP>For every listing, we show you time on market, price history, a full local-market price analysis and dealer reviews. Everything you need to know before you contact the dealer.</CustomP>
         </Column>
         <Column laptop={{ cols: 4, offset: 1 }}>

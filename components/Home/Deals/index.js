@@ -3,7 +3,7 @@ import { colors } from '%/styles'
 import { em } from 'polished'
 
 import { Container, Row, Column } from '~/layout'
-import { H1, P } from '~/general'
+import { H2, P } from '~/general'
 
 import Icon from './ribbon.svg'
 
@@ -24,7 +24,7 @@ export default () =>
     <Container>
       <Row>
         <Column laptop={{ cols: 4, offset: 2 }}>
-          <H1>Great Deals from Great Dealers</H1>
+          <H2>Great Deals from Great Dealers</H2>
           <P>With one search, find the best deals first. Organic rankings are based on market value and dealer reputation, not by how much a dealer pays (like the other guys).</P>
         </Column>
         <Column laptop={{ cols: 5 }}>
