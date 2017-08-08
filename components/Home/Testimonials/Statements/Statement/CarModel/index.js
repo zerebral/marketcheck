@@ -6,7 +6,7 @@ const CarModel = styled.h6`
   font-size: ${rem(12)};
   line-height: ${22 / 12};
   margin-bottom: ${em(15, 12)};
-  color: ${colors.gray};
+  color: ${colors.bluegray};
 `
 
 export default CarModel

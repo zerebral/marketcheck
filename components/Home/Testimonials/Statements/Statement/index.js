@@ -5,9 +5,10 @@ import Face from './Face'
 import Name from './Name'
 import CarModel from './CarModel'
 import Rating from './Rating'
+import Opinion from './Opinion'
 
 const Statement = styled.div`
-  padding: 0 ${rem(15)};
+  padding: 0 ${rem(30)};
   flex-basis: ${1 / 3 * 100}%;
   text-align: center;
 `
@@ -23,4 +24,5 @@ export default ({
     <Name>{ name }</Name>
     <CarModel>{ model }</CarModel>
     <Rating />
+    <Opinion>{ opinion }</Opinion>
   </Statement>

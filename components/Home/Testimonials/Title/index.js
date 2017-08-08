@@ -10,7 +10,7 @@ const TitleButton = Button.extend`
 `
 
 const Title = styled.div`
-  margin-bottom: ${rem(120)};
+  margin-bottom: ${rem(90)};
   text-align: center;
   color: ${colors.black};
 `
