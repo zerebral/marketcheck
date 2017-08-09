@@ -11,7 +11,9 @@
     "build": "next build",
     "start": "NODE_ENV=production node server",
     "pretest": "standard",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "now",
+    "postdeploy": "now alias"
   },
   "dependencies": {
     "babel-plugin-inline-react-svg": "^0.4.0",
