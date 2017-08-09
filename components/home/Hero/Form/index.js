@@ -13,6 +13,9 @@ const Form = styled.form`
   margin-bottom: ${rem(30)};
   display: flex;
   overflow: hidden;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
   & > * {
     flex: 1 auto;
   }
