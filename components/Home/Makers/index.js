@@ -15,7 +15,7 @@ const Makers = styled.div`
   color: ${colors.softblue};
 `
 
-const M4 = H4.extend`
+const M4 = styled(H4)`
   margin-bottom: ${em(40)};
 `
 

@@ -1,7 +1,7 @@
 import { injectGlobal } from 'styled-components'
 import { fonts } from '%/styles'
 
-const reset = () => {
+const reset = () =>
   injectGlobal`
     *,
     *::before,
@@ -78,6 +78,5 @@ const reset = () => {
       border-radius: 0;
     }
   `
-}
 
 export default reset

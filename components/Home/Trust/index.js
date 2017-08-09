@@ -19,7 +19,7 @@ const Shield = styled(Icon)`
   position: absolute;
 `
 
-const CustomP = P.extend`
+const CustomP = styled(P)`
   margin-bottom: 0;
 `
 

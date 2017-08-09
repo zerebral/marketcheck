@@ -5,7 +5,7 @@ import { colors } from '%/styles'
 import { FlexRow } from '~/layout'
 import { H1, P, Button } from '~/general'
 
-const TitleButton = Button.extend`
+const TitleButton = styled(Button)`
   margin: 0 ${rem(13)};
 `
 

@@ -6,8 +6,9 @@ import Phone from './Phone'
 import PropTypes from 'prop-types'
 import CarLinks from './CarLinks'
 import Form from './Form'
+import styled from 'styled-components'
 
-const AlignedContainer = Container.extend`
+const AlignedContainer = styled(Container)`
   width: 100%;
   ${align()}
 `

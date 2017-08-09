@@ -1,11 +1,13 @@
 import { FlexRow } from '~/layout'
 import SingleFeature from './SingleFeature'
 
+import styled from 'styled-components'
+
 import Free from './free.svg'
 import Flexible from './flexible.svg'
 import Volume from './volume.svg'
 
-const Icons = FlexRow.extend`
+const Icons = styled(FlexRow)`
   text-align: center;
   justify-content: space-around;
 `
