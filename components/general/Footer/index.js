@@ -4,6 +4,9 @@ import { em, rgba } from 'polished'
 
 import { Container, Row, Column } from '~/layout'
 
+import Top from './Top'
+import Bottom from './Bottom'
+
 const Footer = styled.footer`
   background-color: ${colors.darkblue};
   color: ${rgba(colors.white, 0.56)};
@@ -16,7 +19,8 @@ export default () =>
     <Container>
       <Row>
         <Column laptop={{ cols: 10, offset: 1 }}>
-          <h1>Such foots</h1>
+          <Top />
+          <Bottom />
         </Column>
       </Row>
     </Container>
