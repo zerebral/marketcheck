@@ -4,6 +4,8 @@ import { colors } from '%/styles'
 
 import CardContainer from './Container'
 import Image from './Image'
+import Info from './Info'
+import NewBadge from './NewBadge'
 
 const Card = styled.a`
   display: block;
@@ -25,5 +27,8 @@ export default ({
   <CardContainer>
     <Card href={sellerUrl} title={name}>
       <Image src={image} alt={name} />
+      <Info>
+        { newCar ? <NewBadge>New</NewBadge> : null }
+      </Info>
     </Card>
   </CardContainer>
