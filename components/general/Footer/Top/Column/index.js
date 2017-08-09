@@ -1,12 +1,13 @@
 import styled from 'styled-components'
-import { rem, clearFix } from 'polished'
+import { em, clearFix } from 'polished'
 import { grid } from '%/styles'
-import { mediaMin, percentage } from '%/styles/mixins'
+import { mediaMin } from '%/styles/mixins'
 
-const padding = rem(grid.gutter / 2)
+const padding = em(grid.gutter / 2)
 
 const laptopStyles = mediaMin.laptop`
-  width: ${percentage(2, 10)};
+  width: 20%;
+  margin-bottom: 0;
 `
 
 const SocialWrapper = styled.div`
@@ -15,7 +16,8 @@ const SocialWrapper = styled.div`
   padding-left: ${padding};
   padding-right: ${padding};
   float: left;
-  width: 100%;
+  width: 50%;
+  margin-bottom: ${em(20)};
 
   ${laptopStyles}
 `

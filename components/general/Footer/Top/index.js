@@ -1,4 +1,4 @@
-import { Row } from '~/layout'
+import { FlexRow } from '~/layout'
 
 import Column from './Column'
 import Links from './Links'
@@ -7,7 +7,7 @@ import Social from './Social'
 import topData from './topData'
 
 export default () =>
-  <Row>
+  <FlexRow justify='center' wrap>
     {topData.map((d, i) =>
       <Column key={i + d.name}>
         <Links
@@ -19,4 +19,4 @@ export default () =>
     <Column>
       <Social />
     </Column>
-  </Row>
+  </FlexRow>
