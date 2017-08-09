@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { em } from 'polished'
 import Title from './Title'
+import Cards from './Cards'
 
 import { Container, Column, Row } from '~/layout'
 
@@ -16,5 +17,6 @@ export default () =>
           <Title />
         </Column>
       </Row>
+      <Cards />
     </Container>
   </Listings>
