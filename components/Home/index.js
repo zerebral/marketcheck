@@ -10,7 +10,7 @@ import Trust from './Trust'
 import Testimonials from './Testimonials'
 import Makers from './Makers'
 import Listings from './Listings'
-import Slider from './Slider'
+import Slider from '@/Home/Slider'
 import QuickOverview from './QuickOverview'
 
 const Home = ({
