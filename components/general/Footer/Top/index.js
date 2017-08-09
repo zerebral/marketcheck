@@ -1,6 +1,7 @@
 import { Row } from '~/layout'
 
 import Column from './Column'
+import Social from './Social'
 
 import topData from './topData'
 
@@ -13,4 +14,5 @@ export default () =>
         links={d.links}
       />
     )}
+    <Social />
   </Row>
