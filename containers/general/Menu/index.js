@@ -28,7 +28,7 @@ class MenuContainer extends React.Component {
 
   handleScroll () {
     const height = this.menu.clientHeight
-    const windowTop = document.body.scrollTop
+    const windowTop = window.pageYOffset
 
     const hasScrolledPastHeight = windowTop > height
     return this.setState({active: hasScrolledPastHeight})
