@@ -31,7 +31,6 @@ $ yarn test
 
 * [React ⚛️](https://facebook.github.io/react/)
 * [Styled-Components 💅](https://www.styled-components.com)
-* [Styled-JSX 🖍](https://github.com/zeit/styled-jsx)
 * [Polished.js ✨](https://polished.js.org)
 * [nprogress ⚡️](http://ricostacruz.com/nprogress/)
 * [Next.JS 💨](https://zeit.co/blog/next3-preview)

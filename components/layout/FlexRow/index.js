@@ -1,4 +1,8 @@
 import styled from 'styled-components'
+import { rem } from 'polished'
+import { grid } from '%/styles'
+
+const gutter = rem(grid.gutter / 2)
 
 const conditionalAlign = props =>
   props.align
@@ -12,6 +16,8 @@ const conditionalJustify = props =>
 
 const FlexRow = styled.div`
   display: flex;
+  margin-left: -${gutter};
+  margin-right: -${gutter};
   ${conditionalAlign}
   ${conditionalJustify}
   flex-wrap: ${props => props.wrap ? 'wrap' : 'nowrap'};
