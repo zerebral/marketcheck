@@ -1,4 +1,4 @@
-export default [
+const slides = [
   {
     image: '/static/img/home/slide.png',
     subtitle: 'Recent Preview',
@@ -30,3 +30,5 @@ export default [
     text: 'For every listing, we show you time on market, price history, a full local-market price analysis and dealer reviews. Everything you need to know before you contact the dealer.'
   }
 ]
+
+export default slides
