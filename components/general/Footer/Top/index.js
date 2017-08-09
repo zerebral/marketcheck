@@ -1,7 +1,16 @@
-import styled from 'styled-components'
+import { Row } from '~/layout'
 
-const Top = styled.div`
-  position: relative;
-`
+import Column from './Column'
 
-export default Top
+import topData from './topData'
+
+export default () =>
+  <Row>
+    {topData.map((d, i) =>
+      <Column
+        key={i + d.name}
+        section={d.name}
+        links={d.links}
+      />
+    )}
+  </Row>
