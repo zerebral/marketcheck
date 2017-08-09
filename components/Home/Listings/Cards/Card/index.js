@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 import { rgba } from 'polished'
 import { colors } from '%/styles'
+import { currency } from '%/format'
 
 import CardContainer from './Container'
 import Image from './Image'
 import Info from './Info'
 import NewBadge from './NewBadge'
+import Name from './Name'
+import Location from './Location'
+import Price from './Price'
 
 const Card = styled.a`
   display: block;
@@ -29,6 +33,9 @@ export default ({
       <Image src={image} alt={name} />
       <Info>
         { newCar ? <NewBadge>New</NewBadge> : null }
+        <Name>{ name }</Name>
+        <Location>{ location }</Location>
+        <Price>{ currency(price) }</Price>
       </Info>
     </Card>
   </CardContainer>

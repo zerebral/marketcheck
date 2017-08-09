@@ -2,7 +2,7 @@ export default [
   {
     image: '/static/img/home/viper.png',
     newCar: true,
-    name: 'Dodge VIper ACR - Silver',
+    name: 'Dodge Viper ACR - Silver',
     location: 'Atlanta, GA',
     price: 13778,
     difference: 4736,
