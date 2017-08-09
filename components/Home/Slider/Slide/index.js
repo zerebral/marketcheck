@@ -7,7 +7,7 @@ import { Container, Row, Column } from '~/layout'
 
 const Slide = styled.div`
   background-color: ${colors.softgray};
-  background-image: ${props => props.image};
+  background-image: url(${props => props.image});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

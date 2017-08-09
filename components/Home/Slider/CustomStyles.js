@@ -10,7 +10,7 @@ const CustomSlickStyles = () =>
       position: absolute;
       width: 100%;
       left: 0;
-      bottom: -30px;
+      bottom: 30px;
     }
 
     .slick-dots li {
@@ -23,16 +23,16 @@ const CustomSlickStyles = () =>
 
     .slick-dots li button {
       background: none;
-      padding: 5px;
+      padding: 6px;
       line-height: 0;
       font-size: 0;
-      width: 10px;
-      height: 10px;
+      width: 13px;
+      height: 13px;
     }
 
     .slick-dots li button::before {
-      width: 10px;
-      height: 10px;
+      width: 13px;
+      height: 13px;
       content: '';
       background: ${colors.white};
       position: absolute;
@@ -40,12 +40,12 @@ const CustomSlickStyles = () =>
       left: 0;
       border-radius: 50%;
       border: none;
+      opacity: 0.5;
     }
 
-    .slick-dots.slick-active {
-      button::before {
-        background: ${colors.white};
-      }
+    .slick-dots li.slick-active button::before {
+      background-color: ${colors.white};
+      opacity: 1;
     }
   `
 export default CustomSlickStyles

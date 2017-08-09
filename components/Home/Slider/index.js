@@ -7,9 +7,6 @@ import PreviousArrow from './PreviousArrow'
 const SliderSettings = {
   dots: true,
   arrows: true,
-  autoplay: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
   nextArrow: <NextArrow />,
   prevArrow: <PreviousArrow />
 }
@@ -17,12 +14,13 @@ const SliderSettings = {
 export default () =>
   <Slider {...SliderSettings}>
     {slides.map((s, index) =>
-      <Slide
-        key={index + s.title}
-        image={s.image}
-        subtitle={s.subtitle}
-        title={s.title}
-        text={s.text}
-      />
+      <div key={index + s.title}>
+        <Slide
+          image={s.image}
+          subtitle={s.subtitle}
+          title={s.title}
+          text={s.text}
+        />
+      </div>
     )}
   </Slider>
