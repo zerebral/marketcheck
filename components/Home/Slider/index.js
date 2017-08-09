@@ -1,5 +1,6 @@
 import Slider from 'react-slick'
-
+import Slide from './Slide'
+import slides from './slides'
 import NextArrow from './NextArrow'
 import PreviousArrow from './PreviousArrow'
 
@@ -15,6 +16,13 @@ const SliderSettings = {
 
 export default () =>
   <Slider {...SliderSettings}>
-    <div>Hello world</div>
-    <div>Bye world</div>
+    {slides.map((s, index) =>
+      <Slide
+        key={index + s.title}
+        image={s.image}
+        subtitle={s.subtitle}
+        title={s.title}
+        text={s.text}
+      />
+    )}
   </Slider>

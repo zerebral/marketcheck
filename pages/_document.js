@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
           <link rel='icon' href='/static/favicon.ico' type='image/x-icon' />
           <meta name='theme-color' content={colors.blue} />
           <title>MarketCheck</title>
-          <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' />
+          <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,900' rel='stylesheet' />
           {styleTags}
         </Head>
         <body>
