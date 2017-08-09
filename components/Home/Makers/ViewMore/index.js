@@ -17,7 +17,7 @@ const Caret = styled(Icon)`
 `
 
 export default () =>
-  <ViewMore>
+  <ViewMore href='#' title='View More'>
     View More
     <Caret />
   </ViewMore>
