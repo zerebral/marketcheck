@@ -7,7 +7,7 @@ import { mediaMin, percentage } from '%/styles/mixins'
 const padding = rem(grid.gutter / 2)
 
 const laptopStyles = mediaMin.laptop`
-  width: ${percentage(4, 10)};
+  width: ${percentage(3.5, 10)};
 `
 
 const LargeColumn = styled.div`
