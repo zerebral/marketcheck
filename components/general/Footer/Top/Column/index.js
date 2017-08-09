@@ -10,10 +10,7 @@ import Link from './Link'
 const padding = rem(grid.gutter / 2)
 
 const laptopStyles = mediaMin.laptop`
-  width: ${percentage(1, 10)};
-  margin-right: ${percentage(1, 10)};
-  padding-left: 0;
-  padding-right: 0;
+  width: ${percentage(2, 10)};
 `
 
 const Column = styled.div`

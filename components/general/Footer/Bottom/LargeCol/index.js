@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 import { rem, clearFix } from 'polished'
 import { grid } from '%/styles'
+
 import { mediaMin, percentage } from '%/styles/mixins'
 
 const padding = rem(grid.gutter / 2)
 
 const laptopStyles = mediaMin.laptop`
-  width: ${percentage(2, 10)};
+  width: ${percentage(4, 10)};
 `
 
-const SocialWrapper = styled.div`
+const LargeColumn = styled.div`
   ${clearFix()}
   position: relative;
   padding-left: ${padding};
@@ -19,4 +20,5 @@ const SocialWrapper = styled.div`
 
   ${laptopStyles}
 `
-export default SocialWrapper
+
+export default LargeColumn
