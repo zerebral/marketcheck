@@ -11,6 +11,7 @@ import Name from './Name'
 import Location from './Location'
 import Price from './Price'
 import Difference from './Difference'
+import Seller from './Seller'
 
 const Card = styled.a`
   display: block;
@@ -38,6 +39,7 @@ export default ({
         <Location>{ location }</Location>
         <Price>{ currency(price) }</Price>
         <Difference>{ currency(difference) } less than market average</Difference>
+        <Seller>{seller}</Seller>
       </Info>
     </Card>
   </CardContainer>
