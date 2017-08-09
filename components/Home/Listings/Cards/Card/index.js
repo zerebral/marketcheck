@@ -10,6 +10,7 @@ import NewBadge from './NewBadge'
 import Name from './Name'
 import Location from './Location'
 import Price from './Price'
+import Difference from './Difference'
 
 const Card = styled.a`
   display: block;
@@ -36,6 +37,7 @@ export default ({
         <Name>{ name }</Name>
         <Location>{ location }</Location>
         <Price>{ currency(price) }</Price>
+        <Difference>{ currency(difference) } less than market average</Difference>
       </Info>
     </Card>
   </CardContainer>
