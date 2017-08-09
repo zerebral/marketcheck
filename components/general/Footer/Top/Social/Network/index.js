@@ -17,6 +17,7 @@ const Network = styled.a`
     height: ${rem(20)};
     width: ${rem(20)};
     margin: 0 auto;
+    fill: currentColor;
     & [fill] {
       fill: currentColor;
     }
