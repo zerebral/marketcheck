@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { em } from 'polished'
+import { em, rem } from 'polished'
 import { colors } from '%/styles'
 
 import { H4 } from '~/general'
@@ -16,7 +16,7 @@ const Makers = styled.div`
 `
 
 const M4 = styled(H4)`
-  margin-bottom: ${em(40)};
+  margin-bottom: ${rem(40)};
 `
 
 export default () =>

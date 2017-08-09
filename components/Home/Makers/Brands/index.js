@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Brand from './Brand'
 import { em } from 'polished'
+import { percentage } from '%/styles/mixins'
 
 const Brands = styled.div`
   display: flex;
@@ -8,6 +9,9 @@ const Brands = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: ${em(40)};
+  max-width: ${percentage(10.5, 12)};
+  margin-left: auto;
+  margin-right: auto;
 `
 
 const AllTheCars = [
