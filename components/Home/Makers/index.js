@@ -5,6 +5,9 @@ import { colors } from '%/styles'
 import { H4 } from '~/general'
 import { Column, Row, Container } from '~/layout'
 
+import Brands from './Brands'
+import ViewMore from './ViewMore'
+
 const Makers = styled.div`
   padding: ${em(70)} 0 ${em(50)};
   background-color: ${colors.softgray};
@@ -24,5 +27,7 @@ export default () =>
           <M4>Popular Makers</M4>
         </Column>
       </Row>
+      <Brands />
+      <ViewMore />
     </Container>
   </Makers>
