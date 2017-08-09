@@ -4,9 +4,11 @@ import { Container } from '~/layout'
 
 import styled from 'styled-components'
 
+import { em } from 'polished'
+
 const InnerMenu = styled.div`
   display: flex;
-  padding: 20px 30px;
+  padding: ${em(20)} 0;
 `
 
 export default () => (
