@@ -1,13 +1,9 @@
 import styled from 'styled-components'
-import { em, rgba } from 'polished'
-import { percentage } from '%/styles/mixins'
+import { rgba } from 'polished'
 import { colors } from '%/styles'
 
-const CardContainer = styled.div`
-  padding: 0 ${em(9)};
-  max-width: ${percentage(1, 3)};
-  flex-basis: ${percentage(1, 3)};
-`
+import CardContainer from './Container'
+import Image from './Image'
 
 const Card = styled.a`
   display: block;
@@ -16,7 +12,18 @@ const Card = styled.a`
   text-align: center;
 `
 
-export default () =>
+export default ({
+  image,
+  newCar,
+  name,
+  location,
+  price,
+  difference,
+  seller,
+  sellerUrl
+}) =>
   <CardContainer>
-    <Card>Soon to be a card</Card>
+    <Card href={sellerUrl} title={name}>
+      <Image src={image} alt={name} />
+    </Card>
   </CardContainer>
