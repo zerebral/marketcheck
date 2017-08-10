@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const Statements = styled.div`
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 `
 
 export default () =>

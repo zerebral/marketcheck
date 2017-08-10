@@ -4,6 +4,7 @@ import { colors } from '%/styles'
 
 import { FlexRow } from '~/layout'
 import { H1, P, Button } from '~/general'
+import { mediaMax } from '%/styles/mixins'
 
 const TitleButton = styled(Button)`
   margin: 0 ${rem(13)};
@@ -13,6 +14,11 @@ const Title = styled.div`
   margin-bottom: ${rem(100)};
   text-align: center;
   color: ${colors.black};
+
+  ${mediaMax.desktop`margin-bottom: ${rem(100)};`}
+  ${mediaMax.laptop`margin-bottom: ${rem(80)};`}
+  ${mediaMax.tablet`margin-bottom: ${rem(60)};`}
+  ${mediaMax.phablet`margin-bottom: ${rem(40)};`}
 `
 
 export default () =>

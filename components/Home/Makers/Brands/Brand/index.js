@@ -1,15 +1,22 @@
 import styled from 'styled-components'
 
-import { mediaMin } from '%/styles/mixins'
+import { mediaMin, percentage } from '%/styles/mixins'
 import { rem, em } from 'polished'
 
-const laptopStyles = mediaMin.laptop`
-  max-width: ${1 / 5 * 100}%;
-  flex-basis: ${1 / 5 * 100}%;
-`
 const BrandColumn = styled.div`
+
   padding: ${em(5)};
-  ${laptopStyles}
+  max-width: 100%;
+  flex-basis: 100%;
+  ${mediaMin.phablet`
+    max-width: ${percentage(1, 2)};
+    flex-basis: ${percentage(1, 2)};
+  `}
+
+  ${mediaMin.laptop`
+    max-width: ${percentage(1, 5)};
+    flex-basis: ${percentage(1, 5)};
+  `}
 `
 
 const Brand = styled.a`
