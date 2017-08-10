@@ -18,6 +18,11 @@ const Card = styled.a`
   background: ${colors.white};
   box-shadow: 0 2px 10px 2px ${rgba('#000', 0.15)};
   text-align: center;
+  transform: translateZ(0);
+  &:hover, &:focus {
+    box-shadow: 0 2px 21px 13px rgba(0, 0, 0, 0.15);
+    transform: scale(1.025);
+  }
 `
 
 export default ({
