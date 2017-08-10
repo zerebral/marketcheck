@@ -2,7 +2,7 @@ import { mediaMin } from '%/styles/mixins'
 import { grid, bpKeysArray } from '%/styles'
 
 /**
- * Take number and cssKey receive percetage
+ * Take number and cssKey receive percentage
  * @param {Number} num
  * @param {string} cssKey
  *

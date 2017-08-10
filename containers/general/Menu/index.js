@@ -1,5 +1,6 @@
 import React from 'react'
 import Menu from '~/general/Menu'
+import InnerMenu from '~/general/Menu/InnerMenu'
 
 class MenuContainer extends React.Component {
   constructor (props) {
@@ -37,10 +38,9 @@ class MenuContainer extends React.Component {
   render () {
     let { active } = this.state
     return (
-      <Menu
-        active={active}
-        selfRef={el => { this.menu = el }}
-      />
+      <Menu innerRef={el => { this.menu = el }} active={active}>
+        <InnerMenu />
+      </Menu>
     )
   }
 }

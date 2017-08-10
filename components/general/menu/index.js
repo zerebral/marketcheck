@@ -1,6 +1,3 @@
-import React from 'react'
-
-import InnerMenu from './InnerMenu'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 import colors from '%/styles/colors'
@@ -21,8 +18,4 @@ Menu.propTypes = {
   active: PropTypes.bool
 }
 
-export default ({active, selfRef}) => (
-  <Menu innerRef={selfRef} active={active}>
-    <InnerMenu />
-  </Menu>
-)
+export default Menu

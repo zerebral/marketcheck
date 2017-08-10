@@ -8,7 +8,7 @@ import CarLinks from './CarLinks'
 import Form from './Form'
 import styled from 'styled-components'
 
-const AlignedContainer = styled(Container)`
+const AlignedContainer = styled.div`
   width: 100%;
   ${align()}
 `
@@ -21,14 +21,16 @@ const Hero = ({
 }) =>
   <Wrapper image={imageRetina} imageRetina={imageRetina}>
     <AlignedContainer>
-      <Row>
-        <Column laptop={{ cols: 8, offset: 2 }} >
-          <H1>Search over 14 million Used and New Cars</H1>
-          <Form onSubmit={onSubmit} />
-          <CarLinks links={carLinks} />
-          <Phone />
-        </Column>
-      </Row>
+      <Container>
+        <Row>
+          <Column laptop={{ cols: 8, offset: 2 }} phablet={{ cols: 10, offset: 1 }} >
+            <H1>Search over 14 million Used and New Cars</H1>
+            <Form onSubmit={onSubmit} />
+            <CarLinks links={carLinks} />
+            <Phone />
+          </Column>
+        </Row>
+      </Container>
     </AlignedContainer>
   </Wrapper>
 

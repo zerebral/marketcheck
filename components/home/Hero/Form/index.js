@@ -1,5 +1,7 @@
+import React from 'react'
 import styled from 'styled-components'
 import { colors } from '%/styles'
+import { mediaMax } from '%/styles/mixins'
 import { rem } from 'polished'
 
 import FancySelect from './FancySelect'
@@ -19,6 +21,10 @@ const Form = styled.form`
   & > * {
     flex: 1 auto;
   }
+
+  ${mediaMax.tablet`
+    max-width: 100%;
+  `}
 `
 export default ({onSubmit}) =>
   <Form onSubmit={onSubmit}>

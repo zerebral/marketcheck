@@ -5,11 +5,11 @@ import { grid } from '%/styles'
 const padding = rem(grid.gutter / 2)
 
 export default styled.div`
-  max-width: ${rem(1170 + grid.gutter)};
-  position: relative;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: ${padding};
-  padding-right: ${padding};
   ${clearFix()}
+
+  position: relative;
+  width: 95%;
+  margin: 0 auto;
+  max-width: ${rem(1170 + grid.gutter)};
+  padding: 0 ${padding};
 `

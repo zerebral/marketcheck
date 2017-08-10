@@ -15,7 +15,6 @@ const Column = styled.div`
   padding-left: ${padding};
   padding-right: ${padding};
   float: left;
-  width: 100%;
   ${clearFix()}
   ${responsiveStyling}
 `

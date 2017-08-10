@@ -16,7 +16,8 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <meta charSet='utf-8' />
-          <meta name='viewport' content='width=device-width, initial-scale=1' />
+          <meta httpEquiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+          <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' />
           <link rel='icon' href='/static/favicon.ico' type='image/x-icon' />
           <meta name='theme-color' content={colors.blue} />
           <title>MarketCheck</title>

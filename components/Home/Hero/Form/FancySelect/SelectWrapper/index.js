@@ -13,7 +13,7 @@ const SelectWrapper = styled.div`
   font-weight: 700;
   display: none;
 
-  ${mediaMin.tablet`
+  ${mediaMin.laptop`
     display: block;
   `}
 `

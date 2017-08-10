@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import colors from '%/styles/colors'
+import { colors } from '%/styles'
+import { mediaMax } from '%/styles/mixins'
 import PropTypes from 'prop-types'
 import { hiDPI } from 'polished'
 
@@ -17,7 +18,7 @@ const retinaImage = props => {
       : 'none'
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   background-color: ${colors.gray};
   background-image: ${backgroundImage};
   background-position: center;
@@ -25,12 +26,16 @@ const Wrapper = styled.div`
   background-repeat: no-repeat;
   min-height: 750px;
   color: ${colors.white};
-  padding: 60px;
+  padding: 60px 0;
   position: relative;
 
   ${hiDPI()} {
     background-image: ${retinaImage};
   }
+
+  ${mediaMax.tablet`
+    min-height: 100vh;
+  `}
 `
 
 Wrapper.propTypes = {
