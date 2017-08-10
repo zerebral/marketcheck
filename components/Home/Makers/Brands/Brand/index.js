@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 import { mediaMin, percentage } from '%/styles/mixins'
-import { rem, em } from 'polished'
+import { em } from 'polished'
 
 const BrandColumn = styled.div`
 
-  padding: ${em(5)};
+  padding: ${em(2.5)};
   max-width: 100%;
   flex-basis: 100%;
   ${mediaMin.phablet`
@@ -21,7 +21,7 @@ const BrandColumn = styled.div`
 
 const Brand = styled.a`
   background-color: #ebefef;
-  height: ${rem(135)};
+  height: ${em(135)};
   position: relative;
   display: flex;
   align-items: center;
