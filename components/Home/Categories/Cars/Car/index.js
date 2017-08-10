@@ -1,12 +1,16 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
+import { mediaMin } from '%/styles/mixins'
 import { rem } from 'polished'
 
 const Car = styled.a`
   text-align: center;
   display: block;
   color: ${colors.black};
-  padding: ${rem(50)} 0;
+  padding: ${rem(20)} 0;
+  ${mediaMin.laptop`
+    padding: ${rem(50)} 0;
+  `}
 `
 
 const CarPic = styled.img`

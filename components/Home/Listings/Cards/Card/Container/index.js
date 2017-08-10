@@ -10,7 +10,7 @@ const CardContainer = styled.div`
   ${mediaMax.laptop`
     max-width: 50%;
     flex-basis: 50%;
-    margin-bottom: ${em(20)};
+    margin-bottom: ${em(30)};
   `}
 
   ${mediaMax.tablet`

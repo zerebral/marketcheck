@@ -12,4 +12,4 @@ const Logo = styled(logo)`
   }
 `
 
-export default Logo
+export default () => <a href='#'><Logo /></a>

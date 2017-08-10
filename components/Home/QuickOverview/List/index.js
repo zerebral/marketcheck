@@ -4,9 +4,14 @@ import Popular from './Popular'
 
 import styled from 'styled-components'
 import { em } from 'polished'
+import { mediaMax } from '%/styles/mixins'
 
 const List = styled.div`
   margin-bottom: ${em(75)};
+
+  ${mediaMax.tablet`
+    text-align: center;
+  `}
 `
 
 export default ({
