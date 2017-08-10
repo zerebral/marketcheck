@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
-import { rem } from 'polished'
+import { em } from 'polished'
 
 import { Container, Row, Column } from '~/layout'
 import { H2, P } from '~/general'
@@ -10,7 +10,7 @@ import Icon from './shield.svg'
 const Deals = styled.div`
   background-color: ${colors.darkblue};
   color: #e1e5e7;
-  padding: ${rem(50)} 0 ${rem(80)};
+  padding: ${em(100)} 0;
   overflow: hidden;
 `
 

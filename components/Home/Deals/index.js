@@ -10,7 +10,7 @@ import Icon from './ribbon.svg'
 const Deals = styled.div`
   background-color: ${colors.darkblue};
   color: #e1e5e7;
-  padding: ${em(50)} 0;
+  padding: ${em(100)} 0;
   overflow: hidden;
 `
 
