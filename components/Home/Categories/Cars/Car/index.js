@@ -6,7 +6,7 @@ const Car = styled.a`
   text-align: center;
   display: block;
   color: ${colors.black};
-  padding: ${rem(50)};
+  padding: ${rem(50)} 0;
 `
 
 const CarPic = styled.img`

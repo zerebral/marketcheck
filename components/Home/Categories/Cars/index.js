@@ -15,7 +15,7 @@ const CarsArray = [
 
 const renderCars = cars =>
   cars.map(c =>
-    <Column key={c.id} laptop={{ cols: 3 }}>
+    <Column key={c.id} laptop={{ cols: 3 }} phablet={{ cols: 6 }}>
       <Car
         title={c.name}
         pic={c.pic}
