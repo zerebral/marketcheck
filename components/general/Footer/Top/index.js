@@ -16,7 +16,7 @@ export default () =>
         />
       </Column>
     )}
-    <Column>
+    <Column social>
       <Social />
     </Column>
   </FlexRow>

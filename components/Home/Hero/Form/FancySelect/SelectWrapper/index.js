@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
 import { rem } from 'polished'
+import { mediaMin } from '%/styles/mixins'
 import Proptypes from 'prop-types'
 
 const SelectWrapper = styled.div`
@@ -10,6 +11,11 @@ const SelectWrapper = styled.div`
   font-size: ${rem(16)};
   line-height: ${19 / 16};
   font-weight: 700;
+  display: none;
+
+  ${mediaMin.tablet`
+    display: block;
+  `}
 `
 
 SelectWrapper.propTypes = {
