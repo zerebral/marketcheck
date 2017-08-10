@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Links Component Links Passes the snapshot 1`] = `
-<ul
-  data-jsx={2325318923}
+<div
+  className="sc-bwzfXH dsTBNF"
 >
-  <li
-    className="logo-li"
-    data-jsx={2325318923}
+  <div
+    className="sc-htpNat ftkVcI"
   >
     <a
-      data-jsx={2325318923}
+      className="sc-bxivhb bRVpLP"
+      href="/"
     >
       <svg
-        className="sc-bdVaJa NXuRv"
+        className="sc-bdVaJa bLZdxt"
         viewBox="0 0 142.85 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -47,56 +47,56 @@ exports[`Links Component Links Passes the snapshot 1`] = `
         />
       </svg>
     </a>
-  </li>
-  <li
-    data-jsx={2325318923}
+  </div>
+  <div
+    className="sc-htpNat lkEZUb"
   >
     <a
-      data-jsx={2325318923}
+      className="sc-bxivhb bRVpLP"
       href="#"
     >
       Home
     </a>
-  </li>
-  <li
-    data-jsx={2325318923}
+  </div>
+  <div
+    className="sc-htpNat lkEZUb"
   >
     <a
-      data-jsx={2325318923}
+      className="sc-bxivhb bRVpLP"
       href="#"
     >
       Research
     </a>
-  </li>
-  <li
-    data-jsx={2325318923}
+  </div>
+  <div
+    className="sc-htpNat lkEZUb"
   >
     <a
-      data-jsx={2325318923}
+      className="sc-bxivhb bRVpLP"
       href="#"
     >
       About
     </a>
-  </li>
-  <li
-    data-jsx={2325318923}
+  </div>
+  <div
+    className="sc-htpNat lkEZUb"
   >
     <a
-      data-jsx={2325318923}
+      className="sc-bxivhb bRVpLP"
       href="#"
     >
       FAQ
     </a>
-  </li>
-  <li
-    data-jsx={2325318923}
+  </div>
+  <div
+    className="sc-htpNat lkEZUb"
   >
     <a
-      data-jsx={2325318923}
+      className="sc-bxivhb bRVpLP"
       href="#"
     >
       For Dealers
     </a>
-  </li>
-</ul>
+  </div>
+</div>
 `;

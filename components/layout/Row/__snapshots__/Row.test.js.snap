@@ -2,8 +2,7 @@
 
 exports[`Row Component Row Passes shallow snapshot 1`] = `
 .c0 {
-  margin-left: -0.625rem;
-  margin-right: -0.625rem;
+  margin: 0 -0.625rem;
 }
 
 .c0::after {

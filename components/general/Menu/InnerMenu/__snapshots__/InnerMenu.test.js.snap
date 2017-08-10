@@ -2,23 +2,23 @@
 
 exports[`InnerMenu Component InnerMenu Passes the snapshot 1`] = `
 <div
-  className="sc-gzVnrw kmbddt"
+  className="sc-iwsKbI kExMjV"
 >
   <div
-    className="sc-gZMcBi gAXAgg"
+    className="sc-eNQAEJ gjOKAa"
   >
-    <ul
-      data-jsx={2325318923}
+    <div
+      className="sc-bwzfXH dsTBNF"
     >
-      <li
-        className="logo-li"
-        data-jsx={2325318923}
+      <div
+        className="sc-htpNat ftkVcI"
       >
         <a
-          data-jsx={2325318923}
+          className="sc-bxivhb bRVpLP"
+          href="/"
         >
           <svg
-            className="sc-bdVaJa NXuRv"
+            className="sc-bdVaJa bLZdxt"
             viewBox="0 0 142.85 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -53,66 +53,66 @@ exports[`InnerMenu Component InnerMenu Passes the snapshot 1`] = `
             />
           </svg>
         </a>
-      </li>
-      <li
-        data-jsx={2325318923}
+      </div>
+      <div
+        className="sc-htpNat lkEZUb"
       >
         <a
-          data-jsx={2325318923}
+          className="sc-bxivhb bRVpLP"
           href="#"
         >
           Home
         </a>
-      </li>
-      <li
-        data-jsx={2325318923}
+      </div>
+      <div
+        className="sc-htpNat lkEZUb"
       >
         <a
-          data-jsx={2325318923}
+          className="sc-bxivhb bRVpLP"
           href="#"
         >
           Research
         </a>
-      </li>
-      <li
-        data-jsx={2325318923}
+      </div>
+      <div
+        className="sc-htpNat lkEZUb"
       >
         <a
-          data-jsx={2325318923}
+          className="sc-bxivhb bRVpLP"
           href="#"
         >
           About
         </a>
-      </li>
-      <li
-        data-jsx={2325318923}
+      </div>
+      <div
+        className="sc-htpNat lkEZUb"
       >
         <a
-          data-jsx={2325318923}
+          className="sc-bxivhb bRVpLP"
           href="#"
         >
           FAQ
         </a>
-      </li>
-      <li
-        data-jsx={2325318923}
+      </div>
+      <div
+        className="sc-htpNat lkEZUb"
       >
         <a
-          data-jsx={2325318923}
+          className="sc-bxivhb bRVpLP"
           href="#"
         >
           For Dealers
         </a>
-      </li>
-    </ul>
+      </div>
+    </div>
     <div
-      className="sc-EHOje daVXGz"
+      className="sc-htoDjs jRwEFc"
     >
       <a
-        className="sc-bxivhb imCjfa"
+        className="sc-bZQynM fGYiaS"
       >
         <svg
-          className="sc-ifAKCX eIsKcs"
+          className="sc-gzVnrw iXJZnD"
           viewBox="0 0 14.86 14.62"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -122,10 +122,10 @@ exports[`InnerMenu Component InnerMenu Passes the snapshot 1`] = `
         </svg>
       </a>
       <a
-        className="sc-bwzfXH bZZoDO"
+        className="sc-ifAKCX FyaBU"
       >
         <svg
-          className="sc-htpNat iYxRZN"
+          className="sc-EHOje hyIPKl"
           viewBox="0 0 12.36 15.64"
           xmlns="http://www.w3.org/2000/svg"
         >

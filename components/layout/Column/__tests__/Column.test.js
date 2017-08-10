@@ -2,7 +2,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { breakpoints, grid } from '%/styles'
-import { em } from 'polished'
 import Column from '../index'
 
 import 'jest-styled-components'
@@ -24,9 +23,16 @@ describe('Column Component', () => {
         desktop={{ cols: 10 }} />
     )
     const tree = component.toJSON()
-    expect(tree).toHaveStyleRule('width', percentageCreator(10), { media: `(min-width:${em(breakpoints.desktop)})` })
-    expect(tree).toHaveStyleRule('width', percentageCreator(11), { media: `(min-width:${em(breakpoints.laptop)})` })
-    expect(tree).toHaveStyleRule('margin-left', percentageCreator(3), { media: `(min-width:${em(breakpoints.phablet)})` })
-    expect(tree).toHaveStyleRule('margin-left', percentageCreator(2), { media: `(min-width:${em(breakpoints.laptop)})` })
+
+    const expectactions = [
+      { rule: 'width', percentage: 10, media: 'desktop' },
+      { rule: 'width', percentage: 11, media: 'laptop' },
+      { rule: 'margin-left', percentage: 3, media: 'phablet' },
+      { rule: 'margin-left', percentage: 2, media: 'laptop' }
+    ]
+
+    expectactions.map(e => {
+      expect(tree).toHaveStyleRule(e.rule, percentageCreator(e.percentage), { media: `(min-width:${breakpoints[e.media]}px)` })
+    })
   })
 })
