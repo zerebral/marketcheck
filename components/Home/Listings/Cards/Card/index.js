@@ -16,7 +16,7 @@ import Seller from './Seller'
 const Card = styled.a`
   display: block;
   background: ${colors.white};
-  box-shadow: 2px 2px 5px ${rgba('#000', 0.15)};
+  box-shadow: 0 2px 10px 2px ${rgba('#000', 0.15)};
   text-align: center;
 `
 
