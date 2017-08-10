@@ -1,7 +1,7 @@
 import { Container, Column, Row } from '~/layout'
 import { align } from '%/styles/mixins'
 import Wrapper from './Wrapper'
-import H1 from './H1'
+import { H2 } from '~/general'
 import Phone from './Phone'
 import PropTypes from 'prop-types'
 import CarLinks from './CarLinks'
@@ -24,7 +24,7 @@ const Hero = ({
       <Container>
         <Row>
           <Column laptop={{ cols: 8, offset: 2 }} phablet={{ cols: 10, offset: 1 }} >
-            <H1>Search over 14 million Used and New Cars</H1>
+            <H2>Search over 14 million Used and New Cars</H2>
             <Form onSubmit={onSubmit} />
             <CarLinks links={carLinks} />
             <Phone />

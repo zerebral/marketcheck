@@ -27,6 +27,7 @@ const Wrapper = styled.header`
   min-height: 750px;
   color: ${colors.white};
   padding: 60px 0;
+  text-align: center;
   position: relative;
 
   ${hiDPI()} {

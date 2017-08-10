@@ -6,9 +6,8 @@ const A = styled.a`
   display: block;
   margin-left: 80px;
 
-  ${mediaMax.tablet`
-    margin-left: 40px;
-  `}
+  ${mediaMax.desktop`margin-left: 40px;`}
+  ${mediaMax.laptop`margin-left: 20px;`}
 `
 
 const User = styled(SVG)`
