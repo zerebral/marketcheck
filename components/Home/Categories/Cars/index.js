@@ -1,6 +1,6 @@
 import Car from './Car'
 
-import { Column, Row } from '~/layout'
+import { FlexCol, FlexRow } from '~/layout'
 
 const CarsArray = [
   { id: 1, name: 'SUV', pic: '/static/img/home/suv.png', link: '#' },
@@ -15,16 +15,16 @@ const CarsArray = [
 
 const renderCars = cars =>
   cars.map(c =>
-    <Column key={c.id} laptop={{ cols: 3 }} phablet={{ cols: 6 }}>
+    <FlexCol key={c.id} laptop={{ cols: 3 }} phablet={{ cols: 6 }}>
       <Car
         title={c.name}
         pic={c.pic}
         href={c.link}
       />
-    </Column>
+    </FlexCol>
   )
 
 export default () =>
-  <Row>
+  <FlexRow wrap>
     { renderCars(CarsArray) }
-  </Row>
+  </FlexRow>
