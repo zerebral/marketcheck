@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { em } from 'polished'
 
-import { Container, Row } from '~/layout'
+import { Container, FlexRow } from '~/layout'
 import List from './List'
 import seedData from './seedData'
 
@@ -12,7 +12,7 @@ const QuickOverview = styled.div`
 export default () =>
   <QuickOverview>
     <Container>
-      <Row>
+      <FlexRow wrap justify='center'>
         {seedData.map((s, index) =>
           <List
             key={index + s.type}
@@ -20,6 +20,6 @@ export default () =>
             populars={s.populars}
           />
         )}
-      </Row>
+      </FlexRow>
     </Container>
   </QuickOverview>

@@ -1,4 +1,4 @@
-import { Column } from '~/layout'
+import { FlexCol } from '~/layout'
 import ListType from './ListType'
 import Popular from './Popular'
 
@@ -13,7 +13,7 @@ export default ({
   type,
   populars
 }) =>
-  <Column laptop={{ cols: 3 }}>
+  <FlexCol phablet={{ cols: 6 }} laptop={{ cols: 3 }}>
     <List>
       <ListType>{ type }</ListType>
       { populars.map((p, index) =>
@@ -25,4 +25,4 @@ export default ({
         />
       ) }
     </List>
-  </Column>
+  </FlexCol>

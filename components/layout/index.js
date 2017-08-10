@@ -1,5 +1,15 @@
-export { default as Column } from './Column'
-export { default as Container } from './Container'
-export { default as Row } from './Row'
-export { default as LayoutPrimary } from './LayoutPrimary'
-export { default as FlexRow } from './FlexRow'
+import Column from './Column'
+import Container from './Container'
+import FlexCol from './FlexCol'
+import FlexRow from './FlexRow'
+import LayoutPrimary from './LayoutPrimary'
+import Row from './Row'
+
+export {
+  FlexCol,
+  Column,
+  Container,
+  FlexRow,
+  LayoutPrimary,
+  Row
+}
