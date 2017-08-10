@@ -6,7 +6,7 @@ import Cards from './Cards'
 import { Container, Column, Row } from '~/layout'
 
 const Listings = styled.div`
-  padding: ${em(65)} 0 ${em(50)};
+  padding: ${em(50)} 0;
 `
 
 export default () =>
