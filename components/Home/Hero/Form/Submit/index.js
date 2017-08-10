@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import SVG from './search.svg'
 import { rem } from 'polished'
+import { mediaMin } from '%/styles/mixins'
 
 const SearchIcon = styled(SVG)`
   fill: #b0bec5;
@@ -9,13 +10,18 @@ const SearchIcon = styled(SVG)`
 `
 
 const Submit = styled.button`
-  padding: ${rem(20)} ${rem(25)};
+  padding: ${rem(20)} ${rem(20)};
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
   &:active, &:focus {
     outline: 1px dotted;
   }
+
+  ${mediaMin.desktop`
+    padding: ${rem(20)} ${rem(25)};
+  `}
 `
 
 export default () =>

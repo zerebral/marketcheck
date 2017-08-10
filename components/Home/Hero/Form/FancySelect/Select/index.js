@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { rem } from 'polished'
+import { mediaMin } from '%/styles/mixins'
 
 const Select = styled.select`
   appearance: none;
@@ -12,10 +13,14 @@ const Select = styled.select`
   color: inherit;
   display: flex;
   align-items: center;
-  padding: ${rem(20)};
+  padding: ${rem(22)} ${rem(15)};
   &::-ms-expand {
     display: none;
   }
+
+  ${mediaMin.desktop`
+    padding: ${rem(20)};
+  `}
 `
 
 export default Select

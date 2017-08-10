@@ -1,12 +1,17 @@
 import styled from 'styled-components'
-import { align } from '%/styles/mixins'
+import { align, mediaMin } from '%/styles/mixins'
 import SVG from './caret.svg'
+import { em } from 'polished'
 
 const Caret = styled(SVG)`
-  fill: currentColor;
-  width: 9px;
   ${align('vertical')}
-  right: 20px;
+  right: ${em(10)};
+  width: ${em(9)};
+  fill: currentColor;
+
+  ${mediaMin.desktop`
+    right: ${em(20)};
+  `}
 `
 
 export default Caret
