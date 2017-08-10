@@ -10,7 +10,9 @@ const SearchIcon = styled(SVG)`
 `
 
 const Submit = styled.button`
-  padding: ${rem(20)} ${rem(20)};
+  padding-top: ${rem(20)};
+  padding-bottom: ${rem(20)};
+  padding-right: 5%;
   display: flex;
   align-items: center;
   justify-content: center;

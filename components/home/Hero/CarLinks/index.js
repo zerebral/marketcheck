@@ -26,8 +26,6 @@ const CarLink = styled.li`
 
   ${mediaMax.tablet`
     margin-bottom: ${rem(10)};
-    max-width: 25%;
-    flex-basis: 25%;
     padding: 0 ${rem(5)};
   `}
 `
