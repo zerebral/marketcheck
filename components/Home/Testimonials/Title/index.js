@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { rem } from 'polished'
 import { colors } from '%/styles'
+import { mediaMax } from '%/styles/mixins'
 
 import { FlexRow } from '~/layout'
 import { H1, P, Button } from '~/general'
@@ -13,6 +14,10 @@ const Title = styled.div`
   margin-bottom: ${rem(90)};
   text-align: center;
   color: ${colors.black};
+
+  ${mediaMax.laptop`margin-bottom: ${rem(80)};`}
+  ${mediaMax.tablet`margin-bottom: ${rem(60)};`}
+  ${mediaMax.phablet`margin-bottom: ${rem(40)};`}
 `
 
 export default () =>

@@ -6,10 +6,6 @@ import { mediaMin, percentage } from '%/styles/mixins'
 
 const padding = rem(grid.gutter / 2)
 
-const laptopStyles = mediaMin.laptop`
-  width: ${percentage(2, 10)};
-`
-
 const SmallColumn = styled.div`
   ${clearFix()}
   position: relative;
@@ -18,7 +14,8 @@ const SmallColumn = styled.div`
   float: left;
   width: 100%;
 
-  ${laptopStyles}
+  ${mediaMin.phablet`width: ${percentage(1, 2)}`}
+  ${mediaMin.laptop`width: ${percentage(2, 10)}`}
 `
 
 export default SmallColumn

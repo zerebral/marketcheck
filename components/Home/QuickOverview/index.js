@@ -5,8 +5,13 @@ import { Container, FlexRow } from '~/layout'
 import List from './List'
 import seedData from './seedData'
 
+import { mediaMax } from '%/styles/mixins'
+
 const QuickOverview = styled.div`
   padding: ${em(80)} 0 ${em(5)};
+  ${mediaMax.desktop`
+    padding: ${em(60)} 0 ${em(5)};
+  `}
 `
 
 export default () =>

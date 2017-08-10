@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 import { rem, em } from 'polished'
 import { colors } from '%/styles'
+import { mediaMax } from '%/styles/mixins'
 
 const SingleFeature = styled.div`
   position: relative;
+  text-align: center;
   & > svg {
     width: ${rem(100)};
     margin-bottom: ${rem(30)};
   }
+
+  ${mediaMax.desktop`margin-bottom: ${rem(30)};`}
 `
 
 const FeatureTitle = styled.h6`
