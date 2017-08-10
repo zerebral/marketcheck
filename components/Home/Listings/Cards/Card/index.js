@@ -20,7 +20,7 @@ const Card = styled.a`
   text-align: center;
   transform: translateZ(0);
   &:hover, &:focus {
-    box-shadow: 0 2px 21px 13px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 30px 10px rgba(0, 0, 0, 0.15);
     transform: scale(1.025);
   }
 `
