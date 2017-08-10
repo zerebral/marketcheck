@@ -1,49 +1,18 @@
 import Logo from './Logo'
-import { rem } from 'polished'
-import fonts from '%/styles/fonts'
+import Wrapper from './Wrapper'
+import Item from './Item'
+import Link from './Link'
 
-import styled from 'styled-components'
+import links from './links'
 
-const A = styled.a`
-  display: block;
-  color: #ffffff;
-  font-size: ${rem(14)};
-  font-family: ${fonts.fontFamily};
-  font-weight: 400;
-
-  &:hover,
-  &:active {
-    text-decoration: underline;
-    font-weight: 700;
-  }
-`
-
-const Li = styled.li`
-  margin-right: ${props => props.logo ? '65px' : '40px'};
-`
-
-const Ul = styled.ul`
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin-right: auto;
-`
-
-const links = [
-  { name: 'Home', route: '#' },
-  { name: 'Research', route: '#' },
-  { name: 'About', route: '#' },
-  { name: 'FAQ', route: '#' },
-  { name: 'For Dealers', route: '#' }
-]
-
-export default () => (
-  <Ul>
-    <Li logo>
-      <A href='/'><Logo /></A>
-    </Li>
+export default () =>
+  <Wrapper>
+    <Item logo>
+      <Link href='/'><Logo /></Link>
+    </Item>
     {links.map((link, index) => (
-      <Li key={link.name + index}><A href={link.route}>{link.name}</A></Li>
+      <Item key={link.name + index}>
+        <Link href={link.route}>{link.name}</Link>
+      </Item>
     ))}
-  </Ul>
-)
+  </Wrapper>
