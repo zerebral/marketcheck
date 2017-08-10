@@ -1,17 +1,11 @@
 import { Container, Column, Row } from '~/layout'
-import { align } from '%/styles/mixins'
 import Wrapper from './Wrapper'
 import { H2 } from '~/general'
 import Phone from './Phone'
 import PropTypes from 'prop-types'
 import CarLinks from './CarLinks'
 import Form from './Form'
-import styled from 'styled-components'
-
-const AlignedContainer = styled.div`
-  width: 100%;
-  ${align()}
-`
+import AlignedContainer from './AlignedContainer'
 
 const Hero = ({
   image,
