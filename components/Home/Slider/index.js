@@ -12,15 +12,17 @@ const SliderSettings = {
 }
 
 export default () =>
-  <Slider {...SliderSettings}>
-    {slides.map((s, index) =>
-      <div key={index + s.title}>
-        <Slide
-          image={s.image}
-          subtitle={s.subtitle}
-          title={s.title}
-          text={s.text}
-        />
-      </div>
-    )}
-  </Slider>
+  <div>
+    <Slider {...SliderSettings}>
+      {slides.map((s, index) =>
+        <div key={index + s.title}>
+          <Slide
+            image={s.image}
+            subtitle={s.subtitle}
+            title={s.title}
+            text={s.text}
+          />
+        </div>
+      )}
+    </Slider>
+  </div>

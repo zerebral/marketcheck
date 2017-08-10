@@ -19,12 +19,12 @@ const CarLink = styled.li`
   font-size: ${rem(14)};
   & + & {
     margin-left: ${rem(20)};
-    ${mediaMax.laptop`
+    ${mediaMax.tablet`
       margin-left: 0;
     `}
   }
 
-  ${mediaMax.laptop`
+  ${mediaMax.tablet`
     margin-bottom: ${rem(10)};
     max-width: 25%;
     flex-basis: 25%;
