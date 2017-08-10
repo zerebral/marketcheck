@@ -19,8 +19,8 @@ export default () =>
       <Row>
         <Column laptop={{ cols: 8, offset: 2 }}>
           <Title />
+          <Statements />
         </Column>
       </Row>
-      <Statements />
     </Container>
   </Testimonials>
