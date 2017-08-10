@@ -4,11 +4,16 @@ import slides from './slides'
 import NextArrow from './NextArrow'
 import PreviousArrow from './PreviousArrow'
 
+import { breakpoints } from '%/styles'
+
 const SliderSettings = {
   dots: true,
   arrows: true,
   nextArrow: <NextArrow />,
-  prevArrow: <PreviousArrow />
+  prevArrow: <PreviousArrow />,
+  responsive: [
+    { breakpoint: breakpoints.laptop, settings: { arrows: false } }
+  ]
 }
 
 export default () =>

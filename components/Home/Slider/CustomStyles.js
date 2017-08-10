@@ -1,5 +1,6 @@
 import { injectGlobal } from 'styled-components'
 import { colors } from '%/styles'
+import { mediaMax } from '%/styles/mixins'
 
 const CustomSlickStyles = () =>
   injectGlobal`
@@ -28,6 +29,10 @@ const CustomSlickStyles = () =>
       font-size: 0;
       width: 13px;
       height: 13px;
+      ${mediaMax.laptop`
+        width: 10px;
+        height: 10px;
+      `}
     }
 
     .slick-dots li button::before {
@@ -41,6 +46,10 @@ const CustomSlickStyles = () =>
       border-radius: 50%;
       border: none;
       opacity: 0.5;
+      ${mediaMax.laptop`
+        width: 10px;
+        height: 10px;
+      `}
     }
 
     .slick-dots li.slick-active button::before {
