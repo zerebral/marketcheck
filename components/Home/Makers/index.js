@@ -9,7 +9,7 @@ import Brands from './Brands'
 import ViewMore from './ViewMore'
 
 const Makers = styled.div`
-  padding: ${em(70)} 0 ${em(50)};
+  padding: ${em(40)} 0 ${em(50)};
   background-color: ${colors.softgray};
   text-align: center;
   color: ${colors.softblue};
