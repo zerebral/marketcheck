@@ -1,10 +1,10 @@
 import React from 'react'
-import Home from '@/Home'
+import VDP from '@/VDP'
 
-class VDP extends React.Component {
+class Vdp extends React.Component {
   render () {
-    return <Home />
+    return <VDP />
   }
 }
 
-export default VDP
+export default Vdp
