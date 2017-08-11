@@ -1,14 +1,13 @@
 import React from 'react'
+import autobind from 'class-autobind'
 import Menu from '~/general/Menu'
 import InnerMenu from '~/general/Menu/InnerMenu'
 
 class MenuContainer extends React.Component {
-  constructor (props) {
-    super(props)
-    this.bindScroll = this.bindScroll.bind(this)
-    this.unbindScroll = this.unbindScroll.bind(this)
-    this.handleScroll = this.handleScroll.bind(this)
+  constructor () {
+    super(...arguments)
     this.state = { active: false }
+    autobind(this)
   }
 
   componentDidMount () {
