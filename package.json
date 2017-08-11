@@ -1,6 +1,6 @@
 {
   "name": "marketcheck",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "frontend code of marketcheck",
   "main": "index.js",
   "repository": "git@code.pixel2html.com:clients/project-4566.git",
