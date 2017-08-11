@@ -118,4 +118,4 @@ describe('With Snapshot Testing', () => {
 
 ## Questions
 
-[Pixel2HTML](https://pixel2html.com/) for support or questions
+Visit your our client area at [Pixel2HTML](https://pixel2html.com/login) for support or questions.
