@@ -64,7 +64,11 @@ const reset = () =>
     }
 
     html {
-      font-family: ${fonts.fontFamily};
+      font-family: ${fonts.systemFonts};
+    }
+
+    html.roboto {
+      font-family: ${fonts.fontFamily}
     }
 
     input, select, textarea, button {
