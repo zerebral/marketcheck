@@ -69,7 +69,7 @@ const reset = () =>
     }
 
     html.roboto {
-      font-family: ${fonts.fontFamily}
+      font-family: ${fonts.fontFamily};
       letter-spacing: initial;
     }
 
