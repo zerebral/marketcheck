@@ -1,6 +1,6 @@
 import React from 'react'
 import VDP from '@/VDP'
-import Fonts from '@/HOC/Fonts'
+import FontsHOC from '@/HOC/Fonts'
 
 class Vdp extends React.Component {
   render () {
@@ -8,4 +8,4 @@ class Vdp extends React.Component {
   }
 }
 
-export default Fonts(Vdp)
+export default FontsHOC(Vdp)

@@ -1,6 +1,6 @@
 import React from 'react'
 import Home from '@/Home'
-import Fonts from '@/HOC/Fonts'
+import FontsHOC from '@/HOC/Fonts'
 
 class Index extends React.Component {
   render () {
@@ -8,4 +8,4 @@ class Index extends React.Component {
   }
 }
 
-export default Fonts(Index)
+export default FontsHOC(Index)

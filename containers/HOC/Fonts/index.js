@@ -1,8 +1,8 @@
 import React from 'react'
 const FontFaceObserver = require('fontfaceobserver')
 
-function withFonts (Child) {
-  return class WrappedComponent extends React.Component {
+const fontsHOC = WrappedComponent => {
+  return class fontsHOC extends React.Component {
     componentDidMount () {
       // Create a head link with the actual fonts call
       const link = document.createElement('link')
@@ -19,9 +19,9 @@ function withFonts (Child) {
     }
 
     render () {
-      return <Child />
+      return <WrappedComponent />
     }
   }
 }
 
-export default withFonts
+export default fontsHOC
