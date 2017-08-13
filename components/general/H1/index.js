@@ -7,7 +7,6 @@ const H1 = styled.h1`
   font-weight: 700;
   line-height: ${58 / 48};
   margin-bottom: ${em(20, 48)};
-
   ${mediaMax.desktop`font-size: ${rem(40)};`}
   ${mediaMax.laptop`font-size: ${rem(36)};`}
   ${mediaMax.tablet`font-size: ${rem(30)};`}
