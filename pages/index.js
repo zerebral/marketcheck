@@ -1,15 +1,11 @@
 import React from 'react'
 import Home from '@/Home'
-import Fonts from '~/general/Fonts'
+import Fonts from '@/HOC/Fonts'
 
 class Index extends React.Component {
-  componentDidMount () {
-    Fonts()
-  }
-
   render () {
     return <Home />
   }
 }
 
-export default Index
+export default Fonts(Index)
