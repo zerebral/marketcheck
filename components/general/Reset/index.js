@@ -65,12 +65,10 @@ const reset = () =>
 
     html {
       font-family: ${fonts.systemFonts};
-      letter-spacing: -0.5px;
     }
 
     html.roboto {
       font-family: ${fonts.fontFamily};
-      letter-spacing: initial;
     }
 
     input, select, textarea, button {
