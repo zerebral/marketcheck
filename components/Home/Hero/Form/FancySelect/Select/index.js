@@ -14,6 +14,7 @@ const Select = styled.select`
   display: flex;
   align-items: center;
   padding: ${rem(22)} ${rem(15)};
+
   &::-ms-expand {
     display: none;
   }

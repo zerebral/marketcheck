@@ -4,7 +4,6 @@ import { mediaMin, percentage } from '%/styles/mixins'
 import { em } from 'polished'
 
 const BrandColumn = styled.div`
-
   padding: ${em(2.5)};
   max-width: 100%;
   flex-basis: 100%;
@@ -12,7 +11,6 @@ const BrandColumn = styled.div`
     max-width: ${percentage(1, 2)};
     flex-basis: ${percentage(1, 2)};
   `}
-
   ${mediaMin.laptop`
     max-width: ${percentage(1, 5)};
     flex-basis: ${percentage(1, 5)};

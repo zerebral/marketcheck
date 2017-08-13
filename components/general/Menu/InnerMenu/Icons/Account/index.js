@@ -5,7 +5,6 @@ import { mediaMax } from '%/styles/mixins'
 const A = styled.a`
   display: block;
   margin-left: 80px;
-
   ${mediaMax.desktop`margin-left: 40px;`}
   ${mediaMax.laptop`margin-left: 20px;`}
 `

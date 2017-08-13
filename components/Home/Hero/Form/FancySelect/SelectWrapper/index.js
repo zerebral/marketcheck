@@ -12,12 +12,10 @@ const SelectWrapper = styled.div`
   line-height: ${19 / 16};
   font-weight: 700;
   display: none;
-
   ${mediaMin.laptop`
     display: block;
     flex-grow: 2;
   `}
-
   ${mediaMin.desktop`
     font-size: ${rem(16)};
   `}

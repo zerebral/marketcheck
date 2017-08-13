@@ -15,12 +15,10 @@ const Slide = styled.div`
   padding: ${rem(90)};
   min-height: ${rem(600)};
   color: ${rgba(colors.white, 0.88)};
-
   ${mediaMax.laptop`
   padding: ${rem(60)};
   min-height: ${rem(400)};
   `}
-
   ${mediaMax.tablet`
   padding: ${rem(40)} ${rem(15)};
   min-height: ${rem(250)};

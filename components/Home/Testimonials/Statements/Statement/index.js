@@ -13,13 +13,11 @@ const Statement = styled.div`
   max-width: ${1 / 3 * 100}%;
   flex-basis: ${1 / 3 * 100}%;
   text-align: center;
-
   ${mediaMax.tablet`
     max-width: 50%;
     flex-basis: 50%;
     margin-bottom: ${rem(40)};
   `}
-
   ${mediaMax.phablet`
     max-width: 100%;
     flex-basis: 100%;

@@ -13,7 +13,6 @@ const Deals = styled.div`
   color: #e1e5e7;
   padding: ${em(50)} 0 ${em(30)};
   overflow: hidden;
-
   ${mediaMin.laptop`
   padding: ${em(100)} 0;
   `}

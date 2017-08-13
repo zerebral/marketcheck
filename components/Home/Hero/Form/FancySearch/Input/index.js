@@ -18,7 +18,6 @@ const Input = styled.input`
   padding: ${rem(20)} 0;
   background: ${colors.white};
   font-family: inherit;
-
   ${placeholderStyles}
 `
 

@@ -8,7 +8,6 @@ import { mediaMax } from '%/styles/mixins'
 
 const List = styled.div`
   margin-bottom: ${em(75)};
-
   ${mediaMax.tablet`
     text-align: center;
   `}
