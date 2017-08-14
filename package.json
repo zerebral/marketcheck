@@ -9,9 +9,11 @@
   "scripts": {
     "lint:css": "stylelint './components/**/*.js'",
     "lint:js": "standard",
+    "lint": "npm run lint:css; npm run lint:js",
     "dev": "node server",
     "build": "next build",
     "start": "NODE_ENV=production node server",
+    "pretest": "npm run lint",
     "test": "jest",
     "deploy": "now",
     "postdeploy": "now alias"

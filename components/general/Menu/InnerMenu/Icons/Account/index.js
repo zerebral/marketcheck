@@ -9,7 +9,7 @@ const A = styled.a`
 `
 
 const User = styled(SVG)`
-  width 15px;
+  width: 15px;
 `
 
 export default () => <A><User /></A>
