@@ -4,7 +4,7 @@ import fonts from '%/styles/fonts'
 
 const Link = styled.a`
   display: block;
-  color: #ffffff;
+  color: #fff;
   font-size: ${rem(14)};
   font-family: ${fonts.fontFamily};
   font-weight: 400;

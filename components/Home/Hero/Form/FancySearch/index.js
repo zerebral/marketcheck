@@ -8,7 +8,6 @@ const FancySearch = styled.div`
   display: flex;
   align-items: center;
   padding-left: 5%;
-
   ${mediaMin.phablet`
   padding: 0 20px;
   `}

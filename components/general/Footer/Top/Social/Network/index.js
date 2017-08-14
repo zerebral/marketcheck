@@ -9,7 +9,10 @@ const Network = styled.a`
   margin-bottom: ${rem(50)};
   max-width: ${percentage(1, 3)};
   flex-basis: ${percentage(1, 3)};
-  &:hover, &:active, &:focus {
+
+  &:hover,
+  &:active,
+  &:focus {
     color: ${colors.white};
   }
 
@@ -18,6 +21,7 @@ const Network = styled.a`
     width: ${rem(20)};
     margin: 0 auto;
     fill: currentColor;
+
     & [fill] {
       fill: currentColor;
     }

@@ -17,7 +17,9 @@ const Submit = styled.button`
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  &:active, &:focus {
+
+  &:active,
+  &:focus {
     outline: 1px dotted;
   }
 

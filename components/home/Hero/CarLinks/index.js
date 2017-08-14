@@ -9,7 +9,6 @@ const CarLinks = styled.ul`
   justify-content: center;
   text-align: center;
   list-style: none;
-
   ${mediaMax.laptop`
     flex-wrap: wrap;
   `}
@@ -17,6 +16,7 @@ const CarLinks = styled.ul`
 
 const CarLink = styled.li`
   font-size: ${rem(14)};
+
   & + & {
     margin-left: ${rem(20)};
     ${mediaMax.tablet`

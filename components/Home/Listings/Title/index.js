@@ -14,7 +14,6 @@ const Title = styled.div`
   margin-bottom: ${em(70)};
   text-align: center;
   color: ${colors.black};
-
   ${mediaMax.tablet`margin-bottom: ${rem(60)};`}
   ${mediaMax.phablet`margin-bottom: ${rem(40)};`}
 `

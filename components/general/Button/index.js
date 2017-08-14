@@ -22,7 +22,6 @@ const Button = styled.a`
   padding: ${em(14, 14)} ${em(27, 14)};
   border-radius: ${rem(4)};
   min-width: ${em(145, 14)};
-
   ${mediaMax.laptop`font-size: ${rem(12)};`}
   ${mediaMax.tablet`font-size: ${rem(10)};`}
 `

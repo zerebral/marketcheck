@@ -8,7 +8,6 @@ const Caret = styled(SVG)`
   right: ${em(10)};
   width: ${em(9)};
   fill: currentColor;
-
   ${mediaMin.desktop`
     right: ${em(20)};
   `}

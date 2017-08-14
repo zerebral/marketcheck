@@ -13,7 +13,6 @@ const LargeColumn = styled.div`
   padding-right: ${padding};
   float: left;
   width: 100%;
-
   ${mediaMin.phablet`width: ${percentage(1, 2)}`}
   ${mediaMin.laptop`width: ${percentage(3.5, 10)}`}
 `

@@ -6,6 +6,7 @@ import { mediaMax } from '%/styles/mixins'
 const SingleFeature = styled.div`
   position: relative;
   text-align: center;
+
   & > svg {
     width: ${rem(100)};
     margin-bottom: ${rem(30)};
@@ -25,7 +26,7 @@ const FeatureTitle = styled.h6`
 const FeatureText = styled.p`
   font-size: ${rem(14)};
   line-height: ${22 / 14};
-  color: #5F7D8C;
+  color: #5f7d8c;
   max-width: ${rem(170)};
   margin: 0 auto;
 `

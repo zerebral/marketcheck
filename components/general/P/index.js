@@ -7,7 +7,6 @@ const P = styled.p`
   font-size: ${rem(18)};
   line-height: ${28 / 18};
   margin-bottom: ${em(20, 18)};
-
   ${mediaMax.laptop`font-size: ${rem(16)};`}
   ${mediaMax.tablet`font-size: ${rem(14)};`}
 `

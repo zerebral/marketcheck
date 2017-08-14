@@ -25,7 +25,6 @@ const Column = styled.div`
   margin-bottom: ${em(20)};
   max-width: 50%;
   flex-basis: 50%;
-
   ${phabletStyles}
   ${laptopStyles}
 `

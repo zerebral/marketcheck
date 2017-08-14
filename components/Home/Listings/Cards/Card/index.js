@@ -19,7 +19,9 @@ const Card = styled.a`
   box-shadow: 0 2px 10px 2px ${rgba('#000', 0.15)};
   text-align: center;
   transform: translateZ(0);
-  &:hover, &:focus {
+
+  &:hover,
+  &:focus {
     box-shadow: 0 2px 30px 10px rgba(0, 0, 0, 0.15);
     transform: scale(1.025);
   }

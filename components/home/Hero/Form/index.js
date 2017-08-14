@@ -18,7 +18,6 @@ const Form = styled.form`
   max-width: 95%;
   margin-left: auto;
   margin-right: auto;
-
   ${mediaMax.tablet`
     max-width: 100%;
   `}

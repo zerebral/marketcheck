@@ -29,14 +29,11 @@ const Wrapper = styled.header`
   padding: 60px 0;
   text-align: center;
   position: relative;
-
-  ${hiDPI()} {
+  ${mediaMax.tablet`min-height: 100vh;`}
+  /* stylelint-disable */
+  ${hiDPI(1.3)} {
     background-image: ${retinaImage};
   }
-
-  ${mediaMax.tablet`
-    min-height: 100vh;
-  `}
 `
 
 Wrapper.propTypes = {
