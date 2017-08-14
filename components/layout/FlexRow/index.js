@@ -14,12 +14,16 @@ const conditionalJustify = props =>
     ? `justify-content: ${props.justify};`
     : null
 
+const conditionalMargins = props =>
+  props.noMargin
+    ? null
+    : `margin: 0 -${gutter};`
+
 const FlexRow = styled.div`
   display: flex;
-  margin-left: -${gutter};
-  margin-right: -${gutter};
   ${conditionalAlign}
   ${conditionalJustify}
+  ${conditionalMargins}
   flex-wrap: ${props => props.wrap ? 'wrap' : 'nowrap'};
 `
 

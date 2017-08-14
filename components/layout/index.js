@@ -7,9 +7,9 @@ import LayoutSecondary from './LayoutSecondary'
 import Row from './Row'
 
 export {
-  FlexCol,
   Column,
   Container,
+  FlexCol,
   FlexRow,
   LayoutPrimary,
   LayoutSecondary,
