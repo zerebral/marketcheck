@@ -2,6 +2,6 @@
 
 exports[`Menu Component Menu Passes the snapshot 1`] = `
 <nav
-  className="sc-bdVaJa kMhlhs"
+  className="Menu__Menu-s17awzsc-0 gFmhrc"
 />
 `;

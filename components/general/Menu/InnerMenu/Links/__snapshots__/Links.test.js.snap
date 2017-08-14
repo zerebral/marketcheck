@@ -2,17 +2,17 @@
 
 exports[`Links Component Links Passes the snapshot 1`] = `
 <div
-  className="sc-bwzfXH dsTBNF"
+  className="Wrapper__Wrapper-s1tee10n-0 idkjTy"
 >
   <div
-    className="sc-htpNat ftkVcI"
+    className="Item__Item-j9flgi-0 kENaUG"
   >
     <a
-      className="sc-bxivhb bRVpLP"
+      className="Link__Link-s74w1na-0 fxSrrF"
       href="/"
     >
       <svg
-        className="sc-bdVaJa bLZdxt"
+        className="Logo__Logo-s1hjwja6-0 jWjkHu"
         viewBox="0 0 142.85 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -49,50 +49,50 @@ exports[`Links Component Links Passes the snapshot 1`] = `
     </a>
   </div>
   <div
-    className="sc-htpNat lkEZUb"
+    className="Item__Item-j9flgi-0 bioNSF"
   >
     <a
-      className="sc-bxivhb bRVpLP"
+      className="Link__Link-s74w1na-0 fxSrrF"
       href="#"
     >
       Home
     </a>
   </div>
   <div
-    className="sc-htpNat lkEZUb"
+    className="Item__Item-j9flgi-0 bioNSF"
   >
     <a
-      className="sc-bxivhb bRVpLP"
+      className="Link__Link-s74w1na-0 fxSrrF"
       href="#"
     >
       Research
     </a>
   </div>
   <div
-    className="sc-htpNat lkEZUb"
+    className="Item__Item-j9flgi-0 bioNSF"
   >
     <a
-      className="sc-bxivhb bRVpLP"
+      className="Link__Link-s74w1na-0 fxSrrF"
       href="#"
     >
       About
     </a>
   </div>
   <div
-    className="sc-htpNat lkEZUb"
+    className="Item__Item-j9flgi-0 bioNSF"
   >
     <a
-      className="sc-bxivhb bRVpLP"
+      className="Link__Link-s74w1na-0 fxSrrF"
       href="#"
     >
       FAQ
     </a>
   </div>
   <div
-    className="sc-htpNat lkEZUb"
+    className="Item__Item-j9flgi-0 bioNSF"
   >
     <a
-      className="sc-bxivhb bRVpLP"
+      className="Link__Link-s74w1na-0 fxSrrF"
       href="#"
     >
       For Dealers

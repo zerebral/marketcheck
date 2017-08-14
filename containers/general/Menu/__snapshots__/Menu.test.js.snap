@@ -2,26 +2,26 @@
 
 exports[`Menu Component Menu Passes the snapshot 1`] = `
 <nav
-  className="sc-bdVaJa kMhlhs"
+  className="Menu__Menu-s17awzsc-0 gFmhrc"
 >
   <div
-    className="sc-gZMcBi hVGAer"
+    className="Container__Container-f381nw-0 gQTAgV"
   >
     <div
-      className="sc-eNQAEJ gjOKAa"
+      className="InnerMenu__InnerMenu-jwk4ke-0 fLmyHy"
     >
       <div
-        className="sc-htpNat bTeQXb"
+        className="Wrapper__Wrapper-s1tee10n-0 idkjTy"
       >
         <div
-          className="sc-bxivhb fkxTBm"
+          className="Item__Item-j9flgi-0 kENaUG"
         >
           <a
-            className="sc-ifAKCX iYqtKy"
+            className="Link__Link-s74w1na-0 fxSrrF"
             href="/"
           >
             <svg
-              className="sc-bwzfXH bLWGcb"
+              className="Logo__Logo-s1hjwja6-0 jWjkHu"
               viewBox="0 0 142.85 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -58,50 +58,50 @@ exports[`Menu Component Menu Passes the snapshot 1`] = `
           </a>
         </div>
         <div
-          className="sc-bxivhb cOyHaS"
+          className="Item__Item-j9flgi-0 bioNSF"
         >
           <a
-            className="sc-ifAKCX iYqtKy"
+            className="Link__Link-s74w1na-0 fxSrrF"
             href="#"
           >
             Home
           </a>
         </div>
         <div
-          className="sc-bxivhb cOyHaS"
+          className="Item__Item-j9flgi-0 bioNSF"
         >
           <a
-            className="sc-ifAKCX iYqtKy"
+            className="Link__Link-s74w1na-0 fxSrrF"
             href="#"
           >
             Research
           </a>
         </div>
         <div
-          className="sc-bxivhb cOyHaS"
+          className="Item__Item-j9flgi-0 bioNSF"
         >
           <a
-            className="sc-ifAKCX iYqtKy"
+            className="Link__Link-s74w1na-0 fxSrrF"
             href="#"
           >
             About
           </a>
         </div>
         <div
-          className="sc-bxivhb cOyHaS"
+          className="Item__Item-j9flgi-0 bioNSF"
         >
           <a
-            className="sc-ifAKCX iYqtKy"
+            className="Link__Link-s74w1na-0 fxSrrF"
             href="#"
           >
             FAQ
           </a>
         </div>
         <div
-          className="sc-bxivhb cOyHaS"
+          className="Item__Item-j9flgi-0 bioNSF"
         >
           <a
-            className="sc-ifAKCX iYqtKy"
+            className="Link__Link-s74w1na-0 fxSrrF"
             href="#"
           >
             For Dealers
@@ -109,13 +109,13 @@ exports[`Menu Component Menu Passes the snapshot 1`] = `
         </div>
       </div>
       <div
-        className="sc-dnqmqq dEpcrB"
+        className="Icons__Icons-s15rosyg-0 dkRfPS"
       >
         <a
-          className="sc-gzVnrw kXANwb"
+          className="Search__A-r2sj56-0 injnFb"
         >
           <svg
-            className="sc-htoDjs ldXMzy"
+            className="Search__Search-r2sj56-1 fCbrkS"
             viewBox="0 0 14.86 14.62"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -125,10 +125,10 @@ exports[`Menu Component Menu Passes the snapshot 1`] = `
           </svg>
         </a>
         <a
-          className="sc-EHOje fFiXNu"
+          className="Account__A-atchjn-0 bSTpxW"
         >
           <svg
-            className="sc-bZQynM jXpCaW"
+            className="Account__User-atchjn-1 kGfKyf"
             viewBox="0 0 12.36 15.64"
             xmlns="http://www.w3.org/2000/svg"
           >

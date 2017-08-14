@@ -2,10 +2,10 @@
 
 exports[`Account Component Account Passes the snapshot 1`] = `
 <a
-  className="sc-bdVaJa kWPdYO"
+  className="Account__A-atchjn-0 bSTpxW"
 >
   <svg
-    className="sc-bwzfXH fYRUVF"
+    className="Account__User-atchjn-1 kGfKyf"
     viewBox="0 0 12.36 15.64"
     xmlns="http://www.w3.org/2000/svg"
   >
