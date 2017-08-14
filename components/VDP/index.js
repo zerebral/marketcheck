@@ -1,8 +1,9 @@
 import { LayoutPrimary } from '~/layout'
+import Overview from './Overview'
 
-const VDP = () =>
+const VDP = (props) =>
   <LayoutPrimary>
-    <h1>VDP Page</h1>
+    <Overview {...props} />
   </LayoutPrimary>
 
 export default VDP
