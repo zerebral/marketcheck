@@ -35,6 +35,7 @@ $ yarn test
 * [nprogress ⚡️](http://ricostacruz.com/nprogress/)
 * [Next.JS 💨](https://zeit.co/blog/next3-preview)
 * [Jest 🙀](https://facebook.github.io/jest/)
+* [Stylelint 🤵](https://stylelint.io)
 * [Enzyme 🛌](http://airbnb.io/enzyme/)
 * [Express ✏️](https://expressjs.com)
 * [Now ☁️](https://zeit.co/now)
