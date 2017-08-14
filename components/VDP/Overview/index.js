@@ -3,6 +3,8 @@ import TopRow from './TopRow'
 import Return from './Return'
 import CarName from './CarName'
 import Slideshow from './Slideshow'
+import OverviewWrapper from './OverviewWrapper'
+import Brief from './Brief'
 
 export default ({
   name,
@@ -12,10 +14,13 @@ export default ({
   discount,
   miles
 }) =>
-  <Container>
+  <OverviewWrapper>
     <TopRow>
       <Return />
       <CarName>{name}</CarName>
     </TopRow>
-    <Slideshow slides={sliderPics} />
-  </Container>
+    <Container>
+      <Brief>{brief}</Brief>
+      <Slideshow slides={sliderPics} />
+    </Container>
+  </OverviewWrapper>

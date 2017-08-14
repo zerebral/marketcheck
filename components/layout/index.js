@@ -3,6 +3,7 @@ import Container from './Container'
 import FlexCol from './FlexCol'
 import FlexRow from './FlexRow'
 import LayoutPrimary from './LayoutPrimary'
+import LayoutSecondary from './LayoutSecondary'
 import Row from './Row'
 
 export {
@@ -11,5 +12,6 @@ export {
   Container,
   FlexRow,
   LayoutPrimary,
+  LayoutSecondary,
   Row
 }

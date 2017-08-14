@@ -6,6 +6,7 @@ const Return = styled.a`
   display: block;
   width: ${em(33)};
   height: ${em(38)};
+  margin-right: ${em(15)};
 
   svg {
     width: 100%;

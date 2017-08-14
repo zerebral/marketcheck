@@ -1,9 +1,9 @@
-import { LayoutPrimary } from '~/layout'
+import { LayoutSecondary } from '~/layout'
 import Overview from './Overview'
 
 const VDP = (props) =>
-  <LayoutPrimary>
+  <LayoutSecondary>
     <Overview {...props} />
-  </LayoutPrimary>
+  </LayoutSecondary>
 
 export default VDP
