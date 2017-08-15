@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const CloseButton = styled.button`
   display: block;
   margin-left: auto;
+  margin-top: 15px;
   width: 40px;
   height: 20px;
   cursor: pointer;
