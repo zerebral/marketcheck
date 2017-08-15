@@ -1,17 +1,15 @@
 import styled from 'styled-components'
-import { colors } from '%/styles'
 
 const CloseButton = styled.button`
-  background-color: ${colors.blue};
+  display: block;
   margin-left: auto;
   width: 40px;
   height: 20px;
-  display: flex;
-  align-items: center;
+  cursor: pointer;
 
   svg {
-    width: 16px;
-    height: 2px;
+    width: 100%;
+    height: 100%;
   }
 `
 

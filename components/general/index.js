@@ -7,6 +7,7 @@ import Button from './Button'
 import Reset from './Reset'
 import Menu from './Menu'
 import Footer from './Footer'
+import Accordion from './Accordion'
 
 export {
   H1,
@@ -17,5 +18,6 @@ export {
   Button,
   Reset,
   Menu,
-  Footer
+  Footer,
+  Accordion
 }

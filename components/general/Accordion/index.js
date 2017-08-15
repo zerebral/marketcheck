@@ -6,63 +6,45 @@ import Title from './Title'
 import Toggle from './Toggle'
 import Wrapper from './Wrapper'
 import { Close, More } from './Icons'
-
+import { Collapse } from 'react-collapse'
 import autobind from 'class-autobind'
-import PropTypes from 'prop-types'
 
 class Accordion extends React.Component {
   constructor () {
     super(...arguments)
     this.state = {
-      open: this.props.open,
-      height: this.bodyHeight
+      open: !!this.props.open
     }
     autobind(this)
   }
 
-  componentDidMount () {
-    this.bodyHeight = `${this.body.clientHeight}px`
-    this.forceUpdate()
-  }
-
-  calculateHeight () {
-    this.setState = {
-      height: this.props.open ? this.bodyHeight : 0
-    }
-  }
-
   toggleAccordion (e) {
     e.preventDefault()
-    this.setState = {
-      open: !this.props.open
-    }
+    this.setState({
+      open: !this.state.open
+    })
   }
 
   render () {
     const { title, children } = this.props
-    const { open, height } = this.state
-
-    this.calculateHeight()
+    const { open } = this.state
     return (
       <Wrapper open={open}>
-        <Header open={open}>
+        <Header open={open} onClick={this.toggleAccordion} >
           <Title>{title}</Title>
-          <Toggle onClick={this.toggleAccordion}><More /></Toggle>
+          <Toggle open={open}href='#'><More /></Toggle>
         </Header>
-        <Body height={height} innerRef={body => { this.body = body }}>
-          {children}
-          <CloseButton onClick={this.toggleAccordion}>
-            <Close />
-          </CloseButton>
-        </Body>
+        <Collapse isOpened={open}>
+          <Body>
+            {children}
+            <CloseButton onClick={this.toggleAccordion}>
+              <Close />
+            </CloseButton>
+          </Body>
+        </Collapse>
       </Wrapper>
     )
   }
-}
-
-Accordion.propTypes = {
-  open: PropTypes.bool,
-  children: PropTypes.node.isRequired
 }
 
 export default Accordion

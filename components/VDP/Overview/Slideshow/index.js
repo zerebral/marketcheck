@@ -7,7 +7,7 @@ const SliderSettings = {
   arrows: false,
   centerMode: true,
   centerPadding: '15px',
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 6000
 }
 

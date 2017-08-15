@@ -8,6 +8,7 @@ const conditionalPadding = props =>
     : `${rem(15)}`
 
 const Header = styled.div`
+  cursor: pointer;
   background-color: ${props => props.open ? colors.blue : '#333'};
   color: ${colors.white};
   padding: ${conditionalPadding};
