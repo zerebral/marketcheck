@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
-import { rem } from 'polished'
 
 const Slide = styled.div`
   background-color: ${colors.softgray};
@@ -8,12 +7,12 @@ const Slide = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: ${rem(130)};
-  margin-top: ${rem(6)};
+  min-height: 130px;
+  margin-top: 6px;
   transition: 0.3s;
 
   &.slick-active {
-    min-height: ${rem(140)};
+    min-height: 140px;
     margin-top: 0;
   }
 `
