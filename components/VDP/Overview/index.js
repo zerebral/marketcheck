@@ -23,6 +23,6 @@ export default ({
     <Container>
       <Brief>{brief}</Brief>
       <Slideshow slides={sliderPics} />
-      <Details price={price} discount={discount} miles={miles} />
     </Container>
+    <Details price={price} discount={discount} miles={miles} />
   </OverviewWrapper>

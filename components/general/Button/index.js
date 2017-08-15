@@ -22,7 +22,12 @@ const Button = styled.a`
   padding: ${em(14, 14)} ${em(27, 14)};
   border-radius: ${rem(4)};
   min-width: ${em(145, 14)};
-  ${mediaMax.tablet`font-size: ${rem(13)};`}
+  ${mediaMax.tablet`
+    font-size: ${rem(13)};
+    line-height: ${15.6 / 13};
+    padding: ${em(5, 13)} ${em(10, 13)};
+    text-transform: none;
+  `}
 `
 
 export default Button
