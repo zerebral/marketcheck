@@ -14,7 +14,7 @@ const Button = styled.a`
   font-weight: 700;
   line-height: ${17 / 14};
   color: ${colors.white};
-  text-transform: uppercase;
+  text-transform: ${props => props.lowercase ? 'none' : 'uppercase'};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +26,6 @@ const Button = styled.a`
     font-size: ${rem(13)};
     line-height: ${15.6 / 13};
     padding: ${em(5, 13)} ${em(10, 13)};
-    text-transform: none;
   `}
 `
 

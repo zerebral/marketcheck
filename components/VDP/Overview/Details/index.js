@@ -21,7 +21,7 @@ export default ({
   <Container>
     <FlexRow noMargin >
       <Price>{currency(price)}</Price>
-      <Button primary >Request Best Price</Button>
+      <Button primary lowercase >Request Best Price</Button>
     </FlexRow>
     <Text>{currency(discount)} less than market average</Text>
     <Text>{number(miles)} miles less than market average</Text>
