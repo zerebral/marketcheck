@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
+import { mediaMax } from '%/styles/mixins'
 import { em, rgba } from 'polished'
 
 import { Container, Row, Column } from '~/layout'
@@ -12,6 +13,10 @@ const Footer = styled.footer`
   color: ${rgba(colors.white, 0.56)};
   padding-top: ${em(75)};
   padding-bottom: ${em(55)};
+  ${mediaMax.laptop`
+    padding-top: ${em(20)};
+    padding-bottom: ${em(25)};
+  `}
 `
 
 export default () =>

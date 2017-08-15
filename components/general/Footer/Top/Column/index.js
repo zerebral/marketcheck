@@ -18,13 +18,12 @@ const laptopStyles = mediaMin.laptop`
 `
 
 const Column = styled.div`
-  display: ${props => props.social ? 'none' : 'block'};
   position: relative;
   padding-left: ${padding};
   padding-right: ${padding};
   margin-bottom: ${em(20)};
-  max-width: 50%;
-  flex-basis: 50%;
+  max-width: ${props => props.social ? '100%' : '50%'};
+  flex-basis: ${props => props.social ? '100%' : '50%'};
   ${phabletStyles}
   ${laptopStyles}
 `

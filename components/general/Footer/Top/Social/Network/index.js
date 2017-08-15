@@ -10,6 +10,10 @@ const Network = styled.a`
   max-width: ${percentage(1, 3)};
   flex-basis: ${percentage(1, 3)};
 
+  &:nth-last-child(-n+3) {
+    margin-bottom: 0;
+  }
+
   &:hover,
   &:active,
   &:focus {
