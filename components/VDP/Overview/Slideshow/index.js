@@ -6,7 +6,9 @@ const SliderSettings = {
   dots: false,
   arrows: false,
   centerMode: true,
-  centerPadding: '15px'
+  centerPadding: '15px',
+  autoplay: true,
+  autoplaySpeed: 6000
 }
 
 export default ({slides}) =>
