@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { em } from 'polished'
 
 const Label = styled.label.attrs({
-  for: props => props.id
+  htmlFor: props => props.hash
 })`
   display: flex;
   align-items: center;
