@@ -15,7 +15,7 @@ const Column = styled.div`
   padding-left: ${padding};
   padding-right: ${padding};
   float: left;
-  width: 100%;
+  width: ${props => props.cols ? `${props.cols / grid.columns * 100}%` : '100%'};
   ${clearFix()}
   ${responsiveStyling}
 `

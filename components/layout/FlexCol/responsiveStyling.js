@@ -14,6 +14,12 @@ const percentageCreator = (num, cssKey) => {
     : undefined
 }
 
+const orderCreator = num => {
+  return num
+    ? `order: num;`
+    : undefined
+}
+
 /**
  * Takes props from the breakpoints Object and turns them
  * into columns and offsets of that breakpoint
@@ -27,6 +33,7 @@ const responsiveStyling = props => {
     ${percentageCreator(props[bp]['cols'], 'max-width')}
     ${percentageCreator(props[bp]['cols'], 'flex-basis')}
     ${percentageCreator(props[bp]['offset'], 'margin-left')}
+    ${orderCreator(props[bp]['order'])}
   `)
 }
 

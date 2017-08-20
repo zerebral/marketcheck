@@ -13,8 +13,8 @@ const Column = styled.div`
   position: relative;
   padding-left: ${padding};
   padding-right: ${padding};
-  max-width: 100%;
-  flex-basis: 100%;
+  max-width: ${props => props.cols ? `${props.cols / grid.columns * 100}%` : '100%'};
+  flex-basis: ${props => props.cols ? `${props.cols / grid.columns * 100}%` : '100%'};
   ${responsiveStyling}
 `
 
