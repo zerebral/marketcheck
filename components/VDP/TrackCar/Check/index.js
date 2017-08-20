@@ -31,8 +31,8 @@ class Check extends Component {
       <CheckWrapper>
         <Input hash={hash} />
         <Label hash={hash}>
-          <Checked />
           <Unchecked />
+          <Checked />
           <Text>{text}</Text>
         </Label>
       </CheckWrapper>
