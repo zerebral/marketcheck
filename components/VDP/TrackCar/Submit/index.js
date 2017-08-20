@@ -1,6 +1,7 @@
 import { Button } from '~/general'
 import styled from 'styled-components'
 import { rem } from 'polished'
+import { mediaMin } from '%/styles/mixins'
 
 const SubButton = Button.withComponent('button')
 
@@ -16,6 +17,9 @@ const Submit = styled(SubButton).attrs({
   text-align: center;
   padding: ${rem(10)} ${rem(12)};
   min-width: auto;
+  ${mediaMin.laptop`
+  margin-left: 0;
+  `}
 `
 
 export default Submit

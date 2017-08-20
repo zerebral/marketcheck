@@ -13,6 +13,7 @@ const Input = styled.input`
   border-radius: 8px;
   display: block;
   width: 100%;
+  margin-bottom: ${rem(20)};
   ${placeholder`
     font-size: ${rem(14)};
     line-height: 1;
