@@ -12,7 +12,8 @@ export default () =>
       <Heading>Track This Car</Heading>
       <Form>
         <Email placeholder='Enter your email address' />
-        <Check name='Option 1' id='AABBCC' />
+        <Check text='Option 1' />
+        <Check text='Option 2' />
         <Submit>Set Alerts</Submit>
       </Form>
     </Container>

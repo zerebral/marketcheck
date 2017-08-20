@@ -1,3 +1,5 @@
+import React, { Component } from 'react'
+import autobind from 'class-autobind'
 import CheckWrapper from './CheckWrapper'
 import Input from './Input'
 import Label from './Label'
@@ -7,15 +9,35 @@ import Unchecked from './unchecked.svg'
 
 import { randomNumber } from '%/format'
 
-const hash = randomNumber()
-const Check = ({text}) =>
-  <CheckWrapper>
-    <Input hash={hash} />
-    <Label hash={hash}>
-      <Checked />
-      <Unchecked />
-      <Text>{text}</Text>
-    </Label>
-  </CheckWrapper>
+class Check extends Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      hash: undefined
+    }
+    autobind(this)
+  }
+
+  componentDidMount () {
+    this.setState({
+      hash: randomNumber()
+    })
+  }
+
+  render () {
+    const { text } = this.props
+    const { hash } = this.state
+    return (
+      <CheckWrapper>
+        <Input hash={hash} />
+        <Label hash={hash}>
+          <Checked />
+          <Unchecked />
+          <Text>{text}</Text>
+        </Label>
+      </CheckWrapper>
+    )
+  }
+}
 
 export default Check
