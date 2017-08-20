@@ -18,7 +18,7 @@ export default props =>
         erat volutpat. Donec non tortor. Vivamus posuere nisi mollis dolor.
         Quisque porttitor nisi ac.
       </Accordion>
-      <Accordion title='Vehicle Information'>
+      <Accordion title='Vehicle Information' blue>
         Such accordant wow Commodo vitae, aliquam ut, posuere eget, dui.
         Praesent massa dui, mattis et, vehicula auctor, iaculis id, diam. Morbi
         viverra neque sit amet risus. Nunc pellentesque aliquam orci. Proin

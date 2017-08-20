@@ -26,7 +26,7 @@ class Accordion extends React.Component {
   }
 
   render () {
-    const { title, children } = this.props
+    const { title, children, blue } = this.props
     const { open } = this.state
     return (
       <Wrapper open={open}>
@@ -35,7 +35,7 @@ class Accordion extends React.Component {
           <Toggle open={open}href='#'><More /></Toggle>
         </Header>
         <Collapse isOpened={open}>
-          <Body>
+          <Body blue={blue}>
             {children}
             <CloseButton onClick={this.toggleAccordion}>
               <Close />
