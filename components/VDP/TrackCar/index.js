@@ -11,9 +11,9 @@ export default () =>
     <Container>
       <Heading>Track This Car</Heading>
       <Form>
+        <Check text='Get similar listing alerts' />
+        <Check text='Notify me when price drops for this car' />
         <Email placeholder='Enter your email address' />
-        <Check text='Option 1' />
-        <Check text='Option 2' />
         <Submit>Set Alerts</Submit>
       </Form>
     </Container>

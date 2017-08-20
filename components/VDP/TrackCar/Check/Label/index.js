@@ -10,8 +10,9 @@ const Label = styled.label.attrs({
 
   & > svg {
     fill: currentColor;
-    width: 1em;
-    height: 1em;
+    width: 10px;
+    height: 10px;
+    margin-right: 15px;
 
     &:nth-child(1) {
       display: block;
