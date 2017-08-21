@@ -4,19 +4,18 @@ import { rgba } from 'polished'
 
 const Wrapper = styled.div`
   position: relative;
-
-  p {
-    color: ${rgba('#000', 0.56)};
-  }
+  color: ${rgba('#000', 0.56)};
 
   strong {
     color: #000;
   }
 `
 
-const Intro = styled.p`
-  line-height: 2 !important;
-  margin-bottom: 25px !important;
+const Intro = styled.h6`
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 25px;
+  font-weight: 400;
 `
 
 export default () =>
