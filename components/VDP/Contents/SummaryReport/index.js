@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 `
 
 export default () =>
-  <Accordion title='VIN Summary Report' blue open >
+  <Accordion title='VIN Summary Report' blue >
     <Wrapper>
       <Price />
       <p>This car is $1,234 below market value</p>
