@@ -1,7 +1,7 @@
 test:
   image: node:6
   script:
-    - yarn install
+    - npm install
     - npm test
   only:
     - master
