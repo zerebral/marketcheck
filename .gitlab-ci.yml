@@ -1,5 +1,7 @@
-before_script:
-   - npm install
-job:
-   script:
-      - npm test
+test:
+  image: node:8
+  script:
+    - yarn install
+    - npm test
+  only:
+    - master
