@@ -2,6 +2,6 @@ test:
   image: node:8
   script:
     - yarn install
-    - npm test
+    - npm run test-ci
   only:
     - master
