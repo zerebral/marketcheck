@@ -1,5 +1,5 @@
 before_script:
-   - yarn
+   - npm install
 job:
    script:
-      - yarn test
+      - npm test
