@@ -15,7 +15,7 @@
     "start": "NODE_ENV=production node server",
     "pretest": "npm run lint",
     "test": "jest",
-    "test-ci": "jest -ci -b",
+    "test-ci": "jest -ci -b --debug",
     "deploy": "now",
     "postdeploy": "now alias"
   },
