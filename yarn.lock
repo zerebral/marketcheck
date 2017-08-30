@@ -511,9 +511,9 @@ babel-plugin-styled-components-named@^0.1.1:
   dependencies:
     babel-template "^6.16.0"
 
-babel-plugin-styled-components@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.1.7.tgz#a92c239779cc80e7838b645c12865c61c4ca71ce"
+babel-plugin-styled-components@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.2.0.tgz#8bb8f9e69119bb8dee408c8d36a0dfef5191f3c7"
   dependencies:
     stylis "^3.2.1"
 
@@ -2724,6 +2724,10 @@ hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
+hoist-non-react-statics@^2.2.2:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.3.0.tgz#ede16318c2ff1f9fe3a025396ba06fd4c44608bb"
+
 home-or-tmp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/home-or-tmp/-/home-or-tmp-2.0.0.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -3886,9 +3890,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-next@^3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/next/-/next-3.0.6.tgz#14d9330b1f4eab60fdb84523034a3016f16fe414"
+next@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/next/-/next-3.2.0.tgz#86026844c65f4fa71c0430a99627e0a71ccd2982"
   dependencies:
     ansi-html "0.0.7"
     babel-core "6.25.0"
@@ -3915,6 +3919,7 @@ next@^3.0.6:
     friendly-errors-webpack-plugin "1.5.0"
     glob "7.1.1"
     glob-promise "3.1.0"
+    hoist-non-react-statics "^2.2.2"
     htmlescape "1.1.1"
     http-status "1.0.1"
     json-loader "0.5.4"
@@ -3932,7 +3937,7 @@ next@^3.0.6:
     recursive-copy "^2.0.6"
     send "^0.15.3"
     source-map-support "0.4.15"
-    strip-ansi "4.0.0"
+    strip-ansi "3.0.1"
     styled-jsx "^1.0.8"
     touch "3.1.0"
     unfetch "3.0.0"
@@ -4367,9 +4372,9 @@ pluralize@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
 
-polished@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-1.4.1.tgz#8d805293494c3ba5726d077edb99c37ebe116d53"
+polished@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-1.6.2.tgz#648960fcf8b9a50f0109ce72378684585694ad6c"
 
 postcss-less@^1.1.0:
   version "1.1.0"
@@ -4602,9 +4607,9 @@ react-hot-loader@3.0.0-beta.7:
     redbox-react "^1.3.6"
     source-map "^0.4.4"
 
-react-motion@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.5.0.tgz#1708fc2aee552900d21c1e6bed28346863e017b6"
+react-motion@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.5.1.tgz#b90631408175ab1668e173caccd66d41a44f4592"
   dependencies:
     performance-now "^0.2.0"
     prop-types "^15.5.8"
@@ -4629,9 +4634,9 @@ react-scroll@^1.5.4:
     object-assign "^4.1.1"
     prop-types "^15.5.8"
 
-react-slick@^0.14.11:
-  version "0.14.11"
-  resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.14.11.tgz#c2cbdbe3728c66a2ff4929be96d457e3ea0d80f3"
+react-slick@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.15.0.tgz#f9f42f464e986a0618e964b20c20c2e38c49ae08"
   dependencies:
     can-use-dom "^0.1.0"
     classnames "^2.2.5"
@@ -4721,13 +4726,13 @@ readline2@^1.0.1:
     is-fullwidth-code-point "^1.0.0"
     mute-stream "0.0.5"
 
-recharts-scale@0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/recharts-scale/-/recharts-scale-0.3.1.tgz#635f14c998b151d63f2e8fff1fcbe46faf0423a6"
+recharts-scale@0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/recharts-scale/-/recharts-scale-0.3.2.tgz#dac7621714a4765d152cb2adbc30c73b831208c9"
 
-recharts@^1.0.0-alpha.3:
-  version "1.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/recharts/-/recharts-1.0.0-alpha.3.tgz#0b9d1adb3656fe93417fbc8e3fd31a8e54882c1a"
+recharts@^1.0.0-alpha.4:
+  version "1.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/recharts/-/recharts-1.0.0-alpha.4.tgz#74b05457696987755bc05e8d6232ab5c58648676"
   dependencies:
     classnames "2.2.5"
     core-js "2.4.1"
@@ -4738,7 +4743,7 @@ recharts@^1.0.0-alpha.3:
     prop-types "~15.5.10"
     react-resize-detector "0.4.1"
     react-smooth "0.3.0"
-    recharts-scale "0.3.1"
+    recharts-scale "0.3.2"
     reduce-css-calc "1.3.0"
 
 rechoir@^0.6.2:
@@ -5278,17 +5283,17 @@ stringstream@~0.0.4:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/stringstream/-/stringstream-0.0.5.tgz#4e484cd4de5a0bbbee18e46307710a8a81621878"
 
-strip-ansi@4.0.0, strip-ansi@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-4.0.0.tgz#a8479022eb1ac368a871389b635262c505ee368f"
-  dependencies:
-    ansi-regex "^3.0.0"
-
-strip-ansi@^3.0.0, strip-ansi@^3.0.1:
+strip-ansi@3.0.1, strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-3.0.1.tgz#6a385fb8853d952d5ff05d0e8aaf94278dc63dcf"
   dependencies:
     ansi-regex "^2.0.0"
+
+strip-ansi@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-4.0.0.tgz#a8479022eb1ac368a871389b635262c505ee368f"
+  dependencies:
+    ansi-regex "^3.0.0"
 
 strip-bom@3.0.0, strip-bom@^3.0.0:
   version "3.0.0"
@@ -5353,14 +5358,13 @@ stylelint-config-standard@^17.0.0:
   dependencies:
     stylelint-config-recommended "^1.0.0"
 
-stylelint-processor-styled-components@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/stylelint-processor-styled-components/-/stylelint-processor-styled-components-0.3.0.tgz#74fcfc600079bb80e83005e6e89dc75de53b7d95"
+stylelint-processor-styled-components@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/stylelint-processor-styled-components/-/stylelint-processor-styled-components-0.4.0.tgz#6d9ebc25543d085f847ed32191ef994c6858fa54"
   dependencies:
     babel-traverse "^6.16.0"
     babylon "^6.12.0"
-    typescript "~2.3.2"
-    typescript-eslint-parser "^5.0.0"
+    typescript-eslint-parser "^7.0.0"
 
 stylelint@^8.0.0:
   version "8.0.0"
@@ -5608,16 +5612,12 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typescript-eslint-parser@^5.0.0:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/typescript-eslint-parser/-/typescript-eslint-parser-5.0.1.tgz#0a11b7c944dc56d4bd3826dcbd3d52a885098f3e"
+typescript-eslint-parser@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/typescript-eslint-parser/-/typescript-eslint-parser-7.0.0.tgz#be57d8768e37707af825e339ea2af18d7393cabb"
   dependencies:
     lodash.unescape "4.0.1"
     semver "5.3.0"
-
-typescript@~2.3.2:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.4.tgz#3d38321828231e434f287514959c37a82b629f42"
 
 ua-parser-js@^0.7.9:
   version "0.7.14"
