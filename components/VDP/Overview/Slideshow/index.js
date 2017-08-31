@@ -1,6 +1,7 @@
 import SliderWrapper from './SlideWrapper'
 import Slider from 'react-slick'
 import Slide from './Slide'
+import SliderHOC from '@/HOC/Slider'
 
 const SliderSettings = {
   dots: false,
@@ -11,14 +12,13 @@ const SliderSettings = {
   autoplaySpeed: 6000
 }
 
-export default ({slides}) =>
+const OverviewSlider = ({slides}) =>
   <SliderWrapper>
     <Slider {...SliderSettings}>
       {slides.map((slide, index) =>
-        <Slide
-          key={index + slide}
-          image={slide}
-        />
+        <Slide key={index} image={slide} />
       )}
     </Slider>
   </SliderWrapper>
+
+export default SliderHOC(OverviewSlider)

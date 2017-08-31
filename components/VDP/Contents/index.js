@@ -4,14 +4,14 @@ import { Accordion } from '~/general'
 
 import SummaryReport from './SummaryReport'
 import VehicleInformation from './VehicleInformation'
-import MarketComparison from './MarketComparison'
+import MarketNivo from './MarketComparison/nivo'
 
 export default props =>
   <ContentsWrapper>
     <Container>
       <SummaryReport />
       <VehicleInformation />
-      <MarketComparison />
+      <MarketNivo />
       <Accordion title='Averages Over Time'>
         Such accordant wow Commodo vitae, aliquam ut, posuere eget, dui.
         Praesent massa dui, mattis et, vehicula auctor, iaculis id, diam. Morbi

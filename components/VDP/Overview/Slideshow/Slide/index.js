@@ -8,11 +8,13 @@ const Slide = styled.div`
   background-size: cover;
   background-position: center;
   min-height: 130px;
+  height: 130px;
   margin-top: 6px;
   transition: 0.3s;
 
   &.slick-active {
     min-height: 140px;
+    height: 140px;
     margin-top: 0;
   }
 `
