@@ -29,7 +29,6 @@
     "fontfaceobserver": "^2.0.13",
     "lru-cache": "^4.1.1",
     "next": "^3.2.1",
-    "nivo": "^0.24.0",
     "nprogress": "^0.2.0",
     "polished": "^1.7.0",
     "prop-types": "^15.5.10",

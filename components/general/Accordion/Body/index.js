@@ -2,10 +2,14 @@ import styled from 'styled-components'
 import { colors, grid } from '%/styles'
 import { rgba, rem, em } from 'polished'
 
+const checkPadding = props => props.noPadding
+  ? null
+  : `padding: ${rem(20)} ${rem(grid.gutter / 2)};`
+
 const Body = styled.div`
+  ${checkPadding}
   background-color: ${props => props.blue ? rgba(colors.blue, 0.09) : colors.white};
   color: #1f2938;
-  padding: ${rem(20)} ${rem(grid.gutter / 2)};
 
   p {
     font-size: ${rem(14)};

@@ -16,7 +16,9 @@ const OverviewSlider = ({slides}) =>
   <SliderWrapper>
     <Slider {...SliderSettings}>
       {slides.map((slide, index) =>
-        <Slide key={index} image={slide} />
+        <div key={index} >
+          <Slide image={slide} />
+        </div>
       )}
     </Slider>
   </SliderWrapper>
