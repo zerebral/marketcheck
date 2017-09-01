@@ -1,7 +1,7 @@
 import {
   ResponsiveContainer,
-  LineChart,
-  Line,
+  AreaChart,
+  Area,
   Tooltip,
   Legend,
   XAxis,
@@ -17,13 +17,41 @@ import LineChartWrapper from './LineChartWrapper.js'
 export default () =>
   <LineChartWrapper>
     <ResponsiveContainer width='100%' height={110}>
-      <LineChart data={data}>
+      <AreaChart data={data} margin={{ top: 25 }}>
         <XAxis hide />
         <YAxis hide />
-        <Legend />
+        <Legend iconSize={8} wrapperStyle={{ top: 0 }} />
         <Tooltip />
-        <Line type='monotone' dataKey='pv' stroke={colors.blue} dot={false} legendType='circle' />
-        <Line type='monotone' dataKey='uv' stroke={colors.green} dot={false} legendType='circle' />
-      </LineChart>
+        <defs>
+          <linearGradient id='colorUv' x1='0' y1='0' x2='0' y2='1'>
+            <stop offset='5%' stopColor={colors.green} stopOpacity={0.15} />
+            <stop offset='95%' stopColor={colors.green} stopOpacity={0} />
+          </linearGradient>
+          <linearGradient id='colorPv' x1='0' y1='0' x2='0' y2='1'>
+            <stop offset='5%' stopColor={colors.blue} stopOpacity={0.15} />
+            <stop offset='95%' stopColor={colors.blue} stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <Area
+          type='natural'
+          dataKey='pv'
+          stroke={colors.blue}
+          dot={false}
+          legendType='circle'
+          fillOpacity={1}
+          fill='url(#colorPv)'
+          name='Price'
+        />
+        <Area
+          type='natural'
+          dataKey='uv'
+          stroke={colors.green}
+          dot={false}
+          legendType='circle'
+          fillOpacity={1}
+          fill='url(#colorUv)'
+          name='Miles'
+        />
+      </AreaChart>
     </ResponsiveContainer>
   </LineChartWrapper>

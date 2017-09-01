@@ -12,7 +12,7 @@ const H2 = styled.h2`
 `
 
 export default () =>
-  <Accordion title='Averages Over Time' open >
+  <Accordion title='Averages Over Time' >
     <P>Based on 256 Similar Vehicles Nearby</P>
     <H2>145,565 mi</H2>
     <P>234 miles less than market average</P>
