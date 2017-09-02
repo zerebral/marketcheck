@@ -3,6 +3,7 @@ import Slide from './Slide'
 import slides from './slides'
 import NextArrow from './NextArrow'
 import PreviousArrow from './PreviousArrow'
+import SliderHOC from '@/HOC/Slider'
 
 import { breakpoints } from '%/styles'
 
@@ -16,7 +17,7 @@ const SliderSettings = {
   ]
 }
 
-export default () =>
+const HomeSlider = () =>
   <div>
     <Slider {...SliderSettings}>
       {slides.map((s, index) =>
@@ -31,3 +32,5 @@ export default () =>
       )}
     </Slider>
   </div>
+
+export default SliderHOC(HomeSlider)
