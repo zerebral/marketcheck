@@ -23,7 +23,7 @@ const Summary = styled.h4`
 `
 
 export default () =>
-  <Accordion title='Averages Over Time' blue open >
+  <Accordion title='Averages Over Time' blue >
     <FillBody first >
       <P>Based on 256 Similar Vehicles Nearby</P>
       <H2>145,565 mi</H2>
