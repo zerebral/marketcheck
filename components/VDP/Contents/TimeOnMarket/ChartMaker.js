@@ -15,7 +15,7 @@ const ChartMaker = ({ days, text }) =>
       <Pie
         data={daysArray(days)}
         nameKey='name'
-        valueKey='value'
+        dataKey='value'
         outerRadius={80}
         innerRadius={60}
         fill='#dae0e8'
