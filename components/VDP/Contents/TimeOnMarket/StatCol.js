@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { currency, number } from '%/format'
 import { colors } from '%/styles'
-import Caret from './caret.svg'
+import Arrow from './caret.svg'
 
 const miles = num => `${number(num)} mi`
 
@@ -48,7 +48,7 @@ export default ({
     {!noPill &&
       <StatPill gain={gain}>
         <PillNumber>{money ? currency(956) : miles(1456)}</PillNumber>
-        <Caret />
+        <Arrow />
       </StatPill>
     }
   </StatCol>
