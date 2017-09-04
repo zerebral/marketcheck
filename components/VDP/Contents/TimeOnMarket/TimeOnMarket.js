@@ -8,7 +8,7 @@ const P = styled.p`
 `
 
 export default () =>
-  <Accordion title='Time on Market' open >
+  <Accordion title='Time on Market'>
     <P>Listed for sale for 189 days</P>
 
     <CircleGraphs />

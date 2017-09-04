@@ -19,8 +19,9 @@ const checkBgc = props => {
 const FillBody = styled.div`
   ${checkPadding}
   background-color: ${checkBgc};
-  width: calc(100% + ${grid.gutter});
-  margin-left: ${halfGutter};
+  width: calc(100% + ${rem(grid.gutter)});
+  margin-top: ${props => props.first ? `-${rem(20)}` : '0'};
+  margin-left: -${halfGutter};
   color: ${props => props.customColor ? props.customColor : 'inherit'};
 `
 
