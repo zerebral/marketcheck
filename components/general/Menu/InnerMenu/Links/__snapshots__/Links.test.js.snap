@@ -2,17 +2,17 @@
 
 exports[`Links Component Links Passes the snapshot 1`] = `
 <div
-  className="Wrapper__Wrapper-s1tee10n-0 idkjTy"
+  className="Wrapper-s1tee10n-0 jTeLrU"
 >
   <div
-    className="Item__Item-j9flgi-0 kENaUG"
+    className="Item-j9flgi-0 cjeiJy"
   >
     <a
-      className="Link__Link-s74w1na-0 fxSrrF"
+      className="Link-s74w1na-0 hOtkGw"
       href="/"
     >
       <svg
-        className="Logo__Logo-s1hjwja6-0 jWjkHu"
+        className="Logo-s1hjwja6-0 hfOzNY"
         viewBox="0 0 142.85 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -49,50 +49,50 @@ exports[`Links Component Links Passes the snapshot 1`] = `
     </a>
   </div>
   <div
-    className="Item__Item-j9flgi-0 bioNSF"
+    className="Item-j9flgi-0 cnLbmF"
   >
     <a
-      className="Link__Link-s74w1na-0 fxSrrF"
+      className="Link-s74w1na-0 hOtkGw"
       href="#"
     >
       Home
     </a>
   </div>
   <div
-    className="Item__Item-j9flgi-0 bioNSF"
+    className="Item-j9flgi-0 cnLbmF"
   >
     <a
-      className="Link__Link-s74w1na-0 fxSrrF"
+      className="Link-s74w1na-0 hOtkGw"
       href="#"
     >
       Research
     </a>
   </div>
   <div
-    className="Item__Item-j9flgi-0 bioNSF"
+    className="Item-j9flgi-0 cnLbmF"
   >
     <a
-      className="Link__Link-s74w1na-0 fxSrrF"
+      className="Link-s74w1na-0 hOtkGw"
       href="#"
     >
       About
     </a>
   </div>
   <div
-    className="Item__Item-j9flgi-0 bioNSF"
+    className="Item-j9flgi-0 cnLbmF"
   >
     <a
-      className="Link__Link-s74w1na-0 fxSrrF"
+      className="Link-s74w1na-0 hOtkGw"
       href="#"
     >
       FAQ
     </a>
   </div>
   <div
-    className="Item__Item-j9flgi-0 bioNSF"
+    className="Item-j9flgi-0 cnLbmF"
   >
     <a
-      className="Link__Link-s74w1na-0 fxSrrF"
+      className="Link-s74w1na-0 hOtkGw"
       href="#"
     >
       For Dealers
