@@ -7,29 +7,32 @@ import {
 import { colors } from '%/styles'
 import ArrMaker from './ArrMaker.js'
 
-const Circle = () =>
+const Circle = ({
+  score,
+  color
+}) =>
   <ResponsiveContainer height={320} >
     <PieChart>
       <defs>
-        <linearGradient id='colorGreen' x1='0' y1='0' x2='0' y2='1'>
-          <stop offset='0' stopColor={colors.green} stopOpacity='0.45' />
-          <stop offset='1' stopColor={colors.white} stopOpacity='0.7' />
+        <linearGradient id={`${color}-${score}`} x1='0' y1='0' x2='0' y2='1'>
+          <stop offset='0' stopColor={colors[color]} stopOpacity='0.7' />
+          <stop offset='1' stopColor={colors.white} stopOpacity='0.45' />
         </linearGradient>
       </defs>
       <path
         d='M425,160a144,144,0,1,1,305,.23Z'
         opacity='0.46'
-        fill='url(#colorUv)'
+        fill={`url(#${color}-${score})`}
       />
       <Pie
-        data={ArrMaker(8.6)}
+        data={ArrMaker(score)}
         nameKey='name'
         dataKey='value'
         outerRadius='100%'
         innerRadius='95%'
         fill='#dae0e8'
         activeIndex={0}
-        activeShape={{ fill: colors.green }}
+        activeShape={{ fill: colors[color] }}
         startAngle={180}
         endAngle={0}
       />

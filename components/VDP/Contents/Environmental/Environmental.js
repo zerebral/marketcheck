@@ -1,6 +1,6 @@
 import { Accordion } from '~/general'
 import styled from 'styled-components'
-import Circle from './Circle.js'
+import Charts from './Charts.js'
 
 const Summary = styled.p`
   opacity: 0.56;
@@ -13,5 +13,5 @@ export default () =>
       Based upon EPA guidelines for measuring pollutants
     </Summary>
 
-    <Circle />
+    <Charts />
   </Accordion>
