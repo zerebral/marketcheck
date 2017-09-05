@@ -2,6 +2,7 @@ import { Accordion } from '~/general'
 import styled from 'styled-components'
 import { colors } from '%/styles'
 import { rgba } from 'polished'
+import Stats from './Stats.js'
 
 const Summary = styled.p`
   opacity: 0.54;
@@ -39,4 +40,5 @@ export default () =>
     <PriceHeader>$<Money>64</Money></PriceHeader>
     <FuelExpense>Monthly fue Expense</FuelExpense>
     <Separator />
+    <Stats />
   </Accordion>
