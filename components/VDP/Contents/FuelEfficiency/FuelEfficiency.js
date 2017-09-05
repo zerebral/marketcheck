@@ -35,7 +35,7 @@ const Separator = styled.hr`
 `
 
 export default () =>
-  <Accordion title='Fuel Efficiency' open >
+  <Accordion title='Fuel Efficiency'>
     <Summary>Based upon avg. fuel prices across the US.</Summary>
     <PriceHeader>$<Money>64</Money></PriceHeader>
     <FuelExpense>Monthly fue Expense</FuelExpense>
