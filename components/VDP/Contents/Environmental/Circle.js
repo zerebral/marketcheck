@@ -1,28 +1,34 @@
 import {
   ResponsiveContainer,
   PieChart,
-  Pie
+  Pie,
+  Legend
 } from 'recharts'
 
 import { colors } from '%/styles'
 import ArrMaker from './ArrMaker.js'
+import CustoLegend from './CustoLegend.js'
 
 const Circle = ({
   score,
-  color
+  color,
+  text
 }) =>
   <ResponsiveContainer height={320} >
     <PieChart>
       <defs>
-        <linearGradient id={`${color}-${score}`} x1='0' y1='0' x2='0' y2='1'>
-          <stop offset='0' stopColor={colors[color]} stopOpacity='0.7' />
-          <stop offset='1' stopColor={colors.white} stopOpacity='0.45' />
+        <linearGradient id={`${color}-${score}`}x2='0%' y2='100%'>
+          <stop offset='0' stopColor={colors[color]} stopOpacity='0.6' />
+          <stop offset='0.5' stopColor={colors.white} stopOpacity='0.35' />
         </linearGradient>
       </defs>
-      <path
-        d='M425,160a144,144,0,1,1,305,.23Z'
+      <circle
+        cx='50%'
+        cy='42%'
+        r='125'
         opacity='0.46'
         fill={`url(#${color}-${score})`}
+        transform='translate(0 -1)'
       />
       <Pie
         data={ArrMaker(score)}
@@ -31,10 +37,15 @@ const Circle = ({
         outerRadius='100%'
         innerRadius='95%'
         fill='#dae0e8'
+        stroke='none'
         activeIndex={0}
         activeShape={{ fill: colors[color] }}
         startAngle={180}
         endAngle={0}
+      />
+      <Legend
+        content={<CustoLegend score={score} text={text} color={color} />}
+        wrapperStyle={{ bottom: 193 }}
       />
     </PieChart>
   </ResponsiveContainer>

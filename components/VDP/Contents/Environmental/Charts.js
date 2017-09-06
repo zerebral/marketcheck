@@ -7,6 +7,6 @@ const ChartsWrapper = styled.div`
 
 export default () =>
   <ChartsWrapper>
-    <Circle score={8.6} color='green' />
-    <Circle score={9.2} color='blue' />
+    <Circle score={8.6} color='green' text='Very Good' />
+    <Circle score={9.2} color='blue' text='Excellent!' />
   </ChartsWrapper>
