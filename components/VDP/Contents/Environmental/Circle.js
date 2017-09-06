@@ -26,7 +26,7 @@ const Circle = ({
         cx='50%'
         cy='42%'
         r='125'
-        opacity='0.46'
+        opacity='0.15'
         fill={`url(#${color}-${score})`}
         transform='translate(0 -1)'
       />
@@ -36,7 +36,7 @@ const Circle = ({
         dataKey='value'
         outerRadius='100%'
         innerRadius='95%'
-        fill='#dae0e8'
+        fill={colors.chartgray}
         stroke='none'
         activeIndex={0}
         activeShape={{ fill: colors[color] }}
