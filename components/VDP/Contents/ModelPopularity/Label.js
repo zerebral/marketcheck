@@ -8,17 +8,34 @@ const Label = styled.text`
   fill-opacity: 0.56;
   transform: translateX(-50%);
 `
-export default (props) => {
-  const { width, y, remaining, height, value } = props
-  const total = value + remaining
-  const percentage = Math.round(value / total * 100)
-  return (
-    <Label
-      x={width}
-      y={y + height * 4.5}
-      dx='-4.5%'
-    >
-      {percentage}%
-    </Label>
-  )
+
+class LabelWrapper extends React.Component {
+  state = {
+    elWidth: 0
+  }
+
+  componentDidMount () {
+    const el = this.label
+    const Bbox = el.getBBox()
+    const elWidth = Bbox.width
+    this.setState({elWidth})
+  }
+
+  render () {
+    const { width, remaining, height, value } = this.props
+    const { elWidth } = this.state
+    const total = value + remaining
+    const percentage = Math.round(value / total * 100)
+    return (
+      <Label
+        x={width - elWidth / 2}
+        y={height * 4.5}
+        innerRef={label => { this.label = label }}
+      >
+        {percentage}%
+      </Label>
+    )
+  }
 }
+
+export default LabelWrapper
