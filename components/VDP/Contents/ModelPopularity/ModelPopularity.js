@@ -9,7 +9,7 @@ const Summary = styled.p`
 `
 
 export default () =>
-  <Accordion title='Model Popularity' open >
+  <Accordion title='Model Popularity'>
     <Summary>
       Based upon Days-on-Market ( DOM )
     </Summary>
