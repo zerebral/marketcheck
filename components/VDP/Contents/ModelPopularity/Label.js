@@ -25,7 +25,7 @@ class LabelWrapper extends React.Component {
     const { width, remaining, height, value } = this.props
     const { elWidth } = this.state
     const total = value + remaining
-    const percentage = Math.round(value / total * 100)
+    const percentage = Math.round(remaining / total * 100)
     return (
       <Label
         x={width - elWidth / 2}
