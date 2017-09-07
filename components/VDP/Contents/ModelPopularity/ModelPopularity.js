@@ -4,7 +4,7 @@ import LineCharts from './LineCharts.js'
 
 const Summary = styled.p`
   opacity: 0.56;
-  margin-bottom: 20px !important;
+  margin-bottom: 50px !important;
   line-height: 2 !important;
 `
 

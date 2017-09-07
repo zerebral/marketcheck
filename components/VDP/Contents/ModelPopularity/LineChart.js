@@ -14,7 +14,8 @@ import arrMaker from './arrMaker.js'
 export default ({
   value,
   remaining,
-  color
+  color,
+  more
 }) =>
   <ResponsiveContainer height={30}>
     <BarChart data={arrMaker(value, remaining)} layout='vertical' margin={{ top: 0, bottom: 20, left: 0, right: 0 }} barSize={6} >
@@ -24,12 +25,12 @@ export default ({
         label={<Label remaining={remaining} />}
         stackId='a'
         dataKey='value'
-        fill={colors[color]}
+        fill={more ? colors.chartgray : colors[color]}
       />
       <Bar
         stackId='a'
         dataKey='remaining'
-        fill={colors.chartgray}
+        fill={more ? colors[color] : colors.chartgray}
       />
       <Tooltip />
     </BarChart>
