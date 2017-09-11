@@ -1,7 +1,16 @@
 import { Accordion } from '~/general'
+import styled from 'styled-components'
+
+const Summary = styled.p`
+  opacity: 0.54;
+  margin-bottom: 60px !important;
+`
 
 export default () =>
   <Accordion title='The Competition' open >
+    <Summary>
+      Similar cars currently for sale
+    </Summary>
     Such accordant wow Commodo vitae, aliquam ut, posuere eget, dui.
     Praesent massa dui, mattis et, vehicula auctor, iaculis id, diam. Morbi
     viverra neque sit amet risus. Nunc pellentesque aliquam orci. Proin
