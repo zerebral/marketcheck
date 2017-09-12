@@ -23,11 +23,14 @@ const MoreLink = styled.a`
 
 export default () =>
   <Wrapper>
-    <Title>45 Similar Cars for Sale</Title>
+    <Title>
+      45 Similar Cars for Sale
+    </Title>
     <Comparison />
     <Comparison />
     <Comparison />
     <Comparison />
-
-    <MoreLink>23 Additional Listings ( VIEW )</MoreLink>
+    <MoreLink>
+      23 Additional Listings ( VIEW )
+    </MoreLink>
   </Wrapper>

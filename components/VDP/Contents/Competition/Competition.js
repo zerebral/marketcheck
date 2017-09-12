@@ -9,7 +9,7 @@ const Summary = styled.p`
 `
 
 export default () =>
-  <Accordion title='The Competition' open >
+  <Accordion title='The Competition'>
     <Summary>
       Similar cars currently for sale
     </Summary>
