@@ -1,6 +1,8 @@
 import { Accordion } from '~/general'
 import styled from 'styled-components'
 import LineChart from './LineChart.js'
+import Similar from './Similar.js'
+import data from './seedData.js'
 
 const Summary = styled.p`
   opacity: 0.54;
@@ -25,4 +27,12 @@ export default () =>
       Price Depreciation Over time period
     </ChartLabel>
     <LineChart />
+    <Similar
+      leftText='Similar Models'
+      rightText='Current Value'
+      dotColor='blue'
+      modelName='Toyota Camry'
+      value={14345}
+      data={data}
+    />
   </Accordion>
