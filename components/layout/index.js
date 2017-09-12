@@ -1,5 +1,6 @@
 import Column from './Column'
 import Container from './Container'
+import OutContainer from './OutContainer'
 import FlexCol from './FlexCol'
 import FlexRow from './FlexRow'
 import LayoutPrimary from './LayoutPrimary'
@@ -9,6 +10,7 @@ import Row from './Row'
 export {
   Column,
   Container,
+  OutContainer,
   FlexCol,
   FlexRow,
   LayoutPrimary,
