@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { rem, em } from 'polished'
+import { em } from 'polished'
 import { colors } from '%/styles'
 
 const Wrapper = styled.div`
