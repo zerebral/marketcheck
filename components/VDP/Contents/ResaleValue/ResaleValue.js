@@ -12,7 +12,7 @@ const ChartLabel = styled.span`
   font-size: 12px;
   line-height: 14px;
   opacity: 0.54;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 `
 
 export default () =>
