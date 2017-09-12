@@ -1,9 +1,9 @@
 import { LayoutSecondary } from '~/layout'
-import Filters from './Filters'
+import FilterBar from './FilterBar'
 
 const SRP = props =>
   <LayoutSecondary>
-  	<Filters {...props} />
+  	<FilterBar {...props} />
   </LayoutSecondary>
 
 export default SRP

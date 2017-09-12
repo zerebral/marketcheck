@@ -4,6 +4,9 @@ import { colors } from '%/styles'
 import Icon from './hamburger-icon.svg'
 
 const FilterBy = styled.div`
+	display: inline-block;
+	margin-right: 6em;
+
 	svg{
 		display: inline-block;
 		height: 13px;
