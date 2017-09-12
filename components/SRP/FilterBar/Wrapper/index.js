@@ -4,6 +4,7 @@ import { colors } from '%/styles'
 
 const Wrapper = styled.div`
   background-color: ${colors.white};
+  border-bottom: 2px solid ${color.bordergray};
   padding: ${em(15)} 0;
 `
 
