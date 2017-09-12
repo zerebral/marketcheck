@@ -42,14 +42,15 @@
     "styled-components": "^2.1.2"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "downshift": "^1.5.0",
+    "babel-eslint": "^8.0.0",
+    "downshift": "^1.6.0",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",
     "jest": "^21.0.2",
     "jest-styled-components": "^4.6.0",
     "react-addons-test-utils": "^15.6.0",
     "react-test-renderer": "^15.6.1",
+    "snazzy": "^7.0.0",
     "standard": "^10.0.3",
     "stylelint": "^8.1.1",
     "stylelint-config-standard": "^17.0.0",
