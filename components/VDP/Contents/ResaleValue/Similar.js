@@ -12,8 +12,7 @@ export default ({
   rightText,
   dotColor,
   modelName,
-  value,
-  data
+  value
 }) =>
   <SimilarWrapper>
     <Flex>
@@ -26,12 +25,19 @@ export default ({
         <H6>{rightText}</H6>
       </Column>
     </Flex>
-    {data.map((value, i) =>
-      <SimilarLabel
-        key={i}
-        dotColor={dotColor}
-        modelName={modelName}
-        value={value}
-      />
-    )}
+    <SimilarLabel
+      dotColor='blue'
+      modelName='2017 Toyota Camry'
+      value={14345}
+    />
+    <SimilarLabel
+      dotColor='orange'
+      modelName='2017 Ford Mustang'
+      value={14345}
+    />
+    <SimilarLabel
+      dotColor='green'
+      modelName='2017 Ford Mustang'
+      value={14345}
+    />
   </SimilarWrapper>
