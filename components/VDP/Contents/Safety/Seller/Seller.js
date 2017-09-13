@@ -4,10 +4,17 @@ import {
   External,
   Dot,
   Location,
-  LocText
+  LocText,
+  Stars,
+  Star,
+  Badge,
+  Rating,
+  Reviews,
+  Button
 } from './Components.js'
 
 import {number} from '%/format'
+import { stars as starsArray } from '%/logic'
 
 export default ({
   name,
@@ -27,4 +34,16 @@ export default ({
       <Dot />
       <LocText faded >{number(distance)} miles</LocText>
     </Location>
+
+    <Rating>
+      <Stars>
+        {starsArray(rating).map((e, i) =>
+          <Star key={i} full={e.full} />
+        )}
+      </Stars>
+      <Badge>{rating}</Badge>
+    </Rating>
+
+    <Reviews href={website}>{number(reviews)} Reviews</Reviews>
+    <Button>Request Best Price</Button>
   </Seller>
