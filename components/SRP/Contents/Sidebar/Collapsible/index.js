@@ -64,7 +64,7 @@ class Collapsible extends Component{
 		this.label = this.props.label;
 
 		this.state = {
-			open: false
+			open: true
 		}
 	}
 

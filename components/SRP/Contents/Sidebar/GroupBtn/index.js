@@ -36,6 +36,7 @@ class GroupBtn extends Component{
 	constructor(props){
 		super(props);
 
+		this.label = this.props.label
 		this.buttons = this.props.buttons;
 		this.selectedValue = '';
 
@@ -54,7 +55,7 @@ class GroupBtn extends Component{
 
 	render(){
 		return (
-			<Collapsible label="Type">
+			<Collapsible label={this.label}>
 				<FlexRow>
 					{this.buttons.map(function(item, index){
 						return (
