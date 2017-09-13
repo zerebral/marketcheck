@@ -9,7 +9,7 @@ const Summary = styled.p`
 `
 
 export default () =>
-  <Accordion title='Safety Ratings' open >
+  <Accordion title='Safety Ratings'>
     <Summary>Define Where Data is Coming From</Summary>
     <Rating stars={4} name='Overall' />
     <Rating stars={2} name='Roll Over' />
