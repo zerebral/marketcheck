@@ -37,21 +37,22 @@ const Btn = styled.button`
 `;
 
 const Content = styled.div`
+	background-color: ${colors.white};
 	height: 0;
 	transform: scaleY(0);
 	padding: 0;
 
 	&.close{
 		height: 0;
-		transition: transform .2s ease-out, padding .5s ease-out;
+		transition: transform .2s ease-out, padding .2s ease-out;
 		transform: scaleY(0);
 	}
 
 	&.open{
 		height: 100%;
-		padding: 1em 0;
+		padding-top: 1em;
 		transform-origin: top;
-		transition: transform .2s ease-out, padding .5s ease-out;
+		transition: transform .2s ease-out, padding .2s ease-out;
 		transform: scaleY(1);
 	}
 `;
