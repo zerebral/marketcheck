@@ -17,7 +17,7 @@ const ChartLabel = styled.span`
 `
 
 export default () =>
-  <Accordion title='Model Resale Value' open >
+  <Accordion title='Model Resale Value'>
     <Summary>
       Based upon Days-on-Market ( DOM )
     </Summary>
