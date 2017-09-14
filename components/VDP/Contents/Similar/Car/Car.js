@@ -1,60 +1,18 @@
-import {
-  Name,
-  Seller,
-  External,
-  Dot,
-  Location,
-  LocText,
-  Stars,
-  Star,
-  Badge,
-  Rating,
-  Reviews,
-  Button,
-  Flex,
-  More,
-  Caret
-} from './Components.js'
-
-import {number} from '%/format'
-import { stars as starsArray } from '%/logic'
+import Seller from './Seller'
 
 export default ({
-  name,
-  city,
-  state,
+  dealer,
   distance,
   rating,
   reviews,
   website
 }) =>
-  <Seller>
-    <Name href={website} target='_blank'>
-      {name}
-      <External />
-    </Name>
-    <Location>
-      <LocText>{city}, {state}</LocText>
-      <Dot />
-      <LocText faded >{number(distance)} miles</LocText>
-    </Location>
-
-    <Flex>
-      <Rating>
-        <Stars>
-          {starsArray(rating).map((e, i) =>
-            <Star key={i} full={e.full} />
-          )}
-        </Stars>
-        <Badge>{rating}</Badge>
-      </Rating>
-      <Reviews href={website}>{number(reviews)} Reviews</Reviews>
-    </Flex>
-    <Flex>
-      <Button>Request Best Price</Button>
-      <More>
-        View More
-        <Caret />
-      </More>
-    </Flex>
-  </Seller>
+  <Seller
+    name={dealer.name}
+    city={dealer.city}
+    state={dealer.state}
+    distance={24}
+    rating={4.2}
+    reviews={24}
+    website={website}
+  />

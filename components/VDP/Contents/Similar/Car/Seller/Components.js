@@ -122,5 +122,5 @@ export const More = styled.a`
 
 export const Caret = () =>
   <svg width='6.71' height='4.06' viewBox='0 0 6.71 4.06'>
-    <polyline points='6.35 0.35 3.35 3.35 0.35 0.35' fill='none' stroke='currentColor' stroke-miterlimit='10' />
+    <polyline points='6.35 0.35 3.35 3.35 0.35 0.35' fill='none' stroke='currentColor' strokeMiterlimit='10' />
   </svg>

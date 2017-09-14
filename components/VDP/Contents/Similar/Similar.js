@@ -17,9 +17,7 @@ export default () =>
     {cars.map(car =>
       <Car
         key={car.id}
-        name={car.dealer.name}
-        city={car.dealer.city}
-        state={car.dealer.state}
+        dealer={car.dealer}
         distance={24}
         rating={4.2}
         reviews={24}
