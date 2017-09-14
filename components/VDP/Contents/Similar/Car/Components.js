@@ -87,6 +87,7 @@ export const Reviews = styled.h4`
   line-height: 16.8px;
   color: ${colors.softblue};
   margin-bottom: 15px;
+  margin-left: 8px;
 `
 
 export const Button = styled.a`
@@ -99,3 +100,27 @@ export const Button = styled.a`
   display: inline-block;
   border-radius: 4px;
 `
+
+export const Flex = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const More = styled.a`
+  font-size: 14px;
+  line-height: 16.8px;
+  color: ${colors.softblue};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+
+  svg {
+    margin-left: 5px;
+  }
+`
+
+export const Caret = () =>
+  <svg width='6.71' height='4.06' viewBox='0 0 6.71 4.06'>
+    <polyline points='6.35 0.35 3.35 3.35 0.35 0.35' fill='none' stroke='currentColor' stroke-miterlimit='10' />
+  </svg>

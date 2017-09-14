@@ -10,7 +10,10 @@ import {
   Badge,
   Rating,
   Reviews,
-  Button
+  Button,
+  Flex,
+  More,
+  Caret
 } from './Components.js'
 
 import {number} from '%/format'
@@ -36,15 +39,22 @@ export default ({
       <LocText faded >{number(distance)} miles</LocText>
     </Location>
 
-    <Rating>
-      <Stars>
-        {starsArray(rating).map((e, i) =>
-          <Star key={i} full={e.full} />
-        )}
-      </Stars>
-      <Badge>{rating}</Badge>
-    </Rating>
-
-    <Reviews href={website}>{number(reviews)} Reviews</Reviews>
-    <Button>Request Best Price</Button>
+    <Flex>
+      <Rating>
+        <Stars>
+          {starsArray(rating).map((e, i) =>
+            <Star key={i} full={e.full} />
+          )}
+        </Stars>
+        <Badge>{rating}</Badge>
+      </Rating>
+      <Reviews href={website}>{number(reviews)} Reviews</Reviews>
+    </Flex>
+    <Flex>
+      <Button>Request Best Price</Button>
+      <More>
+        View More
+        <Caret />
+      </More>
+    </Flex>
   </Seller>
