@@ -2,7 +2,6 @@ import { Accordion } from '~/general'
 import styled from 'styled-components'
 import LineChart from './LineChart.js'
 import Similar from './Similar.js'
-import data from './seedData.js'
 
 const Summary = styled.p`
   opacity: 0.54;
@@ -18,7 +17,7 @@ const ChartLabel = styled.span`
 `
 
 export default () =>
-  <Accordion title='Model Resale Value' open >
+  <Accordion title='Model Resale Value'>
     <Summary>
       Based upon Days-on-Market ( DOM )
     </Summary>
@@ -27,12 +26,8 @@ export default () =>
       Price Depreciation Over time period
     </ChartLabel>
     <LineChart />
-    <Similar
-      leftText='Similar Models'
-      rightText='Current Value'
-      dotColor='blue'
-      modelName='Toyota Camry'
-      value={14345}
-      data={data}
-    />
+    <Similar leftText='Similar Models' rightText='Current Value' />
+    <Similar rightText='1 Year From Now' />
+    <Similar rightText='2 Years From Now' />
+    <Similar rightText='5 Years From Now' />
   </Accordion>

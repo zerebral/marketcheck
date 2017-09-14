@@ -9,7 +9,7 @@ export const H6 = styled.h6`
 `
 
 export const SimilarWrapper = styled.div`
-  position: relative;
+  margin-bottom: 25px;
 `
 
 export const Flex = styled.div`
