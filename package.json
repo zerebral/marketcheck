@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "lint:css": "stylelint './components/**/*.js'",
-    "lint:js": "standard",
+    "lint:js": "standard --verbose | snazzy",
     "lint": "npm run lint:css; npm run lint:js",
     "dev": "node server",
     "build": "next build",
