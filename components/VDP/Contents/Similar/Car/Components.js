@@ -58,9 +58,32 @@ export const Flex = styled.div`
 `
 
 export const Title = styled(Flex)`
+  margin-bottom: 9px;
+
   svg {
     min-width: 13px;
     height: 15px;
     margin-left: 7px;
   }
+`
+
+export const Details = styled.h6`
+  font-size: 14px;
+  line-height: 24px;
+  color: #515760;
+  margin-bottom: 12px;
+`
+
+export const Price = styled.h4`
+  font-size: 26px;
+  line-height: 31.2px;
+  margin-right: 5px;
+`
+
+export const Deal = styled(NewBadge)`
+  font-size: 12px;
+  line-height: 14.4px;
+  padding: 4px 7px;
+  margin-bottom: 0;
+  margin-right: 25px;
 `

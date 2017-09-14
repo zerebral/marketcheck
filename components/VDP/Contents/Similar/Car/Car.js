@@ -6,7 +6,8 @@ import {
   NewBadge,
   Features,
   Name,
-  Title
+  Title,
+  Details
 } from './Components.js'
 
 import {
@@ -35,9 +36,11 @@ export default ({
       <NewBadge>New</NewBadge>
 
       <Title>
-        <Name>{ellipsis(name, { ellipsis: '...' })}</Name>
+        <Name>{ellipsis(name)}</Name>
         <Certified />
       </Title>
+
+      <Details>6-Speed Automatic, 6487 mi, 20/24 MPG*</Details>
 
       <Features>
         <Bluetooth />
