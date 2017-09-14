@@ -1,11 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 66">
+<svg xmlns="http://www.w3.org/2000/svg" width="66" height="66" viewBox="0 0 66 66">
   <title>next</title>
-  <g id="Layer_2" data-name="Layer 2">
-    <g id="Layer_1-2" data-name="Layer 1">
-      <g>
-        <rect width="66" height="66" transform="translate(66 66) rotate(-180)" fill="#333"/>
-        <path d="M43.4,32.53v.94L28.6,49.06V47.93L42.72,33,28.6,18.07V16.94Z" fill="#fff"/>
-      </g>
-    </g>
+  <g>
+    <rect width="66" height="66" transform="translate(66 66) rotate(-180)" fill="#333"/>
+    <path d="M43.4,32.53v.94L28.6,49.06V47.93L42.72,33,28.6,18.07V16.94Z" fill="#fff"/>
   </g>
 </svg>

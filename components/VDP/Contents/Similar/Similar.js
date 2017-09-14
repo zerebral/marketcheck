@@ -22,6 +22,7 @@ export default () =>
         rating={4.2}
         reviews={24}
         website={car.vdp_url}
+        name={car.heading}
       />
     )}
   </Accordion>
