@@ -3,13 +3,27 @@ import Slider from 'react-slick'
 import Slide from './Slide'
 import SliderHOC from '@/HOC/Slider'
 
+import { breakpoints } from '%/styles'
+
+import { NextArrow, PreviousArrow } from './Components.js'
+
 const SliderSettings = {
-  dots: false,
-  arrows: false,
-  centerMode: true,
-  centerPadding: '15px',
+  dots: true,
+  arrows: true,
   autoplay: false,
-  autoplaySpeed: 6000
+  nextArrow: <NextArrow />,
+  prevArrow: <PreviousArrow />,
+  responsive: [
+    {
+      breakpoint: breakpoints.laptop,
+      settings: {
+        arrows: false,
+        dots: false,
+        centerMode: true,
+        centerPadding: '15px'
+      }
+    }
+  ]
 }
 
 const OverviewSlider = ({slides}) =>
