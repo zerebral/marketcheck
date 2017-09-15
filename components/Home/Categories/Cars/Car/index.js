@@ -3,14 +3,16 @@ import { colors } from '%/styles'
 import { mediaMin } from '%/styles/mixins'
 import { rem } from 'polished'
 
+const ResponsiveCar = props => mediaMin.laptop`
+  padding: ${rem(50)} 0;
+`
+
 const Car = styled.a`
   text-align: center;
   display: block;
   color: ${colors.black};
   padding: ${rem(20)} 0;
-  ${mediaMin.laptop`
-    padding: ${rem(50)} 0;
-  `}
+  ${ResponsiveCar}
 `
 
 const CarPic = styled.img`
