@@ -38,6 +38,7 @@
     "react-motion": "^0.5.1",
     "react-scroll": "^1.5.4",
     "react-slick": "^0.15.4",
+    "react-stars": "^2.2.3",
     "recharts": "^1.0.0-alpha.4",
     "styled-components": "^2.1.2"
   },

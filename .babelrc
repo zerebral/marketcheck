@@ -19,7 +19,12 @@
           "rootPathSuffix": "lib"
           }
         ]],
-        "inline-react-svg"
+        "inline-react-svg",
+        [
+          "inline-import",{
+            "extensions": [".css"]
+          }
+        ]
       ]
     },
     "production": {
@@ -41,7 +46,12 @@
           "rootPathSuffix": "lib"
           }
         ]],
-        "inline-react-svg"
+        "inline-react-svg",
+        [
+          "inline-import",{
+            "extensions": [".css"]
+          }
+        ]
       ]
     },
     "test": {
@@ -66,7 +76,12 @@
           "rootPathSuffix": "lib"
           }
         ]],
-        "inline-react-svg"
+        "inline-react-svg",
+        [
+          "inline-import",{
+            "extensions": [".css"]
+          }
+        ]
       ]
     }
   }
