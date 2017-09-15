@@ -1,36 +1,33 @@
 import React, { Component } from 'react'
 import { FlexRow, FlexCol } from '~/layout'
 import styled from 'styled-components'
-import { rem, em } from 'polished'
+import { em } from 'polished'
 import { colors } from '%/styles'
 import Arrow from './arrow-down.svg'
 
-
 const Container = styled.div`
   padding: 1em 1em 1em 0;
-`;
+`
 
 const FlexColLeft = styled(FlexCol)`
   text-align: left;
-`;
+`
 
 const FlexColRight = styled(FlexCol)`
   text-align: right;
-`;
-
+`
 
 const Label = styled.span`
   color: ${colors.black};
   font-size: ${em(13)};
   font-weight: 300;
   vertical-align: middle;
-`;
+`
 
 const ArrowIcon = styled(Arrow)`
   height: 10px;
   width: 10px;
-`;
-
+`
 
 const ResetBtn = styled.a.attrs({href: '#'})`
   color: ${colors.softblue};
@@ -40,12 +37,12 @@ const ResetBtn = styled.a.attrs({href: '#'})`
   &:hover {
     text-decoration: underline;
   }
-`;
+`
 
 const Btn = styled.button`
   cursor: pointer;
   padding: 0 0.5em;
-`;
+`
 
 const Content = styled.div`
   background-color: ${colors.white};
@@ -66,17 +63,16 @@ const Content = styled.div`
     transition: transform 0.2s ease-out, padding 0.2s ease-out, margin 0.2s ease-out;
     transform: scaleY(1);
   }
-`;
+`
 
+class Collapsible extends Component {
+  constructor (props) {
+    super(props)
 
-class Collapsible extends Component{
-  constructor(props){
-    super(props);
+    this.parentReset = this.props.parentReset
 
-    this.parentReset = this.props.parentReset;
-
-    this.label = this.props.label;
-    this.resetBtn = this.props.resetBtn;
+    this.label = this.props.label
+    this.resetBtn = this.props.resetBtn
 
     this.state = {
       open: true,
@@ -84,27 +80,27 @@ class Collapsible extends Component{
     }
   }
 
-  handleResetClick() {
-    this.parentReset(true);
+  handleResetClick () {
+    this.parentReset(true)
   }
 
-  handleOpenClick() {
-    if( this.state.open ){
+  handleOpenClick () {
+    if (this.state.open) {
       this.setState({
         open: false
-      }, function() {
-        console.log(this.state.open);
-      });
-    }else{
+      }, function () {
+        console.log(this.state.open)
+      })
+    } else {
       this.setState({
         open: true
-      }, function() {
-        console.log(this.state.open);
-      });
+      }, function () {
+        console.log(this.state.open)
+      })
     }
   }
 
-  render(){
+  render () {
     return (
       <Container>
         <FlexRow>
@@ -113,7 +109,7 @@ class Collapsible extends Component{
           </FlexColLeft>
           <FlexColRight>
             {
-              this.resetBtn ? ( <ResetBtn onClick={this.handleResetClick.bind(this)} resetValue={this.state.reset}>Clear All</ResetBtn> ) : ''
+              this.resetBtn ? (<ResetBtn onClick={this.handleResetClick.bind(this)} resetValue={this.state.reset}>Clear All</ResetBtn>) : ''
             }
             <Btn onClick={this.handleOpenClick.bind(this)}>
               <ArrowIcon />

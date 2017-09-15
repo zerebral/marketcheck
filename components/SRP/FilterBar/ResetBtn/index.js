@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { rem, em } from 'polished'
+import { em } from 'polished'
 import { colors } from '%/styles'
 
 const ResetBtn = styled.div`
@@ -16,13 +16,12 @@ const Text = styled.a`
   &:hover {
     text-decoration: underline;
   }
-`;
-
+`
 
 export default ({
   name,
   link
-}) => 
+}) =>
   <ResetBtn>
-    <Text href={ link }>{ name }</Text>
+    <Text href={link}>{ name }</Text>
   </ResetBtn>

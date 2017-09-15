@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { rem, em } from 'polished'
+import { em } from 'polished'
 import { colors } from '%/styles'
 import Icon from './hamburger-icon.svg'
 
@@ -22,12 +22,11 @@ const Text = styled.span`
   font-size: ${em(13)};
   font-weight: 300;
   vertical-align: middle;
-`;
-
+`
 
 export default ({
   name
-}) => 
+}) =>
   <FilterBy>
     <Icon />
     <Text>{ name }</Text>

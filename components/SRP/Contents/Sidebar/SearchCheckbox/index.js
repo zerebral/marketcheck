@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { FlexRow, FlexCol } from '~/layout'
-import { rem, em } from 'polished'
 import { colors } from '%/styles'
 
 import Icon from './search-icon.svg'
@@ -10,23 +9,23 @@ import Collapsible from '../Collapsible'
 
 const StyledFlexRow = styled(FlexRow)`
   padding-bottom: 0.5em;
-`;
+`
 
 const StyledFlexCol = styled(FlexCol)`
   max-width: 10%;
-`;
+`
 
 const SearchBox = styled.div`
   border-bottom: 1px solid ${colors.bordergray};
   margin-bottom: 1em;
-`;
+`
 
 const SearchIcon = styled(Icon)`
   height: 15px;
   margin-right: 0.5em;
   vertical-align: middle;
   width: 15px;
-`;
+`
 
 const SearchInput = styled.input.attrs({
   type: 'search',
@@ -38,7 +37,7 @@ const SearchInput = styled.input.attrs({
     color: ${colors.bordergray};
     font-weight: 300;
   }
-`;
+`
 
 const CheckBox = styled.div`
   border: 2px solid ${colors.bordergray};
@@ -49,12 +48,12 @@ const CheckBox = styled.div`
   &.checked {
     background-color: ${colors.darkengray};
   }
-`;
+`
 
 const Label = styled.label`
   cursor: pointer;
   font-weight: 300;
-`;
+`
 
 const MoreBtn = styled.a.attrs({
   href: '#'
@@ -66,16 +65,15 @@ const MoreBtn = styled.a.attrs({
   &:hover {
     text-decoration: underline;
   }
-`;
+`
 
-
-class SearchCheckbox extends Component{
-  constructor(props){
-    super(props);
+class SearchCheckbox extends Component {
+  constructor (props) {
+    super(props)
 
     this.label = this.props.label
-    this.list = this.props.list;
-    this.CheckValue = '';
+    this.list = this.props.list
+    this.CheckValue = ''
 
     this.state = {
       checked: null,
@@ -83,24 +81,24 @@ class SearchCheckbox extends Component{
     }
   }
 
-  handleResetClick(value){
+  handleResetClick (value) {
     this.setState({
       checked: null,
       reset: value
-    }).bind(this);
+    }).bind(this)
 
-    this.CheckValue = '';
+    this.CheckValue = ''
   }
 
-  handleCheckClick(index, value){
-    this.CheckValue = value;
+  handleCheckClick (index, value) {
+    this.CheckValue = value
 
     this.setState({
       checked: index
-    });
+    })
   }
 
-  render(){
+  render () {
     return (
       <Collapsible {...this.props} parentReset={this.handleResetClick.bind(this)}>
         <SearchBox>
@@ -113,21 +111,21 @@ class SearchCheckbox extends Component{
             </FlexCol>
           </StyledFlexRow>
         </SearchBox>
-        {this.list.map(function(item, index){
-          if(index < 5){
+        {this.list.map(function (item, index) {
+          if (index < 5) {
             return (
               <StyledFlexRow key={index}>
                 <StyledFlexCol>
-                  <CheckBox className={ this.state.checked  == index ? 'checked' : '' } onClick={() => this.handleSelectClick.bind(this)(index, item.value)} />
+                  <CheckBox className={this.state.checked == index ? 'checked' : ''} onClick={() => this.handleSelectClick.bind(this)(index, item.value)} />
                 </StyledFlexCol>
                 <FlexCol>
                   <Label onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>{item.label}</Label>
                 </FlexCol>
               </StyledFlexRow>
             )
-          }else{
+          } else {
             return null
-          }           
+          }
         }.bind(this))}
         <MoreBtn>More</MoreBtn>
       </Collapsible>
@@ -135,4 +133,4 @@ class SearchCheckbox extends Component{
   }
 }
 
-export default SearchCheckbox;
+export default SearchCheckbox

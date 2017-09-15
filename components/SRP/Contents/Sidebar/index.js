@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container, FlexRow, FlexCol } from '~/layout'
+import { FlexRow, FlexCol } from '~/layout'
 import Wrapper from './Wrapper'
 import GroupBtn from './GroupBtn'
 import InputRange from './InputRange'
@@ -24,7 +24,7 @@ const buttons = [
     label: 'Certified',
     value: 'certified'
   }
-];
+]
 
 const list = [
   {
@@ -43,7 +43,7 @@ const list = [
     label: 'Bad Deal',
     value: 'bad-deal'
   }
-];
+]
 
 const searchablelist = [
   {
@@ -78,7 +78,7 @@ const searchablelist = [
     label: 'Bad Deal',
     value: 'bad-deal'
   }
-];
+]
 
 const colorButtons = [
   {
@@ -126,36 +126,34 @@ const colorButtons = [
     colorFinal: '#464546',
     value: 'gray'
   }
-];
+]
 
 const SidebarFlexCol = styled(FlexCol)`
   max-width: 250px;
-`;
+`
 
-export default ({
-}) =>
+export default () =>
   <FlexRow>
     <SidebarFlexCol>
       <Wrapper>
-        <GroupBtn label="Type" buttons={buttons} />
-        <InputRange label="Distance" min={0} max={300} step={10} value={40} />
-        <DoubleRange label="Price" valuePrefix="$" min={400} max={50000} step={10} value={[400, 50000]} />
-        <DoubleRange label="Miles Range" min={400} max={50000} step={10} value={[400, 50000]} />
-        <SimpleCheckbox label="Deals" list={list} />
-        <SearchCheckbox label="Models" list={searchablelist} resetBtn/>
-        <InputYear label="Year" />
-        <GroupIconBtn label="Seller Type" labelOne="Dealer" labelTwo="FSBO" />
-        <CheckColors label="Color" colorButtons={colorButtons} />
-        <SimpleCheckbox label="Transmission" list={list} />
-        <SimpleCheckbox label="Body" list={list} />
-        <SimpleCheckbox label="Trim" list={list} resetBtn/>
-        <SimpleCheckbox label="Drivetrain" list={list} />
-        <SimpleCheckbox label="Cylinders" list={list} />
-        <SimpleCheckbox label="Fuel" list={list} />
-        <RatingStars label="Dealer Ratings" />
-        <SimpleCheckbox label="Listed" list={list} />
+        <GroupBtn label='Type' buttons={buttons} />
+        <InputRange label='Distance' min={0} max={300} step={10} value={40} />
+        <DoubleRange label='Price' valuePrefix='$' min={400} max={50000} step={10} value={[400, 50000]} />
+        <DoubleRange label='Miles Range' min={400} max={50000} step={10} value={[400, 50000]} />
+        <SimpleCheckbox label='Deals' list={list} />
+        <SearchCheckbox label='Models' list={searchablelist} resetBtn />
+        <InputYear label='Year' />
+        <GroupIconBtn label='Seller Type' labelOne='Dealer' labelTwo='FSBO' />
+        <CheckColors label='Color' colorButtons={colorButtons} />
+        <SimpleCheckbox label='Transmission' list={list} />
+        <SimpleCheckbox label='Body' list={list} />
+        <SimpleCheckbox label='Trim' list={list} resetBtn />
+        <SimpleCheckbox label='Drivetrain' list={list} />
+        <SimpleCheckbox label='Cylinders' list={list} />
+        <SimpleCheckbox label='Fuel' list={list} />
+        <RatingStars label='Dealer Ratings' />
+        <SimpleCheckbox label='Listed' list={list} />
       </Wrapper>
     </SidebarFlexCol>
-    <FlexCol>
-    </FlexCol>
+    <FlexCol />
   </FlexRow>
