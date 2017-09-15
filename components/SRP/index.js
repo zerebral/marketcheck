@@ -4,8 +4,8 @@ import Contents from './Contents'
 
 const SRP = props =>
   <LayoutSecondary>
-  	<FilterBar {...props} />
-  	<Contents {...props} />
+    <FilterBar {...props} />
+    <Contents {...props} />
   </LayoutSecondary>
 
 export default SRP

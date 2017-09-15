@@ -5,8 +5,8 @@ import Wrapper from './Wrapper'
 
 export default ({
 }) =>
-	<Wrapper>
-		<OutContainer>
-			<Sidebar />
-		</OutContainer>
-	</Wrapper>
+  <Wrapper>
+    <OutContainer>
+      <Sidebar />
+    </OutContainer>
+  </Wrapper>

@@ -13,73 +13,73 @@ import Collapsible from '../Collapsible'
 const Range = Slider.Range;
 
 const Control = styled(Range)`
-	${SliderStyle};
+  ${SliderStyle};
 
-	.rc-slider-step{
-		background-color: ${colors.softblue};
-		width: ${ props => (props.value / props.max)*100 }%;
-	}
+  .rc-slider-step {
+    background-color: ${colors.softblue};
+    width: ${ props => (props.value / props.max)*100 }%;
+  }
 `;
 
 const Miles = styled.span`
-	display: block;
-	padding-top: 1em;
-	text-align: right;
+  display: block;
+  padding-top: 1em;
+  text-align: right;
 `;
 
 
 
 class InputRange extends Component{
-	constructor(props){
-		super(props);
+  constructor(props){
+    super(props);
 
-		this.label = this.props.label;
-		this.min = this.props.min;
-		this.max = this.props.max;
-		this.value = this.props.value;
+    this.label = this.props.label;
+    this.min = this.props.min;
+    this.max = this.props.max;
+    this.value = this.props.value;
 
-		this.state = {
-			bound: this.value,
-			value: [this.value]
-		};
-	}
+    this.state = {
+      bound: this.value,
+      value: [this.value]
+    };
+  }
 
-	onBoundChange = (e) => {
-		this.setState({ bound: +e.target.value });
-	}
+  onBoundChange = (e) => {
+    this.setState({ bound: +e.target.value });
+  }
 
-	onSliderChange = (value) => {
-		console.log(value);
+  onSliderChange = (value) => {
+    console.log(value);
 
-		this.setState({
-			value,
-		});
-	}
+    this.setState({
+      value,
+    });
+  }
 
-	handleApply = () => {
-		const { bound } = this.state;
+  handleApply = () => {
+    const { bound } = this.state;
 
-		this.setState({ value: [bound] });
-	}
+    this.setState({ value: [bound] });
+  }
 
-	render(){
-		return (
-			<Collapsible label={this.label}>
-				<Control
-				range
-				min={this.min}
-				max={this.max}
-				value={this.state.value}
-				onChange={this.onSliderChange.bind(this)}
-				trackStyle={[{ backgroundColor: colors.softblue }]}
-				handleStyle={[{ backgroundColor: colors.softblue, border: 'none' }]}
-				railStyle={{ backgroundColor: colors.bordergray }} />
-				<Miles>
-					{this.state.value} miles
-				</Miles>
-			</Collapsible>
-		)
-	}
+  render(){
+    return (
+      <Collapsible label={this.label}>
+        <Control
+        range
+        min={this.min}
+        max={this.max}
+        value={this.state.value}
+        onChange={this.onSliderChange.bind(this)}
+        trackStyle={[{ backgroundColor: colors.softblue }]}
+        handleStyle={[{ backgroundColor: colors.softblue, border: 'none' }]}
+        railStyle={{ backgroundColor: colors.bordergray }} />
+        <Miles>
+          {this.state.value} miles
+        </Miles>
+      </Collapsible>
+    )
+  }
 }
 
 export default InputRange;
