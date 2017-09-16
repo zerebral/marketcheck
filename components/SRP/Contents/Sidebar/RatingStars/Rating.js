@@ -1,12 +1,37 @@
-import { Rating, Stars, Star, Name } from './Components.js'
+import React, { Component } from 'react'
+import { Rating, Stars, Star } from './Components.js'
 import { stars as starsArray } from '%/logic'
 
-export default ({ stars, name, total = 5 }) =>
-  <Rating>
-    <Stars>
-      {starsArray(stars, total).map((e, i) =>
-        <Star key={i} full={e.full} />
-      )}
-    </Stars>
-    <Name>{name}</Name>
-  </Rating>
+class Wrapper extends Component {
+  constructor (props) {
+    super(props)
+
+    this.stars = this.props.stars
+    this.total = this.props.total
+    this.name = this.props.name
+
+    this.state = {
+      starsSelected: this.stars
+    }
+  }
+
+  starClicked (key) {
+    this.setState({
+      starsSelected: (key + 1)
+    })
+  }
+
+  render () {
+    return (
+      <Rating style={{marginBottom: 5}}>
+        <Stars>
+          {starsArray(this.state.starsSelected, this.total).map((e, i) =>
+            <Star key={i} full={e.full} onClick={() => this.starClicked.bind(this)(i)} />
+          )}
+        </Stars>
+      </Rating>
+    )
+  }
+}
+
+export default Wrapper

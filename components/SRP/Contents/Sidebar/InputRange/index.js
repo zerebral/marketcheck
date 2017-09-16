@@ -25,14 +25,14 @@ const Miles = styled.span`
   text-align: right;
 `
 
-class InputRange extends Component{
-  constructor(props){
-    super(props);
+class InputRange extends Component {
+  constructor (props) {
+    super(props)
 
-    this.label = this.props.label;
-    this.min = this.props.min;
-    this.max = this.props.max;
-    this.value = this.props.value;
+    this.label = this.props.label
+    this.min = this.props.min
+    this.max = this.props.max
+    this.value = this.props.value
 
     this.state = {
       bound: this.value,
