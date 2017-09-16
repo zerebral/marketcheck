@@ -3,18 +3,19 @@ import styled from 'styled-components'
 import { FlexRow, FlexCol } from '~/layout'
 import { rem, em } from 'polished'
 import { colors } from '%/styles'
-import Collapsible from '../Collapsible'
-import StarsControl from './StarsControl'
+
+import Star from './star.svg'
+import Star0 from './star-o.svg'
 
 
-class RatingStars extends Component{
+class StarsControls extends Component{
   constructor(props){
     super(props);
 
     this.label = this.props.label
 
     this.state = {
-      rating: 1
+      rating: 0
     };
 
   }
@@ -25,11 +26,9 @@ class RatingStars extends Component{
 
   render(){
     return (
-      <Collapsible label={this.label}>
-        <StarsControl />
-      </Collapsible>
+      
     )
   }
 }
 
-export default RatingStars;
+export default StarsControls;

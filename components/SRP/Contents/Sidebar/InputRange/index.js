@@ -28,7 +28,6 @@ const Miles = styled.span`
 `;
 
 
-
 class InputRange extends Component{
   constructor(props){
     super(props);
