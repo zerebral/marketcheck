@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import { FlexRow, FlexCol } from '~/layout'
-import { rem, em } from 'polished'
 import { colors } from '%/styles'
 
 import Collapsible from '../Collapsible'
-
 
 const YearBox = styled.input.attrs({ type: 'number', placeholder: 'Year number' })`
   border-bottom: 1px solid ${colors.bordergray};
@@ -18,18 +15,15 @@ const YearBox = styled.input.attrs({ type: 'number', placeholder: 'Year number' 
     color: ${colors.bordergray};
     font-weight: 300;
   }
-`;
+`
 
-
-class InputYear extends Component{
-  constructor(props){
-    super(props);
-
+class InputYear extends Component {
+  constructor (props) {
+    super(props)
     this.label = this.props.label
-
   }
 
-  render(){
+  render () {
     return (
       <Collapsible label={this.label}>
         <YearBox />
@@ -38,4 +32,4 @@ class InputYear extends Component{
   }
 }
 
-export default InputYear;
+export default InputYear

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors, grid } from '%/styles'
 import { rgba, rem, em } from 'polished'
+import { mediaMin } from '%/styles/mixins'
 
 const checkPadding = props => props.noPadding
   ? null
@@ -10,6 +11,9 @@ const Body = styled.div`
   ${checkPadding}
   background-color: ${props => props.blue ? rgba(colors.blue, 0.09) : colors.white};
   color: #1f2938;
+  ${mediaMin.laptop`
+    background-color: #fff;
+  `}
 
   p {
     font-size: ${rem(14)};

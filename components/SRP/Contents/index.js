@@ -1,10 +1,8 @@
-import styled from 'styled-components'
-import { OutContainer, FlexRow, FlexCol } from '~/layout'
+import { OutContainer } from '~/layout'
 import Sidebar from './Sidebar'
 import Wrapper from './Wrapper'
 
-export default ({
-}) =>
+export default () =>
   <Wrapper>
     <OutContainer>
       <Sidebar />

@@ -16,6 +16,7 @@ const Label = styled.label.attrs({
 
     &:nth-child(1) {
       display: block;
+
       input[type='checkbox']:checked + & {
         display: none;
       }
@@ -23,6 +24,7 @@ const Label = styled.label.attrs({
 
     &:nth-child(2) {
       display: none;
+
       input[type='checkbox']:checked + & {
         display: block;
       }

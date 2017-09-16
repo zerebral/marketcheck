@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { FlexRow, FlexCol } from '~/layout'
-import { rem, em } from 'polished'
 import { colors } from '%/styles'
 
 import Collapsible from '../Collapsible'
 
 const StyledFlexRow = styled(FlexRow)`
   padding-bottom: 0.5em;
-`;
+`
 
 const StyledFlexCol = styled(FlexCol)`
   max-width: 10%;
-`;
+`
 
 const CheckBox = styled.div`
   border: 2px solid ${colors.bordergray};
@@ -23,12 +22,12 @@ const CheckBox = styled.div`
   &.checked {
     background-color: ${colors.darkengray};
   }
-`;
+`
 
 const Label = styled.label`
   cursor: pointer;
   font-weight: 300;
-`;
+`
 
 const MoreBtn = styled.a.attrs({
   href: '#'
@@ -40,16 +39,15 @@ const MoreBtn = styled.a.attrs({
   &:hover {
     text-decoration: underline;
   }
-`;
+`
 
-
-class SimpleCheckbox extends Component{
-  constructor(props){
-    super(props);
+class SimpleCheckbox extends Component {
+  constructor (props) {
+    super(props)
 
     this.label = this.props.label
-    this.list = this.props.list;
-    this.CheckValue = '';
+    this.list = this.props.list
+    this.CheckValue = ''
 
     this.state = {
       checked: null,
@@ -57,31 +55,31 @@ class SimpleCheckbox extends Component{
     }
   }
 
-  handleResetClick(value){
+  handleResetClick (value) {
     this.setState({
       checked: null,
       reset: value
-    }).bind(this);
+    }).bind(this)
 
-    this.CheckValue = '';
+    this.CheckValue = ''
   }
 
-  handleCheckClick(index, value){
-    this.CheckValue = value;
+  handleCheckClick (index, value) {
+    this.CheckValue = value
 
     this.setState({
       checked: index
-    });
+    })
   }
 
-  render(){
+  render () {
     return (
       <Collapsible {...this.props} parentReset={this.handleResetClick.bind(this)}>
-        {this.list.map(function(item, index){
+        {this.list.map(function (item, index) {
           return (
             <StyledFlexRow key={index}>
               <StyledFlexCol>
-                <CheckBox className={ this.state.checked  == index ? 'checked' : '' } onClick={() => this.handleSelectClick.bind(this)(index, item.value)} />
+                <CheckBox className={this.state.checked === index ? 'checked' : ''} onClick={() => this.handleSelectClick.bind(this)(index, item.value)} />
               </StyledFlexCol>
               <FlexCol>
                 <Label onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>{item.label}</Label>
@@ -95,4 +93,4 @@ class SimpleCheckbox extends Component{
   }
 }
 
-export default SimpleCheckbox;
+export default SimpleCheckbox

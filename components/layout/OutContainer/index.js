@@ -14,4 +14,3 @@ const OutContainer = styled.div`
 `
 
 export default OutContainer
- 
