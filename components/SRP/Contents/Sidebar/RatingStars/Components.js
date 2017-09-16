@@ -5,7 +5,9 @@ const Button = styled.button`
   cursor: pointer;
 `
 
-export const Rating = styled.div
+export const Rating = styled.div`
+  margin-bottom: 1em;
+`;
 
 export const Stars = styled.div`
   svg {

@@ -23,7 +23,7 @@ class Wrapper extends Component {
 
   render () {
     return (
-      <Rating style={{marginBottom: 5}}>
+      <Rating>
         <Stars>
           {starsArray(this.state.starsSelected, this.total).map((e, i) =>
             <Star key={i} full={e.full} onClick={() => this.starClicked.bind(this)(i)} />

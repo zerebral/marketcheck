@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Collapsible from '../Collapsible'
-import Rating from './Rating.js'
+import Wrapper from './Wrapper.js'
 
 class RatingStars extends Component {
   constructor (props) {
@@ -12,9 +12,9 @@ class RatingStars extends Component {
   render () {
     return (
       <Collapsible label={this.label}>
-        <Rating stars={0} name='Overall' />
-        <Rating stars={0} name='Overall' />
-        <Rating stars={0} name='Overall' />
+        <Wrapper stars={0} name='Overall' />
+        <Wrapper stars={0} name='Overall' />
+        <Wrapper stars={0} name='Overall' />
       </Collapsible>
     )
   }
