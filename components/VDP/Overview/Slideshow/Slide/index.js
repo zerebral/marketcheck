@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
-import { stdBackground } from '%/styles/mixins'
+import { stdBackground, mediaMin } from '%/styles/mixins'
 
 const Slide = styled.div`
   ${stdBackground()}
@@ -10,11 +10,20 @@ const Slide = styled.div`
   height: 130px;
   margin-top: 6px;
   transition: 0.3s;
+  ${mediaMin.laptop`
+    min-height: 540px;
+    height: 540px;
+    margin-top: 0;
+  `}
 
   .slick-active & {
     min-height: 140px;
     height: 140px;
     margin-top: 0;
+    ${mediaMin.laptop`
+      min-height: 540px;
+      height: 540px;
+    `}
   }
 `
 export default Slide

@@ -1,12 +1,17 @@
 import Seller from './Seller'
-
 import {
   Car,
   Wrapper,
   NewBadge,
   Features,
   Name,
-  Title
+  Title,
+  Details,
+  PriceRow,
+  Price,
+  Deal,
+  Average,
+  PicWrapper
 } from './Components.js'
 
 import {
@@ -17,10 +22,13 @@ import {
   Air,
   Brake,
   Keyless,
-  Certified
+  Certified,
+  Like,
+  Share,
+  Soon
 } from './Icons'
 
-import { ellipsis } from '%/format'
+import { ellipsis, currency } from '%/format'
 
 export default ({
   dealer,
@@ -28,16 +36,29 @@ export default ({
   rating,
   reviews,
   website,
-  name
+  name,
+  price,
+  picture
 }) =>
   <Wrapper>
     <Car>
       <NewBadge>New</NewBadge>
 
       <Title>
-        <Name>{ellipsis(name, { ellipsis: '...' })}</Name>
+        <Name>{ellipsis(name)}</Name>
         <Certified />
       </Title>
+
+      <Details>6-Speed Automatic, 6487 mi, 20/24 MPG*</Details>
+
+      <PriceRow>
+        <Price>{currency(price)}</Price>
+        <Deal>Great Deal!</Deal>
+        <Like />
+        <Share />
+      </PriceRow>
+
+      <Average>{currency(874)} less than market average</Average>
 
       <Features>
         <Bluetooth />
@@ -48,6 +69,13 @@ export default ({
         <Brake />
         <Keyless />
       </Features>
+
+      <PicWrapper>
+        {picture
+            ? <img src={picture} />
+            : <Soon />
+        }
+      </PicWrapper>
     </Car>
     <Seller
       name={dealer.name}

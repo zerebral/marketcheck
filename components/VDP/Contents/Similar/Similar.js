@@ -12,7 +12,7 @@ const Summary = styled.p`
 const cars = data.listings
 
 export default () =>
-  <Accordion title='Similar Local Cars' open >
+  <Accordion title='Similar Local Cars'>
     <Summary>{number(data.num_found)} Similar cars in Your Local Area</Summary>
     {cars.map(car =>
       <Car
@@ -23,6 +23,8 @@ export default () =>
         reviews={24}
         website={car.vdp_url}
         name={car.heading}
+        price={car.price}
+        picture={car.media.photo_links[0]}
       />
     )}
   </Accordion>

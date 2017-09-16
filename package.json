@@ -20,6 +20,7 @@
     "postdeploy": "now alias"
   },
   "dependencies": {
+    "babel-plugin-inline-import": "^2.0.6",
     "babel-plugin-inline-react-svg": "^0.4.0",
     "babel-plugin-root-import": "^5.1.0",
     "babel-plugin-styled-components": "^1.2.0",
@@ -32,12 +33,14 @@
     "nprogress": "^0.2.0",
     "polished": "^1.7.0",
     "prop-types": "^15.5.10",
+    "rc-slider": "^8.3.1",
     "react": "^15.6.1",
     "react-collapse": "^4.0.3",
     "react-dom": "^15.6.1",
     "react-motion": "^0.5.1",
     "react-scroll": "^1.5.4",
     "react-slick": "^0.15.4",
+    "react-stars": "^2.2.3",
     "recharts": "^1.0.0-alpha.4",
     "styled-components": "^2.1.2"
   },
