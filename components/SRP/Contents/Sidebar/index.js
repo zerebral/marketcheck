@@ -10,6 +10,7 @@ import InputYear from './InputYear'
 import GroupIconBtn from './GroupIconBtn'
 import CheckColors from './CheckColors'
 import RatingStars from './RatingStars'
+import SwitchBtns from './SwitchBtns'
 
 const buttons = [
   {
@@ -152,6 +153,7 @@ export default () =>
         <SimpleCheckbox label='Cylinders' list={list} />
         <SimpleCheckbox label='Fuel' list={list} />
         <RatingStars label='Dealer Ratings' />
+        <SwitchBtns label='Features' />
         <SimpleCheckbox label='Listed' list={list} />
       </Wrapper>
     </SidebarFlexCol>

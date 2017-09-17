@@ -7,7 +7,7 @@ const Button = styled.button`
 
 export const Rating = styled.div`
   margin-bottom: 1em;
-`;
+`
 
 export const Stars = styled.div`
   svg {

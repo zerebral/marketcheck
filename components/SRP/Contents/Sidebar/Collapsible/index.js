@@ -52,7 +52,8 @@ const Content = styled.div`
 
   &.close {
     height: 0;
-    transition: transform 0.2s ease-out, padding 0.2s ease-out, margin 0.2s ease-out;
+    transform-origin: top;
+    transition: height 0.2s ease-out, transform 0.2s ease-out, padding 0.2s ease-out, margin 0.2s ease-out;
     transform: scaleY(0);
   }
 
@@ -60,7 +61,7 @@ const Content = styled.div`
     height: 100%;
     padding-top: 1em;
     transform-origin: top;
-    transition: transform 0.2s ease-out, padding 0.2s ease-out, margin 0.2s ease-out;
+    transition: height 0.2s ease-out, transform 0.2s ease-out, padding 0.2s ease-out, margin 0.2s ease-out;
     transform: scaleY(1);
   }
 `
