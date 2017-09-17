@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { FlexRow, FlexCol } from '~/layout'
+import { FlexCol } from '~/layout'
 import Wrapper from './Wrapper'
 import GroupBtn from './GroupBtn'
 import InputRange from './InputRange'

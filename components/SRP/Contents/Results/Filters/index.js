@@ -37,7 +37,7 @@ const XBtn = styled.button`
 `
 
 class Results extends Component {
-  constructor (props) {
+  constructor (props) {
     super(props)
 
     this.newList = []
@@ -59,16 +59,12 @@ class Results extends Component {
   render () {
     return (
       <Container>
-        {this.state.list.map( function(item, index) {
+        {this.state.list.map(function (item, index) {
           return (
             <Filter key={index}>
-              <Label>
-               {item.label}
-              </Label>
-              <Value>
-                {item.filter}
-              </Value>
-              <XBtn onClick={() => this.deleteFilter.bind(this)(index) }>
+              <Label>{item.label}</Label>
+              <Value>{item.filter}</Value>
+              <XBtn onClick={() => this.deleteFilter.bind(this)(index)}>
                 <XIcon />
               </XBtn>
             </Filter>

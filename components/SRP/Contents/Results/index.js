@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-import { FlexRow, FlexCol } from '~/layout'
+import { FlexCol } from '~/layout'
 import Wrapper from './Wrapper'
 import SearchArgument from './SearchArgument'
 import Filters from './Filters'
