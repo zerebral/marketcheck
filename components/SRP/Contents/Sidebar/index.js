@@ -134,28 +134,25 @@ const SidebarFlexCol = styled(FlexCol)`
 `
 
 export default () =>
-  <FlexRow>
-    <SidebarFlexCol>
-      <Wrapper>
-        <GroupBtn label='Type' buttons={buttons} />
-        <InputRange label='Distance' min={0} max={300} step={10} value={40} />
-        <DoubleRange label='Price' valuePrefix='$' min={400} max={50000} step={10} value={[400, 50000]} />
-        <DoubleRange label='Miles Range' min={400} max={50000} step={10} value={[400, 50000]} />
-        <SimpleCheckbox label='Deals' list={list} />
-        <SearchCheckbox label='Models' list={searchablelist} resetBtn />
-        <InputYear label='Year' />
-        <GroupIconBtn label='Seller Type' labelOne='Dealer' labelTwo='FSBO' />
-        <CheckColors label='Color' colorButtons={colorButtons} />
-        <SimpleCheckbox label='Transmission' list={list} />
-        <SimpleCheckbox label='Body' list={list} />
-        <SimpleCheckbox label='Trim' list={list} resetBtn />
-        <SimpleCheckbox label='Drivetrain' list={list} />
-        <SimpleCheckbox label='Cylinders' list={list} />
-        <SimpleCheckbox label='Fuel' list={list} />
-        <RatingStars label='Dealer Ratings' />
-        <SwitchBtns label='Features' />
-        <SimpleCheckbox label='Listed' list={list} />
-      </Wrapper>
-    </SidebarFlexCol>
-    <FlexCol />
-  </FlexRow>
+  <SidebarFlexCol>
+    <Wrapper>
+      <GroupBtn label='Type' buttons={buttons} />
+      <InputRange label='Distance' min={0} max={300} step={10} value={40} />
+      <DoubleRange label='Price' valuePrefix='$' min={400} max={50000} step={10} value={[400, 50000]} />
+      <DoubleRange label='Miles Range' min={400} max={50000} step={10} value={[400, 50000]} />
+      <SimpleCheckbox label='Deals' list={list} />
+      <SearchCheckbox label='Models' list={searchablelist} resetBtn />
+      <InputYear label='Year' />
+      <GroupIconBtn label='Seller Type' labelOne='Dealer' labelTwo='FSBO' />
+      <CheckColors label='Color' colorButtons={colorButtons} />
+      <SimpleCheckbox label='Transmission' list={list} />
+      <SimpleCheckbox label='Body' list={list} />
+      <SimpleCheckbox label='Trim' list={list} resetBtn />
+      <SimpleCheckbox label='Drivetrain' list={list} />
+      <SimpleCheckbox label='Cylinders' list={list} />
+      <SimpleCheckbox label='Fuel' list={list} />
+      <RatingStars label='Dealer Ratings' />
+      <SwitchBtns label='Features' />
+      <SimpleCheckbox label='Listed' list={list} />
+    </Wrapper>
+  </SidebarFlexCol>
