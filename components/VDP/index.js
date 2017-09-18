@@ -1,12 +1,10 @@
 import { LayoutSecondary } from '~/layout'
-import Overview from './Overview'
-import Contents from './Contents'
 import TrackCar from './TrackCar'
+import Mobile from './Mobile'
 
 const VDP = props =>
   <LayoutSecondary>
-    <Overview {...props} />
-    <Contents {...props} />
+    <Mobile {...props} />
     <TrackCar {...props} />
   </LayoutSecondary>
 
