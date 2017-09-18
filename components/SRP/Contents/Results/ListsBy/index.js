@@ -1,0 +1,88 @@
+import React, {Component} from 'react'
+import styled from 'styled-components'
+import { FlexRow, FlexCol } from '~/layout'
+import { colors } from '%/styles'
+
+const listOne = [
+  '2013 Toyota Fortuner',
+  '2014 Toyota Fortuner',
+  '2015 Toyota Fortuner',
+  '2016 Toyota Fortuner',
+  '2017 Toyota Fortuner'
+]
+
+const listTwo = [
+  'Under 10k miles',
+  'Under 20k miles',
+  'Under 75k miles',
+  'Under 100k miles',
+  'Under 150k miles'
+]
+
+const listThree = [
+  'Black',
+  'Red',
+  'Silver',
+  'White',
+  'Blue'
+]
+
+const Container = styled.div`
+  display: block;
+`
+
+const Title = styled.h2`
+  color: ${colors.softblue};
+  font-size: 0.8em;
+  margin-bottom: 1.5em;
+`
+
+const List = styled.div`
+  display: block;
+`
+
+const ListItem = styled.p`
+  color: ${colors.black};
+  font-size: 0.9em;
+  margin-bottom: 1em;
+`
+
+class ListsBy extends Component {
+  render () {
+    return (
+      <Container>
+        <FlexRow>
+          <FlexCol>
+            <Title>TOYOTA FORTUNER BY YEAR</Title>
+            <List>
+              {listOne.map(function (item, index) {
+                return <ListItem key={index}>{item}</ListItem>
+              })}
+            </List>
+          </FlexCol>
+          <FlexCol>
+            <Title>TOYOTA FORTUNER BY MILEAGE</Title>
+            <List>
+              {listTwo.map(function (item, index) {
+                return <ListItem key={index}>{item}</ListItem>
+              })}
+            </List>
+          </FlexCol>
+          <FlexCol>
+            <Title>TOYOTA FORTUNER BY COLOR</Title>
+            <List>
+              {listThree.map(function (item, index) {
+                return <ListItem key={index}>{item}</ListItem>
+              })}
+            </List>
+          </FlexCol>
+          <FlexCol>
+            {''}
+          </FlexCol>
+        </FlexRow>
+      </Container>
+    )
+  }
+}
+
+export default ListsBy

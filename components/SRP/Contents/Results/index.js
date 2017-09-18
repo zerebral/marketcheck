@@ -5,6 +5,8 @@ import SearchArgument from './SearchArgument'
 import Filters from './Filters'
 import AutoCard from './AutoCard'
 import Paginator from './Paginator'
+import Recommended from './Recommended'
+import ListsBy from './ListsBy'
 
 import result from './data.js'
 
@@ -45,6 +47,8 @@ class Results extends Component {
             <AutoCard data={item} />
           )}
           <Paginator />
+          <Recommended />
+          <ListsBy />
         </Wrapper>
       </FlexCol>
     )

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { colors } from '%/styles'
 
 const PagesContainer = styled.div`
+  margin-bottom: 1em;
   text-align: right;
 `
 
