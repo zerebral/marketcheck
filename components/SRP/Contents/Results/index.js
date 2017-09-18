@@ -4,6 +4,7 @@ import Wrapper from './Wrapper'
 import SearchArgument from './SearchArgument'
 import Filters from './Filters'
 import AutoCard from './AutoCard'
+import Paginator from './Paginator'
 
 import result from './data.js'
 
@@ -43,6 +44,7 @@ class Results extends Component {
           {this.result.map((item, index) =>
             <AutoCard data={item} />
           )}
+          <Paginator />
         </Wrapper>
       </FlexCol>
     )
