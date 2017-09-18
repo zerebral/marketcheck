@@ -5,6 +5,7 @@ import XIcon from './x.svg'
 
 const Container = styled.div`
   background-color: ${colors.white};
+  margin-bottom: 1em;
 `
 
 const Filter = styled.div`
