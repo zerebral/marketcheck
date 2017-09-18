@@ -10,6 +10,10 @@ const Slide = styled.div`
   height: 130px;
   margin-top: 6px;
   transition: 0.3s;
+  ${mediaMin.tablet`
+    min-height: 300px;
+    height: 300px;
+  `}
   ${mediaMin.laptop`
     min-height: 540px;
     height: 540px;
@@ -20,6 +24,10 @@ const Slide = styled.div`
     min-height: 140px;
     height: 140px;
     margin-top: 0;
+    ${mediaMin.tablet`
+      min-height: 310px;
+      height: 310px;
+    `}
     ${mediaMin.laptop`
       min-height: 540px;
       height: 540px;
