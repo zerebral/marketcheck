@@ -1,28 +1,40 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
+import { mediaMax } from '%/styles/mixins'
 import { stdBackground, mediaMin } from '%/styles/mixins'
 
 const Slide = styled.div`
   ${stdBackground()}
   background-color: ${colors.softgray};
   background-image: url(${props => props.image});
-  min-height: 130px;
-  height: 130px;
-  margin-top: 6px;
+  min-height: 190px;
+  height: 190px;
   transition: 0.3s;
-  ${mediaMin.laptop`
-    min-height: 190px;
-    height: 190px;
-    margin-top: 0;
+  margin-top: 15px;
+
+  ${mediaMax.desktop`
+    min-height: 183px;
+    height: 183px;
+  `}
+
+  ${mediaMax.largeTablet`
+    min-height: 220px;
+    height: 220px;
   `}
 
   .slick-active & {
-    min-height: 140px;
-    height: 140px;
+    min-height: 190px;
+    height: 190px;
     margin-top: 0;
-    ${mediaMin.laptop`
-      min-height: 190px;
-      height: 190px;
+
+    ${mediaMax.desktop`
+      min-height: 183px;
+      height: 183px;
+    `}
+
+    ${mediaMax.largeTablet`
+      min-height: 250px;
+      height: 250px;
     `}
   }
 `

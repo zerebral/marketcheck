@@ -8,7 +8,9 @@ import { breakpoints } from '%/styles'
 import { NextArrow, PreviousArrow } from './Components.js'
 
 const SliderSettings = {
+  slidesToShow: 1,
   dots: true,
+  slide: 'slick-slide > div',
   arrows: true,
   autoplay: false,
   nextArrow: <NextArrow />,
@@ -17,10 +19,22 @@ const SliderSettings = {
     {
       breakpoint: breakpoints.laptop,
       settings: {
+        slidesToShow: 1,
         arrows: false,
         dots: false,
         centerMode: true,
-        centerPadding: '15px'
+        centerPadding: '30px'
+      }
+    },
+    {
+      breakpoint: breakpoints.largeTablet,
+      settings: {
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        arrows: false,
+        dots: false,
+        centerMode: true,
+        centerPadding: '60px'
       }
     }
   ]

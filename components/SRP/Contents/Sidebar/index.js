@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import { FlexCol } from '~/layout'
 import Wrapper from './Wrapper'
 import GroupBtn from './GroupBtn'
@@ -131,6 +132,16 @@ const colorButtons = [
 
 const SidebarFlexCol = styled(FlexCol)`
   max-width: 250px;
+
+  ${mediaMax.desktop`
+    left: auto;
+    max-width: 25%;
+  `}
+
+  ${mediaMax.largeTablet`
+    left: auto;
+    max-width: 30%;
+  `}
 `
 
 export default () =>

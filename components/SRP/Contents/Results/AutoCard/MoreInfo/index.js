@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import { FlexRow, FlexCol } from '~/layout'
 import { colors } from '%/styles'
 import PhotoIcon from './photos.svg'
@@ -26,6 +27,10 @@ const OtherName = styled.p`
   color: ${colors.black};
   font-size: 1.1em;
   margin-bottom: 0.5em;
+
+  ${mediaMax.srpDesktop`
+    font-size: 0.9em;
+  `}
 `
 
 const Type = styled.p`
@@ -43,9 +48,18 @@ const MultiInfo = styled.div`
   display: inline-block;
   margin: 0 1.5em;
 
+  ${mediaMax.srpDesktop`
+    font-size: 0.8em;
+    margin: 0 0.8em;
+  `}
+
   svg {
     height: 20px;
     margin-bottom: 0.5em;
+
+    ${mediaMax.srpDesktop`
+      height: 15px;
+    `}
   }
 
   span {
@@ -66,12 +80,20 @@ const Label = styled.span`
   font-size: 0.8em;
   font-weight: 300;
   margin-right: 0.5em;
+
+  ${mediaMax.srpDesktop`
+    font-size: 0.7em;
+  `}
 `
 
 const Value = styled.span`
   color: ${colors.black};
   font-size: 0.8em;
   font-weight: 300;
+
+  ${mediaMax.srpDesktop`
+    font-size: 0.7em;
+  `}
 `
 
 export default ({data}) =>

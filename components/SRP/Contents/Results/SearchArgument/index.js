@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { em } from 'polished'
 import { colors } from '%/styles'
+import { mediaMax } from '%/styles/mixins'
 import PinIcon from './pin.svg'
 
 const Container = styled.div`
@@ -16,6 +17,10 @@ const Argument = styled.span`
   font-weight: normal;
   margin-right: 1em;
   vertical-align: bottom;
+
+  ${mediaMax.largeTablet`
+    font-size: ${em(14)};
+  `}
 `
 
 const SaveSearch = styled.a.attrs({ href: '#' })`
@@ -23,6 +28,10 @@ const SaveSearch = styled.a.attrs({ href: '#' })`
   font-size: ${em(13)};
   display: inline-block;
   vertical-align: bottom;
+
+  ${mediaMax.largeTablet`
+    font-size: ${em(12)};
+  `}
 `
 
 const Location = styled.a.attrs({ href: '#' })`
@@ -31,6 +40,10 @@ const Location = styled.a.attrs({ href: '#' })`
   display: inline-block;
   text-align: right;
   vertical-align: bottom;
+
+  ${mediaMax.largeTablet`
+    font-size: ${em(12)};
+  `}
 `
 
 const Pin = styled(PinIcon)`

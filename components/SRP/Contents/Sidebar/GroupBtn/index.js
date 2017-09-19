@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { FlexRow, FlexCol } from '~/layout'
 import { colors } from '%/styles'
-
+import { mediaMax } from '%/styles/mixins'
 import Collapsible from '../Collapsible'
 
 const StyledFlexCol = styled(FlexCol)`
@@ -17,6 +17,10 @@ const Btn = styled.button`
   font-size: 0.8em;
   font-weight: 300;
   padding: 0.3em 1em;
+
+  ${mediaMax.largeTablet`
+    font-size: 0.7em;
+  `}
 
   &:hover {
     background-color: ${colors.softblue};

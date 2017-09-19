@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import { FlexCol } from '~/layout'
 import Wrapper from './Wrapper'
 import SearchArgument from './SearchArgument'
@@ -29,6 +31,18 @@ const listFilters = [
   }
 ]
 
+const StyledFlexCol = styled(FlexCol)`
+  ${mediaMax.desktop`
+    left: auto;
+    max-width: 75%;
+  `}
+
+  ${mediaMax.largeTablet`
+    left: auto;
+    max-width: 70%;
+  `}
+`
+
 class Results extends Component {
   constructor (props) {
     super(props)
@@ -39,7 +53,7 @@ class Results extends Component {
 
   render () {
     return (
-      <FlexCol>
+      <StyledFlexCol>
         <Wrapper>
           <SearchArgument argument='Used 2015 Audi A5 in Atlanta, GA' location='Atlanta, GA' />
           <Filters list={this.listFilters} />
@@ -50,7 +64,7 @@ class Results extends Component {
           <Recommended />
           <ListsBy />
         </Wrapper>
-      </FlexCol>
+      </StyledFlexCol>
     )
   }
 }

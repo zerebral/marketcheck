@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import { em } from 'polished'
 import { colors } from '%/styles'
 
@@ -14,6 +15,10 @@ const Label = styled.span`
   font-weight: 300;
   margin-right: 1em;
   vertical-align: middle;
+
+  ${mediaMax.desktop`
+    font-size: ${em(11)};
+  `}
 `
 
 const Value = styled.span`
@@ -22,6 +27,10 @@ const Value = styled.span`
   font-size: ${em(13)};
   font-weight: 300;
   vertical-align: middle;
+
+  ${mediaMax.desktop`
+    font-size: ${em(11)};
+  `}
 `
 
 export default ({
