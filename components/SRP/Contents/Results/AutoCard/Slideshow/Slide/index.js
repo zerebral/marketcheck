@@ -22,6 +22,11 @@ const Slide = styled.div`
     height: 220px;
   `}
 
+  ${mediaMax.phone`
+    min-height: 160px;
+    height: 160px;
+  `}
+
   .slick-active & {
     min-height: 190px;
     height: 190px;
@@ -35,6 +40,11 @@ const Slide = styled.div`
     ${mediaMax.largeTablet`
       min-height: 250px;
       height: 250px;
+    `}
+
+    ${mediaMax.phone`
+      min-height: 190px;
+      height: 190px;
     `}
   }
 `

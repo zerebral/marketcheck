@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
 import { FlexCol } from '~/layout'
 import Wrapper from './Wrapper'
@@ -9,6 +10,7 @@ import AutoCard from './AutoCard'
 import Paginator from './Paginator'
 import Recommended from './Recommended'
 import ListsBy from './ListsBy'
+import TotalFound from './TotalFound'
 
 import result from './data.js'
 
@@ -41,6 +43,12 @@ const StyledFlexCol = styled(FlexCol)`
     left: auto;
     max-width: 70%;
   `}
+
+  ${mediaMax.phone`
+    background-color: ${colors.bordergray};
+    max-width: 100%;
+    padding: 0;
+  `}
 `
 
 class Results extends Component {
@@ -57,6 +65,7 @@ class Results extends Component {
         <Wrapper>
           <SearchArgument argument='Used 2015 Audi A5 in Atlanta, GA' location='Atlanta, GA' />
           <Filters list={this.listFilters} />
+          <TotalFound total={14} />
           {this.result.map((item, index) =>
             <AutoCard data={item} />
           )}

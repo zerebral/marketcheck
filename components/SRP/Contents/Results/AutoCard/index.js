@@ -13,6 +13,7 @@ import ArrowIcon from './arrow.svg'
 import PriceTop from './PriceTop'
 
 const Card = styled.div`
+  background-color: ${colors.white};
   box-shadow: 0 0 4px ${colors.gray};
   position: relative;
   margin-bottom: 1.5em;
@@ -40,6 +41,11 @@ const HeartBtn = styled.button`
   top: 0.5em;
   z-index: 9999999;
 
+  ${mediaMax.largeTablet`
+    top: 1.5em;
+    right: 3em;
+  `}
+
   svg {
     height: 16px;
     width: 16px;
@@ -52,6 +58,11 @@ const ShareBtn = styled.button`
   right: 0.5em;
   top: 0.5em;
   z-index: 9999999;
+
+  ${mediaMax.largeTablet`
+    top: 1.5em;
+    right: 1em;
+  `}
 
   svg {
     height: 16px;
@@ -107,7 +118,7 @@ class AutoCard extends Component {
     this.data = this.props.data
 
     this.state = {
-      open: true
+      open: false
     }
   }
 

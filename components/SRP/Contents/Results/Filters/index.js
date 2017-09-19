@@ -7,6 +7,12 @@ import XIcon from './x.svg'
 const Container = styled.div`
   background-color: ${colors.white};
   margin-bottom: 1em;
+
+  ${mediaMax.phone`
+    border-bottom: 2px solid ${colors.lightergray};
+    margin-bottom: 0;
+    padding: 0 1em;
+  `}
 `
 
 const Filter = styled.div`
@@ -20,6 +26,10 @@ const Filter = styled.div`
 
   ${mediaMax.largeTablet`
     margin-right: 0.5em;
+  `}
+
+  ${mediaMax.phone`
+    margin-bottom: 1em;
   `}
 `
 

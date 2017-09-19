@@ -21,6 +21,13 @@ const SliderWrapper = styled.div`
     width: 1000px;
   `}
 
+  ${mediaMax.phone`
+    height: 190px;
+    margin-right: 0;
+    max-width: 100%;
+    width: 1000px;
+  `}
+
   .slick-arrow {
     display: none !important;
   }

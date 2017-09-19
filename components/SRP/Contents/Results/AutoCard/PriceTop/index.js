@@ -5,6 +5,10 @@ import { currency } from '%/format'
 
 const Container = styled.div`
   padding: 15px 30px;
+
+  ${mediaMin.desktop`
+    display: none;
+  `}
 `
 
 const Flex = styled.div`
@@ -70,6 +74,10 @@ const Average = styled.h6`
   line-height: 24px;
   color: ${colors.green};
   margin-bottom: 5px;
+
+  ${mediaMin.desktop`
+    display: none;
+  `}
 
   ${mediaMax.largeTablet`
     font-size: 14px;

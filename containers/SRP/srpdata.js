@@ -1,3 +1,4 @@
-const srpdata = {}
+const srpdata = {
+}
 
 export default srpdata

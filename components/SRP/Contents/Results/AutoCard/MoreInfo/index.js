@@ -8,6 +8,10 @@ import View360Icon from './view360.svg'
 
 const Container = styled.div`
   padding: 1em;
+
+  ${mediaMax.phone`
+    padding: 1em 1.5em;
+  `}
 `
 
 const StyledFlexRow = styled(FlexRow)`

@@ -30,6 +30,10 @@ const listThree = [
 
 const Container = styled.div`
   display: block;
+
+  ${mediaMax.phone`
+    display: none;
+  `}
 `
 
 const Title = styled.h2`

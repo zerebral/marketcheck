@@ -1,13 +1,20 @@
 import styled from 'styled-components'
 import { em } from 'polished'
 import { colors } from '%/styles'
-import { mediaMax } from '%/styles/mixins'
+import { mediaMax, mediaMin } from '%/styles/mixins'
 import PinIcon from './pin.svg'
 
 const Container = styled.div`
+  background-color: ${colors.white};
   display: flex;
   justify-content: space-between;
   padding: 1em 0;
+
+  ${mediaMax.phone`
+    display: block;
+    padding: 1em;
+    text-align: right;
+  `}
 `
 
 const Argument = styled.span`
@@ -20,6 +27,11 @@ const Argument = styled.span`
 
   ${mediaMax.largeTablet`
     font-size: ${em(14)};
+  `}
+
+  ${mediaMax.phone`
+    display: block;
+    text-align: left;
   `}
 `
 
@@ -34,6 +46,23 @@ const SaveSearch = styled.a.attrs({ href: '#' })`
   `}
 `
 
+const SaveSearchTop = styled(SaveSearch)`
+  ${mediaMin.largeTablet`
+    display: none;
+  `}
+
+  ${mediaMax.phone`
+    display: inline-block;
+    margin-bottom: 1em;
+  `}
+`
+
+const SaveSearchBottom = styled(SaveSearch)`
+  ${mediaMax.phone`
+    display: none;
+  `}
+`
+
 const Location = styled.a.attrs({ href: '#' })`
   color: ${colors.softblue};
   font-size: ${em(13)};
@@ -43,6 +72,10 @@ const Location = styled.a.attrs({ href: '#' })`
 
   ${mediaMax.largeTablet`
     font-size: ${em(12)};
+  `}
+
+  ${mediaMax.phone`
+    display: none;
   `}
 `
 
@@ -58,8 +91,9 @@ export default ({
 }) =>
   <Container>
     <div>
+      <SaveSearchTop>Save Search</SaveSearchTop>
       <Argument>{ argument }</Argument>
-      <SaveSearch>Save Search</SaveSearch>
+      <SaveSearchBottom>Save Search</SaveSearchBottom>
     </div>
     <Location>
       {location}

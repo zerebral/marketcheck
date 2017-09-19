@@ -1,6 +1,7 @@
 import { clearFix, rem } from 'polished'
 import styled from 'styled-components'
 import { mediaMax } from '%/styles/mixins'
+import { colors } from '%/styles'
 
 import { grid } from '%/styles'
 const padding = rem(grid.gutter / 2)
@@ -27,6 +28,10 @@ const OutContainer = styled.div`
   ${mediaMax.largeTablet`
     left: auto;
     max-width: ${rem(768 + grid.gutter)};
+  `}
+
+  ${mediaMax.phone`
+    background-color: ${colors.bordergray};
   `}
 `
 
