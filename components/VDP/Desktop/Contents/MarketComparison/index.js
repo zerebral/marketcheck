@@ -1,8 +1,7 @@
-import { Accordion } from '~/general'
+import Section from '~/VDP/Section'
 import Scatter from './Scatter'
 
 export default () =>
-  <Accordion title='Market Comparison'>
-    <p>Based on 356 similar vehicles in your area</p>
+  <Section title='Market Comparison' summary='Based on 356 similar vehicles in your area'>
     <Scatter />
-  </Accordion>
+  </Section>

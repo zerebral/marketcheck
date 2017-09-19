@@ -1,4 +1,4 @@
-import { Accordion } from '~/general'
+import Section from '~/VDP/Section'
 import styled from 'styled-components'
 import { rgba } from 'polished'
 
@@ -19,7 +19,7 @@ const Intro = styled.h6`
 `
 
 export default () =>
-  <Accordion title='Vehicle Information' blue >
+  <Section title='Vehicle Information'>
     <Wrapper>
       <Intro>Raw performance, agility, unparalleled ride and handling. These are attributes that people have come to expect from Lotus and the Exige Sport 350 is no exception. Now also available as a roadster - the lightest possible incarnation of the current generation Exige.</Intro>
 
@@ -40,4 +40,4 @@ export default () =>
       <p>Drive <strong>FWD</strong></p>
       <p>MPG <strong>20 City / 24 Hwy</strong></p>
     </Wrapper>
-  </Accordion>
+  </Section>

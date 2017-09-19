@@ -1,13 +1,8 @@
-import { Accordion } from '~/general'
+import Section from '~/VDP/Section'
 import styled from 'styled-components'
 import { colors } from '%/styles'
 import { rgba } from 'polished'
 import Stats from './Stats.js'
-
-const Summary = styled.p`
-  opacity: 0.54;
-  margin-bottom: 60px !important;
-`
 
 const PriceHeader = styled.h1`
   font-size: 64px;
@@ -35,10 +30,9 @@ const Separator = styled.hr`
 `
 
 export default () =>
-  <Accordion title='Fuel Efficiency'>
-    <Summary>Based upon avg. fuel prices across the US.</Summary>
+  <Section title='Fuel Efficiency' summary='Based upon avg. fuel prices across the US.'>
     <PriceHeader>$<Money>64</Money></PriceHeader>
     <FuelExpense>Monthly fue Expense</FuelExpense>
     <Separator />
     <Stats />
-  </Accordion>
+  </Section>

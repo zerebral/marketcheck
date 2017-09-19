@@ -1,4 +1,3 @@
-import { Container } from '~/layout'
 import ContentsWrapper from './ContentsWrapper'
 import SummaryReport from './SummaryReport'
 import VehicleInformation from './VehicleInformation'
@@ -16,19 +15,17 @@ import Similar from './Similar'
 
 export default props =>
   <ContentsWrapper>
-    <Container>
-      <SummaryReport />
-      <VehicleInformation />
-      <MarketComparison />
-      <AveragesOverTime />
-      <TimeOnMarket />
-      <IncludedFeatures />
-      <FuelEfficiency />
-      <Environmental />
-      <ModelPopularity />
-      <Competition />
-      <ResaleValue />
-      <Safety />
-      <Similar />
-    </Container>
+    <SummaryReport />
+    <VehicleInformation />
+    <MarketComparison />
+    <AveragesOverTime />
+    <TimeOnMarket />
+    <IncludedFeatures />
+    <FuelEfficiency />
+    <Environmental />
+    <ModelPopularity />
+    <Competition />
+    <ResaleValue />
+    <Safety />
+    <Similar />
   </ContentsWrapper>

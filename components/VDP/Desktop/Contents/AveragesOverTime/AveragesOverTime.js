@@ -1,7 +1,6 @@
-import Accordion, { FillBody } from '~/general/Accordion'
+import Section from '~/VDP/Section'
 import styled from 'styled-components'
 import LineChart from './LineChart'
-import { colors } from '%/styles'
 
 const P = styled.p`
   opacity: 0.56;
@@ -23,16 +22,11 @@ const Summary = styled.h4`
 `
 
 export default () =>
-  <Accordion title='Averages Over Time' blue >
-    <FillBody first >
-      <P>Based on 256 Similar Vehicles Nearby</P>
-      <H2>145,565 mi</H2>
-      <P>234 miles less than market average</P>
-      <LineChart />
-    </FillBody>
-    <FillBody noPadding customBackground={colors.darkblue} customColor={colors.white} >
-      <SummaryWrapper>
-        <Summary>6 Month Market Averages - Jan Through Jun</Summary>
-      </SummaryWrapper>
-    </FillBody>
-  </Accordion>
+  <Section title='Averages Over Time' summary='Based on 256 Similar Vehicles Nearby' >
+    <H2>145,565 mi</H2>
+    <P>234 miles less than market average</P>
+    <LineChart />
+    <SummaryWrapper>
+      <Summary>6 Month Market Averages - Jan Through Jun</Summary>
+    </SummaryWrapper>
+  </Section>

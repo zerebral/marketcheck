@@ -1,7 +1,6 @@
-import { Accordion } from '~/general'
-import styled from 'styled-components'
-
+import Section from '~/VDP/Section'
 import Feature from './Feature.js'
+import { FlexRow } from '~/layout'
 
 import {
   Air,
@@ -13,19 +12,9 @@ import {
   Wheels
 } from './Icons'
 
-const AtAGlance = styled.p`
-  opacity: 0.54;
-  margin-bottom: 40px !important;
-`
-
-const Features = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
 export default () =>
-  <Accordion title='Included Features'>
-    <AtAGlance>12 Similarly Equiped Carts Curently Available</AtAGlance>
-    <Features>
+  <Section title='Included Features' summary='12 Similarly Equiped Carts Curently Available'>
+    <FlexRow noMargin wrap >
       <Feature icon={Bluetooth} name='Bluetooth' />
       <Feature icon={Cam} name='Rear Cam' />
       <Feature icon={Wheels} name='Alloy wheels' />
@@ -33,5 +22,5 @@ export default () =>
       <Feature icon={Air} name='Air Conditioner' />
       <Feature icon={Brake} name='Brake Assistance' />
       <Feature icon={Keyless} name='Keyless Start' />
-    </Features>
-  </Accordion>
+    </FlexRow>
+  </Section>

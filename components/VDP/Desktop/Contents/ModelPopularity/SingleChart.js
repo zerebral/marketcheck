@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import React from 'react'
 import LineChart from './LineChart.js'
 import { colors } from '%/styles'
+import { FlexRow, FlexCol } from '~/layout'
 
 const SingleChart = styled.div`
-  margin-bottom: 60px;
+  margin-bottom: 35px;
 `
 
 const Number = styled.h4`
@@ -42,21 +42,27 @@ export default ({
   const difference = Math.abs(value - remaining)
   return (
     <SingleChart>
-      <Number>
-        {value} / {remaining}
-      </Number>
-      <Average>
-        Average of {difference} { MORE ? 'more' : 'less' } DOM
-      </Average>
-      <Versus>
-        {we} vs {them}
-      </Versus>
-      <LineChart
-        value={value}
-        remaining={remaining}
-        color={MORE ? 'ultrared' : 'green'}
-        more={MORE}
-      />
+      <FlexRow>
+        <FlexCol cols={9}>
+          <Versus>
+            {we} vs {them}
+          </Versus>
+          <LineChart
+            value={value}
+            remaining={remaining}
+            color={MORE ? 'ultrared' : 'green'}
+            more={MORE}
+          />
+        </FlexCol>
+        <FlexCol cols={3}>
+          <Number>
+            {value} / {remaining}
+          </Number>
+          <Average>
+            Average of {difference} { MORE ? 'more' : 'less' } DOM
+          </Average>
+        </FlexCol>
+      </FlexRow>
     </SingleChart>
   )
 }

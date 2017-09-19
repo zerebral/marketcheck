@@ -1,8 +1,8 @@
 import Circle from './Circle.js'
 import styled from 'styled-components'
+import { FlexRow, FlexCol } from '~/layout'
 
 const ChartsWrapper = styled.div`
-  margin-bottom: 40px;
   text-align: center;
 `
 
@@ -27,14 +27,20 @@ const Info = styled.h6`
 
 export default () =>
   <ChartsWrapper>
-    <CircleWrapper>
-      <Circle score={8.6} color='green' text='Very Good' />
-    </CircleWrapper>
-    <Title>Greenhouse Gas Emissions</Title>
-    <Info>This shows the vehicle’s impact on climate change in terms of greenhouse gases / carbondioxide(CO2).</Info>
-    <CircleWrapper>
-      <Circle score={9.2} color='blue' text='Excellent!' />
-    </CircleWrapper>
-    <Title>Smog Rating</Title>
-    <Info>This shows the vehicle’s emissions of pollutants known to cause smog and other forms of air pollution.</Info>
+    <FlexRow>
+      <FlexCol cols={6}>
+        <CircleWrapper>
+          <Circle score={8.6} color='green' text='Very Good' />
+        </CircleWrapper>
+        <Title>Greenhouse Gas Emissions</Title>
+        <Info>This shows the vehicle’s impact on climate change in terms of greenhouse gases / carbondioxide(CO2).</Info>
+      </FlexCol>
+      <FlexCol cols={6}>
+        <CircleWrapper>
+          <Circle score={9.2} color='blue' text='Excellent!' />
+        </CircleWrapper>
+        <Title>Smog Rating</Title>
+        <Info>This shows the vehicle’s emissions of pollutants known to cause smog and other forms of air pollution.</Info>
+      </FlexCol>
+    </FlexRow>
   </ChartsWrapper>

@@ -1,17 +1,7 @@
-import { Accordion } from '~/general'
-import styled from 'styled-components'
+import Section from '~/VDP/Section'
 import LineCharts from './LineCharts.js'
 
-const Summary = styled.p`
-  opacity: 0.56;
-  margin-bottom: 50px !important;
-  line-height: 2 !important;
-`
-
 export default () =>
-  <Accordion title='Model Popularity'>
-    <Summary>
-      Based upon Days-on-Market ( DOM )
-    </Summary>
+  <Section title='Model Popularity' summary='Based upon Days-on-Market ( DOM )'>
     <LineCharts />
-  </Accordion>
+  </Section>

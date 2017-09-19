@@ -1,3 +1,4 @@
+import Section from '~/VDP/Section'
 import Price from '../SVG/price.svg'
 import Miles from '../SVG/miles.svg'
 import Cal from '../SVG/cal.svg'
@@ -5,7 +6,6 @@ import Alert from '../SVG/alert.svg'
 import Lock from '../SVG/lock.svg'
 import Star from '../SVG/star.svg'
 import Check from '../SVG/check.svg'
-import { Accordion } from '~/general'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 `
 
 export default () =>
-  <Accordion title='VIN Summary Report' blue >
+  <Section title='VIN Summary Report'>
     <Wrapper>
       <Price />
       <p>This car is $1,234 below market value</p>
@@ -47,4 +47,4 @@ export default () =>
       <Check />
       <p>$665 could be saved depending on when you buy cars like this.</p>
     </Wrapper>
-  </Accordion>
+  </Section>
