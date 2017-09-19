@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const ContentsWrapper = styled.div`
-  margin-top: 10px;
+  position: relative;
 `
 
 export default ContentsWrapper

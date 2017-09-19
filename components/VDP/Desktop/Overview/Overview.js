@@ -11,7 +11,11 @@ import {
   Text,
   Icon,
   Like,
-  Share
+  Share,
+  ThreeSixty,
+  Play,
+  Slides,
+  TabLink
 } from './Components'
 
 export default ({
@@ -35,7 +39,17 @@ export default ({
             <Brief>{brief}</Brief>
           </FlexCol>
           <FlexCol cols={3} offset={2}>
-            Moar Icons
+            <FlexRow noMargin justify='flex-end'>
+              <TabLink active >
+                <Slides />
+              </TabLink>
+              <TabLink>
+                <Play />
+              </TabLink>
+              <TabLink>
+                <ThreeSixty />
+              </TabLink>
+            </FlexRow>
           </FlexCol>
           <FlexCol cols={3}>
             <Price>{currency(price)}</Price>
