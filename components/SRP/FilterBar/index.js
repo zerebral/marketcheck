@@ -10,7 +10,6 @@ import styled from 'styled-components'
 
 const FlexColLeft = styled(FlexCol)`
   text-align: left;
-
   ${mediaMax.desktop`
     max-width: 30%;
   `}
@@ -18,7 +17,6 @@ const FlexColLeft = styled(FlexCol)`
 
 const FlexColRight = styled(FlexCol)`
   text-align: right;
-
   ${mediaMax.desktop`
     max-width: 70%;
   `}

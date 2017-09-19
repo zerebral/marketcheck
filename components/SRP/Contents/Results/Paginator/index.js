@@ -6,7 +6,6 @@ import { mediaMax } from '%/styles/mixins'
 const PagesContainer = styled.div`
   margin-bottom: 1em;
   text-align: right;
-
   ${mediaMax.phone`
     display: none;
   `}

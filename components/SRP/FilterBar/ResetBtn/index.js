@@ -13,7 +13,6 @@ const Text = styled.a`
   font-size: ${em(13)};
   font-weight: 300;
   vertical-align: middle;
-
   ${mediaMax.largeTablet`
     font-size: ${em(11)};
   `}

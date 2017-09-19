@@ -7,7 +7,6 @@ const Wrapper = styled.div`
   background-color: ${colors.white};
   border-bottom: 2px solid ${colors.bordergray};
   padding: ${em(15)} 0;
-
   ${mediaMax.phone`
     display: none;
   `}

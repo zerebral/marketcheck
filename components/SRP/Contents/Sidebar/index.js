@@ -134,17 +134,14 @@ const colorButtons = [
 
 const SidebarFlexCol = styled(FlexCol)`
   max-width: 250px;
-
   ${mediaMax.desktop`
     left: auto;
     max-width: 25%;
   `}
-
   ${mediaMax.largeTablet`
     left: auto;
     max-width: 30%;
   `}
-
   ${mediaMax.phone`
     background-color: ${colors.white};
     max-width: 100%;
@@ -155,7 +152,7 @@ const SidebarFlexCol = styled(FlexCol)`
 export default ({props}) =>
   <SidebarFlexCol>
     <Wrapper>
-      <ClearAllBtn {...props}/>
+      <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
       <InputRange {...props} label='Distance' min={0} max={300} step={10} value={40} />
       <DoubleRange {...props} label='Price' valuePrefix='$' min={400} max={50000} step={10} value={[400, 50000]} />

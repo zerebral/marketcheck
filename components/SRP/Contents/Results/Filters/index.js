@@ -7,7 +7,6 @@ import XIcon from './x.svg'
 const Container = styled.div`
   background-color: ${colors.white};
   margin-bottom: 1em;
-
   ${mediaMax.phone`
     border-bottom: 2px solid ${colors.lightergray};
     margin-bottom: 0;
@@ -23,11 +22,9 @@ const Filter = styled.div`
   font-weight: 300;
   margin-right: 1em;
   padding: 0.5em 1em;
-
   ${mediaMax.largeTablet`
     margin-right: 0.5em;
   `}
-
   ${mediaMax.phone`
     margin-bottom: 1em;
   `}
@@ -37,7 +34,6 @@ const Label = styled.span`
   color: ${colors.lightergray};
   font-weight: 300;
   margin-right: 0.5em;
-
   ${mediaMax.largeTablet`
     font-size: 11px;
   `}
@@ -47,7 +43,6 @@ const Value = styled.span`
   color: ${colors.darkengray};
   font-weight: 300;
   margin-right: 0.5em;
-
   ${mediaMax.largeTablet`
     font-size: 11px;
   `}

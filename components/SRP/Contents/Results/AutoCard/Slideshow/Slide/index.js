@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
-import { mediaMax } from '%/styles/mixins'
-import { stdBackground, mediaMin } from '%/styles/mixins'
+import { stdBackground, mediaMax } from '%/styles/mixins'
 
 const Slide = styled.div`
   ${stdBackground()}
@@ -11,17 +10,14 @@ const Slide = styled.div`
   height: 190px;
   transition: 0.3s;
   margin-top: 15px;
-
   ${mediaMax.desktop`
     min-height: 183px;
     height: 183px;
   `}
-
   ${mediaMax.largeTablet`
     min-height: 220px;
     height: 220px;
   `}
-
   ${mediaMax.phone`
     min-height: 160px;
     height: 160px;
@@ -31,17 +27,14 @@ const Slide = styled.div`
     min-height: 190px;
     height: 190px;
     margin-top: 0;
-
     ${mediaMax.desktop`
       min-height: 183px;
       height: 183px;
     `}
-
     ${mediaMax.largeTablet`
       min-height: 250px;
       height: 250px;
     `}
-
     ${mediaMax.phone`
       min-height: 190px;
       height: 190px;

@@ -38,12 +38,10 @@ const StyledFlexCol = styled(FlexCol)`
     left: auto;
     max-width: 75%;
   `}
-
   ${mediaMax.largeTablet`
     left: auto;
     max-width: 70%;
   `}
-
   ${mediaMax.phone`
     background-color: ${colors.bordergray};
     max-width: 100%;

@@ -7,7 +7,6 @@ import Icon from './hamburger-icon.svg'
 const FilterBy = styled.div`
   display: inline-block;
   margin-right: 6em;
-
   ${mediaMax.largeTablet`
     margin-right: 4em;
   `}
@@ -27,7 +26,6 @@ const Text = styled.span`
   font-size: ${em(13)};
   font-weight: 300;
   vertical-align: middle;
-
   ${mediaMax.largeTablet`
     font-size: ${em(11)};
   `}

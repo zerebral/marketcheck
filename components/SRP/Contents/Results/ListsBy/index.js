@@ -30,7 +30,6 @@ const listThree = [
 
 const Container = styled.div`
   display: block;
-
   ${mediaMax.phone`
     display: none;
   `}
@@ -40,7 +39,6 @@ const Title = styled.h2`
   color: ${colors.softblue};
   font-size: 0.8em;
   margin-bottom: 1.5em;
-
   ${mediaMax.desktop`
     font-size: 0.65em;
   `}
@@ -54,7 +52,6 @@ const ListItem = styled.p`
   color: ${colors.black};
   font-size: 0.9em;
   margin-bottom: 1em;
-
   ${mediaMax.desktop`
     font-size: 0.8em;
   `}

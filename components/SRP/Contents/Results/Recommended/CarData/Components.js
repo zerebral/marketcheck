@@ -31,11 +31,9 @@ export const NewBadge = styled.span`
 export const Name = styled.h3`
   font-size: 18px;
   line-height: 21.6px;
-
   ${mediaMax.srpDesktop`
     font-size: 16px;
   `}
-
   ${mediaMax.desktop`
     font-size: 13px;
   `}
@@ -66,12 +64,10 @@ export const Price = styled.h4`
   font-size: 26px;
   line-height: 31.2px;
   margin-right: 7px;
-
   ${mediaMax.srpDesktop`
     font-size: 22px;
     line-height: 28px;
   `}
-
   ${mediaMax.desktop`
     font-size: 18px;
     line-height: 24px;
@@ -84,12 +80,10 @@ export const Drew = styled.a`
   line-height: 21.6px;
   color: ${colors.softblue};
   margin-bottom: 10px;
-
   ${mediaMax.srpDesktop`
     font-size: 12px;
     line-height: 19px;
   `}
-
   ${mediaMax.desktop`
     font-size: 11px;
     line-height: 18px;

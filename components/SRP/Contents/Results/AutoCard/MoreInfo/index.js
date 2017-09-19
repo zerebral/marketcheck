@@ -8,7 +8,6 @@ import View360Icon from './view360.svg'
 
 const Container = styled.div`
   padding: 1em;
-
   ${mediaMax.phone`
     padding: 1em 1.5em;
   `}
@@ -22,7 +21,6 @@ const StyledFlexRow = styled(FlexRow)`
 
 const LeftFlexCol = styled(FlexCol)`
   max-width: 30%;
-
   ${mediaMax.largeTablet`
     max-width: 100%;
   `}
@@ -35,7 +33,6 @@ const DetFlexCol = styled(FlexCol)`
 
 const DetFlexRow = styled(FlexRow)`
   padding: 1em 0;
-
   ${mediaMax.largeTablet`
     display: block;
   `}
@@ -45,11 +42,9 @@ const OtherName = styled.p`
   color: ${colors.black};
   font-size: 1.1em;
   margin-bottom: 0.5em;
-
   ${mediaMax.srpDesktop`
     font-size: 0.9em;
   `}
-
   ${mediaMax.largeTablet`
     font-size: 1.2em;
   `}
@@ -69,12 +64,10 @@ const Multimedia = styled.div`
 const MultiInfo = styled.div`
   display: inline-block;
   margin: 0 1.5em;
-
   ${mediaMax.srpDesktop`
     font-size: 0.8em;
     margin: 0 0.8em;
   `}
-
   ${mediaMax.largeTablet`
     font-size: 1em;
     margin: 0 1.5em;
@@ -87,11 +80,9 @@ const MultiInfo = styled.div`
   svg {
     height: 20px;
     margin-bottom: 0.5em;
-
     ${mediaMax.srpDesktop`
       height: 15px;
     `}
-
     ${mediaMax.largeTablet`
       height: 20px;
     `}
@@ -121,11 +112,9 @@ const Label = styled.span`
   font-size: 0.8em;
   font-weight: 300;
   margin-right: 0.5em;
-
   ${mediaMax.srpDesktop`
     font-size: 0.7em;
   `}
-
   ${mediaMax.largeTablet`
     font-size: 0.8em;
   `}
@@ -135,11 +124,9 @@ const Value = styled.span`
   color: ${colors.black};
   font-size: 0.8em;
   font-weight: 300;
-
   ${mediaMax.srpDesktop`
     font-size: 0.7em;
   `}
-
   ${mediaMax.largeTablet`
     font-size: 0.8em;
   `}

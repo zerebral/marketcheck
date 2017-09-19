@@ -24,7 +24,6 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-
   ${mediaMax.largeTablet`
     display: block;
   `}
@@ -40,7 +39,6 @@ const HeartBtn = styled.button`
   right: 2em;
   top: 0.5em;
   z-index: 9999999;
-
   ${mediaMax.largeTablet`
     top: 1.5em;
     right: 3em;
@@ -58,7 +56,6 @@ const ShareBtn = styled.button`
   right: 0.5em;
   top: 0.5em;
   z-index: 9999999;
-
   ${mediaMax.largeTablet`
     top: 1.5em;
     right: 1em;
@@ -79,7 +76,6 @@ const ViewMore = styled.button`
   padding: 0.5em 1em;
   position: absolute;
   right: 0;
-
   ${mediaMax.srpDesktop`
     font-size: 14px;
   `}

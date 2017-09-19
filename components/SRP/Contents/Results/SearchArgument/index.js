@@ -9,7 +9,6 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1em 0;
-
   ${mediaMax.phone`
     display: block;
     padding: 1em;
@@ -24,11 +23,9 @@ const Argument = styled.span`
   font-weight: normal;
   margin-right: 1em;
   vertical-align: bottom;
-
   ${mediaMax.largeTablet`
     font-size: ${em(14)};
   `}
-
   ${mediaMax.phone`
     display: block;
     text-align: left;
@@ -40,7 +37,6 @@ const SaveSearch = styled.a.attrs({ href: '#' })`
   font-size: ${em(13)};
   display: inline-block;
   vertical-align: bottom;
-
   ${mediaMax.largeTablet`
     font-size: ${em(12)};
   `}
@@ -50,7 +46,6 @@ const SaveSearchTop = styled(SaveSearch)`
   ${mediaMin.largeTablet`
     display: none;
   `}
-
   ${mediaMax.phone`
     display: inline-block;
     margin-bottom: 1em;
@@ -69,11 +64,9 @@ const Location = styled.a.attrs({ href: '#' })`
   display: inline-block;
   text-align: right;
   vertical-align: bottom;
-
   ${mediaMax.largeTablet`
     font-size: ${em(12)};
   `}
-
   ${mediaMax.phone`
     display: none;
   `}

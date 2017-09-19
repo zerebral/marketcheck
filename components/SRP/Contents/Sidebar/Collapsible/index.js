@@ -8,7 +8,6 @@ import Arrow from './arrow-down.svg'
 
 const Container = styled.div`
   padding: 1em 1em 1em 0;
-
   ${mediaMax.phone`
     padding: 1em 0;
   `}
@@ -81,7 +80,7 @@ class Collapsible extends Component {
     this.resetBtn = this.props.resetBtn
 
     this.state = {
-      open: document.documentElement.clientWidth < 480 ? false : true,
+      open: window.innerWidth > 480,
       reset: false
     }
   }

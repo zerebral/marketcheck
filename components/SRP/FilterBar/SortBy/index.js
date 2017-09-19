@@ -17,7 +17,6 @@ const Label = styled.span`
   font-weight: 300;
   margin-right: 1em;
   vertical-align: middle;
-
   ${mediaMax.desktop`
    font-size: ${em(11)};
   `}
@@ -29,7 +28,6 @@ const Selected = styled.span`
   font-size: ${em(13)};
   font-weight: 300;
   vertical-align: middle;
-
   ${mediaMax.desktop`
    font-size: ${em(11)};
   `}
@@ -42,7 +40,6 @@ const DropdownContent = styled.div`
   min-width: 160px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
-
   ${mediaMax.desktop`
    min-width: 130px;
   `}
@@ -53,7 +50,6 @@ const DropdownItem = styled.a`
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-
   ${mediaMax.desktop`
    font-size: ${em(12)};
   `}

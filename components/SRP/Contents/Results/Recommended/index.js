@@ -25,7 +25,6 @@ const data = [
 
 const Container = styled.div`
   margin-bottom: 3em;
-
   ${mediaMax.phone`
     display: none;
   `}

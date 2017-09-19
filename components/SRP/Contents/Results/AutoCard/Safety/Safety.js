@@ -7,7 +7,6 @@ const Container = styled.div`
   padding: 1.8em 0;
   text-align: right;
   vertical-align: top;
-
   ${mediaMax.largeTablet`
     padding: 0 30px;
   `}
