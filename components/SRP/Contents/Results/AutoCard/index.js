@@ -107,7 +107,7 @@ class AutoCard extends Component {
     this.data = this.props.data
 
     this.state = {
-      open: false
+      open: true
     }
   }
 
