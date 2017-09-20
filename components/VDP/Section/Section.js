@@ -13,10 +13,10 @@ import {
 export default ({ title, summary, center, children }) =>
   <Section>
     <Container>
-      <FlexRow justify='center'>
+      <FlexRow justify='center' wrap >
         <FlexCol cols={center ? 12 : 3}>
-          <Title>{title}</Title>
-          {summary && <Summary>{summary}</Summary>}
+          <Title center={center}>{title}</Title>
+          {summary && <Summary center={center}>{summary}</Summary>}
         </FlexCol>
 
         <FlexCol cols={center ? 12 : 9}>

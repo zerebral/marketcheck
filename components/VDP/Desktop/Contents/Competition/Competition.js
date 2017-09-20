@@ -1,18 +1,9 @@
-import { Accordion } from '~/general'
-import styled from 'styled-components'
+import Section from '~/VDP/Section'
 import Averages from './Averages.js'
 import Similar from './Similar.js'
 
-const Summary = styled.p`
-  opacity: 0.54;
-  margin-bottom: 25px !important;
-`
-
 export default () =>
-  <Accordion title='The Competition'>
-    <Summary>
-      Similar cars currently for sale
-    </Summary>
+  <Section title='The Competition' summary='Similar cars currently for sale'>
     <Averages />
     <Similar />
-  </Accordion>
+  </Section>

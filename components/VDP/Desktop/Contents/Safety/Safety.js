@@ -1,21 +1,20 @@
-import { Accordion } from '~/general'
-import styled from 'styled-components'
+import Section from '~/VDP/Section'
 import Rating from './Rating'
 import Seller from './Seller'
-
-const Summary = styled.p`
-  opacity: 0.56;
-  margin-bottom: 45px !important;
-`
+import { FlexRow } from '~/layout'
 
 export default () =>
-  <Accordion title='Safety Ratings'>
-    <Summary>Define Where Data is Coming From</Summary>
-    <Rating stars={4} name='Overall' />
-    <Rating stars={2} name='Roll Over' />
-    <Rating stars={3.2} name='Driver Side' />
-    <Rating stars={4.3} name='Driver Front' />
-    <Rating stars={5} name='Passenger Front' />
+  <Section title='Safety Ratings' summary='Define Where Data is Coming From'>
+    <FlexRow justify='center' noMargin >
+      <Rating stars={4} name='Overall' />
+    </FlexRow>
+
+    <FlexRow justify='center' noMargin >
+      <Rating stars={2} name='Roll Over' />
+      <Rating stars={3.2} name='Driver Side' />
+      <Rating stars={4.3} name='Driver Front' />
+      <Rating stars={5} name='Passenger Front' />
+    </FlexRow>
 
     <Seller
       name='Drew International Sales'
@@ -25,4 +24,4 @@ export default () =>
       reviews={24}
       website='#'
     />
-  </Accordion>
+  </Section>

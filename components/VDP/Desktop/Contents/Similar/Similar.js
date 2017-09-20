@@ -1,19 +1,16 @@
-import { Accordion } from '~/general'
-import styled from 'styled-components'
+import Section from '~/VDP/Section'
 import { number } from '%/format'
 import data from './data.json'
 import Car from './Car'
 
-const Summary = styled.p`
-  opacity: 0.56;
-  margin-bottom: 30px !important;
-`
-
 const cars = data.listings
 
+const String = () => {
+  return number(data.num_found) + ' Vehicles Within ' + number(100) + ' Miles'
+}
+
 export default () =>
-  <Accordion title='Similar Local Cars'>
-    <Summary>{number(data.num_found)} Similar cars in Your Local Area</Summary>
+  <Section title='Similar Local Cars' summary={String()} center >
     {cars.map(car =>
       <Car
         key={car.id}
@@ -27,4 +24,4 @@ export default () =>
         picture={car.media.photo_links[0]}
       />
     )}
-  </Accordion>
+  </Section>
