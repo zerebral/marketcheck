@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import { FlexRow, FlexCol } from '~/layout'
 import { colors } from '%/styles'
 
@@ -29,12 +30,18 @@ const listThree = [
 
 const Container = styled.div`
   display: block;
+  ${mediaMax.phone`
+    display: none;
+  `}
 `
 
 const Title = styled.h2`
   color: ${colors.softblue};
   font-size: 0.8em;
   margin-bottom: 1.5em;
+  ${mediaMax.desktop`
+    font-size: 0.65em;
+  `}
 `
 
 const List = styled.div`
@@ -45,6 +52,9 @@ const ListItem = styled.p`
   color: ${colors.black};
   font-size: 0.9em;
   margin-bottom: 1em;
+  ${mediaMax.desktop`
+    font-size: 0.8em;
+  `}
 `
 
 class ListsBy extends Component {

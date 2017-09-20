@@ -1,14 +1,22 @@
+import styled from 'styled-components'
 import { FlexRow, OutContainer } from '~/layout'
+import { mediaMax } from '%/styles/mixins'
 import Wrapper from './Wrapper'
 import Sidebar from './Sidebar'
 import Results from './Results'
 
-export default () =>
+const StyledFlexRow = styled(FlexRow)`
+  ${mediaMax.phone`
+    display: block;
+  `}
+`
+
+export default ({props}) =>
   <Wrapper>
     <OutContainer>
-      <FlexRow>
-        <Sidebar />
+      <StyledFlexRow>
+        <Sidebar {...props} />
         <Results />
-      </FlexRow>
+      </StyledFlexRow>
     </OutContainer>
   </Wrapper>

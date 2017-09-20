@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import { em } from 'polished'
 import { colors } from '%/styles'
 import Icon from './hamburger-icon.svg'
@@ -6,6 +7,9 @@ import Icon from './hamburger-icon.svg'
 const FilterBy = styled.div`
   display: inline-block;
   margin-right: 6em;
+  ${mediaMax.largeTablet`
+    margin-right: 4em;
+  `}
 
   svg {
     display: inline-block;
@@ -22,6 +26,9 @@ const Text = styled.span`
   font-size: ${em(13)};
   font-weight: 300;
   vertical-align: middle;
+  ${mediaMax.largeTablet`
+    font-size: ${em(11)};
+  `}
 `
 
 export default ({

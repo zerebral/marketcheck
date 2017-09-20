@@ -3,10 +3,14 @@ import { FlexRow, FlexCol } from '~/layout'
 import styled from 'styled-components'
 import { em } from 'polished'
 import { colors } from '%/styles'
+import { mediaMax } from '%/styles/mixins'
 import Arrow from './arrow-down.svg'
 
 const Container = styled.div`
   padding: 1em 1em 1em 0;
+  ${mediaMax.phone`
+    padding: 1em 0;
+  `}
 `
 
 const FlexColLeft = styled(FlexCol)`
@@ -76,7 +80,7 @@ class Collapsible extends Component {
     this.resetBtn = this.props.resetBtn
 
     this.state = {
-      open: true,
+      open: window.innerWidth > 480,
       reset: false
     }
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import { colors } from '%/styles'
 import Safety from './Safety'
 import CarData from './CarData'
@@ -9,8 +10,10 @@ import MoreInfo from './MoreInfo'
 import HeartIcon from './heart.svg'
 import ShareIcon from './share.svg'
 import ArrowIcon from './arrow.svg'
+import PriceTop from './PriceTop'
 
 const Card = styled.div`
+  background-color: ${colors.white};
   box-shadow: 0 0 4px ${colors.gray};
   position: relative;
   margin-bottom: 1.5em;
@@ -21,6 +24,13 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
+  ${mediaMax.largeTablet`
+    display: block;
+  `}
+`
+
+const InnerContainer = styled.div`
+  max-width: 100%;
 `
 
 const HeartBtn = styled.button`
@@ -29,6 +39,10 @@ const HeartBtn = styled.button`
   right: 2em;
   top: 0.5em;
   z-index: 9999999;
+  ${mediaMax.largeTablet`
+    top: 1.5em;
+    right: 3em;
+  `}
 
   svg {
     height: 16px;
@@ -42,6 +56,10 @@ const ShareBtn = styled.button`
   right: 0.5em;
   top: 0.5em;
   z-index: 9999999;
+  ${mediaMax.largeTablet`
+    top: 1.5em;
+    right: 1em;
+  `}
 
   svg {
     height: 16px;
@@ -58,6 +76,9 @@ const ViewMore = styled.button`
   padding: 0.5em 1em;
   position: absolute;
   right: 0;
+  ${mediaMax.srpDesktop`
+    font-size: 14px;
+  `}
 `
 
 const Text = styled.span`
@@ -117,10 +138,11 @@ class AutoCard extends Component {
     return (
       <Card className={this.state.open ? 'open' : 'close'}>
         <Container>
-          <div>
+          <PriceTop data={this.data} />
+          <InnerContainer>
             <Slideshow slides={this.data.sliderPics} />
             <CarData data={this.data} />
-          </div>
+          </InnerContainer>
           <Safety data={this.data} />
 
           <HeartBtn>

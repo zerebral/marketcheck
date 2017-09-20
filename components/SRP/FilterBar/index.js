@@ -1,4 +1,5 @@
 import { OutContainer, FlexRow, FlexCol } from '~/layout'
+import { mediaMax } from '%/styles/mixins'
 import Wrapper from './Wrapper'
 import FilterBy from './FilterBy'
 import ResetBtn from './ResetBtn'
@@ -9,10 +10,16 @@ import styled from 'styled-components'
 
 const FlexColLeft = styled(FlexCol)`
   text-align: left;
+  ${mediaMax.desktop`
+    max-width: 30%;
+  `}
 `
 
 const FlexColRight = styled(FlexCol)`
   text-align: right;
+  ${mediaMax.desktop`
+    max-width: 70%;
+  `}
 `
 
 export default () =>

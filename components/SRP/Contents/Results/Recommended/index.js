@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import { FlexRow, FlexCol } from '~/layout'
 import { colors } from '%/styles'
 import CarData from './CarData'
@@ -24,6 +25,9 @@ const data = [
 
 const Container = styled.div`
   margin-bottom: 3em;
+  ${mediaMax.phone`
+    display: none;
+  `}
 `
 
 const Card = styled.div`

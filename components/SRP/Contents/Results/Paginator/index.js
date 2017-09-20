@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { colors } from '%/styles'
+import { mediaMax } from '%/styles/mixins'
 
 const PagesContainer = styled.div`
   margin-bottom: 1em;
   text-align: right;
+  ${mediaMax.phone`
+    display: none;
+  `}
 `
 
 const PageNumber = styled.span`

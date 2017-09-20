@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import { FlexRow, FlexCol } from '~/layout'
 import { colors } from '%/styles'
 import PhotoIcon from './photos.svg'
@@ -7,10 +8,22 @@ import View360Icon from './view360.svg'
 
 const Container = styled.div`
   padding: 1em;
+  ${mediaMax.phone`
+    padding: 1em 1.5em;
+  `}
+`
+
+const StyledFlexRow = styled(FlexRow)`
+  ${mediaMax.largeTablet`
+    display: block;
+  `}
 `
 
 const LeftFlexCol = styled(FlexCol)`
   max-width: 30%;
+  ${mediaMax.largeTablet`
+    max-width: 100%;
+  `}
 `
 
 const DetFlexCol = styled(FlexCol)`
@@ -20,12 +33,21 @@ const DetFlexCol = styled(FlexCol)`
 
 const DetFlexRow = styled(FlexRow)`
   padding: 1em 0;
+  ${mediaMax.largeTablet`
+    display: block;
+  `}
 `
 
 const OtherName = styled.p`
   color: ${colors.black};
   font-size: 1.1em;
   margin-bottom: 0.5em;
+  ${mediaMax.srpDesktop`
+    font-size: 0.9em;
+  `}
+  ${mediaMax.largeTablet`
+    font-size: 1.2em;
+  `}
 `
 
 const Type = styled.p`
@@ -42,10 +64,28 @@ const Multimedia = styled.div`
 const MultiInfo = styled.div`
   display: inline-block;
   margin: 0 1.5em;
+  ${mediaMax.srpDesktop`
+    font-size: 0.8em;
+    margin: 0 0.8em;
+  `}
+  ${mediaMax.largeTablet`
+    font-size: 1em;
+    margin: 0 1.5em;
+
+    &:first-child {
+      display: none;
+    }
+  `}
 
   svg {
     height: 20px;
     margin-bottom: 0.5em;
+    ${mediaMax.srpDesktop`
+      height: 15px;
+    `}
+    ${mediaMax.largeTablet`
+      height: 20px;
+    `}
   }
 
   span {
@@ -59,6 +99,12 @@ const DetailItem = styled.div`
   &:not(:last-child) {
     margin-bottom: 1em;
   }
+
+  ${mediaMax.largeTablet`
+    &:last-child {
+      margin-bottom: 1em;
+    }
+  `}
 `
 
 const Label = styled.span`
@@ -66,17 +112,29 @@ const Label = styled.span`
   font-size: 0.8em;
   font-weight: 300;
   margin-right: 0.5em;
+  ${mediaMax.srpDesktop`
+    font-size: 0.7em;
+  `}
+  ${mediaMax.largeTablet`
+    font-size: 0.8em;
+  `}
 `
 
 const Value = styled.span`
   color: ${colors.black};
   font-size: 0.8em;
   font-weight: 300;
+  ${mediaMax.srpDesktop`
+    font-size: 0.7em;
+  `}
+  ${mediaMax.largeTablet`
+    font-size: 0.8em;
+  `}
 `
 
 export default ({data}) =>
   <Container>
-    <FlexRow>
+    <StyledFlexRow>
       <LeftFlexCol>
         <OtherName>{data.otherName}</OtherName>
         <Type>{data.type}</Type>
@@ -155,5 +213,5 @@ export default ({data}) =>
           </DetFlexCol>
         </DetFlexRow>
       </FlexCol>
-    </FlexRow>
+    </StyledFlexRow>
   </Container>

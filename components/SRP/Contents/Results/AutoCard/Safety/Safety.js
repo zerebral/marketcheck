@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import Seller from './Seller'
 
 const Container = styled.div`
@@ -6,6 +7,9 @@ const Container = styled.div`
   padding: 1.8em 0;
   text-align: right;
   vertical-align: top;
+  ${mediaMax.largeTablet`
+    padding: 0 30px;
+  `}
 `
 
 export default ({data}) =>

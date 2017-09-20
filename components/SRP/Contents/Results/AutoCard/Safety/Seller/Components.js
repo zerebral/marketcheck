@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { mediaMax } from '%/styles/mixins'
 import { colors } from '%/styles'
 
 export const Seller = styled.div`
@@ -7,6 +8,21 @@ export const Seller = styled.div`
   padding-left: 1.5em;
   padding-right: 5em;
   text-align: left;
+  ${mediaMax.srpDesktop`
+    left: auto;
+    padding-left: 1em;
+    padding-right: 1em;
+  `}
+  ${mediaMax.desktop`
+    left: auto;
+    padding-left: 1em;
+    padding-right: 2em;
+  `}
+  ${mediaMax.largeTablet`
+    border: none;
+    padding: 0;
+    padding-bottom: 2em;
+  `}
 `
 
 export const External = ({ width = 10.15, ...rest }) =>
@@ -20,6 +36,14 @@ export const Name = styled.a`
   line-height: 21.6px;
   color: ${colors.softblue};
   margin-bottom: 10px;
+  ${mediaMax.desktop`
+    font-size: 13px;
+    margin-bottom: 5px;
+  `}
+  ${mediaMax.largeTablet`
+    font-size: 14px;
+    margin-bottom: 10px;
+  `}
 
   svg {
     margin-left: 10px;
@@ -36,6 +60,14 @@ export const Location = styled.h6`
   line-height: 16.8px;
   color: #232a35;
   margin-bottom: 10px;
+  ${mediaMax.desktop`
+    font-size: 12px;
+    margin-bottom: 5px;
+  `}
+  ${mediaMax.largeTablet`
+    font-size: 14px;
+    margin-bottom: 10px;
+  `}
 
   svg {
     opacity: 0.46;
@@ -64,6 +96,12 @@ export const Badge = styled.span`
   margin: 0 5px;
   border-radius: 20px;
   vertical-align: middle;
+  ${mediaMax.desktop`
+    font-size: 10px;
+  `}
+  ${mediaMax.largeTablet`
+    font-size: 12px;
+  `}
 `
 
 export const Stars = styled.div`
@@ -87,6 +125,12 @@ export const Star = ({ full }) =>
 export const Reviews = styled.h4`
   font-size: 14px;
   color: ${colors.softblue};
+  ${mediaMax.desktop`
+    font-size: 11px;
+  `}
+  ${mediaMax.largeTablet`
+    font-size: 14px;
+  `}
 `
 
 export const Button = styled.a`
@@ -98,4 +142,16 @@ export const Button = styled.a`
   padding: 10px 12px;
   display: inline-block;
   border-radius: 4px;
+  ${mediaMax.srpDesktop`
+    font-size: 12px;
+    padding: 6px 10px;
+  `}
+  ${mediaMax.desktop`
+    font-size: 11px;
+    padding: 5px 10px;
+  `}
+  ${mediaMax.largeTablet`
+    font-size: 13px;
+    padding: 10px 12px;
+  `}
 `
