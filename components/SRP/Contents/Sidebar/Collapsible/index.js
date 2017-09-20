@@ -80,9 +80,15 @@ class Collapsible extends Component {
     this.resetBtn = this.props.resetBtn
 
     this.state = {
-      open: window.innerWidth > 480,
+      open: false,
       reset: false
     }
+  }
+
+  componentDidMount () {
+    this.setState({
+      open: window.innerWidth > 480
+    })
   }
 
   handleResetClick () {
