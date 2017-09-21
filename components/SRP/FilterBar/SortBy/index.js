@@ -85,13 +85,11 @@ class Dropdown extends Component {
       this.setState({
         open: false
       }, function () {
-        console.log(this.state.open)
       })
     } else {
       this.setState({
         open: true
       }, function () {
-        console.log(this.state.open)
       })
     }
   }
@@ -102,7 +100,6 @@ class Dropdown extends Component {
       selectedValue: index,
       open: false
     }, function () {
-      console.log(this.state.selectedValue)
     })
   }
 
