@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   svg {
     width: 20px;
     height: 20px;
-    margin-bottom: 7px;
+    margin-right: 20px;
   }
 
   a {
@@ -23,28 +23,49 @@ const Wrapper = styled.div`
   }
 `
 
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`
+
 export default () =>
   <Section title='VIN Summary Report'>
     <Wrapper>
-      <Price />
-      <p>This car is $1,234 below market value</p>
+      <Row>
+        <Price />
+        <p>This car is $1,234 below market value</p>
+      </Row>
 
-      <Miles />
-      <p>Miles driven per year: 6,454 miles vs 7,545 miles for the average 2017 Toyota Camry...</p>
+      <Row>
+        <Miles />
+        <p>Miles driven per year: 6,454 miles vs 7,545 miles for the average 2017 Toyota Camry...</p>
+      </Row>
 
-      <Cal />
-      <p>Days listed for sale: 756 days - Cars like this usually sell in 54 days.</p>
+      <Row>
+        <Cal />
+        <p>Days listed for sale: 756 days - Cars like this usually sell in 54 days.</p>
+      </Row>
 
-      <Alert />
-      <p>2017 Toyota Camry vehicles have had 3 recalls. It’s <a href='#'>FREE to check</a> if this VIN has an open recall.</p>
+      <Row>
+        <Alert />
+        <p>2017 Toyota Camry vehicles have had 3 recalls. It’s <a href='#'>FREE to check</a> if this VIN has an open recall.</p>
+      </Row>
 
-      <Lock />
-      <p>It’s <a href='#'>FREE to check</a> if the car was stolen.</p>
+      <Row>
+        <Lock />
+        <p>It’s <a href='#'>FREE to check</a> if the car was stolen.</p>
+      </Row>
 
-      <Star />
-      <p>The dealer selling this car has a MarketCheck rating of 4.5 stars (out of 5)</p>
+      <Row>
+        <Star />
+        <p>The dealer selling this car has a MarketCheck rating of 4.5 stars (out of 5)</p>
+      </Row>
 
-      <Check />
-      <p>$665 could be saved depending on when you buy cars like this.</p>
+      <Row>
+        <Check />
+        <p>$665 could be saved depending on when you buy cars like this.</p>
+      </Row>
+
     </Wrapper>
   </Section>
