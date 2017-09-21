@@ -24,7 +24,7 @@ const FlexRow = styled.div`
   ${conditionalAlign}
   ${conditionalJustify}
   ${conditionalMargins}
-  flex-wrap: ${props => props.wrap ? 'wrap' : 'nowrap'};
+  ${props => props.wrap && `flex-wrap: wrap;`}
 `
 
 export default FlexRow
