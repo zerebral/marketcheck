@@ -11,22 +11,16 @@ const H2 = styled.h2`
   margin-bottom: 5px;
 `
 
-const SummaryWrapper = styled.div`
-  padding: 18px 0;
-  text-align: center;
-  margin-bottom: 40px;
-`
-
-const Summary = styled.h4`
-  font-size: 12px;
+const Right = styled.div`
+  max-width: 30%;
+  margin-left: auto;
 `
 
 export default () =>
   <Section title='Averages Over Time' summary='Based on 256 Similar Vehicles Nearby' >
-    <H2>145,565 mi</H2>
-    <P>234 miles less than market average</P>
+    <Right>
+      <H2>145,565 mi</H2>
+      <P>234 miles less than market average</P>
+    </Right>
     <LineChart />
-    <SummaryWrapper>
-      <Summary>6 Month Market Averages - Jan Through Jun</Summary>
-    </SummaryWrapper>
   </Section>

@@ -16,11 +16,10 @@ import LineChartWrapper from './LineChartWrapper.js'
 
 export default () =>
   <LineChartWrapper>
-    <ResponsiveContainer width='100%' height={110}>
-      <AreaChart data={data} margin={{ top: 25 }}>
+    <ResponsiveContainer width='100%' height={200}>
+      <AreaChart data={data} margin={{ bottom: 25 }}>
         <XAxis hide />
         <YAxis hide />
-        <Legend iconSize={8} wrapperStyle={{ top: 0 }} />
         <Tooltip />
         <defs>
           <linearGradient id='colorUv' x1='0' y1='0' x2='0' y2='1'>
@@ -52,6 +51,7 @@ export default () =>
           fill='url(#colorUv)'
           name='Miles'
         />
+        <Legend iconSize={8} wrapperStyle={{ bottom: 0 }} />
       </AreaChart>
     </ResponsiveContainer>
   </LineChartWrapper>

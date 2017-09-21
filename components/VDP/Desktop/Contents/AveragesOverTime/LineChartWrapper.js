@@ -6,7 +6,7 @@ const Component = styled.div`
   position: relative;
   width: calc(100% + ${rem(grid.gutter)});
   margin-left: -${rem(grid.gutter / 2)};
-  margin-top: 90px;
+  margin-top: 40px;
 
   .recharts-default-legend {
     font-size: 12px;
