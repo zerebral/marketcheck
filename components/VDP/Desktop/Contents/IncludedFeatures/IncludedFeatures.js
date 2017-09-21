@@ -14,7 +14,7 @@ import {
 
 export default () =>
   <Section title='Included Features' summary='12 Similarly Equiped Carts Curently Available'>
-    <FlexRow noMargin wrap >
+    <FlexRow noMargin justify='space-around'>
       <Feature icon={Bluetooth} name='Bluetooth' />
       <Feature icon={Cam} name='Rear Cam' />
       <Feature icon={Wheels} name='Alloy wheels' />

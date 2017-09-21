@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
 const Feature = styled.div`
-  max-width: 50%;
-  flex-basis: 50%;
   text-align: center;
-  margin-bottom: 50px;
   padding: 0 10px;
 
   svg {
