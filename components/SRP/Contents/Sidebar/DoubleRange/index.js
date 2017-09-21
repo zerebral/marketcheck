@@ -42,7 +42,6 @@ class DoubleRange extends Component {
   }
 
   onSliderChange = (value) => {
-    console.log(value)
 
     this.setState({
       value

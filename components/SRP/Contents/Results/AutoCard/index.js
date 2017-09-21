@@ -123,13 +123,11 @@ class AutoCard extends Component {
       this.setState({
         open: false
       }, function () {
-        console.log(this.state.open)
       })
     } else {
       this.setState({
         open: true
       }, function () {
-        console.log(this.state.open)
       })
     }
   }
