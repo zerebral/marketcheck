@@ -21,7 +21,7 @@ const DropCol = styled.div`
 const DataText = styled.p`
   font-size: 14px;
   line-height: 2;
-  margin-bottom: 8px !important;
+  margin-bottom: 8px;
 `
 
 const SmallText = styled.span`

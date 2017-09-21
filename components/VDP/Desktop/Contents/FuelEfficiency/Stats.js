@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Text from './Text.js'
 import Drops from './Drops.js'
 
 const Stats = styled.div`
@@ -8,6 +7,5 @@ const Stats = styled.div`
 
 export default () =>
   <Stats>
-    <Text />
     <Drops />
   </Stats>

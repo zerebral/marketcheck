@@ -57,7 +57,6 @@ const Detail = styled.h6`
 
 export default () =>
   <DropsRow>
-
     <DropCol>
       <Drop />
       <CenteredBox>
@@ -84,5 +83,4 @@ export default () =>
         <Detail>HWY</Detail>
       </CenteredBox>
     </DropCol>
-
   </DropsRow>
