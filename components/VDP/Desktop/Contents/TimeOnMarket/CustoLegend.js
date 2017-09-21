@@ -7,11 +7,11 @@ const LegendWrapper = styled.div`
 
 const BlueText = styled.p`
   color: ${colors.blue};
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 `
 const NormalText = styled.p`
   color: ${colors.gray};
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 `
 
 const CustoLegend = (props) =>

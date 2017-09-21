@@ -10,7 +10,6 @@ const Listing = styled.div`
 
 const DateRange = styled.h6`
   font-size: 14px;
-  line-height: 2;
   font-weight: 400;
 `
 const Vendor = styled.a`
@@ -30,12 +29,15 @@ const Vendor = styled.a`
 
 export default () =>
   <Listing>
-    <DateRange>June 23 2017 - July 10, 2017</DateRange>
-    <Vendor>
-      Drew International Auto Sales
-      <External />
-    </Vendor>
-    <FlexRow noMargin >
+    <FlexRow noMargin justify='space-between' >
+      <div>
+        <DateRange>June 23 2017 - July 10, 2017</DateRange>
+        <Vendor>
+          Drew International Auto Sales
+          <External />
+        </Vendor>
+      </div>
+
       <StatCol money gain />
       <StatCol />
     </FlexRow>

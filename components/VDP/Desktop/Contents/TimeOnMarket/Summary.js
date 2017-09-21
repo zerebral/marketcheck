@@ -4,6 +4,7 @@ import Listing from './Listing.js'
 
 const Summary = styled.div`
   margin-bottom: 15px;
+  max-width: 90%;
 `
 
 const Title = styled.p`
