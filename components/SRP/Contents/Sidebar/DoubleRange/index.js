@@ -6,6 +6,7 @@ import Slider from 'rc-slider'
 
 import { FlexRow, FlexCol } from '~/layout'
 import { colors } from '%/styles'
+import { currency, number } from '%/format'
 
 import Collapsible from '../Collapsible'
 
@@ -26,7 +27,7 @@ class DoubleRange extends Component {
     super(props)
 
     this.label = this.props.label
-    this.valuePrefix = this.props.valuePrefix
+    this.currency = this.props.currency
     this.min = this.props.min
     this.max = this.props.max
     this.value = this.props.value
@@ -42,7 +43,6 @@ class DoubleRange extends Component {
   }
 
   onSliderChange = (value) => {
-
     this.setState({
       value
     })
@@ -68,10 +68,10 @@ class DoubleRange extends Component {
           railStyle={{ backgroundColor: colors.bordergray }} />
         <FlexRow>
           <FlexCol>
-            <Price align='left'>{this.valuePrefix ? this.valuePrefix : '' }{this.state.value[0].toLocaleString()}</Price>
+            <Price align='left'>{this.currency ? currency(this.state.value[0]) : number(this.state.value[0])}</Price>
           </FlexCol>
           <FlexCol>
-            <Price align='right'>{this.valuePrefix ? this.valuePrefix : '' }{this.state.value[1].toLocaleString()}</Price>
+            <Price align='right'>{this.currency ? currency(this.state.value[1]) : number(this.state.value[1])}</Price>
           </FlexCol>
         </FlexRow>
       </Collapsible>

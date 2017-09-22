@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
-import XIcon from './x.svg'
+import SvgXIcon from './x.svg'
 
 const Container = styled.div`
   background-color: ${colors.white};
@@ -84,7 +84,7 @@ class Results extends Component {
               <Label>{item.label}</Label>
               <Value>{item.filter}</Value>
               <XBtn onClick={() => this.deleteFilter.bind(this)(index)}>
-                <XIcon />
+                <SvgXIcon />
               </XBtn>
             </Filter>
           )

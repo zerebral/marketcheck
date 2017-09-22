@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Collapsible from '../Collapsible'
 
-import KeyIcon from './key-icon.svg'
-import FsboIcon from './fsbo-icon.svg'
+import SvgKeyIcon from './key-icon.svg'
+import SvgFsboIcon from './fsbo-icon.svg'
 
-const StyledKeyIcon = styled(KeyIcon)`
+const StyledKeyIcon = styled(SvgKeyIcon)`
   height: 28px;
   margin-bottom: 0.5em;
   width: 28px;
 `
 
-const StyledFsboIcon = styled(FsboIcon)`
+const StyledFsboIcon = styled(SvgFsboIcon)`
   height: 28px;
   margin-bottom: 0.5em;
   width: 28px;

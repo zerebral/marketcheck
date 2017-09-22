@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { mediaMax } from '%/styles/mixins'
 import { FlexRow, FlexCol } from '~/layout'
 import { colors } from '%/styles'
-import PhotoIcon from './photos.svg'
-import VideosIcon from './video.svg'
-import View360Icon from './view360.svg'
+import SvgPhotoIcon from './photos.svg'
+import SvgVideosIcon from './video.svg'
+import SvgView360Icon from './view360.svg'
 
 const Container = styled.div`
   padding: 1em;
@@ -140,15 +140,15 @@ export default ({data}) =>
         <Type>{data.type}</Type>
         <Multimedia>
           <MultiInfo>
-            <PhotoIcon />
+            <SvgPhotoIcon />
             <span>16 photos</span>
           </MultiInfo>
           <MultiInfo>
-            <VideosIcon />
+            <SvgVideosIcon />
             <span>2 videos</span>
           </MultiInfo>
           <MultiInfo>
-            <View360Icon />
+            <SvgView360Icon />
             <span>360º view</span>
           </MultiInfo>
         </Multimedia>

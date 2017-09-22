@@ -9,7 +9,7 @@ import {
   Drew
 } from './Components.js'
 
-import Certified from './certified.svg'
+import SvgCertified from './certified.svg'
 
 import { currency } from '%/format'
 
@@ -22,7 +22,7 @@ export default ({
 
       <Title>
         <Name>{data.name}</Name>
-        <Certified />
+        <SvgCertified />
       </Title>
 
       <Drew href='#' target='_blank'>

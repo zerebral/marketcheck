@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { em } from 'polished'
 import { colors } from '%/styles'
 import { mediaMax, mediaMin } from '%/styles/mixins'
-import PinIcon from './pin.svg'
+import PinSvg from './pin.svg'
 
 const Container = styled.div`
   background-color: ${colors.white};
@@ -72,7 +72,7 @@ const Location = styled.a.attrs({ href: '#' })`
   `}
 `
 
-const Pin = styled(PinIcon)`
+const Pin = styled(PinSvg)`
   display: inline-block;
   height: 15px;
   width: 15px;

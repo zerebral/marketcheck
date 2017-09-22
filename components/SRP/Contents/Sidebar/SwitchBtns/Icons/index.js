@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-import AirConditionerIcon from './air-conditioner.svg'
-import BluetoothIcon from './bluetooth.svg'
-import NavigationIcon from './navigation.svg'
-import RearCamIcon from './rear-cam.svg'
-import WheelsIcon from './wheels.svg'
+import SvgAirConditionerIcon from './air-conditioner.svg'
+import SvgBluetoothIcon from './bluetooth.svg'
+import SvgNavigationIcon from './navigation.svg'
+import SvgRearCamIcon from './rear-cam.svg'
+import SvgWheelsIcon from './wheels.svg'
 
-const Bluetooth = styled(BluetoothIcon)`
+const Bluetooth = styled(SvgBluetoothIcon)`
   display: inline-block;
   height: 20px;
   margin-right: 0.5em;
@@ -14,7 +14,7 @@ const Bluetooth = styled(BluetoothIcon)`
   vertical-align: middle;
 `
 
-const AirConditioner = styled(AirConditionerIcon)`
+const AirConditioner = styled(SvgAirConditionerIcon)`
   display: inline-block;
   height: 20px;
   margin-right: 0.5em;
@@ -22,7 +22,7 @@ const AirConditioner = styled(AirConditionerIcon)`
   vertical-align: middle;
 `
 
-const Navigation = styled(NavigationIcon)`
+const Navigation = styled(SvgNavigationIcon)`
   display: inline-block;
   height: 20px;
   margin-right: 0.5em;
@@ -30,7 +30,7 @@ const Navigation = styled(NavigationIcon)`
   vertical-align: middle;
 `
 
-const RearCam = styled(RearCamIcon)`
+const RearCam = styled(SvgRearCamIcon)`
   display: inline-block;
   height: 20px;
   margin-right: 0.5em;
@@ -38,7 +38,7 @@ const RearCam = styled(RearCamIcon)`
   vertical-align: middle;
 `
 
-const Wheels = styled(WheelsIcon)`
+const Wheels = styled(SvgWheelsIcon)`
   display: inline-block;
   height: 20px;
   margin-right: 0.5em;

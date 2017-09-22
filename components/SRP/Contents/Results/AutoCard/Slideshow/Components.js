@@ -1,5 +1,5 @@
-import Next from './next.svg'
-import Prev from './prev.svg'
+import SvgNext from './next.svg'
+import SvgPrev from './prev.svg'
 import styled from 'styled-components'
 import { align, size } from '%/styles/mixins'
 
@@ -25,10 +25,10 @@ const NextButton = styled.button`
 
 export const NextArrow = props =>
   <NextButton {...props}>
-    <Next />
+    <SvgNext />
   </NextButton>
 
 export const PreviousArrow = props =>
   <PreviousButton {...props}>
-    <Prev />
+    <SvgPrev />
   </PreviousButton>

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { mediaMax } from '%/styles/mixins'
 import { em } from 'polished'
 import { colors } from '%/styles'
-import Icon from './hamburger-icon.svg'
+import SvgIcon from './hamburger-icon.svg'
 
 const FilterBy = styled.div`
   display: inline-block;
@@ -35,6 +35,6 @@ export default ({
   name
 }) =>
   <FilterBy>
-    <Icon />
+    <SvgIcon />
     <Text>{ name }</Text>
   </FilterBy>

@@ -7,6 +7,9 @@ import Collapsible from '../Collapsible'
 
 const StyledFlexCol = styled(FlexCol)`
   padding: 0 0.5em;
+  ${mediaMax.laptop`
+    padding: 0 0.3em;
+  `}
 `
 
 const Btn = styled.button`

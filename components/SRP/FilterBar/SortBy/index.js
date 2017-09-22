@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { mediaMax } from '%/styles/mixins'
 import { em } from 'polished'
 import { colors } from '%/styles'
-import Arrow from './arrow-down.svg'
+import SvgArrow from './arrow-down.svg'
 
 const SortBy = styled.div`
   display: inline-block;
@@ -64,7 +64,7 @@ const Btn = styled.button`
   padding: 0 1em;
 `
 
-const ArrowStyled = styled(Arrow)`
+const ArrowStyled = styled(SvgArrow)`
   display: inline-block;
   vertical-align: middle;
   width: 10px;
