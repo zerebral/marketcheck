@@ -33,6 +33,9 @@ const Container = styled.div`
   ${mediaMax.phone`
     display: none;
   `}
+  ${mediaMax.laptop`
+    margin-bottom: 1em;
+  `}
 `
 
 const Title = styled.h2`
@@ -54,6 +57,12 @@ const ListItem = styled.p`
   margin-bottom: 1em;
   ${mediaMax.desktop`
     font-size: 0.8em;
+  `}
+`
+
+const CustomLastCol = styled(FlexCol)`
+  ${mediaMax.largeTablet`
+    display: none;
   `}
 `
 
@@ -86,9 +95,9 @@ class ListsBy extends Component {
               })}
             </List>
           </FlexCol>
-          <FlexCol>
+          <CustomLastCol>
             {''}
-          </FlexCol>
+          </CustomLastCol>
         </FlexRow>
       </Container>
     )

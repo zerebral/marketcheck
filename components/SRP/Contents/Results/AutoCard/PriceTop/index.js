@@ -5,7 +5,7 @@ import { currency } from '%/format'
 
 const Container = styled.div`
   padding: 15px 30px;
-  ${mediaMin.desktop`
+  ${mediaMin.laptop`
     display: none;
   `}
 `
