@@ -16,36 +16,31 @@ const LineWrapper = styled.div`
 
 export default () =>
   <LineWrapper>
-    <ResponsiveContainer height={100}>
-      <LineChart data={data} margin={{ left: 2, right: 0, top: 0, bottom: 2 }}>
+    <ResponsiveContainer height={330}>
+      <LineChart data={data} margin={{ left: 4, right: 4, top: 4, bottom: 4 }}>
         <XAxis
           dataKey='name'
-          mirror
-          tick={false}
           padding={{ left: 8, right: 8 }}
-          stroke={colors.chartAxis}
         />
         <YAxis
           domain={['dataMin', 'dataMax']}
-          mirror
-          tick={false}
           padding={{ top: 8, bottom: 8 }}
-          stroke={colors.chartAxis}
+          type='number'
         />
         <Line dataKey='a'
           stroke={colors.blue}
           strokeWidth={2}
-          dot={{ fill: colors.blue, stroke: 'none' }}
+          dot={{ fill: colors.blue, strokeWidth: 8 }}
         />
         <Line dataKey='b'
           stroke={colors.orange}
           strokeWidth={2}
-          dot={{ fill: colors.orange, stroke: 'none' }}
+          dot={{ fill: colors.orange, strokeWidth: 8 }}
         />
         <Line dataKey='c'
           stroke={colors.green}
           strokeWidth={2}
-          dot={{ fill: colors.green, stroke: 'none' }}
+          dot={{ fill: colors.green, strokeWidth: 8 }}
         />
       </LineChart>
     </ResponsiveContainer>
