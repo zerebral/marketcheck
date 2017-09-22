@@ -8,6 +8,7 @@ import Reset from './Reset'
 import Menu from './Menu'
 import Footer from './Footer'
 import Accordion from './Accordion'
+import Table from './Table'
 
 export {
   H1,
@@ -19,5 +20,6 @@ export {
   Reset,
   Menu,
   Footer,
-  Accordion
+  Accordion,
+  Table
 }
