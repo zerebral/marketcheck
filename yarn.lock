@@ -1947,9 +1947,9 @@ domutils@^1.5.1:
     dom-serializer "0"
     domelementtype "1"
 
-downshift@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/downshift/-/downshift-1.6.0.tgz#2e2dcd442bcaf825e9f441e1522d9d74b929fd40"
+downshift@^1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-1.7.4.tgz#43a4bc16d73190b37fdc594739efa69ac0f645b6"
 
 ecc-jsbn@~0.1.1:
   version "0.1.1"
@@ -2012,9 +2012,9 @@ entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
-enzyme-to-json@^1.5.1:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-1.6.0.tgz#9d9bba706e8b500c673b7a4fa9ff7ce57b8b9254"
+enzyme-to-json@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-2.0.0.tgz#721235ae4892f0e149ca00198e236ce7cb6ea7fb"
   dependencies:
     lodash.filter "^4.6.0"
     lodash.isnil "^4.0.0"
@@ -3540,7 +3540,7 @@ jest-validate@^21.1.0:
     leven "^2.1.0"
     pretty-format "^21.1.0"
 
-jest@^21.0.2:
+jest@^21.1.0:
   version "21.1.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-21.1.0.tgz#77c7baa8aa9e8bace7fe41a30d748ab56e89476a"
   dependencies:
@@ -5027,7 +5027,7 @@ recharts-scale@0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/recharts-scale/-/recharts-scale-0.3.2.tgz#dac7621714a4765d152cb2adbc30c73b831208c9"
 
-recharts@^1.0.0-alpha.4:
+recharts@^1.0.0-apha.5:
   version "1.0.0-apha.5"
   resolved "https://registry.yarnpkg.com/recharts/-/recharts-1.0.0-apha.5.tgz#5a08e78af11d3fd99bc2883fe5daf759eca00154"
   dependencies:
@@ -5712,9 +5712,9 @@ stylelint-config-standard@^17.0.0:
   dependencies:
     stylelint-config-recommended "^1.0.0"
 
-stylelint-processor-styled-components@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/stylelint-processor-styled-components/-/stylelint-processor-styled-components-0.4.0.tgz#6d9ebc25543d085f847ed32191ef994c6858fa54"
+stylelint-processor-styled-components@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-processor-styled-components/-/stylelint-processor-styled-components-1.0.0.tgz#5fae7f1848cbc38a8ed684a5e114f2d958eefe3b"
   dependencies:
     babel-traverse "^6.16.0"
     babylon "^6.12.0"
