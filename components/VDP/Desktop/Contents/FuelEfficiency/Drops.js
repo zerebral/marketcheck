@@ -25,7 +25,6 @@ const DropCol = styled.div`
   padding: 0 7px;
   position: relative;
   ${calcTheWidth}
-  margin-bottom: 40px;
 `
 
 const CenteredBox = styled.div`

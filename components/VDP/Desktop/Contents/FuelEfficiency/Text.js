@@ -21,7 +21,6 @@ const DropCol = styled.div`
 const DataText = styled.p`
   font-size: 14px;
   line-height: 2;
-  margin-bottom: 8px;
 `
 
 const SmallText = styled.span`
@@ -31,6 +30,7 @@ const SmallText = styled.span`
 
 const DataLabel = styled.p`
   color: ${rgba('#1f2630', 0.56)};
+  font-size: 14px;
 `
 
 export default () =>

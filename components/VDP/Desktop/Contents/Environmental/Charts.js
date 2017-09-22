@@ -14,14 +14,13 @@ const Title = styled.h3`
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
   color: #313842;
 `
 
 const Info = styled.h6`
   font-size: 14px;
   line-height: 24px;
-  margin-bottom: 50px;
   color: #39434c;
 `
 
