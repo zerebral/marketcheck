@@ -5,8 +5,9 @@ import { currency } from '%/format'
 
 const Container = styled.div`
   padding: 15px 30px;
-  ${mediaMin.largeTablet`
-    display: none;
+  display: none;
+  ${mediaMax.largeTablet`
+    display: block;
   `}
 `
 

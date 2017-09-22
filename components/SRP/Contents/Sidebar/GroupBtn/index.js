@@ -23,6 +23,13 @@ const Btn = styled.button`
   ${mediaMax.largeTablet`
     font-size: 0.7em;
   `}
+  ${mediaMax.middleLaptop`
+    font-size: 0.7em;
+  `}
+  ${mediaMax.middleLaptop`
+    font-size: 0.7em;
+    padding: 0.3em 0.5em;
+  `}
 
   &:hover {
     background-color: ${colors.softblue};

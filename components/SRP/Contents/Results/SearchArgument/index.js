@@ -43,7 +43,7 @@ const SaveSearch = styled.a.attrs({ href: '#' })`
 `
 
 const SaveSearchTop = styled(SaveSearch)`
-  ${mediaMin.largeTablet`
+  ${mediaMin.phone`
     display: none;
   `}
   ${mediaMax.phone`

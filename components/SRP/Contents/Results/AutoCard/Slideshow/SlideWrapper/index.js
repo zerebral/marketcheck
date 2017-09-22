@@ -12,6 +12,14 @@ const SliderWrapper = styled.div`
     margin-right: 1em;
     width: 250px;
   `}
+  ${mediaMax.laptop`
+    margin-right: 1em;
+    width: 200px;
+  `}
+  ${mediaMax.middleLaptop`
+    margin-right: 1em;
+    width: 120px;
+  `}
   ${mediaMax.largeTablet`
     height: 250px;
     margin-right: 0;
