@@ -23,7 +23,7 @@ const SliderSettings = {
         arrows: false,
         dots: false,
         centerMode: true,
-        centerPadding: '30px'
+        centerPadding: '0'
       }
     },
     {

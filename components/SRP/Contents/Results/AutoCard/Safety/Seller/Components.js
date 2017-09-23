@@ -18,6 +18,11 @@ export const Seller = styled.div`
     padding-left: 1em;
     padding-right: 2em;
   `}
+  ${mediaMax.laptop`
+    left: auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  `}
   ${mediaMax.largeTablet`
     border: none;
     padding: 0;

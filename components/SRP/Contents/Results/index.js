@@ -65,7 +65,7 @@ class Results extends Component {
           <Filters list={this.listFilters} />
           <TotalFound total={14} />
           {this.result.map((item, index) =>
-            <AutoCard data={item} />
+            <AutoCard key={index} data={item} />
           )}
           <Paginator />
           <Recommended />

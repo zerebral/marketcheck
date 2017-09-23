@@ -53,7 +53,7 @@ class Recommended extends Component {
         <FlexRow>
           {data.map(function (item, index) {
             return (
-              <FlexCol>
+              <FlexCol key={index}>
                 <Card>
                   <Thumbnail src={item.thumbnail} />
                   <CarData data={item} />

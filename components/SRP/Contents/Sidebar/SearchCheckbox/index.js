@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { FlexRow, FlexCol } from '~/layout'
 import { colors } from '%/styles'
 
-import Icon from './search-icon.svg'
+import SvgIcon from './search-icon.svg'
 
 import Collapsible from '../Collapsible'
 
@@ -20,7 +20,7 @@ const SearchBox = styled.div`
   margin-bottom: 1em;
 `
 
-const SearchIcon = styled(Icon)`
+const SearchIcon = styled(SvgIcon)`
   height: 15px;
   margin-right: 0.5em;
   vertical-align: middle;

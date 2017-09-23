@@ -155,7 +155,7 @@ export default ({props}) =>
       <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
       <InputRange {...props} label='Distance' min={0} max={300} step={10} value={40} />
-      <DoubleRange {...props} label='Price' valuePrefix='$' min={400} max={50000} step={10} value={[400, 50000]} />
+      <DoubleRange {...props} label='Price' currency min={400} max={50000} step={10} value={[400, 50000]} />
       <DoubleRange {...props} label='Miles Range' min={400} max={50000} step={10} value={[400, 50000]} />
       <SimpleCheckbox {...props} label='Deals' list={list} />
       <SearchCheckbox {...props} label='Models' list={searchablelist} resetBtn />

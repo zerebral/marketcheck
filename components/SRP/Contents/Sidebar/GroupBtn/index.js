@@ -7,6 +7,9 @@ import Collapsible from '../Collapsible'
 
 const StyledFlexCol = styled(FlexCol)`
   padding: 0 0.5em;
+  ${mediaMax.laptop`
+    padding: 0 0.3em;
+  `}
 `
 
 const Btn = styled.button`
@@ -19,6 +22,13 @@ const Btn = styled.button`
   padding: 0.3em 1em;
   ${mediaMax.largeTablet`
     font-size: 0.7em;
+  `}
+  ${mediaMax.middleLaptop`
+    font-size: 0.7em;
+  `}
+  ${mediaMax.middleLaptop`
+    font-size: 0.7em;
+    padding: 0.3em 0.5em;
   `}
 
   &:hover {

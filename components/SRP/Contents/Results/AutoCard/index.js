@@ -7,9 +7,9 @@ import CarData from './CarData'
 import Slideshow from './Slideshow'
 import Collapsible from './Collapsible'
 import MoreInfo from './MoreInfo'
-import HeartIcon from './heart.svg'
-import ShareIcon from './share.svg'
-import ArrowIcon from './arrow.svg'
+import SvgHeartIcon from './heart.svg'
+import SvgShareIcon from './share.svg'
+import SvgArrowIcon from './arrow.svg'
 import PriceTop from './PriceTop'
 
 const Card = styled.div`
@@ -144,15 +144,15 @@ class AutoCard extends Component {
           <Safety data={this.data} />
 
           <HeartBtn>
-            <HeartIcon />
+            <SvgHeartIcon />
           </HeartBtn>
           <ShareBtn>
-            <ShareIcon />
+            <SvgShareIcon />
           </ShareBtn>
           <ViewMore onClick={this.handleOpenClick.bind(this)}>
             <Text>View More</Text>
             <ArrowBtn className={this.state.open ? 'open' : 'close'}>
-              <ArrowIcon />
+              <SvgArrowIcon />
             </ArrowBtn>
           </ViewMore>
         </Container>

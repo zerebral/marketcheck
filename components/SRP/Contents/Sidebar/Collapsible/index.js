@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { em } from 'polished'
 import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
-import Arrow from './arrow-down.svg'
+import SvgArrow from './arrow-down.svg'
 
 const Container = styled.div`
   padding: 1em 1em 1em 0;
@@ -28,7 +28,7 @@ const Label = styled.span`
   vertical-align: middle;
 `
 
-const ArrowIcon = styled(Arrow)`
+const ArrowIcon = styled(SvgArrow)`
   height: 10px;
   width: 10px;
 `

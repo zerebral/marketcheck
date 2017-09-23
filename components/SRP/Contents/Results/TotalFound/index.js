@@ -5,7 +5,7 @@ import { mediaMin } from '%/styles/mixins'
 const Container = styled.div`
   background-color: ${colors.bordergray};
   padding: 1em;
-  ${mediaMin.largeTablet`
+  ${mediaMin.phone`
     display: none;
   `}
 `
