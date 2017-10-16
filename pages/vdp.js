@@ -1,6 +1,7 @@
 import React from 'react'
 import VDP from '@/VDP'
 import FontsHOC from '@/HOC/Fonts'
+import fetch from 'isomorphic-fetch';
 
 
 class Vdp extends React.Component {
@@ -32,7 +33,7 @@ class Vdp extends React.Component {
     if (!this.state.vdp.build) {
       return <div>Loading</div>
     }
-    return <VDP {...this.state}/>
+    return <VDP {...this.state.vdp}/>
   }
 }
 
