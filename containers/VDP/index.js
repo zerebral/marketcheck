@@ -9,6 +9,9 @@ export default ({
   stock_no: stockNumber,
   exterior_color: exteriorColor,
   interior_color: interiorColor,
+  media: {
+    photo_links: sliderPics,
+  },
   build: {
     make,
     model,
@@ -46,4 +49,5 @@ export default ({
   drivetrain={drivetrain}
   cityMiles={cityMiles}
   highwayMiles={highwayMiles}
+  sliderPics={sliderPics}
   />
