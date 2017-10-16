@@ -15,17 +15,17 @@ import Similar from './Similar'
 
 export default props =>
   <ContentsWrapper>
-    <SummaryReport />
-    <VehicleInformation />
-    <MarketComparison />
-    <AveragesOverTime />
-    <TimeOnMarket />
-    <IncludedFeatures />
-    <FuelEfficiency />
-    <Environmental />
-    <ModelPopularity />
-    <Competition />
-    <ResaleValue />
-    <Safety />
-    <Similar />
+    <SummaryReport {...props} />
+    <VehicleInformation {...props}/>
+    <MarketComparison {...props} />
+    <AveragesOverTime {...props} />
+    <TimeOnMarket {...props} />
+    <IncludedFeatures {...props} />
+    <FuelEfficiency {...props} />
+    <Environmental {...props} />
+    <ModelPopularity {...props} />
+    <Competition {...props} />
+    <ResaleValue {...props} />
+    <Safety {...props} />
+    <Similar {...props} />
   </ContentsWrapper>
