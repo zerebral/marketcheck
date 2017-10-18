@@ -2,6 +2,8 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  trends,
+  props,
   price,
   miles,
   vin,
@@ -29,7 +31,7 @@ export default ({
 
   <VDP 
   {...vdpdata} 
-  //{...props} 
+  {...props} 
   name={`${make} ${model}`}
   brief={`Stock # ${stockNumber}, ${engine}, ${transmission}, ${miles} mi., ${parseInt(cityMiles)}/${parseInt(highwayMiles)} MPG*`}
   price={price}
@@ -50,4 +52,5 @@ export default ({
   cityMiles={cityMiles}
   highwayMiles={highwayMiles}
   sliderPics={sliderPics}
+  trends={trends}
   />

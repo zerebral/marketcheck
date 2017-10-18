@@ -14,11 +14,14 @@ import { data } from './seedData'
 
 import LineChartWrapper from './LineChartWrapper.js'
 
-export default () =>
+export default ({ dataTrend }) =>
+
   <LineChartWrapper>
+    {console.log('datatrend ' + JSON.stringify(dataTrend) )}
+    {console.log('data ' + JSON.stringify(data))}
     <ResponsiveContainer width='100%' height={200}>
       <AreaChart data={data} margin={{ bottom: 25 }}>
-        <XAxis hide />
+        <XAxis hide/>
         <YAxis hide />
         <Tooltip />
         <defs>

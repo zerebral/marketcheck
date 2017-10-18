@@ -19,6 +19,7 @@ import {
 } from './Components'
 
 export default ({
+  props,
   name,
   brief,
   sliderPics,
