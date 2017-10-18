@@ -16,11 +16,12 @@ const Right = styled.div`
   margin-left: auto;
 `
 
-export default () =>
-  <Section title='Averages Over Time' summary='Based on 256 Similar Vehicles Nearby' >
+export default ({trends, testing}) =>
+  <Section title='Averages Over Time' summary='Based on 256 Similar Vehicles Nearby'>
     <Right>
       <H2>145,565 mi</H2>
       <P>234 miles less than market average</P>
+      <p>{testing}</p>
     </Right>
-    <LineChart />
+    <LineChart dataTrend={trends}/>
   </Section>
