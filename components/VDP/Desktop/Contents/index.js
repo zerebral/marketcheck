@@ -13,6 +13,7 @@ import ResaleValue from './ResaleValue'
 import Safety from './Safety'
 import Similar from './Similar'
 
+
 export default props =>
   <ContentsWrapper>
     <SummaryReport {...props} />
