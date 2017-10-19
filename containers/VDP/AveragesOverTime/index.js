@@ -1,6 +1,6 @@
-import AveragesOverTime from '~/AveragesOverTime';
+import AveragesOverTime from './AveragesOverTimeContainer';
 //import vdpdata from './vdpdata'
 
 export default (props) =>
 
-  <AveragesOverTime testing="testing"/>
+  <AveragesOverTimeContainer testing="testing"/>

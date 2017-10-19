@@ -20,7 +20,7 @@ export default props =>
       <SummaryReport />
       <VehicleInformation />
       <MarketComparison />
-      <AveragesOverTime />
+      <AveragesOverTime {...props} />
       <TimeOnMarket />
       <IncludedFeatures />
       <FuelEfficiency />
