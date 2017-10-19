@@ -14,11 +14,11 @@ import { data } from './seedData'
 
 import LineChartWrapper from './LineChartWrapper.js'
 
-export default () =>
+export default ({ dataTrend}) =>
   <LineChartWrapper>
     <ResponsiveContainer width='100%' height={110}>
-      <AreaChart data={data} margin={{ top: 25 }}>
-        <XAxis hide />
+      <AreaChart data={dataTrend} margin={{ top: 25 }}>
+        <XAxis hide dataKey='name' />
         <YAxis hide />
         <Legend iconSize={8} wrapperStyle={{ top: 0 }} />
         <Tooltip />
@@ -34,7 +34,7 @@ export default () =>
         </defs>
         <Area
           type='natural'
-          dataKey='pv'
+          dataKey='price'
           stroke={colors.blue}
           dot={false}
           legendType='circle'
@@ -44,7 +44,7 @@ export default () =>
         />
         <Area
           type='natural'
-          dataKey='uv'
+          dataKey='miles'
           stroke={colors.green}
           dot={false}
           legendType='circle'
