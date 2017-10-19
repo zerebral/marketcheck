@@ -1,8 +1,8 @@
 import { Accordion } from '~/general'
 import Scatter from './Scatter'
 
-export default () =>
+export default (props) =>
   <Accordion title='Market Comparison'>
-    <p>Based on 356 similar vehicles in your area</p>
-    <Scatter />
+    <p>Based on {props.scatterSimilar.length} similar vehicles in your area</p>
+    <Scatter {...props}/>
   </Accordion>
