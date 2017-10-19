@@ -13,7 +13,8 @@ import { similar, nationalAvg, yourCar } from './seedData'
 
 import ChartWrapper from './ChartWrapper'
 
-export default () =>
+export default (props) =>
+
   <ChartWrapper>
     <ResponsiveContainer width='90%' height={240}>
       <ScatterChart>
@@ -33,17 +34,17 @@ export default () =>
         />
         <Scatter
           name='Similar Carts'
-          data={similar}
+          data={props.scatterSimilar}
           fill={colors.blue}
         />
         <Scatter
           name='National Average'
-          data={nationalAvg}
+          data={props.scatterNational}
           fill={colors.green}
         />
         <Scatter
           name='Your Car'
-          data={yourCar}
+          data={props.scatterYourCar}
           fill={colors.red}
         />
         <Tooltip cursor={{strokeDasharray: '3 3'}} />
