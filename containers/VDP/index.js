@@ -2,6 +2,10 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  averageMarketMiles,
+  scatterYourCar,
+  scatterSimilar,
+  scatterNational,
   trends,
   props,
   price,
@@ -31,7 +35,6 @@ export default ({
 
   <VDP 
   {...vdpdata} 
-  {...props} 
   name={`${make} ${model}`}
   brief={`Stock # ${stockNumber}, ${engine}, ${transmission}, ${miles} mi., ${parseInt(cityMiles)}/${parseInt(highwayMiles)} MPG*`}
   price={price}
@@ -53,4 +56,9 @@ export default ({
   highwayMiles={highwayMiles}
   sliderPics={sliderPics}
   trends={trends}
+  scatterSimilar={scatterSimilar}
+  scatterNational={scatterNational}
+  scatterYourCar={scatterYourCar} 
+  averageMarketMiles={averageMarketMiles}
+  {...props} 
   />
