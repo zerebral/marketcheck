@@ -16,12 +16,11 @@ const Right = styled.div`
   margin-left: auto;
 `
 
-export default ({trends, testing}) =>
-  <Section title='Averages Over Time' summary='Based on 256 Similar Vehicles Nearby'>
+export default ({trends, miles}) =>
+  <Section title='Averages Over Time' summary={`Based on ${trends.length} Similar Vehicles Nearby`}>
     <Right>
-      <H2>145,565 mi</H2>
+      <H2>{miles.toLocaleString('en')} mi</H2>
       <P>234 miles less than market average</P>
-      <p>{testing}</p>
     </Right>
     <LineChart dataTrend={trends}/>
   </Section>

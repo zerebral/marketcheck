@@ -16,12 +16,10 @@ import LineChartWrapper from './LineChartWrapper.js'
 
 export default ({ dataTrend }) =>
 
-  <LineChartWrapper>
-    {console.log('datatrend ' + JSON.stringify(dataTrend) )}
-    {console.log('data ' + JSON.stringify(data))}
+  <LineChartWrapper>   
     <ResponsiveContainer width='100%' height={200}>
-      <AreaChart data={data} margin={{ bottom: 25 }}>
-        <XAxis hide/>
+      <AreaChart data={dataTrend} margin={{ bottom: 25 }}>
+        <XAxis hide dataKey='name'/>
         <YAxis hide />
         <Tooltip />
         <defs>
@@ -36,7 +34,7 @@ export default ({ dataTrend }) =>
         </defs>
         <Area
           type='natural'
-          dataKey='pv'
+          dataKey='price'
           stroke={colors.blue}
           dot={false}
           legendType='circle'
@@ -46,7 +44,7 @@ export default ({ dataTrend }) =>
         />
         <Area
           type='natural'
-          dataKey='uv'
+          dataKey='miles'
           stroke={colors.green}
           dot={false}
           legendType='circle'

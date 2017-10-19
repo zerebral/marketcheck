@@ -46,9 +46,24 @@ class Vdp extends React.Component {
         return response.json();
       }).then(data => {
         if (data.trends) {
-          this.setState({ trends: data.trends });
+          
+          //Convert number strings to actual numbers in Obj
+          for (var i = 0; i < data.trends.length; i++) {
+            var obj = data.trends[i];
+            for (var prop in obj) {
+              if (obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])) {
+                obj[prop] = parseInt(+obj[prop]);
+              }
+            }
+          }
+
+          data.trends.forEach(item => {
+            item['name'] = item['month'] + "/" + item['year'];
+          });
+          //console.log(JSON.stringify(data.trends, null, 2));
+          this.setState({ trends: data.trends.reverse()});
         }
-        //this.setState({ trends: data });
+
       }).catch(error => {
         console.log('error message: ' + error.message)
       })
