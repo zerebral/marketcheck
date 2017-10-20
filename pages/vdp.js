@@ -13,10 +13,11 @@ class Vdp extends React.Component {
     this.trendsFetch = this.trendsFetch.bind(this);
     this.fetchingData = this.fetchingData.bind(this);
     this.fetchScatterData = this.fetchScatterData.bind(this);
+    this.findIdByVIN = this.findIdByVIN.bind(this);
 
     this.state = {
       vdp: {},
-      trends: [],
+      //trends: [],
       scatterSimilar: [],
       scatterNational: [],
       scatterYourCar: [],
@@ -25,9 +26,21 @@ class Vdp extends React.Component {
   }
 
   componentDidMount() {
-    this.listingFetch(`http://${process.env.API_HOST}/v1/listing/fa46aad0-6f22-4965-a34d-4cee955aa4e5?api_key=${process.env.API_VAR}`);
-    this.trendsFetch(`http://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=1FA6P8CF2H5279752&car_type=used`);
+    //this.listingFetch(`http://${process.env.API_HOST}/v1/listing/fa46aad0-6f22-4965-a34d-4cee955aa4e5?api_key=${process.env.API_VAR}`);
+    //this.trendsFetch(`http://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=1FA6P8CF2H5279752&car_type=used`);
     this.fetchScatterData();
+    this.findIdByVIN();
+  }
+
+  findIdByVIN() {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vin=1FA6P8CF2H5279752`)
+    .then( data => {
+      if (data.listings) {
+        const carID = data.listings[0].id;
+        //console.log(data.listings[0].id)
+        this.listingFetch(`http://${process.env.API_HOST}/v1/listing/${carID}?api_key=${process.env.API_VAR}`);
+      }
+    })
   }
 
   fetchScatterData() {
@@ -65,6 +78,7 @@ class Vdp extends React.Component {
         }
         return response.json();
       }).then(data => {
+        //console.log(`listing: ${JSON.stringify(data)}`)
         this.setState({ 
           vdp: data,
           scatterYourCar: [{ x: data.miles, y: data.price}]
@@ -81,7 +95,7 @@ class Vdp extends React.Component {
           console.log('Problem ' + response.status)
         }
         return response.json();
-      });
+      })
   }
 
   trendsFetch(url) {
@@ -129,7 +143,7 @@ class Vdp extends React.Component {
     // if (!this.state.vdp.build) {
     //   return <div>Loading</div>
     // }
-    if (!this.state.vdp.build || this.state.trends.length < 1) {
+    if (!this.state.vdp.build) {
       return <div>Loading</div>
     }
     return <VDP {...this.state} {...this.state.vdp}/>
