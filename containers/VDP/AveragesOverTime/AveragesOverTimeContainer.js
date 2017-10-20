@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AveragesOverTimeDesktop from '~/VDP/Desktop/Contents/AveragesOverTime/AveragesOverTime';
 import AveragesOverTimeMobile from '~/VDP/Mobile/Contents/AveragesOverTime/AveragesOverTime';
 import fetch from 'isomorphic-fetch';
-//import Aux from 'react-aux';
+import Aux from 'react-aux';
 
 class AveragesOverTimeContainer extends Component {
   constructor() {
@@ -63,12 +63,12 @@ class AveragesOverTimeContainer extends Component {
     if (this.state.trends.length < 1) {
       return <div>Loading</div>
     }
-    return <div>
-            <AveragesOverTimeDesktop {...this.state} {...this.props} hell={this.state.trends} />
-            <AveragesOverTimeMobile {...this.state} {...this.props} hell={this.state.trends} />
-          </div>
-      
-     
+    return (
+      <Aux>
+        <AveragesOverTimeDesktop {...this.state} {...this.props} />
+        <AveragesOverTimeMobile {...this.state} {...this.props} />
+      </Aux>
+    )
   }
 }
 
