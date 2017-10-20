@@ -10,7 +10,6 @@ class Vdp extends React.Component {
     super();
 
     this.listingFetch = this.listingFetch.bind(this);
-    this.trendsFetch = this.trendsFetch.bind(this);
     this.fetchingData = this.fetchingData.bind(this);
     this.fetchScatterData = this.fetchScatterData.bind(this);
     this.findIdByVIN = this.findIdByVIN.bind(this);
@@ -26,8 +25,6 @@ class Vdp extends React.Component {
   }
 
   componentDidMount() {
-    //this.listingFetch(`http://${process.env.API_HOST}/v1/listing/fa46aad0-6f22-4965-a34d-4cee955aa4e5?api_key=${process.env.API_VAR}`);
-    //this.trendsFetch(`http://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=1FA6P8CF2H5279752&car_type=used`);
     this.fetchScatterData();
     this.findIdByVIN();
   }
@@ -46,7 +43,6 @@ class Vdp extends React.Component {
   fetchScatterData() {
     this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=1FA6P8CF2H5279752&latitude=34.05&longitude=-118.24&radius=100&car_type=used&start=0&rows=10`)
     .then( response => {
-      //debugger;
       let averagePrice = 0;
       let averageMiles = 0;
       const cars = response.listings.filter((car) => {
@@ -64,9 +60,7 @@ class Vdp extends React.Component {
         scatterSimilar: cars,
         scatterNational: [{ x: averageMiles, y: averagePrice}],
         averageMarketMiles: averageMiles
-        // scatterYourCar: [{ x: 15, y: 5 }]
       })
-      //debugger
     })
   }
 
@@ -78,7 +72,6 @@ class Vdp extends React.Component {
         }
         return response.json();
       }).then(data => {
-        //console.log(`listing: ${JSON.stringify(data)}`)
         this.setState({ 
           vdp: data,
           scatterYourCar: [{ x: data.miles, y: data.price}]
@@ -129,7 +122,6 @@ class Vdp extends React.Component {
              overTimemiles += car.miles;
              averageOverTimeMiles = overTimemiles / trendsResponse.length;
           });
-          //console.log(JSON.stringify(data.trends, null, 2));
           this.setState({ trends: data.trends.reverse()});
         }
 
@@ -140,9 +132,6 @@ class Vdp extends React.Component {
   
 
   render () {
-    // if (!this.state.vdp.build) {
-    //   return <div>Loading</div>
-    // }
     if (!this.state.vdp.build) {
       return <div>Loading</div>
     }
