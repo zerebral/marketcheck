@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import AveragesOverTimeDesktop from '~/VDP/Desktop/Contents/AveragesOverTime/AveragesOverTime';
-//import AveragesOverTimeMobile from '~/Mobile/Contents/AveragesOverTime/AveragesOverTime';
+import AveragesOverTimeMobile from '~/VDP/Mobile/Contents/AveragesOverTime/AveragesOverTime';
 import fetch from 'isomorphic-fetch';
+//import Aux from 'react-aux';
 
 class AveragesOverTimeContainer extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.trendsFetch = this.trendsFetch.bind(this);
 
     this.state = {
-      trends: [],
-      testing: 'testing from container'
+      trends: []
     }
   }
   
@@ -38,6 +38,14 @@ class AveragesOverTimeContainer extends Component {
           data.trends.forEach(item => {
             item['name'] = item['month'] + "/" + item['year'];
           });
+
+          let overTimemiles = 0;
+          let averageOverTimeMiles = 0;
+          const trendsResponse = data.trends;
+          data.trends.map((car) => {
+            overTimemiles += car.miles;
+            averageOverTimeMiles = overTimemiles / trendsResponse.length;
+          });
           //console.log(JSON.stringify(data.trends, null, 2));
           this.setState({ trends: data.trends.reverse() });
         }
@@ -48,12 +56,19 @@ class AveragesOverTimeContainer extends Component {
   }
 
   componentDidMount() {
-    console.log('container');
-    //this.trendsFetch(`http://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=1FMCU9GXXEUA10071&car_type=used`)
+    this.trendsFetch(`http://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=1FA6P8CF2H5279752&car_type=used`)
   }
 
   render() {
-    return   <AveragesOverTimeDesktop {...this.state} testing="from container"/>
+    if (this.state.trends.length < 1) {
+      return <div>Loading</div>
+    }
+    return <div>
+            <AveragesOverTimeDesktop {...this.state} {...this.props} hell={this.state.trends} />
+            <AveragesOverTimeMobile {...this.state} {...this.props} hell={this.state.trends} />
+          </div>
+      
+     
   }
 }
 
