@@ -13,13 +13,16 @@ import ResaleValue from './ResaleValue'
 import Safety from './Safety'
 import Similar from './Similar'
 
+import AveragesOverTimeContainer from '@/VDP/AveragesOverTime/AveragesOverTimeContainer'
+
 
 export default props =>
   <ContentsWrapper>
     <SummaryReport {...props} />
     <VehicleInformation {...props}/>
     <MarketComparison {...props} />
-    <AveragesOverTime {...props} />
+    {/* <AveragesOverTime {...props} /> */}
+    <AveragesOverTimeContainer {...props} something={props.trends}/>
     <TimeOnMarket {...props} />
     <IncludedFeatures {...props} />
     <FuelEfficiency {...props} />
