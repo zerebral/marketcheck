@@ -6,7 +6,7 @@ export default ({
   scatterYourCar,
   scatterSimilar,
   scatterNational,
-  trends,
+ // trends,
   props,
   price,
   miles,
@@ -55,7 +55,7 @@ export default ({
   cityMiles={cityMiles}
   highwayMiles={highwayMiles}
   sliderPics={sliderPics}
-  trends={trends}
+  //trends={trends}
   scatterSimilar={scatterSimilar}
   scatterNational={scatterNational}
   scatterYourCar={scatterYourCar} 
