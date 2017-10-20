@@ -8,6 +8,7 @@ const Wrapper = styled.div`
 
   strong {
     color: #000;
+    text-transform: capitalize;
   }
 `
 
