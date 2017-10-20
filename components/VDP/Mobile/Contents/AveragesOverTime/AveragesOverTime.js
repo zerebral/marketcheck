@@ -32,7 +32,7 @@ export default ({ trends, miles, averageMarketMiles }) =>
     </FillBody>
     <FillBody noPadding customBackground={colors.darkblue} customColor={colors.white} >
       <SummaryWrapper>
-        <Summary>{trends.length} Month Market Averages - {trends[0].month + '/' + trends[0].year} Through {trends[trends.length - 1].month + '/' + trends[trends.length - 1].year}</Summary>
+        {<Summary>{trends.length} Month Market Averages - {trends[0].month + '/' + trends[0].year} Through {trends[trends.length - 1].month + '/' + trends[trends.length - 1].year}</Summary>}
       </SummaryWrapper>
     </FillBody>
   </Accordion>
