@@ -22,7 +22,7 @@ export default props =>
     <VehicleInformation {...props}/>
     <MarketComparison {...props} />
     {/* <AveragesOverTime {...props} /> */}
-    <AveragesOverTimeContainer {...props} something={props.trends}/>
+    <AveragesOverTimeContainer {...props} />
     <TimeOnMarket {...props} />
     <IncludedFeatures {...props} />
     <FuelEfficiency {...props} />
