@@ -1,7 +1,8 @@
 import React from 'react'
 import VDP from '@/VDP'
 import FontsHOC from '@/HOC/Fonts'
-import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch'
+import Loading from 'react-loading-animation'
 
 
 class Vdp extends React.Component {
@@ -133,7 +134,7 @@ class Vdp extends React.Component {
 
   render () {
     if (!this.state.vdp.build) {
-      return <div>Loading</div>
+      return <Loading style={{marginTop: '35vh'}}/>
     }
     return <VDP {...this.state} {...this.state.vdp}/>
   }
