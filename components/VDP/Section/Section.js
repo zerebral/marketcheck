@@ -10,8 +10,8 @@ import {
   FlexCol
 } from '~/layout'
 
-export default ({ title, summary, center, children }) =>
-  <Section>
+export default ({ title, summary, center, children, ...props }) =>
+  <Section className={props.className}>
     <Container>
       <FlexRow justify='center' wrap >
         <FlexCol cols={center ? 12 : 3}>
