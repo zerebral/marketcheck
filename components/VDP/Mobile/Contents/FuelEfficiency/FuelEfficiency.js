@@ -38,7 +38,7 @@ export default () =>
   <Accordion title='Fuel Efficiency'>
     <Summary>Based upon avg. fuel prices across the US.</Summary>
     <PriceHeader>$<Money>64</Money></PriceHeader>
-    <FuelExpense>Monthly fue Expense</FuelExpense>
+    <FuelExpense>Monthly fuel Expense</FuelExpense>
     <Separator />
     <Stats />
   </Accordion>
