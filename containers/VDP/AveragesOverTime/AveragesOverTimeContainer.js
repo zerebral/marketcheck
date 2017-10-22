@@ -3,6 +3,22 @@ import AveragesOverTimeDesktop from '~/VDP/Desktop/Contents/AveragesOverTime/Ave
 import AveragesOverTimeMobile from '~/VDP/Mobile/Contents/AveragesOverTime/AveragesOverTime';
 import fetch from 'isomorphic-fetch';
 import Aux from 'react-aux';
+import styled from 'styled-components'
+import { mediaMin } from '%/styles/mixins'
+
+const Desktop = styled(AveragesOverTimeDesktop)`
+  display: none;
+  ${mediaMin.laptop`
+    display: block;
+  `}
+`
+
+const Mobile = styled(AveragesOverTimeMobile)`
+  display: block;
+  ${mediaMin.laptop`
+    display: none;
+  `}
+`
 
 class AveragesOverTimeContainer extends Component {
   constructor() {
@@ -65,8 +81,8 @@ class AveragesOverTimeContainer extends Component {
     }
     return (
       <Aux>
-        <AveragesOverTimeDesktop {...this.state} {...this.props} />
-        <AveragesOverTimeMobile {...this.state} {...this.props} />
+        <Desktop {...this.state} {...this.props} />
+        <Mobile {...this.state} {...this.props} />
       </Aux>
     )
   }
