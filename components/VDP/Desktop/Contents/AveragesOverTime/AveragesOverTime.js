@@ -16,8 +16,8 @@ const Right = styled.div`
   margin-left: auto;
 `
 
-export default ({ trends, miles, averageMarketMiles }) =>
-  <Section title='Averages Over Time' summary={`Based on ${trends.length} Similar Vehicles Nearby`}>
+export default ({ trends, miles, averageMarketMiles, ...props }) =>
+  <Section title='Averages Over Time' summary={`Based on ${trends.length} Similar Vehicles Nearby`} className={props.className}>
     <Right>
       <H2>{miles.toLocaleString('en')} mi</H2>
       <P>{miles > averageMarketMiles ? miles - averageMarketMiles + " miles more" : averageMarketMiles - miles + " miles less"} than market average</P>

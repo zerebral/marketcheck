@@ -22,8 +22,8 @@ const Summary = styled.h4`
   font-size: 12px;
 `
 
-export default ({ trends, miles, averageMarketMiles }) =>
-  <Accordion title='Averages Over Time' blue >
+export default ({ trends, miles, averageMarketMiles , ...props}) =>
+  <Accordion title='Averages Over Time' blue className={props.className}>
     <FillBody first >
       <P>Based on {trends.length} Similar Vehicles Nearby</P>
       <H2>{miles.toLocaleString('en')} mi</H2>
