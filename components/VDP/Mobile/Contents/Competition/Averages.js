@@ -36,19 +36,19 @@ const Row = styled.div`
   }
 `
 
-export default () =>
+export default (props) =>
   <FillBody customBackground={backgroundColor}>
-    <Title>2017 Toyota Camry Market Averages</Title>
+    <Title>{props.year} {props.make} {props.model} Market Averages</Title>
     <Row>
       <Name>Avg. Price</Name>
-      <Stat>{currency(14345)}</Stat>
+      <Stat>{currency( props.priceAverage)}</Stat>
     </Row>
     <Row>
       <Name>Avg. Mileage</Name>
-      <Stat>{number(25656)} mi</Stat>
+      <Stat>{number(props.milesAverage)} mi</Stat>
     </Row>
     <Row>
       <Name>Avg. Market Value</Name>
-      <Stat>{currency(17345)}</Stat>
+      <Stat>What is this?</Stat>
     </Row>
   </FillBody>
