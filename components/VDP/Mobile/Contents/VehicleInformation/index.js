@@ -8,6 +8,7 @@ const Wrapper = styled.div`
 
   strong {
     color: #000;
+    text-transform: capitalize;
   }
 `
 
@@ -18,26 +19,44 @@ const Intro = styled.h6`
   font-weight: 400;
 `
 
-export default () =>
+export default ({
+  type,
+  model,
+  trim,
+  body,
+  exteriorColor,
+  interiorColor,
+  doors,
+  brief,
+  stockNumber,
+  vin,
+  miles,
+  engine,
+  transmission,
+  fuel,
+  drivetrain,
+  cityMiles,
+  highwayMiles
+}) =>
   <Accordion title='Vehicle Information' blue >
     <Wrapper>
-      <Intro>Raw performance, agility, unparalleled ride and handling. These are attributes that people have come to expect from Lotus and the Exige Sport 350 is no exception. Now also available as a roadster - the lightest possible incarnation of the current generation Exige.</Intro>
+      <Intro>Where to find this data? Raw performance, agility, unparalleled ride and handling...</Intro>
 
-      <p>Type <strong>New</strong></p>
-      <p>Model <strong>Tiguan</strong></p>
-      <p>Trim <strong>Wolfsburg</strong></p>
-      <p>Body <strong>4D Sport Utility</strong></p>
-      <p>Exterior <strong>Pacific Blue Metallic</strong></p>
-      <p>Interior <strong>Charcoal Black</strong></p>
-      <p>Doors <strong>4</strong></p>
-      <p>Stock# <strong>18156</strong></p>
-      <p>Model # <strong>5N2WV1</strong></p>
-      <p>VIN # <strong>WVGRV7AX9HW500689</strong></p>
-      <p>Mileage <strong>6487</strong></p>
-      <p>Engine <strong>2.0L TSI DOHC</strong></p>
-      <p>Transmission <strong>6-Speed Automatic</strong></p>
-      <p>Fuel <strong>Gasoline</strong></p>
-      <p>Drive <strong>FWD</strong></p>
-      <p>MPG <strong>20 City / 24 Hwy</strong></p>
+      <p>Type <strong>{type}</strong></p>
+      <p>Model <strong>{model}</strong></p>
+      <p>Trim <strong>{trim}</strong></p>
+      <p>Body <strong>{body}</strong></p>
+      <p>Exterior <strong>{exteriorColor}</strong></p>
+      <p>Interior <strong>{interiorColor}</strong></p>
+      <p>Doors <strong>{doors}</strong></p>
+      <p>Stock# <strong>{stockNumber}</strong></p>
+      <p>Model # <strong></strong></p>
+      <p>VIN # <strong>{vin}</strong></p>
+      <p>Mileage <strong>{miles}</strong></p>
+      <p>Engine <strong>{engine}</strong></p>
+      <p>Transmission <strong>{transmission}</strong></p>
+      <p>Fuel <strong>{fuel}</strong></p>
+      <p>Drive <strong>{drivetrain}</strong></p>
+      <p>MPG <strong>{parseInt(cityMiles)} City / {parseInt(highwayMiles)} Hwy</strong></p>
     </Wrapper>
   </Accordion>
