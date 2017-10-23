@@ -7,77 +7,34 @@ import {
   Title
 } from './Components'
 
-export default () =>
-  <Table>
+export default (props) =>
+  <Table data={props.data}>
     <THeader>
       <TCol>
-        <Title>Same Car Models</Title>
+        <Title>Similar Car Models</Title>
       </TCol>
       <TCol>
-        <Title>Avg. Price</Title>
+        <Title>Price</Title>
       </TCol>
       <TCol>
-        <Title>Avg. Mileage</Title>
+        <Title>Mileage</Title>
       </TCol>
-      <TCol>
+      {/* <TCol>
         <Title>Avg. Market Value</Title>
-      </TCol>
+      </TCol> */}
     </THeader>
 
-    <TRow>
-      <TCol>
-        <Text>2017 Toyota Camry</Text>
-      </TCol>
-      <TCol>
-        <Text>$14,345</Text>
-      </TCol>
-      <TCol>
-        <Text>25,656 mi</Text>
-      </TCol>
-      <TCol>
-        <Text>$17,345</Text>
-      </TCol>
-    </TRow>
-    <TRow>
-      <TCol>
-        <Text>2017 Toyota Camry</Text>
-      </TCol>
-      <TCol>
-        <Text>$14,345</Text>
-      </TCol>
-      <TCol>
-        <Text>25,656 mi</Text>
-      </TCol>
-      <TCol>
-        <Text>$17,345</Text>
-      </TCol>
-    </TRow>
-    <TRow>
-      <TCol>
-        <Text>2017 Toyota Camry</Text>
-      </TCol>
-      <TCol>
-        <Text>$14,345</Text>
-      </TCol>
-      <TCol>
-        <Text>25,656 mi</Text>
-      </TCol>
-      <TCol>
-        <Text>$17,345</Text>
-      </TCol>
-    </TRow>
-    <TRow>
-      <TCol>
-        <Text>2017 Toyota Camry</Text>
-      </TCol>
-      <TCol>
-        <Text>$14,345</Text>
-      </TCol>
-      <TCol>
-        <Text>25,656 mi</Text>
-      </TCol>
-      <TCol>
-        <Text>$17,345</Text>
-      </TCol>
-    </TRow>
+    {props.data && 
+
+    props.data.map((row, key) => {
+     return (
+      <TRow key={key}>
+        {Object.keys(row).map((keyName, keyIndex) => {
+         return (
+          <TCol key={row[keyName]}>
+            <Text>{row[keyName]}</Text>
+          </TCol>)
+        })}
+      </TRow>)
+    })} 
   </Table>
