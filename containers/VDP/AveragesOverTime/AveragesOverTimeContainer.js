@@ -5,6 +5,7 @@ import fetch from 'isomorphic-fetch';
 import Aux from 'react-aux';
 import styled from 'styled-components'
 import { mediaMin } from '%/styles/mixins'
+import Loading from 'react-loading-animation'
 
 const Desktop = styled(AveragesOverTimeDesktop)`
   display: none;
@@ -77,7 +78,7 @@ class AveragesOverTimeContainer extends Component {
 
   render() {
     if (this.state.trends.length < 1) {
-      return <div>Loading</div>
+      return <Loading />
     }
     return (
       <Aux>
