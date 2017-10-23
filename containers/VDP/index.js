@@ -21,6 +21,7 @@ export default ({
   build: {
     make,
     model,
+    year,
     engine,
     transmission,
     drivetrain,
@@ -39,6 +40,8 @@ export default ({
   brief={`Stock # ${stockNumber}, ${engine}, ${transmission}, ${miles} mi., ${parseInt(cityMiles)}/${parseInt(highwayMiles)} MPG*`}
   price={price}
   model={model}
+  make={make}
+  year={year}
   type={type}
   stockNumber={stockNumber}
   trim={trim}
@@ -55,7 +58,6 @@ export default ({
   cityMiles={cityMiles}
   highwayMiles={highwayMiles}
   sliderPics={sliderPics}
-  //trends={trends}
   scatterSimilar={scatterSimilar}
   scatterNational={scatterNational}
   scatterYourCar={scatterYourCar} 
