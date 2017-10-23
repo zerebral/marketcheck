@@ -48,7 +48,7 @@ export default ({
 }) =>
   <Section title='Vehicle Information'>
     <Wrapper>
-      <Intro>Raw performance, agility, unparalleled ride and handling. These are attributes that people have come to expect from Lotus and the Exige Sport 350 is no exception. Now also available as a roadster - the lightest possible incarnation of the current generation Exige.</Intro>
+      <Intro>Where to get this data? Raw performance, agility, unparalleled ride and handling...</Intro>
 
       <Contents>
         <p>Type <strong>{type}</strong></p>
