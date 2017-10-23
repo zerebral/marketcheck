@@ -45,7 +45,6 @@ class CompetitionContainer extends Component {
       }).then(data => {
         //If we get data for listings proceed
         if (data.listings) {
-          console.log(data.listings)
           //Array for massaged data for simpler consumption on table component
           let competitionData = [];
           //Variable to calculate average miles and prices later
@@ -55,7 +54,6 @@ class CompetitionContainer extends Component {
             return (car.price && car.miles)
           })
             .map((car) => {
-              console.log(car)
               averagePrice += car.price;
               averageMiles += car.miles;
               competitionData.push({
