@@ -13,8 +13,8 @@ import Competition from './Competition'
 import ResaleValue from './ResaleValue'
 import Safety from './Safety'
 import Similar from './Similar'
-
 import AveragesOverTimeContainer from '@/VDP/AveragesOverTime/AveragesOverTimeContainer'
+import CompetitionContainer from '@/VDP/Competition/CompetitionContainer'
 
 export default props =>
   <ContentsWrapper>
@@ -28,7 +28,8 @@ export default props =>
       <FuelEfficiency {...props} />
       <Environmental {...props} />
       <ModelPopularity {...props} />
-      <Competition {...props} />
+      {/* <Competition {...props} /> */}
+      <CompetitionContainer {...props} />
       <ResaleValue {...props} />
       <Safety {...props} />
       <Similar {...props} />
