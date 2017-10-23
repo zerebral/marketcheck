@@ -8,11 +8,11 @@ const Summary = styled.p`
   margin-bottom: 25px !important;
 `
 
-export default () =>
-  <Accordion title='The Competition'>
+export default (props) =>
+  <Accordion title='The Competition' className={props.className} {...props}>
     <Summary>
       Similar cars currently for sale
     </Summary>
-    <Averages />
-    <Similar />
+    <Averages {...props}/>
+    <Similar {...props} />
   </Accordion>
