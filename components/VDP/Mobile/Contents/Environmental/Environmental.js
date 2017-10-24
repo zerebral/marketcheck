@@ -8,11 +8,11 @@ const Summary = styled.p`
   line-height: 2 !important;
 `
 
-export default () =>
+export default ({ environmentalScores }) =>
   <Accordion title='Environmental Friendliness'>
     <Summary>
       Based upon EPA guidelines for measuring pollutants
     </Summary>
 
-    <Charts />
+    {Object.keys(environmentalScores).length > 1 && <Charts {...environmentalScores} />}   
   </Accordion>

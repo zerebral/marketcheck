@@ -1,6 +1,7 @@
 import { Accordion } from '~/general'
 import styled from 'styled-components'
 import { rgba } from 'polished'
+import { number } from '%/format'
 
 const Wrapper = styled.div`
   position: relative;
@@ -52,7 +53,7 @@ export default ({
       <p>Stock# <strong>{stockNumber}</strong></p>
       <p>Model # <strong></strong></p>
       <p>VIN # <strong>{vin}</strong></p>
-      <p>Mileage <strong>{miles}</strong></p>
+      <p>Mileage <strong>{number(miles)}</strong></p>
       <p>Engine <strong>{engine}</strong></p>
       <p>Transmission <strong>{transmission}</strong></p>
       <p>Fuel <strong>{fuel}</strong></p>
