@@ -14,35 +14,52 @@ class Vdp extends React.Component {
     this.fetchingData = this.fetchingData.bind(this);
     this.fetchScatterData = this.fetchScatterData.bind(this);
     this.findIdByVIN = this.findIdByVIN.bind(this);
+    this.environmentalFriendliness = this.environmentalFriendliness.bind(this);
+    //this.historyFetch = this.historyFetch.bind(this);
 
     this.state = {
+      //initial VIN state
+      vin: '1FA6P8CF2H5279752',
       vdp: {},
-      //trends: [],
       scatterSimilar: [],
       scatterNational: [],
       scatterYourCar: [],
-      averageMarketMiles: ''
+      averageMarketMiles: '',
+      environmentalScores: {},
     }
   }
 
   componentDidMount() {
-    this.fetchScatterData();
-    this.findIdByVIN();
+    this.findIdByVIN(this.state.vin);
+    this.fetchScatterData(this.state.vin);
+    this.environmentalFriendliness(this.state.vin);
   }
 
-  findIdByVIN() {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vin=1FA6P8CF2H5279752`)
+  findIdByVIN(vin) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vin=${vin}`)
     .then( data => {
       if (data.listings) {
         const carID = data.listings[0].id;
-        //console.log(data.listings[0].id)
+        //We use the card ID to find VIN
         this.listingFetch(`http://${process.env.API_HOST}/v1/listing/${carID}?api_key=${process.env.API_VAR}`);
       }
     })
   }
 
-  fetchScatterData() {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=1FA6P8CF2H5279752&latitude=34.05&longitude=-118.24&radius=100&car_type=used&start=0&rows=10`)
+  //Need to get back to this one
+  historyFetch(vin) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/history/${vin}?api_key=${process.env.API_VAR}`)
+  }
+
+  environmentalFriendliness(vin) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/economy?vin=${vin}&api_key=${process.env.API_VAR}`)
+      .then(environmentalScores => {
+        this.setState({ environmentalScores })
+    })
+  }
+
+  fetchScatterData(vin) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${vin}&car_type=used&start=0&rows=10`)
     .then( response => {
       let averagePrice = 0;
       let averageMiles = 0;
@@ -112,16 +129,18 @@ class Vdp extends React.Component {
             }
           }
 
+          //Create new object value to hold month and year
           data.trends.forEach(item => {
             item['name'] = item['month'] + "/" + item['year'];
           });
 
-          let overTimemiles = 0;
+          //Calculate averages
+          let overTimeMiles = 0;
           let averageOverTimeMiles = 0;
           const trendsResponse = data.trends;
           data.trends.map((car) => {
-             overTimemiles += car.miles;
-             averageOverTimeMiles = overTimemiles / trendsResponse.length;
+            overTimeMiles += car.miles;
+            averageOverTimeMiles = overTimeMiles / trendsResponse.length;
           });
           this.setState({ trends: data.trends.reverse()});
         }
