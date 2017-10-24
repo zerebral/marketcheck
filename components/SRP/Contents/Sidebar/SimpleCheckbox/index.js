@@ -79,7 +79,7 @@ class SimpleCheckbox extends Component {
           return (
             <StyledFlexRow key={index}>
               <StyledFlexCol>
-                <CheckBox className={this.state.checked === index ? 'checked' : ''} onClick={() => this.handleSelectClick.bind(this)(index, item.value)} />
+                <CheckBox className={this.state.checked === index ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item.value)} />
               </StyledFlexCol>
               <FlexCol>
                 <Label onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>{item.label}</Label>
