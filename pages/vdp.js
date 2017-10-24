@@ -40,7 +40,7 @@ class Vdp extends React.Component {
     .then( data => {
       if (data.listings) {
         const carID = data.listings[0].id;
-        //We use the card ID to find VIN
+        //We use the card ID to fetch car listing/VDP
         this.listingFetch(`http://${process.env.API_HOST}/v1/listing/${carID}?api_key=${process.env.API_VAR}`);
       }
     })
