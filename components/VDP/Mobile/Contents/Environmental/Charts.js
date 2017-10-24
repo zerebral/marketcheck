@@ -25,15 +25,20 @@ const Info = styled.h6`
   color: #39434c;
 `
 
-export default () =>
+export default ({
+  ghg_emissions_rating: emissionsRating,
+  ghg_emissions_indicator: emissionsIndicator,
+  smog_indicator: smogIndicator,
+  smog_rating: smogRating,
+}) =>
   <ChartsWrapper>
     <CircleWrapper>
-      <Circle score={8.6} color='green' text='Very Good' />
+      <Circle score={emissionsRating} color='green' text={emissionsIndicator} />
     </CircleWrapper>
     <Title>Greenhouse Gas Emissions</Title>
     <Info>This shows the vehicle’s impact on climate change in terms of greenhouse gases / carbondioxide(CO2).</Info>
     <CircleWrapper>
-      <Circle score={9.2} color='blue' text='Excellent!' />
+      <Circle score={smogRating} color='blue' text={smogIndicator} />
     </CircleWrapper>
     <Title>Smog Rating</Title>
     <Info>This shows the vehicle’s emissions of pollutants known to cause smog and other forms of air pollution.</Info>
