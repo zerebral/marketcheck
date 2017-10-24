@@ -15,8 +15,23 @@ import PriceTop from './PriceTop'
 const Card = styled.div`
   background-color: ${colors.white};
   box-shadow: 0 0 4px ${colors.gray};
+  height: auto;
   position: relative;
   margin-bottom: 1.5em;
+  max-height: inherit;
+  transition: all 0.5s ease;
+
+  &.close {
+    height: auto;
+    max-height: max-content;
+    transition: all 0.5s ease;
+  }
+
+  &.open {
+    height: auto;
+    max-height: max-content;
+    transition: all 0.5s ease;
+  }
 `
 
 const Container = styled.div`
