@@ -84,7 +84,7 @@ class CompetitionContainer extends Component {
 
   render() {
     if (this.state.similarCompetition.length < 1) {
-      return <Loading />
+      return <h2>No Similar Cars Found</h2>//<Loading />
     }
     return (
       <Aux>
