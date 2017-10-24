@@ -11,17 +11,17 @@ export default (props) =>
   <Table data={props.data}>
     <THeader>
       <TCol>
-        <Title>Similar Car Models</Title>
+        <Title>{props.headings[0]}</Title>
       </TCol>
       <TCol>
-        <Title>Price</Title>
+        <Title>{props.headings[1]}</Title>
       </TCol>
       <TCol>
-        <Title>Mileage</Title>
+        <Title>{props.headings[2]}</Title>
       </TCol>
-      {/* <TCol>
-        <Title>Avg. Market Value</Title>
-      </TCol> */}
+      <TCol>
+        <Title>{props.headings[3]}</Title>
+      </TCol>
     </THeader>
 
     {props.data && 
