@@ -27,15 +27,15 @@ export default (props) =>
     <FlexRow>
       <FlexCol cols={3.5}>
         <Label>Price</Label>
-        <Title>{props.price}</Title>
+        <Title>{currency(props.price)}</Title>
       </FlexCol>
       <FlexCol cols={3.5}>
         <Label>Mileage</Label>
-        <Title>{props.miles} mi</Title>
+        <Title>{number(props.miles)} mi</Title>
       </FlexCol>
       <FlexCol cols={5}>
         <Label>Est. Market Value</Label>
-        <Title>???</Title>
+        <Title>{number(props.marketValue)}</Title>
       </FlexCol>
     </FlexRow>
   </Comparison>

@@ -38,17 +38,17 @@ const Row = styled.div`
 
 export default (props) =>
   <FillBody customBackground={backgroundColor}>
-    <Title>{props.year} {props.make} {props.model} Market Averages</Title>
+    <Title>{props.competition.current_car.name} Market Averages</Title>
     <Row>
       <Name>Avg. Price</Name>
-      <Stat>{currency( props.priceAverage)}</Stat>
+      <Stat>{currency(props.competition.current_car.price)}</Stat>
     </Row>
     <Row>
       <Name>Avg. Mileage</Name>
-      <Stat>{number(props.milesAverage)} mi</Stat>
+      <Stat>{number(props.competition.current_car.miles)} mi</Stat>
     </Row>
     <Row>
       <Name>Avg. Market Value</Name>
-      <Stat>What is this?</Stat>
+      <Stat>{number(props.competition.current_car.avg_market_value)}</Stat>
     </Row>
   </FillBody>
