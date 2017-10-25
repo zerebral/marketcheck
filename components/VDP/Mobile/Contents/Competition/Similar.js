@@ -28,7 +28,6 @@ export default ({ competition }) =>
     </Title>
 
     {competition.similar_car_models.map((car, key) => {
-      console.log(competition)
       return (
         <Comparison price={car.avg_price} miles={car.avg_miles} marketValue={car.avg_market_value} title={car.name} key={key} />)}
       )
