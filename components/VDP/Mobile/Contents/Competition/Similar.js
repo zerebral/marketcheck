@@ -21,13 +21,18 @@ const MoreLink = styled.a`
   line-height: 16.8px;
 `
 
-export default ({ similarCompetition, year, make, model}) =>
+export default ({ competition }) =>
   <Wrapper>
     <Title>
-      {similarCompetition.length} Similar Cars for Sale
+      {competition.similar_car_models.length} Similar Cars for Sale
     </Title>
 
-    {similarCompetition.map( (car, key )=> <Comparison price={car.price} miles={car.miles} marketValue="what is this?" title={`${year} ${make} ${model}`} key={key}/> )}
+    {competition.similar_car_models.map((car, key) => {
+      console.log(competition)
+      return (
+        <Comparison price={car.avg_price} miles={car.avg_miles} marketValue={car.avg_market_value} title={car.name} key={key} />)}
+      )
+    }
 
     {/* <MoreLink>
       23 Additional Listings ( VIEW )
