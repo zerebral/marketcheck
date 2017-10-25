@@ -2,6 +2,7 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  summaryReport,
   environmentalScores,
   averageMarketMiles,
   scatterYourCar,
@@ -64,5 +65,6 @@ export default ({
   scatterYourCar={scatterYourCar} 
   averageMarketMiles={averageMarketMiles}
   environmentalScores={environmentalScores}
+  summaryReport={summaryReport}
   {...props} 
   />
