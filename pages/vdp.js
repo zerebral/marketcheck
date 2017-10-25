@@ -15,6 +15,7 @@ class Vdp extends React.Component {
     this.fetchScatterData = this.fetchScatterData.bind(this);
     this.findIdByVIN = this.findIdByVIN.bind(this);
     this.environmentalFriendliness = this.environmentalFriendliness.bind(this);
+    this.summaryReport = this.summaryReport.bind(this);
     //this.historyFetch = this.historyFetch.bind(this);
 
     this.state = {
@@ -26,11 +27,13 @@ class Vdp extends React.Component {
       scatterYourCar: [],
       averageMarketMiles: '',
       environmentalScores: {},
+      summaryReport: [],
     }
   }
 
   componentDidMount() {
     this.findIdByVIN(this.state.vin);
+    this.summaryReport(this.state.vin);
     this.fetchScatterData(this.state.vin);
     this.environmentalFriendliness(this.state.vin);
   }
@@ -44,6 +47,13 @@ class Vdp extends React.Component {
         this.listingFetch(`http://${process.env.API_HOST}/v1/listing/${carID}?api_key=${process.env.API_VAR}`);
       }
     })
+  }
+
+  summaryReport(vin) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/vin_report_summary?vin=${vin}&api_key=${process.env.API_VAR}`)
+      .then(summaryReport => {
+        this.setState({ summaryReport })
+      })
   }
 
   //Need to get back to this one
