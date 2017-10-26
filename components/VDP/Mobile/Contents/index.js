@@ -15,6 +15,7 @@ import Safety from './Safety'
 import Similar from './Similar'
 import AveragesOverTimeContainer from '@/VDP/AveragesOverTime/AveragesOverTimeContainer'
 import CompetitionContainer from '@/VDP/Competition/CompetitionContainer'
+import SimilarContainer from '@/VDP/Similar/SimilarContainer'
 
 export default props =>
   <ContentsWrapper>
@@ -32,6 +33,6 @@ export default props =>
       <CompetitionContainer {...props} />
       <ResaleValue {...props} />
       <Safety {...props} />
-      <Similar {...props} />
+      <SimilarContainer {...props} />
     </Container>
   </ContentsWrapper>
