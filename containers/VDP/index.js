@@ -2,13 +2,16 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  dealerRatings,
+  source,
+  dealerReviews,
+  safetyRatings,
   summaryReport,
   environmentalScores,
   averageMarketMiles,
   scatterYourCar,
   scatterSimilar,
   scatterNational,
- // trends,
   props,
   price,
   miles,
@@ -66,5 +69,9 @@ export default ({
   averageMarketMiles={averageMarketMiles}
   environmentalScores={environmentalScores}
   summaryReport={summaryReport}
+  safetyRatings={safetyRatings}
+  dealerReviews={dealerReviews}
+  dealerWebsite={`//${source}`}
+  dealerRatings={dealerRatings}
   {...props} 
   />

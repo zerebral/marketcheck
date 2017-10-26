@@ -16,6 +16,8 @@ class Vdp extends React.Component {
     this.findIdByVIN = this.findIdByVIN.bind(this);
     this.environmentalFriendliness = this.environmentalFriendliness.bind(this);
     this.summaryReport = this.summaryReport.bind(this);
+    this.safetyRatings = this.safetyRatings.bind(this);
+    this.dealerReviews = this.dealerReviews.bind(this);
     //this.historyFetch = this.historyFetch.bind(this);
 
     this.state = {
@@ -28,6 +30,9 @@ class Vdp extends React.Component {
       averageMarketMiles: '',
       environmentalScores: {},
       summaryReport: [],
+      safetyRatings: {},
+      dealerReviews: {},
+      dealerRatings: {},
     }
   }
 
@@ -36,6 +41,7 @@ class Vdp extends React.Component {
     this.summaryReport(this.state.vin);
     this.fetchScatterData(this.state.vin);
     this.environmentalFriendliness(this.state.vin);
+    this.safetyRatings(this.state.vin);
   }
 
   findIdByVIN(vin) {
@@ -53,6 +59,13 @@ class Vdp extends React.Component {
     this.fetchingData(`http://${process.env.API_HOST}/v1/vin_report_summary?vin=${vin}&api_key=${process.env.API_VAR}`)
       .then(summaryReport => {
         this.setState({ summaryReport })
+      })
+  }
+
+  safetyRatings(vin) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/safety?vin=${vin}&api_key=${process.env.API_VAR}`)
+      .then(safetyRatings => {
+        this.setState({ safetyRatings })
       })
   }
 
@@ -102,13 +115,16 @@ class Vdp extends React.Component {
       }).then(data => {
         this.setState({ 
           vdp: data,
-          scatterYourCar: [{ x: data.miles, y: data.price}]
+          scatterYourCar: [{ x: data.miles, y: data.price}],
         });
+        //Using VDP response we can extract Dealer ID to fetch it's review
+        this.dealerReviews(data.dealer.id);
       }).catch(error => {
         console.log('error message: ' + error.message)
       })
   }
 
+  //Method to shorten all fetches a bit
   fetchingData(url) {
     return fetch(url) 
       .then(response => {
@@ -119,46 +135,59 @@ class Vdp extends React.Component {
       })
   }
 
-  trendsFetch(url) {
-    fetch(url)
-      .then(response => {
-        if (response.status !== 200) {
-          console.log('Problem ' + response.status)
-        }
-        return response.json();
-      }).then(data => {
-        if (data.trends) {
-          
-          //Convert number strings to actual numbers in Obj
-          for (var i = 0; i < data.trends.length; i++) {
-            var obj = data.trends[i];
-            for (var prop in obj) {
-              if (obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])) {
-                obj[prop] = parseInt(+obj[prop]);
-              }
-            }
-          }
+  dealerReviews(id) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/dealer/${id}/reviews?api_key=${process.env.API_VAR}`)
+      .then(dealerReviews => {
+        this.setState({ dealerReviews })
+      });
 
-          //Create new object value to hold month and year
-          data.trends.forEach(item => {
-            item['name'] = item['month'] + "/" + item['year'];
-          });
-
-          //Calculate averages
-          let overTimeMiles = 0;
-          let averageOverTimeMiles = 0;
-          const trendsResponse = data.trends;
-          data.trends.map((car) => {
-            overTimeMiles += car.miles;
-            averageOverTimeMiles = overTimeMiles / trendsResponse.length;
-          });
-          this.setState({ trends: data.trends.reverse()});
-        }
-
-      }).catch(error => {
-        console.log('error message: ' + error.message)
-      })
+      this.fetchingData(` http://${process.env.API_HOST}/v1/dealer/${id}/ratings?api_key=${process.env.API_VAR}`)
+      .then( dealerRatings => {
+        this.setState({ dealerRatings})
+      });
   }
+
+
+  // trendsFetch(url) {
+  //   fetch(url)
+  //     .then(response => {
+  //       if (response.status !== 200) {
+  //         console.log('Problem ' + response.status)
+  //       }
+  //       return response.json();
+  //     }).then(data => {
+  //       if (data.trends) {
+          
+  //         //Convert number strings to actual numbers in Obj
+  //         for (var i = 0; i < data.trends.length; i++) {
+  //           var obj = data.trends[i];
+  //           for (var prop in obj) {
+  //             if (obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])) {
+  //               obj[prop] = parseInt(+obj[prop]);
+  //             }
+  //           }
+  //         }
+
+  //         //Create new object value to hold month and year
+  //         data.trends.forEach(item => {
+  //           item['name'] = item['month'] + "/" + item['year'];
+  //         });
+
+  //         //Calculate averages
+  //         let overTimeMiles = 0;
+  //         let averageOverTimeMiles = 0;
+  //         const trendsResponse = data.trends;
+  //         data.trends.map((car) => {
+  //           overTimeMiles += car.miles;
+  //           averageOverTimeMiles = overTimeMiles / trendsResponse.length;
+  //         });
+  //         this.setState({ trends: data.trends.reverse()});
+  //       }
+
+  //     }).catch(error => {
+  //       console.log('error message: ' + error.message)
+  //     })
+  // }
   
 
   render () {
