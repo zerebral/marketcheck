@@ -26,7 +26,8 @@ export default ({
   distance,
   rating,
   reviews,
-  website
+  website,
+  vdpUrl
 }) =>
   <Seller>
     <Name href={website} target='_blank'>
@@ -51,10 +52,10 @@ export default ({
       <Reviews href={website}>{number(reviews)} Reviews</Reviews>
     </Flex>
     <Flex>
-      <Button>Request Best Price</Button>
-      <More>
+      <Button href={vdpUrl} target="_blank">View on dealer website</Button>
+      {/* <More>
         View More
         <Caret />
-      </More>
+      </More> */}
     </Flex>
   </Seller>
