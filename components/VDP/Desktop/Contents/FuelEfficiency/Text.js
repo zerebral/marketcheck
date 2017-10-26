@@ -36,7 +36,6 @@ const DataLabel = styled.p`
 
 export default (props ) =>
   <Drops>
-    {console.log(props)}
     <DropRow>
       <DropCol>
         <DataText>
