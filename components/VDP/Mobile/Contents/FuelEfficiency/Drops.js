@@ -55,13 +55,13 @@ const Detail = styled.h6`
   line-height: 1;
 `
 
-export default () =>
+export default (props) =>
   <DropsRow>
 
     <DropCol>
       <Drop />
       <CenteredBox>
-        <Number>20</Number>
+        <Number>{parseInt(props.city_mileage)}</Number>
         <Unit>MPG</Unit>
         <Detail>City</Detail>
       </CenteredBox>
@@ -70,7 +70,7 @@ export default () =>
     <DropCol large >
       <Drop />
       <CenteredBox>
-        <Number large >24</Number>
+        <Number large >{parseInt(props.combined_mileage)}</Number>
         <Unit large >MPG</Unit>
         <Detail large >Combined</Detail>
       </CenteredBox>
@@ -79,7 +79,7 @@ export default () =>
     <DropCol>
       <Drop />
       <CenteredBox>
-        <Number>22</Number>
+        <Number>{parseInt(props.highway_mileage)}</Number>
         <Unit>MPG</Unit>
         <Detail>HWY</Detail>
       </CenteredBox>

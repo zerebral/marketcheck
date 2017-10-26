@@ -2,6 +2,7 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  fuelEfficiency,
   resaleValue,
   dealerRatings,
   source,
@@ -75,5 +76,6 @@ export default ({
   dealerWebsite={`//${source}`}
   dealerRatings={dealerRatings}
   resaleValue={resaleValue}
+  fuelEfficiency={fuelEfficiency}
   {...props} 
   />

@@ -24,7 +24,7 @@ export default (props) =>
       </TCol>
     </THeader>
 
-    {props.data && 
+    {props.data &&  Array.isArray(props.data) &&
 
     props.data.map((row, key) => {
      return (
@@ -37,4 +37,16 @@ export default (props) =>
         })}
       </TRow>)
     })} 
+
+    {props.data && props.data.current_car instanceof Object &&
+
+      <TRow>
+        {Object.keys(props.data.current_car).map((keyName, keyIndex) => {
+         return (
+          <TCol key={props.data[keyName]}>
+            <Text>{props.data[keyName]}</Text>
+          </TCol>)
+        })}
+      </TRow>
+    } 
   </Table>
