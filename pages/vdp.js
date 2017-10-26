@@ -148,48 +148,6 @@ class Vdp extends React.Component {
   }
 
 
-  // trendsFetch(url) {
-  //   fetch(url)
-  //     .then(response => {
-  //       if (response.status !== 200) {
-  //         console.log('Problem ' + response.status)
-  //       }
-  //       return response.json();
-  //     }).then(data => {
-  //       if (data.trends) {
-          
-  //         //Convert number strings to actual numbers in Obj
-  //         for (var i = 0; i < data.trends.length; i++) {
-  //           var obj = data.trends[i];
-  //           for (var prop in obj) {
-  //             if (obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])) {
-  //               obj[prop] = parseInt(+obj[prop]);
-  //             }
-  //           }
-  //         }
-
-  //         //Create new object value to hold month and year
-  //         data.trends.forEach(item => {
-  //           item['name'] = item['month'] + "/" + item['year'];
-  //         });
-
-  //         //Calculate averages
-  //         let overTimeMiles = 0;
-  //         let averageOverTimeMiles = 0;
-  //         const trendsResponse = data.trends;
-  //         data.trends.map((car) => {
-  //           overTimeMiles += car.miles;
-  //           averageOverTimeMiles = overTimeMiles / trendsResponse.length;
-  //         });
-  //         this.setState({ trends: data.trends.reverse()});
-  //       }
-
-  //     }).catch(error => {
-  //       console.log('error message: ' + error.message)
-  //     })
-  // }
-  
-
   render () {
     if (!this.state.vdp.build) {
       return <Loading style={{marginTop: '35vh'}}/>
