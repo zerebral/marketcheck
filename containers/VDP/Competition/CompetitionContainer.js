@@ -26,58 +26,55 @@ class CompetitionContainer extends Component {
   constructor() {
     super();
 
-    this.similarFetch = this.similarFetch.bind(this);
+    //this.similarFetch = this.similarFetch.bind(this);
     this.competitionFetch = this.competitionFetch.bind(this);
 
     this.state = {
-      similarCompetition: [],
       competition: [],
-      priceAverage: '',
-      milesAverage: '',
     }
   }
 
-  similarFetch(url) {
-    fetch(url)
-      .then(response => {
-        if (response.status !== 200) {
-          console.log('Problem ' + response.status)
-        }
-        return response.json();
-      }).then(data => {
-        //If we get data for listings proceed
-        if (data.listings) {
-          console.log(data.listings)
-          //Array for massaged data for simpler consumption on table component
-          let competitionData = [];
-          //Variable to calculate average miles and prices later
-          let averagePrice = 0;
-          let averageMiles = 0;
-          const cars = data.listings.filter((car) => {
-            return (car.price && car.miles)
-          })
-            .map((car) => {
-              averagePrice += car.price;
-              averageMiles += car.miles;
-              competitionData.push({
-                heading: `${car.build.year} ${car.build.make} ${car.build.model}`,
-                price: currency(car.price),
-                miles: number(car.miles)
-              })
-            })
-            //Calculate average miles and price
-            averagePrice = averagePrice / cars.length;
-            averageMiles = averageMiles / cars.length;
-            this.setState({ 
-              similarCompetition: competitionData ,
-              milesAverage: averageMiles.toFixed(0),
-              priceAverage: averagePrice.toFixed(0)
-            });
-          }
-        }).catch(error => {
-          console.log('error message: ' + error.message)
-        })
-  }
+  // similarFetch(url) {
+  //   fetch(url)
+  //     .then(response => {
+  //       if (response.status !== 200) {
+  //         console.log('Problem ' + response.status)
+  //       }
+  //       return response.json();
+  //     }).then(data => {
+  //       //If we get data for listings proceed
+  //       if (data.listings) {
+  //         console.log(data.listings)
+  //         //Array for massaged data for simpler consumption on table component
+  //         let competitionData = [];
+  //         //Variable to calculate average miles and prices later
+  //         let averagePrice = 0;
+  //         let averageMiles = 0;
+  //         const cars = data.listings.filter((car) => {
+  //           return (car.price && car.miles)
+  //         })
+  //           .map((car) => {
+  //             averagePrice += car.price;
+  //             averageMiles += car.miles;
+  //             competitionData.push({
+  //               heading: `${car.build.year} ${car.build.make} ${car.build.model}`,
+  //               price: currency(car.price),
+  //               miles: number(car.miles)
+  //             })
+  //           })
+  //           //Calculate average miles and price
+  //           averagePrice = averagePrice / cars.length;
+  //           averageMiles = averageMiles / cars.length;
+  //           this.setState({ 
+  //             similarCompetition: competitionData ,
+  //             milesAverage: averageMiles.toFixed(0),
+  //             priceAverage: averagePrice.toFixed(0)
+  //           });
+  //         }
+  //       }).catch(error => {
+  //         console.log('error message: ' + error.message)
+  //       })
+  // }
 
   competitionFetch(url) {
     fetch(url)
@@ -94,7 +91,6 @@ class CompetitionContainer extends Component {
 
   
   componentDidMount() {
-    this.similarFetch(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=${this.props.year}&make=${this.props.make}&model=${this.props.model}`)
     this.competitionFetch(`http://${process.env.API_HOST}/v1/competition?vin=1FA6P8CF2H5279752&api_key=${process.env.API_VAR}`)
   }
 
