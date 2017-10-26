@@ -3,29 +3,31 @@ import Rating from './Rating'
 import Seller from './Seller'
 import { FlexRow, FlexCol } from '~/layout'
 
-export default () =>
+export default ({ safetyRatings, dealerReviews, dealerRatings, dealerWebsite }) =>
   <Section title='Safety Ratings' summary='Define Where Data is Coming From'>
-
     <FlexRow justify='center'>
       <FlexCol cols={8}>
         <FlexRow justify='center' noMargin >
-          <Rating stars={4} name='Overall' />
+          <Rating stars={safetyRatings.overall_rating} name='Overall' />
         </FlexRow>
         <FlexRow justify='center' noMargin >
-          <Rating stars={2} name='Roll Over' />
-          <Rating stars={3.2} name='Driver Side' />
-          <Rating stars={4.3} name='Driver Front' />
-          <Rating stars={5} name='Passenger Front' />
+          <Rating stars={safetyRatings.roll_over_rating} name='Roll Over' />
+          <Rating stars={safetyRatings.driver_side_rating} name='Driver Side' />
+          <Rating stars={safetyRatings.driver_front_rating} name='Driver Front' />
+          <Rating stars={safetyRatings.passenger_front_rating} name='Passenger Front' /> 
         </FlexRow>
       </FlexCol>
     </FlexRow>
 
-    <Seller
-      name='Drew International Sales'
-      location='Atlanta, GA'
-      distance={24}
-      rating={4.2}
-      reviews={24}
-      website='#'
-    />
+    {Object.keys(dealerRatings).length > 1 && 
+    
+      <Seller
+        name={dealerReviews.name}
+        location={`${dealerReviews.city}, ${dealerReviews.state}`}
+        distance={24}
+        rating={dealerRatings.overall_rating}
+        reviews={dealerReviews.overall_reviews}
+        website={dealerWebsite}
+      />
+    }
   </Section>
