@@ -27,11 +27,26 @@ class SimilarContainer extends Component {
     super();
 
     this.similarFetch = this.similarFetch.bind(this);
+    this.dealerReviews = this.dealerReviews.bind(this);
+    this.fetchingData = this.fetchingData.bind(this);
 
     this.state = {
       cars: [],
       numFound: '',
+      similarCarsDealerReviews: [],
+      similarCarsDealerRatings: []
     }
+  }
+
+  //Method to shorten all fetches a bit
+  fetchingData(url) {
+    return fetch(url)
+      .then(response => {
+        if (response.status !== 200) {
+          console.log('Problem ' + response.status)
+        }
+        return response.json();
+      })
   }
 
   similarFetch(url) {
@@ -47,6 +62,10 @@ class SimilarContainer extends Component {
           this.setState({ 
             cars: data.listings,
             numFound: data.num_found
+          });
+          //Get Dealer id for each car
+          data.listings.map( (car) => {
+            this.dealerReviews(car.dealer.id)
           })
         }
       }).catch(error => {
@@ -56,13 +75,13 @@ class SimilarContainer extends Component {
 
   dealerReviews(id) {
     this.fetchingData(`http://${process.env.API_HOST}/v1/dealer/${id}/reviews?api_key=${process.env.API_VAR}`)
-      .then(dealerReviews => {
-        this.setState({ dealerReviews })
+      .then(carsDealerReviews => {
+        this.setState({ similarCarsDealerReviews: [...this.state.similarCarsDealerReviews, carsDealerReviews] })
       });
 
       this.fetchingData(` http://${process.env.API_HOST}/v1/dealer/${id}/ratings?api_key=${process.env.API_VAR}`)
-      .then( dealerRatings => {
-        this.setState({ dealerRatings})
+        .then( carsDealerRatings => {
+          this.setState({ similarCarsDealerRatings: [...this.state.similarCarsDealerRatings, carsDealerRatings]})
       });
   }
 
