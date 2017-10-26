@@ -18,6 +18,7 @@ class Vdp extends React.Component {
     this.summaryReport = this.summaryReport.bind(this);
     this.safetyRatings = this.safetyRatings.bind(this);
     this.dealerReviews = this.dealerReviews.bind(this);
+    this.resaleValueFetch = this.resaleValueFetch.bind(this);
     //this.historyFetch = this.historyFetch.bind(this);
 
     this.state = {
@@ -33,6 +34,7 @@ class Vdp extends React.Component {
       safetyRatings: {},
       dealerReviews: {},
       dealerRatings: {},
+      resaleValue: [],
     }
   }
 
@@ -42,6 +44,7 @@ class Vdp extends React.Component {
     this.fetchScatterData(this.state.vin);
     this.environmentalFriendliness(this.state.vin);
     this.safetyRatings(this.state.vin);
+    this.resaleValueFetch(this.state.vin);
   }
 
   findIdByVIN(vin) {
@@ -133,6 +136,14 @@ class Vdp extends React.Component {
         }
         return response.json();
       })
+  }
+
+  resaleValueFetch(vin) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/depreciation?vin=${vin}&api_key=${process.env.API_VAR}`)
+    .then( resaleValue => {
+      //console.log(resaleValue);
+      this.setState({ resaleValue: resaleValue.similar_models });
+    })
   }
 
   dealerReviews(id) {
