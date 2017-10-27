@@ -21,7 +21,7 @@ class Vdp extends React.Component {
     this.resaleValueFetch = this.resaleValueFetch.bind(this);
     this.fuelEfficiencyFetch = this.fuelEfficiencyFetch.bind(this);
     this.getDOMAverage = this.getDOMAverage.bind(this);
-    //this.historyFetch = this.historyFetch.bind(this);
+    this.historyFetch = this.historyFetch.bind(this);
 
     this.state = {
       //initial VIN state
@@ -42,6 +42,7 @@ class Vdp extends React.Component {
       fuelEfficiency: {},
       localAverage: null,
       nationalAverage: null,
+      vinHistory: [],
     }
   }
 
@@ -53,6 +54,7 @@ class Vdp extends React.Component {
     this.safetyRatings(this.state.vin);
     this.resaleValueFetch(this.state.vin);
     this.fuelEfficiencyFetch(this.state.vin);
+    this.historyFetch(this.state.vin);
   }
 
   findIdByVIN(vin) {
@@ -83,6 +85,9 @@ class Vdp extends React.Component {
   //Need to get back to this one
   historyFetch(vin) {
     this.fetchingData(`http://${process.env.API_HOST}/v1/history/${vin}?api_key=${process.env.API_VAR}`)
+      .then(vinHistory => {
+        this.setState({ vinHistory })
+      })
   }
 
   environmentalFriendliness(vin) {

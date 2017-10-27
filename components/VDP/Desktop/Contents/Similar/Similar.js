@@ -9,6 +9,10 @@ const String = (amount) => {
   return number(amount) + ' Vehicles Within ' + number(100) + ' Miles'
 }
 
+const Reviews = (dealerReview) => {
+  dealerReview.map(review => review.overall_reviews)
+}
+
 export default (props) =>
   <Section title='Similar Local Cars' summary={String(props.numFound)} center className={props.className}>
   {props.cars && props.cars.length > 1 &&
@@ -28,6 +32,7 @@ export default (props) =>
         cityMiles={car.build.city_miles}
         highwayMiles={car.build.highway_miles}
         vdpUrl={car.vdp_url}
+        reviews={Reviews(props.similarCarsDealerReviews)}
       />
     )
   }
