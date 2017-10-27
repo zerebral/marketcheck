@@ -14,7 +14,7 @@ const Form = styled.form`
   border-radius: ${rem(4)};
   margin-bottom: ${rem(30)};
   display: flex;
-  overflow: hidden;
+  /*overflow: hidden;*/
   max-width: 95%;
   margin-left: auto;
   margin-right: auto;
