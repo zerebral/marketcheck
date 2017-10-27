@@ -20,11 +20,14 @@ class Vdp extends React.Component {
     this.dealerReviews = this.dealerReviews.bind(this);
     this.resaleValueFetch = this.resaleValueFetch.bind(this);
     this.fuelEfficiencyFetch = this.fuelEfficiencyFetch.bind(this);
+    this.getDOMAverage = this.getDOMAverage.bind(this);
     //this.historyFetch = this.historyFetch.bind(this);
 
     this.state = {
       //initial VIN state
       vin: '1FA6P8CF2H5279752',
+      latitude: 32.75,
+      longitude: -116.35,
       vdp: {},
       scatterSimilar: [],
       scatterNational: [],
@@ -37,6 +40,8 @@ class Vdp extends React.Component {
       dealerRatings: {},
       resaleValue: [],
       fuelEfficiency: {},
+      localAverage: null,
+      nationalAverage: null,
     }
   }
 
@@ -125,6 +130,7 @@ class Vdp extends React.Component {
         });
         //Using VDP response we can extract Dealer ID to fetch it's review
         this.dealerReviews(data.dealer.id);
+        this.getDOMAverage(data.build.year, data.make, data.model);
       }).catch(error => {
         console.log('error message: ' + error.message)
       })
@@ -157,6 +163,22 @@ class Vdp extends React.Component {
       })
   }
 
+  getDOMAverage(year, make, model) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=2017&make=ford&model=mustang&car_type=used&radius=100&stats=dom&latitude=32.75&longitude=-116.35`)
+      .then(localAverage => {
+        if(localAverage.stats.dom.mean) {
+          this.setState({ localAverage: localAverage.stats.dom.mean });
+        }
+        
+      });
+    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=2017&make=ford&model=mustang&car_type=used&radius=100&stats=dom`)
+      .then(nationalAverage => {
+        if(nationalAverage.stats.dom.mean) {
+          this.setState({ nationalAverage: nationalAverage.stats.dom.mean });
+        }     
+      });
+  }
+
   dealerReviews(id) {
     this.fetchingData(`http://${process.env.API_HOST}/v1/dealer/${id}/reviews?api_key=${process.env.API_VAR}`)
       .then(dealerReviews => {
@@ -171,7 +193,7 @@ class Vdp extends React.Component {
 
 
   render () {
-    if (!this.state.vdp.build) {
+    if (!this.state.vdp.build || this.state.localAverage === null || this.state.nationalAverage === null) {
       return <Loading style={{marginTop: '35vh'}}/>
     }
     return <VDP {...this.state} {...this.state.vdp}/>

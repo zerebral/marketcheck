@@ -2,6 +2,9 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  nationalAverage,
+  localAverage,
+  dom,
   fuelEfficiency,
   resaleValue,
   dealerRatings,
@@ -77,5 +80,8 @@ export default ({
   dealerRatings={dealerRatings}
   resaleValue={resaleValue}
   fuelEfficiency={fuelEfficiency}
+  dom={dom}
+  localAverage={localAverage}
+  nationalAverage={nationalAverage}
   {...props} 
   />

@@ -8,10 +8,12 @@ const Wrapper = styled.div`
   max-width: 80%;
 `
 
-export default () =>
-  <Section title='Time on Market' summary='Listed for sale for 189 days' >
+export default ({ dom, localAverage, nationalAverage}) =>
+  <Section title='Time on Market' summary={`Listed for sale for ${dom}`}>
+ 
     <Wrapper>
-      <CircleGraphs />
+      <CircleGraphs dom={dom} localAverage={localAverage.toFixed(0)} nationalAverage={nationalAverage.toFixed(0)}/>
       <Summary />
     </Wrapper>
+  
   </Section>
