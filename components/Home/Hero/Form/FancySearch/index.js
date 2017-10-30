@@ -14,9 +14,8 @@ const FancySearch = styled.div`
   `}
 `
 
-export default () =>
+export default (props) =>
   <FancySearch>
     <Geolocation />
-    {/* <Input placeholder='Enter a location...' /> */}
-    <GoogleAutoComplete />
+    <GoogleAutoComplete {...props}/>
   </FancySearch>

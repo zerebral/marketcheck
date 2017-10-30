@@ -9,10 +9,9 @@ class GoogleAutoComplete extends React.Component {
     super(props)
     this.state = {
       address: '',
-      //geocodeResults: null,
       loading: false,
-      latitude: null,
-      longitude: null,
+      //latitude: null,
+      //longitude: null,
     }
     this.handleSelect = this.handleSelect.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -27,18 +26,17 @@ class GoogleAutoComplete extends React.Component {
     geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        console.log('Success Yay', { lat, lng })
+        console.log(this.props)
+        this.props.findLatLng(lat, lng)
         this.setState({
-          //geocodeResults: this.renderGeocodeSuccess(lat, lng),
           loading: false,
-          latitude: lat,
-          longitude: lng
+          //latitude: lat,
+          //longitude: lng
         })
       })
       .catch((error) => {
         console.log('Oh no!', error)
         this.setState({
-          //geocodeResults: this.renderGeocodeFailure(error),
           loading: false
         })
       })
@@ -47,8 +45,8 @@ class GoogleAutoComplete extends React.Component {
   handleChange(address) {
     this.setState({
       address,
-      latitude: '',
-      longitude: ''
+      //latitude: '',
+      //longitude: ''
      //geocodeResults: null
     })
   }

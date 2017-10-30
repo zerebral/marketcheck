@@ -6,7 +6,8 @@ import { rem } from 'polished'
 import Loading from 'react-simple-loading';
 
 import FancySelect from './FancySelect'
-import FancySearch from './FancySearch'
+import GoogleAutoComplete from './FancySearch'
+//import GoogleAutoComplete from '@/Home/form/fancySearch/input/GoogleAutoComplete'
 import Submit from './Submit'
 
 const Form = styled.form`
@@ -23,24 +24,24 @@ const Form = styled.form`
     max-width: 100%;
   `}
 `
-export default ({onSubmit, models}) =>
+
+export default ({ onSubmit, models, makes, carTypeSelect, makeSelect, modelSelect, loadingModels, handleChange, handleSelect, address, findLatLng}) =>
   <Form onSubmit={onSubmit}>
-    <FancySelect blue>
-      <option>Used</option>
-      <option>New</option>
-      <option>Newer</option>
-      <option>Newest</option>
+    <FancySelect blue onChange={carTypeSelect} >
+      <option value="used">Used</option>
+      <option value="new">New</option>
+      <option value="newer">Newer</option>
+      <option value="newest">Newest</option>
     </FancySelect>
-    <FancySearch />
-    <FancySelect>
+    <GoogleAutoComplete findLatLng={findLatLng}/>
+    <FancySelect onChange={makeSelect}>
       <option>All Makes</option>
-      <option>Ford</option>
-      <option>Jeep</option>
+      {makes.length > 1 && makes.map((make, key) => <option key={key} value={make.item}>{make.item}</option>)}
     </FancySelect>
  
-    <FancySelect>
-      {console.log(models)}
-      <option>All Models</option>
+    <FancySelect onChange={modelSelect}>
+      {!loadingModels && <option selected="selected">All Models</option>}
+      {loadingModels && <option>Loading Models</option>}
       {models.length > 1 &&  models.map( (model, key) =>  <option key={key}>{model.item}</option> )}
     </FancySelect>
     <Submit />
