@@ -16,8 +16,6 @@ class GoogleAutoComplete extends React.Component {
     }
     this.handleSelect = this.handleSelect.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    //this.renderGeocodeFailure = this.renderGeocodeFailure.bind(this)
-    //this.renderGeocodeSuccess = this.renderGeocodeSuccess.bind(this)
   }
 
   handleSelect(address) {
@@ -61,7 +59,7 @@ class GoogleAutoComplete extends React.Component {
         backgroundColor: '#e0e9f1' ,
         border: 'none',
         left: '-47px',
-        top: '122%',
+        top: '125%',
         minWidth: '256px',
         textAlign: 'left',
         lineHeight: '1.5',
