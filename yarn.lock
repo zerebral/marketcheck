@@ -5575,6 +5575,10 @@ react-scroll@^1.6.1:
     object-assign "^4.1.1"
     prop-types "^15.5.8"
 
+react-simple-loading@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react-simple-loading/-/react-simple-loading-0.0.3.tgz#523083a45e02ddba284f5ad9be1c1e0107c59eb3"
+
 react-slick@^0.15.4:
   version "0.15.4"
   resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.15.4.tgz#6709c87b06e7640feeacc06711be42cc2066aabe"
