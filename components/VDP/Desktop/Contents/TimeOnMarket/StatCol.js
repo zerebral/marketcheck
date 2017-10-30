@@ -41,10 +41,12 @@ const PillNumber = styled.span`
 export default ({
   money,
   gain,
-  noPill
+  noPill,
+  price,
+  carMiles
 }) =>
   <StatCol>
-    <StatNumber>{money ? currency(3567) : miles(23445)}</StatNumber>
+    <StatNumber>{money ? currency(price) : miles(carMiles)}</StatNumber>
     {!noPill &&
       <StatPill gain={gain}>
         <PillNumber>{money ? currency(956) : miles(1456)}</PillNumber>

@@ -21,11 +21,12 @@ const MoreLink = styled.a`
   line-height: 16.8px;
 `
 
-export default () =>
+export default (props) =>
   <Summary>
-    <Title>12 - Previous Listings</Title>
-    <Listing />
-    <Listing />
-    <Listing />
-    <MoreLink>9 More Previous Listings ( VIEW )</MoreLink>
+    <Title>{props.vinHistory.length} - Previous Listings</Title>
+    {props.vinHistory.map((listing, key) => {
+      return <Listing key={key} price={listing.price} initialDate={listing.scraped_at_date} lastDate={listing.last_seen_at_date} source={`//${listing.source}`} miles={listing.miles} sellerName={listing.seller_name}/>
+    })}
+  
+    {/* <MoreLink>9 More Previous Listings ( VIEW )</MoreLink> */}
   </Summary>
