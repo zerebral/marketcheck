@@ -82,14 +82,16 @@ export default ({
         }
       </PicWrapper>
     </Car>
-     <Seller
-      name={dealer.name}
-      city={dealer.city}
-      state={dealer.state}
-      distance={24}
-      rating={4.2}
-      reviews={24}
-      website={website}
-      vdpUrl={vdpUrl}
-    />
+    {reviews && rating &&
+      <Seller
+        name={dealer.name}
+        city={dealer.city}
+        state={dealer.state}
+        distance={24}
+        rating={rating.overall_rating}
+        reviews={reviews.overall_reviews}
+        website={website}
+        vdpUrl={vdpUrl}
+      />
+    }
   </Wrapper>

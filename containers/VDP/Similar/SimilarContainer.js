@@ -90,7 +90,7 @@ class SimilarContainer extends Component {
   }
 
   render() {
-    if (this.state.cars.length < 1) {
+    if (this.state.cars.length < 1 || this.state.similarCarsDealerReviews < 1 ) {
       return <Loading />
     }
     return (

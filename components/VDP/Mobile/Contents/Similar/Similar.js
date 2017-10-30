@@ -15,23 +15,24 @@ export default (props) =>
   <Accordion title='Similar Local Cars' className={props.className}>
     <Summary>{number(props.numFound)} Similar cars in Your Local Area</Summary>
    {props.cars && props.cars.length > 1 &&
-    props.cars.map(car =>
-      <Car
-        key={car.id}
-        dealer={car.dealer}
-        distance={24}
-        rating={4.2}
-        reviews={24}
-        website={`//${car.source}`}
-        name={car.heading}
-        price={car.price}
-        picture={car.media.photo_links[0]}
-        transmission={car.build.transmission}
-        miles={car.miles}
-        cityMiles={car.build.city_miles}
-        highwayMiles={car.build.highway_miles}
-        vdpUrl={car.vdp_url}
-      />
-    )
+      props.cars.map((car, key) => {
+        return <Car
+          key={car.id}
+          dealer={car.dealer}
+          distance={24}
+          website={`//${car.source}`}
+          name={car.heading}
+          price={car.price}
+          picture={car.media.photo_links[0]}
+          transmission={car.build.transmission}
+          miles={car.miles}
+          cityMiles={car.build.city_miles}
+          highwayMiles={car.build.highway_miles}
+          vdpUrl={car.vdp_url}
+          rating={props.similarCarsDealerRatings[key]}
+          reviews={props.similarCarsDealerReviews[key]}
+        />
+      }
+      )
   }
   </Accordion>
