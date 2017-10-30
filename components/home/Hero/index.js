@@ -5,6 +5,7 @@ import Phone from './Phone'
 import PropTypes from 'prop-types'
 import CarLinks from './CarLinks'
 import Form from './Form'
+import HomeFormContainer from '@/Home/form/HomeFormContainer'
 import AlignedContainer from './AlignedContainer'
 
 const Hero = ({
@@ -19,7 +20,8 @@ const Hero = ({
         <Row>
           <Column laptop={{ cols: 8, offset: 2 }} phablet={{ cols: 10, offset: 1 }} >
             <H2>Search over 14 million Used and New Cars</H2>
-            <Form onSubmit={onSubmit} />
+            {/* <Form onSubmit={onSubmit} /> */}
+            <HomeFormContainer onSubmit={onSubmit} />
             <CarLinks links={carLinks} />
             <Phone />
           </Column>
