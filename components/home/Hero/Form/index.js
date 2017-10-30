@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
 import { rem } from 'polished'
+import Loading from 'react-simple-loading';
 
 import FancySelect from './FancySelect'
 import FancySearch from './FancySearch'
@@ -22,7 +23,7 @@ const Form = styled.form`
     max-width: 100%;
   `}
 `
-export default ({onSubmit}) =>
+export default ({onSubmit, models}) =>
   <Form onSubmit={onSubmit}>
     <FancySelect blue>
       <option>Used</option>
@@ -36,11 +37,11 @@ export default ({onSubmit}) =>
       <option>Ford</option>
       <option>Jeep</option>
     </FancySelect>
+ 
     <FancySelect>
+      {console.log(models)}
       <option>All Models</option>
-      <option>2017</option>
-      <option>2016</option>
-      <option>2015</option>
+      {models.length > 1 &&  models.map( (model, key) =>  <option key={key}>{model.item}</option> )}
     </FancySelect>
     <Submit />
   </Form>
