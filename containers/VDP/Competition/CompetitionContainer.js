@@ -42,7 +42,7 @@ class CompetitionContainer extends Component {
         }
         return response.json();
       }).then( competition => {
-        console.log(competition)
+        //console.log(competition)
         this.setState({ competition })
       })
   }
