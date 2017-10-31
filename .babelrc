@@ -24,7 +24,8 @@
           "inline-import",{
             "extensions": [".css"]
           }
-        ]
+        ],
+        ["inline-dotenv"]
       ]
     },
     "production": {
@@ -51,7 +52,8 @@
           "inline-import",{
             "extensions": [".css"]
           }
-        ]
+        ],
+        ["transform-inline-environment-variables"]
       ]
     },
     "test": {

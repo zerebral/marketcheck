@@ -21,21 +21,21 @@ const Comparison = styled.div`
   border-top: 1px solid #ccc;
   padding: 20px 0;
 `
-export default () =>
+export default (props) =>
   <Comparison>
-    <Title>2017 Toyota Camry</Title>
+    <Title>{props.title}</Title>
     <FlexRow>
       <FlexCol cols={3.5}>
         <Label>Price</Label>
-        <Title>{currency(14345)}</Title>
+        <Title>{currency(props.price)}</Title>
       </FlexCol>
       <FlexCol cols={3.5}>
         <Label>Mileage</Label>
-        <Title>{number(25656)} mi</Title>
+        <Title>{number(props.miles)} mi</Title>
       </FlexCol>
       <FlexCol cols={5}>
         <Label>Est. Market Value</Label>
-        <Title>{currency(14345)}</Title>
+        <Title>{number(props.marketValue)}</Title>
       </FlexCol>
     </FlexRow>
   </Comparison>

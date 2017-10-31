@@ -1,6 +1,7 @@
 import Section from '~/VDP/Section'
 import styled from 'styled-components'
 import LineChart from './LineChart'
+import { currency, number } from '%/format'
 
 const P = styled.p`
   opacity: 0.56;
@@ -16,11 +17,11 @@ const Right = styled.div`
   margin-left: auto;
 `
 
-export default () =>
-  <Section title='Averages Over Time' summary='Based on 256 Similar Vehicles Nearby' >
+export default ({ trends, miles, averageMarketMiles, ...props }) =>
+  <Section title='Averages Over Time' summary={`Based on ${trends.length} Similar Vehicles Nearby`} className={props.className}>
     <Right>
-      <H2>145,565 mi</H2>
-      <P>234 miles less than market average</P>
+      <H2>{number(miles)} mi</H2>
+      <P>{miles > averageMarketMiles ? number(miles - averageMarketMiles) + " miles more" : number(averageMarketMiles - miles) + " miles less"} than market average</P>
     </Right>
-    <LineChart />
+    <LineChart dataTrend={trends}/>
   </Section>

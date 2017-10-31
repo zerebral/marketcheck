@@ -29,7 +29,7 @@ class Accordion extends React.Component {
     const { title, children, blue, noPadding } = this.props
     const { open } = this.state
     return (
-      <Wrapper open={open}>
+      <Wrapper open={open} className={this.props.className}>
         <Header open={open} onClick={this.toggleAccordion} >
           <Title>{title}</Title>
           <Toggle open={open}href='#'><More /></Toggle>

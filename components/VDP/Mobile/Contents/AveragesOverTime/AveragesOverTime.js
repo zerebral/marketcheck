@@ -2,6 +2,7 @@ import Accordion, { FillBody } from '~/general/Accordion'
 import styled from 'styled-components'
 import LineChart from './LineChart'
 import { colors } from '%/styles'
+import { currency, number } from '%/format'
 
 const P = styled.p`
   opacity: 0.56;
@@ -22,17 +23,17 @@ const Summary = styled.h4`
   font-size: 12px;
 `
 
-export default () =>
-  <Accordion title='Averages Over Time' blue >
+export default ({ trends, miles, averageMarketMiles , ...props}) =>
+  <Accordion title='Averages Over Time' blue className={props.className}>
     <FillBody first >
-      <P>Based on 256 Similar Vehicles Nearby</P>
-      <H2>145,565 mi</H2>
-      <P>234 miles less than market average</P>
-      <LineChart />
+      <P>Based on {trends.length} Similar Vehicles Nearby</P>
+      <H2>{number(miles)} mi</H2>
+      <P>{miles > averageMarketMiles ? number(miles - averageMarketMiles) + " miles more" : number(averageMarketMiles - miles) + " miles less"} than market average</P>
+      <LineChart dataTrend={trends} />
     </FillBody>
     <FillBody noPadding customBackground={colors.darkblue} customColor={colors.white} >
       <SummaryWrapper>
-        <Summary>6 Month Market Averages - Jan Through Jun</Summary>
+        {<Summary>{trends.length} Month Market Averages - {trends[0].month + '/' + trends[0].year} Through {trends[trends.length - 1].month + '/' + trends[trends.length - 1].year}</Summary>}
       </SummaryWrapper>
     </FillBody>
   </Accordion>

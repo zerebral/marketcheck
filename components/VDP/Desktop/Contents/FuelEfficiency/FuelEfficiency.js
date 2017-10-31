@@ -11,17 +11,19 @@ import {
 
 import { FlexRow, FlexCol } from '~/layout'
 
-export default () =>
+export default ({ fuelEfficiency }) =>
   <Section title='Fuel Efficiency' summary='Based upon avg. fuel prices across the US.'>
     <FlexRow>
       <FlexCol cols={5}>
-        <Drops />
+        <Drops {...fuelEfficiency}/>
       </FlexCol>
       <FlexCol cols={5} offset={1}>
-        <PriceHeader>$<Money>64</Money></PriceHeader>
+        <PriceHeader>$<Money>{fuelEfficiency.monthly_fuel_expense}</Money></PriceHeader>
         <FuelExpense>Monthly fue Expense</FuelExpense>
         <Separator />
-        <Text />
+        {fuelEfficiency.annual_miles && 
+        <Text {...fuelEfficiency }/>
+        }
       </FlexCol>
     </FlexRow>
   </Section>

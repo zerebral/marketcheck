@@ -28,7 +28,7 @@ import {
   Soon
 } from './Icons'
 
-import { ellipsis, currency } from '%/format'
+import { ellipsis, currency, number } from '%/format'
 
 export default ({
   dealer,
@@ -38,7 +38,12 @@ export default ({
   website,
   name,
   price,
-  picture
+  picture,
+  transmission,
+  miles,
+  cityMiles,
+  highwayMiles,
+  vdpUrl,
 }) =>
   <Wrapper>
     <Car>
@@ -49,7 +54,7 @@ export default ({
         <Certified />
       </Title>
 
-      <Details>6-Speed Automatic, 6487 mi, 20/24 MPG*</Details>
+      <Details>{transmission}, {number(miles)} mi, {parseInt(cityMiles)}/{parseInt(highwayMiles)} MPG*</Details>
 
       <PriceRow>
         <Price>{currency(price)}</Price>
@@ -77,13 +82,16 @@ export default ({
         }
       </PicWrapper>
     </Car>
+    {reviews && rating &&
     <Seller
       name={dealer.name}
       city={dealer.city}
       state={dealer.state}
       distance={24}
-      rating={4.2}
-      reviews={24}
+      rating={rating.overall_rating}
+      reviews={reviews.overall_reviews}
       website={website}
+      vdpUrl={vdpUrl}
     />
+    }
   </Wrapper>

@@ -21,16 +21,19 @@ const MoreLink = styled.a`
   line-height: 16.8px;
 `
 
-export default () =>
+export default ({ competition }) =>
   <Wrapper>
     <Title>
-      45 Similar Cars for Sale
+      {competition.similar_car_models.length} Similar Cars for Sale
     </Title>
-    <Comparison />
-    <Comparison />
-    <Comparison />
-    <Comparison />
-    <MoreLink>
+
+    {competition.similar_car_models.map((car, key) => {
+      return (
+        <Comparison price={car.avg_price} miles={car.avg_miles} marketValue={car.avg_market_value} title={car.name} key={key} />)}
+      )
+    }
+
+    {/* <MoreLink>
       23 Additional Listings ( VIEW )
-    </MoreLink>
+    </MoreLink> */}
   </Wrapper>

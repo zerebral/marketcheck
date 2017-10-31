@@ -7,77 +7,46 @@ import {
   Title
 } from './Components'
 
-export default () =>
-  <Table>
+export default (props) =>
+  <Table data={props.data}>
     <THeader>
       <TCol>
-        <Title>Same Car Models</Title>
+        <Title>{props.headings[0]}</Title>
       </TCol>
       <TCol>
-        <Title>Avg. Price</Title>
+        <Title>{props.headings[1]}</Title>
       </TCol>
       <TCol>
-        <Title>Avg. Mileage</Title>
+        <Title>{props.headings[2]}</Title>
       </TCol>
       <TCol>
-        <Title>Avg. Market Value</Title>
+        <Title>{props.headings[3]}</Title>
       </TCol>
     </THeader>
 
-    <TRow>
-      <TCol>
-        <Text>2017 Toyota Camry</Text>
-      </TCol>
-      <TCol>
-        <Text>$14,345</Text>
-      </TCol>
-      <TCol>
-        <Text>25,656 mi</Text>
-      </TCol>
-      <TCol>
-        <Text>$17,345</Text>
-      </TCol>
-    </TRow>
-    <TRow>
-      <TCol>
-        <Text>2017 Toyota Camry</Text>
-      </TCol>
-      <TCol>
-        <Text>$14,345</Text>
-      </TCol>
-      <TCol>
-        <Text>25,656 mi</Text>
-      </TCol>
-      <TCol>
-        <Text>$17,345</Text>
-      </TCol>
-    </TRow>
-    <TRow>
-      <TCol>
-        <Text>2017 Toyota Camry</Text>
-      </TCol>
-      <TCol>
-        <Text>$14,345</Text>
-      </TCol>
-      <TCol>
-        <Text>25,656 mi</Text>
-      </TCol>
-      <TCol>
-        <Text>$17,345</Text>
-      </TCol>
-    </TRow>
-    <TRow>
-      <TCol>
-        <Text>2017 Toyota Camry</Text>
-      </TCol>
-      <TCol>
-        <Text>$14,345</Text>
-      </TCol>
-      <TCol>
-        <Text>25,656 mi</Text>
-      </TCol>
-      <TCol>
-        <Text>$17,345</Text>
-      </TCol>
-    </TRow>
+    {props.data &&  Array.isArray(props.data) &&
+
+    props.data.map((row, key) => {
+     return (
+      <TRow key={key}>
+        {Object.keys(row).map((keyName, keyIndex) => {
+         return (
+          <TCol key={row[keyName]}>
+            <Text>{row[keyName]}</Text>
+          </TCol>)
+        })}
+      </TRow>)
+    })} 
+
+    {props.data && props.data.current_car instanceof Object &&
+
+      <TRow>
+        {Object.keys(props.data.current_car).map((keyName, keyIndex) => {
+         return (
+          <TCol key={props.data[keyName]}>
+            <Text>{props.data[keyName]}</Text>
+          </TCol>)
+        })}
+      </TRow>
+    } 
   </Table>

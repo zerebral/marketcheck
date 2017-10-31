@@ -29,43 +29,50 @@ const Row = styled.div`
   margin-bottom: 20px;
 `
 
-export default () =>
+export default ({summaryReport}) =>
   <Section title='VIN Summary Report'>
     <Wrapper>
+    {summaryReport[0].some_text &&
       <Row>
         <Price />
-        <p>This car is $1,234 below market value</p>
+        <p>{summaryReport[0].some_text}</p>
       </Row>
-
+    }
+    {summaryReport[1].some_text &&
       <Row>
         <Miles />
-        <p>Miles driven per year: 6,454 miles vs 7,545 miles for the average 2017 Toyota Camry...</p>
+        <p>{summaryReport[1].some_text}</p>
       </Row>
-
+    }
+    {summaryReport[2].some_text &&
       <Row>
         <Cal />
-        <p>Days listed for sale: 756 days - Cars like this usually sell in 54 days.</p>
+        <p>{summaryReport[2].some_text}</p>
       </Row>
-
+    }
+    {summaryReport[3].some_text &&
       <Row>
         <Alert />
-        <p>2017 Toyota Camry vehicles have had 3 recalls. It’s <a href='#'>FREE to check</a> if this VIN has an open recall.</p>
+        <p>{summaryReport[3].some_text}</p>
       </Row>
-
+    }
+    {summaryReport[4].some_text &&
       <Row>
         <Lock />
-        <p>It’s <a href='#'>FREE to check</a> if the car was stolen.</p>
+        <p>{summaryReport[4].some_text}</p>
       </Row>
-
+    }
+    {summaryReport[5].some_text &&
       <Row>
         <Star />
-        <p>The dealer selling this car has a MarketCheck rating of 4.5 stars (out of 5)</p>
+        <p>{summaryReport[5].some_text}</p>
       </Row>
-
+    }
+    {summaryReport[6].some_text &&
       <Row>
         <Check />
-        <p>$665 could be saved depending on when you buy cars like this.</p>
+        <p>{summaryReport[6].some_text}</p>
       </Row>
-
+    }
     </Wrapper>
   </Section>
