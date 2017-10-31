@@ -8,10 +8,10 @@ const Summary = styled.p`
   line-height: 2 !important;
 `
 
-export default () =>
+export default ({ modelPopularity }) =>
   <Accordion title='Model Popularity'>
     <Summary>
       Based upon Days-on-Market ( DOM )
     </Summary>
-    <LineCharts />
+    {modelPopularity.length > 1 && <LineCharts modelPopularity={modelPopularity} />}  
   </Accordion>

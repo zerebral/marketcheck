@@ -5,9 +5,14 @@ const ChartsWrapper = styled.div`
   position: relative;
 `
 
-export default () =>
+export default (props) =>
   <ChartsWrapper>
-    <SingleChart
+
+    {props.modelPopularity.map( (item, key ) => {
+      return <SingleChart value={item.left} remaining={item.right} we={item.text} key={key}/>
+    })}
+
+    {/* <SingleChart
       value={47}
       remaining={68}
       we='2000 Toyota Avalon XL'
@@ -30,5 +35,5 @@ export default () =>
       remaining={51}
       we='2000 Toyota'
       them='Other Model Years'
-    />
+    /> */}
   </ChartsWrapper>
