@@ -22,6 +22,7 @@ class Vdp extends React.Component {
     this.fuelEfficiencyFetch = this.fuelEfficiencyFetch.bind(this);
     this.getDOMAverage = this.getDOMAverage.bind(this);
     this.historyFetch = this.historyFetch.bind(this);
+    this.modelPopularityFetch = this.modelPopularityFetch.bind(this);
 
     this.state = {
       //initial VIN state
@@ -43,6 +44,7 @@ class Vdp extends React.Component {
       localAverage: null,
       nationalAverage: null,
       vinHistory: [],
+      modelPopularity: [],
     }
   }
 
@@ -61,9 +63,17 @@ class Vdp extends React.Component {
     this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vin=${vin}`)
     .then( data => {
       if (data.listings) {
+        //Get car id so we can use it for the Listing Fetch
         const carID = data.listings[0].id;
+        //Get Year, Make, Model, Trim and Body Type so we can use it for the Model Popularity fetch
+        const year = data.listings[0].build.year;
+        const make = data.listings[0].build.make;
+        const model = data.listings[0].build.model;
+        const trim = data.listings[0].build.trim;
+        const bodyType = data.listings[0].build.body_type;
         //We use the card ID to fetch car listing/VDP
         this.listingFetch(`http://${process.env.API_HOST}/v1/listing/${carID}?api_key=${process.env.API_VAR}`);
+        this.modelPopularityFetch(year, make, model, trim, bodyType);
       }
     })
   }
@@ -194,6 +204,13 @@ class Vdp extends React.Component {
       .then( dealerRatings => {
         this.setState({ dealerRatings})
       });
+  }
+
+  modelPopularityFetch(year, make, model, trim, bodyType) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/popularity?year=${year}&make=${make}&model=${model}&trim=${trim}&nodedup=true&body_type=${bodyType}&api_key=${process.env.API_VAR}`)
+      .then( modelPopularity => {
+        this.setState({ modelPopularity })
+      })
   }
 
 

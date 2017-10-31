@@ -2,6 +2,7 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  modelPopularity,
   vinHistory,
   nationalAverage,
   localAverage,
@@ -85,5 +86,6 @@ export default ({
   localAverage={localAverage}
   nationalAverage={nationalAverage}
   vinHistory={vinHistory}
+  modelPopularity={modelPopularity}
   {...props} 
   />
