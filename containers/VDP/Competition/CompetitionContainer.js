@@ -34,48 +34,6 @@ class CompetitionContainer extends Component {
     }
   }
 
-  // similarFetch(url) {
-  //   fetch(url)
-  //     .then(response => {
-  //       if (response.status !== 200) {
-  //         console.log('Problem ' + response.status)
-  //       }
-  //       return response.json();
-  //     }).then(data => {
-  //       //If we get data for listings proceed
-  //       if (data.listings) {
-  //         console.log(data.listings)
-  //         //Array for massaged data for simpler consumption on table component
-  //         let competitionData = [];
-  //         //Variable to calculate average miles and prices later
-  //         let averagePrice = 0;
-  //         let averageMiles = 0;
-  //         const cars = data.listings.filter((car) => {
-  //           return (car.price && car.miles)
-  //         })
-  //           .map((car) => {
-  //             averagePrice += car.price;
-  //             averageMiles += car.miles;
-  //             competitionData.push({
-  //               heading: `${car.build.year} ${car.build.make} ${car.build.model}`,
-  //               price: currency(car.price),
-  //               miles: number(car.miles)
-  //             })
-  //           })
-  //           //Calculate average miles and price
-  //           averagePrice = averagePrice / cars.length;
-  //           averageMiles = averageMiles / cars.length;
-  //           this.setState({ 
-  //             similarCompetition: competitionData ,
-  //             milesAverage: averageMiles.toFixed(0),
-  //             priceAverage: averagePrice.toFixed(0)
-  //           });
-  //         }
-  //       }).catch(error => {
-  //         console.log('error message: ' + error.message)
-  //       })
-  // }
-
   competitionFetch(url) {
     fetch(url)
       .then(response => {

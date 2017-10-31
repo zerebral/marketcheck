@@ -15,14 +15,14 @@ const Content = styled.div`
     height: 0;
     transform-origin: top;
     transform: scaleY(0);
-    transition: height 0.2s ease-out, transform 0.2s ease-out, padding 0.2s ease-out, margin 0.2s ease-out;
+    transition: all 0.5s ease;
   }
 
   &.open {
     height: 100%;
     transform-origin: top;
     transform: scaleY(1);
-    transition: height 0.2s ease-out, transform 0.2s ease-out, padding 0.2s ease-out, margin 0.2s ease-out;
+    transition: all 0.5s ease;
   }
 `
 

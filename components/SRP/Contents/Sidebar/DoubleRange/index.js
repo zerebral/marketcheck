@@ -14,6 +14,10 @@ const Range = Slider.Range
 
 const Control = styled(Range)`
   ${SliderStyle};
+
+  .rc-slider-handle {
+    z-index: 9;
+  }
 `
 
 const Price = styled.span`
