@@ -23,6 +23,7 @@ class Vdp extends React.Component {
     this.getDOMAverage = this.getDOMAverage.bind(this);
     this.historyFetch = this.historyFetch.bind(this);
     this.modelPopularityFetch = this.modelPopularityFetch.bind(this);
+    this.averagesFetch = this.averagesFetch.bind(this);
 
     this.state = {
       //initial VIN state
@@ -45,6 +46,7 @@ class Vdp extends React.Component {
       nationalAverage: null,
       vinHistory: [],
       modelPopularity: [],
+      averages: {},
     }
   }
 
@@ -57,6 +59,7 @@ class Vdp extends React.Component {
     this.resaleValueFetch(this.state.vin);
     this.fuelEfficiencyFetch(this.state.vin);
     this.historyFetch(this.state.vin);
+    this.averagesFetch(this.state.vin);
   }
 
   findIdByVIN(vin) {
@@ -82,6 +85,13 @@ class Vdp extends React.Component {
     this.fetchingData(`http://${process.env.API_HOST}/v1/vin_report_summary?vin=${vin}&api_key=${process.env.API_VAR}`)
       .then(summaryReport => {
         this.setState({ summaryReport })
+      })
+  }
+
+  averagesFetch(vin) {
+    this.fetchingData(`http://${process.env.API_HOST}//v1/averages?vin=${vin}&api_key=${process.env.API_VAR}`)
+      .then( averages => {
+        this.setState({ averages })
       })
   }
 
