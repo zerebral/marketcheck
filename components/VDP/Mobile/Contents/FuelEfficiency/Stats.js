@@ -6,8 +6,8 @@ const Stats = styled.div`
   margin-bottom: 40px;
 `
 
-export default () =>
+export default (props) =>
   <Stats>
-    <Text />
-    <Drops />
+    <Text {...props}/>
+    <Drops {...props}/>
   </Stats>

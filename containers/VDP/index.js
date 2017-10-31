@@ -2,6 +2,13 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  modelPopularity,
+  vinHistory,
+  nationalAverage,
+  localAverage,
+  dom,
+  fuelEfficiency,
+  resaleValue,
   dealerRatings,
   source,
   dealerReviews,
@@ -73,5 +80,12 @@ export default ({
   dealerReviews={dealerReviews}
   dealerWebsite={`//${source}`}
   dealerRatings={dealerRatings}
+  resaleValue={resaleValue}
+  fuelEfficiency={fuelEfficiency}
+  dom={dom}
+  localAverage={localAverage}
+  nationalAverage={nationalAverage}
+  vinHistory={vinHistory}
+  modelPopularity={modelPopularity}
   {...props} 
   />

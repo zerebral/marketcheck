@@ -27,17 +27,17 @@ export default () =>
           padding={{ top: 8, bottom: 8 }}
           type='number'
         />
-        <Line dataKey='a'
+        <Line dataKey='carOne'
           stroke={colors.blue}
           strokeWidth={2}
           dot={{ fill: colors.blue, strokeWidth: 8 }}
         />
-        <Line dataKey='b'
+        <Line dataKey='carTwo'
           stroke={colors.orange}
           strokeWidth={2}
           dot={{ fill: colors.orange, strokeWidth: 8 }}
         />
-        <Line dataKey='c'
+        <Line dataKey='carThree'
           stroke={colors.green}
           strokeWidth={2}
           dot={{ fill: colors.green, strokeWidth: 8 }}

@@ -18,11 +18,17 @@ class Vdp extends React.Component {
     this.summaryReport = this.summaryReport.bind(this);
     this.safetyRatings = this.safetyRatings.bind(this);
     this.dealerReviews = this.dealerReviews.bind(this);
-    //this.historyFetch = this.historyFetch.bind(this);
+    this.resaleValueFetch = this.resaleValueFetch.bind(this);
+    this.fuelEfficiencyFetch = this.fuelEfficiencyFetch.bind(this);
+    this.getDOMAverage = this.getDOMAverage.bind(this);
+    this.historyFetch = this.historyFetch.bind(this);
+    this.modelPopularityFetch = this.modelPopularityFetch.bind(this);
 
     this.state = {
       //initial VIN state
       vin: '1FA6P8CF2H5279752',
+      latitude: 32.75,
+      longitude: -116.35,
       vdp: {},
       scatterSimilar: [],
       scatterNational: [],
@@ -33,6 +39,12 @@ class Vdp extends React.Component {
       safetyRatings: {},
       dealerReviews: {},
       dealerRatings: {},
+      resaleValue: [],
+      fuelEfficiency: {},
+      localAverage: null,
+      nationalAverage: null,
+      vinHistory: [],
+      modelPopularity: [],
     }
   }
 
@@ -42,15 +54,26 @@ class Vdp extends React.Component {
     this.fetchScatterData(this.state.vin);
     this.environmentalFriendliness(this.state.vin);
     this.safetyRatings(this.state.vin);
+    this.resaleValueFetch(this.state.vin);
+    this.fuelEfficiencyFetch(this.state.vin);
+    this.historyFetch(this.state.vin);
   }
 
   findIdByVIN(vin) {
     this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vin=${vin}`)
     .then( data => {
       if (data.listings) {
+        //Get car id so we can use it for the Listing Fetch
         const carID = data.listings[0].id;
+        //Get Year, Make, Model, Trim and Body Type so we can use it for the Model Popularity fetch
+        const year = data.listings[0].build.year;
+        const make = data.listings[0].build.make;
+        const model = data.listings[0].build.model;
+        const trim = data.listings[0].build.trim;
+        const bodyType = data.listings[0].build.body_type;
         //We use the card ID to fetch car listing/VDP
         this.listingFetch(`http://${process.env.API_HOST}/v1/listing/${carID}?api_key=${process.env.API_VAR}`);
+        this.modelPopularityFetch(year, make, model, trim, bodyType);
       }
     })
   }
@@ -72,6 +95,9 @@ class Vdp extends React.Component {
   //Need to get back to this one
   historyFetch(vin) {
     this.fetchingData(`http://${process.env.API_HOST}/v1/history/${vin}?api_key=${process.env.API_VAR}`)
+      .then(vinHistory => {
+        this.setState({ vinHistory })
+      })
   }
 
   environmentalFriendliness(vin) {
@@ -119,6 +145,7 @@ class Vdp extends React.Component {
         });
         //Using VDP response we can extract Dealer ID to fetch it's review
         this.dealerReviews(data.dealer.id);
+        this.getDOMAverage(data.build.year, data.make, data.model);
       }).catch(error => {
         console.log('error message: ' + error.message)
       })
@@ -135,6 +162,38 @@ class Vdp extends React.Component {
       })
   }
 
+  resaleValueFetch(vin) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/depreciation?vin=${vin}&api_key=${process.env.API_VAR}`)
+    .then( resaleValue => {
+      //console.log(resaleValue);
+      this.setState({ resaleValue: resaleValue.similar_models });
+    })
+  }
+
+  fuelEfficiencyFetch(vin) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/fuel_efficiency?vin=${vin}&api_key=${process.env.API_VAR}`)
+      .then(fuelEfficiency => {
+        //console.log(resaleValue);
+        this.setState({ fuelEfficiency});
+      })
+  }
+
+  getDOMAverage(year, make, model) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=2017&make=ford&model=mustang&car_type=used&radius=100&stats=dom&latitude=32.75&longitude=-116.35`)
+      .then(localAverage => {
+        if(localAverage.stats.dom.mean) {
+          this.setState({ localAverage: localAverage.stats.dom.mean });
+        }
+        
+      });
+    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=2017&make=ford&model=mustang&car_type=used&radius=100&stats=dom`)
+      .then(nationalAverage => {
+        if(nationalAverage.stats.dom.mean) {
+          this.setState({ nationalAverage: nationalAverage.stats.dom.mean });
+        }     
+      });
+  }
+
   dealerReviews(id) {
     this.fetchingData(`http://${process.env.API_HOST}/v1/dealer/${id}/reviews?api_key=${process.env.API_VAR}`)
       .then(dealerReviews => {
@@ -147,51 +206,16 @@ class Vdp extends React.Component {
       });
   }
 
+  modelPopularityFetch(year, make, model, trim, bodyType) {
+    this.fetchingData(`http://${process.env.API_HOST}/v1/popularity?year=${year}&make=${make}&model=${model}&trim=${trim}&nodedup=true&body_type=${bodyType}&api_key=${process.env.API_VAR}`)
+      .then( modelPopularity => {
+        this.setState({ modelPopularity })
+      })
+  }
 
-  // trendsFetch(url) {
-  //   fetch(url)
-  //     .then(response => {
-  //       if (response.status !== 200) {
-  //         console.log('Problem ' + response.status)
-  //       }
-  //       return response.json();
-  //     }).then(data => {
-  //       if (data.trends) {
-          
-  //         //Convert number strings to actual numbers in Obj
-  //         for (var i = 0; i < data.trends.length; i++) {
-  //           var obj = data.trends[i];
-  //           for (var prop in obj) {
-  //             if (obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])) {
-  //               obj[prop] = parseInt(+obj[prop]);
-  //             }
-  //           }
-  //         }
-
-  //         //Create new object value to hold month and year
-  //         data.trends.forEach(item => {
-  //           item['name'] = item['month'] + "/" + item['year'];
-  //         });
-
-  //         //Calculate averages
-  //         let overTimeMiles = 0;
-  //         let averageOverTimeMiles = 0;
-  //         const trendsResponse = data.trends;
-  //         data.trends.map((car) => {
-  //           overTimeMiles += car.miles;
-  //           averageOverTimeMiles = overTimeMiles / trendsResponse.length;
-  //         });
-  //         this.setState({ trends: data.trends.reverse()});
-  //       }
-
-  //     }).catch(error => {
-  //       console.log('error message: ' + error.message)
-  //     })
-  // }
-  
 
   render () {
-    if (!this.state.vdp.build) {
+    if (!this.state.vdp.build || this.state.localAverage === null || this.state.nationalAverage === null) {
       return <Loading style={{marginTop: '35vh'}}/>
     }
     return <VDP {...this.state} {...this.state.vdp}/>

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { percentage } from '%/styles/mixins'
 import { rgba } from 'polished'
+import { number } from '%/format'
 
 const Drops = styled.div`
   text-align: center;
@@ -33,7 +34,7 @@ const DataLabel = styled.p`
   font-size: 14px;
 `
 
-export default () =>
+export default (props ) =>
   <Drops>
     <DropRow>
       <DropCol>
@@ -43,12 +44,12 @@ export default () =>
         <DataLabel>City/Hwy</DataLabel>
       </DropCol>
       <DropCol>
-        <DataText>16k</DataText>
+        <DataText>{number(props.annual_miles)}</DataText>
         <DataLabel>Annual Miles</DataLabel>
       </DropCol>
       <DropCol>
         <DataText>
-          36<SmallText>mpg</SmallText>
+          {parseInt(props.city_mileage)}/{parseInt(props.highway_mileage)}<SmallText>mpg</SmallText>
         </DataText>
         <DataLabel>City/Hwy</DataLabel>
       </DropCol>

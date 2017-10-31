@@ -14,6 +14,7 @@ import Safety from './Safety'
 import Similar from './Similar'
 import AveragesOverTimeContainer from '@/VDP/AveragesOverTime/AveragesOverTimeContainer'
 import CompetitionContainer from '@/VDP/Competition/CompetitionContainer'
+import SimilarContainer from '@/VDP/Similar/SimilarContainer'
 
 
 export default props =>
@@ -21,16 +22,14 @@ export default props =>
     <SummaryReport {...props} />
     <VehicleInformation {...props}/>
     <MarketComparison {...props} />
-    {/* <AveragesOverTime {...props} /> */}
     <AveragesOverTimeContainer {...props} />
     <TimeOnMarket {...props} />
     <IncludedFeatures {...props} />
     <FuelEfficiency {...props} />
     <Environmental {...props} />
     <ModelPopularity {...props} />
-    {/* <Competition {...props} /> */}
     <CompetitionContainer {...props} />
     <ResaleValue {...props} />
     <Safety {...props} />
-    <Similar {...props} />
+    <SimilarContainer {...props} />
   </ContentsWrapper>
