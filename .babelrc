@@ -25,7 +25,7 @@
             "extensions": [".css"]
           }
         ],
-        ["inline-dotenv"]
+        "inline-dotenv"
       ]
     },
     "production": {
@@ -53,7 +53,7 @@
             "extensions": [".css"]
           }
         ],
-        ["transform-inline-environment-variables"]
+        "transform-inline-environment-variables"
       ]
     },
     "test": {
