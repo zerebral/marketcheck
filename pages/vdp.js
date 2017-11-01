@@ -3,25 +3,11 @@ import VDP from '@/VDP'
 import FontsHOC from '@/HOC/Fonts'
 import fetch from 'isomorphic-fetch'
 import Loading from 'react-loading-animation'
+import autobind from 'class-autobind'
 
 class Vdp extends React.Component {
   constructor () {
     super()
-
-    this.listingFetch = this.listingFetch.bind(this)
-    this.fetchingData = this.fetchingData.bind(this)
-    this.fetchScatterData = this.fetchScatterData.bind(this)
-    this.findIdByVIN = this.findIdByVIN.bind(this)
-    this.environmentalFriendliness = this.environmentalFriendliness.bind(this)
-    this.summaryReport = this.summaryReport.bind(this)
-    this.safetyRatings = this.safetyRatings.bind(this)
-    this.dealerReviews = this.dealerReviews.bind(this)
-    this.resaleValueFetch = this.resaleValueFetch.bind(this)
-    this.fuelEfficiencyFetch = this.fuelEfficiencyFetch.bind(this)
-    this.getDOMAverage = this.getDOMAverage.bind(this)
-    this.historyFetch = this.historyFetch.bind(this)
-    this.modelPopularityFetch = this.modelPopularityFetch.bind(this)
-
     this.state = {
       // initial VIN state
       vin: '1FA6P8CF2H5279752',
@@ -44,6 +30,7 @@ class Vdp extends React.Component {
       vinHistory: [],
       modelPopularity: []
     }
+    autobind(this)
   }
 
   componentDidMount () {
@@ -123,7 +110,7 @@ class Vdp extends React.Component {
       // averageMiles = averageMiles.toFixed(0);
       this.setState({
         scatterSimilar: cars,
-        scatterNational: [{ x: averageMiles, y: averagePrice}],
+        scatterNational: [{x: averageMiles, y: averagePrice}],
         averageMarketMiles: averageMiles
       })
     })
@@ -139,7 +126,7 @@ class Vdp extends React.Component {
       }).then(data => {
         this.setState({
           vdp: data,
-          scatterYourCar: [{ x: data.miles, y: data.price}]
+          scatterYourCar: [{x: data.miles, y: data.price}]
         })
         // Using VDP response we can extract Dealer ID to fetch it's review
         this.dealerReviews(data.dealer.id)
@@ -172,7 +159,7 @@ class Vdp extends React.Component {
     this.fetchingData(`http://${process.env.API_HOST}/v1/fuel_efficiency?vin=${vin}&api_key=${process.env.API_VAR}`)
       .then(fuelEfficiency => {
         // console.log(resaleValue);
-        this.setState({ fuelEfficiency})
+        this.setState({fuelEfficiency})
       })
   }
 
@@ -199,7 +186,7 @@ class Vdp extends React.Component {
 
     this.fetchingData(` http://${process.env.API_HOST}/v1/dealer/${id}/ratings?api_key=${process.env.API_VAR}`)
       .then(dealerRatings => {
-        this.setState({ dealerRatings})
+        this.setState({dealerRatings})
       })
   }
 
