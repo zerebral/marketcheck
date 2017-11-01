@@ -47,6 +47,7 @@ class Vdp extends React.Component {
       vinHistory: [],
       modelPopularity: [],
       averages: {},
+      similarModelsGraph: [],
     }
   }
 
@@ -177,6 +178,22 @@ class Vdp extends React.Component {
     .then( resaleValue => {
       //console.log(resaleValue);
       this.setState({ resaleValue: resaleValue.similar_models });
+      const similarModels = resaleValue.similar_models;
+      let currentYear = new Date().getFullYear();
+      let dataArray = [
+        { name: currentYear, key: 'current_value' },
+        { name: currentYear + 1, key: 'one_year_from_now' },
+        { name: currentYear + 2, key: 'two_year_from_now' },
+        { name: currentYear + 5, key: 'five_year_from_now' }
+      ];
+
+      dataArray.forEach(function (dataElement) {
+        similarModels.forEach(function (similarModel, index) {
+          dataElement['car' + (index + 1)] = similarModel[dataElement.key];
+        });
+      });
+      this.setState({ similarModelsGraph: dataArray})
+     // console.log(dataArray);
     })
   }
 
