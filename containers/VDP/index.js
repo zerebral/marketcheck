@@ -2,6 +2,7 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  similarModelsGraph,
   modelPopularity,
   vinHistory,
   nationalAverage,
@@ -87,5 +88,6 @@ export default ({
   nationalAverage={nationalAverage}
   vinHistory={vinHistory}
   modelPopularity={modelPopularity}
+  similarModelsGraph={similarModelsGraph}
   {...props} 
   />

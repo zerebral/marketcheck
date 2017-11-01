@@ -38,10 +38,10 @@ export default (props) =>
       </TRow>)
     })} 
 
-    {props.data && props.data.current_car instanceof Object &&
+    {props.data && props.currentCar &&
 
       <TRow>
-        {Object.keys(props.data.current_car).map((keyName, keyIndex) => {
+        {Object.keys(props.data).map((keyName, keyIndex) => {
          return (
           <TCol key={props.data[keyName]}>
             <Text>{props.data[keyName]}</Text>
