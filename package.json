@@ -16,7 +16,7 @@
     "pretest": "npm run lint",
     "test": "jest",
     "test-ci": "jest -ci -b --debug",
-    "deploy": "now",
+    "deploy": "now -e API_VAR=@api_var",
     "postdeploy": "now alias"
   },
   "dependencies": {
