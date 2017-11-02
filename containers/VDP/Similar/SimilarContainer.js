@@ -74,19 +74,19 @@ class SimilarContainer extends Component {
   }
 
   dealerReviews(id) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/dealer/${id}/reviews?api_key=${process.env.API_VAR}`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/dealer/${id}/reviews?api_key=${process.env.API_VAR}`)
       .then(carsDealerReviews => {
         this.setState({ similarCarsDealerReviews: [...this.state.similarCarsDealerReviews, carsDealerReviews] })
       });
 
-      this.fetchingData(` http://${process.env.API_HOST}/v1/dealer/${id}/ratings?api_key=${process.env.API_VAR}`)
+      this.fetchingData(`https://${process.env.API_HOST}/v1/dealer/${id}/ratings?api_key=${process.env.API_VAR}`)
         .then( carsDealerRatings => {
           this.setState({ similarCarsDealerRatings: [...this.state.similarCarsDealerRatings, carsDealerRatings]})
       });
   }
 
   componentDidMount() {
-    this.similarFetch(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${this.props.vin}&latitude=34.05&longitude=-118.24&radius=100&car_type=used&start=0&rows=3`)
+    this.similarFetch(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${this.props.vin}&latitude=34.05&longitude=-118.24&radius=100&car_type=used&start=0&rows=3`)
   }
 
   render() {
