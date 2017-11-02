@@ -65,7 +65,7 @@ class Vdp extends React.Component {
   }
 
   findIdByVIN (vin) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vin=${vin}`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vin=${vin}`)
     .then(data => {
       if (data.listings) {
         // Get car id so we can use it for the Listing Fetch
@@ -77,28 +77,28 @@ class Vdp extends React.Component {
         const trim = data.listings[0].build.trim
         const bodyType = data.listings[0].build.body_type
         // We use the card ID to fetch car listing/VDP
-        this.listingFetch(`http://${process.env.API_HOST}/v1/listing/${carID}?api_key=${process.env.API_VAR}`)
+        this.listingFetch(`https://${process.env.API_HOST}/v1/listing/${carID}?api_key=${process.env.API_VAR}`)
         this.modelPopularityFetch(year, make, model, trim, bodyType)
       }
     })
   }
 
   summaryReport (vin) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/vin_report_summary?vin=${vin}&api_key=${process.env.API_VAR}`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/vin_report_summary?vin=${vin}&api_key=${process.env.API_VAR}`)
       .then(summaryReport => {
         this.setState({ summaryReport })
       })
   }
 
   averagesFetch(vin) {
-    this.fetchingData(`http://${process.env.API_HOST}//v1/averages?vin=${vin}&api_key=${process.env.API_VAR}`)
+    this.fetchingData(`https://${process.env.API_HOST}//v1/averages?vin=${vin}&api_key=${process.env.API_VAR}`)
       .then( averages => {
         this.setState({ averages })
       })
   }
 
   safetyRatings(vin) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/safety?vin=${vin}&api_key=${process.env.API_VAR}`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/safety?vin=${vin}&api_key=${process.env.API_VAR}`)
       .then(safetyRatings => {
         this.setState({ safetyRatings })
       })
@@ -106,21 +106,21 @@ class Vdp extends React.Component {
 
   // Need to get back to this one
   historyFetch (vin) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/history/${vin}?api_key=${process.env.API_VAR}`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/history/${vin}?api_key=${process.env.API_VAR}`)
       .then(vinHistory => {
         this.setState({ vinHistory })
       })
   }
 
   environmentalFriendliness (vin) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/economy?vin=${vin}&api_key=${process.env.API_VAR}`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/economy?vin=${vin}&api_key=${process.env.API_VAR}`)
       .then(environmentalScores => {
         this.setState({ environmentalScores })
       })
   }
 
   fetchScatterData (vin) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${vin}&car_type=used&start=0&rows=10`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${vin}&car_type=used&start=0&rows=10`)
     .then(response => {
       let averagePrice = 0
       let averageMiles = 0
@@ -175,7 +175,7 @@ class Vdp extends React.Component {
   }
 
   resaleValueFetch (vin) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/depreciation?vin=${vin}&api_key=${process.env.API_VAR}`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/depreciation?vin=${vin}&api_key=${process.env.API_VAR}`)
     .then( resaleValue => {
       //console.log(resaleValue);
       this.setState({ resaleValue: resaleValue.similar_models });
@@ -199,7 +199,7 @@ class Vdp extends React.Component {
   }
 
   fuelEfficiencyFetch (vin) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/fuel_efficiency?vin=${vin}&api_key=${process.env.API_VAR}`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/fuel_efficiency?vin=${vin}&api_key=${process.env.API_VAR}`)
       .then(fuelEfficiency => {
         // console.log(resaleValue);
         this.setState({fuelEfficiency})
@@ -207,13 +207,13 @@ class Vdp extends React.Component {
   }
 
   getDOMAverage (year, make, model) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=2017&make=ford&model=mustang&car_type=used&radius=100&stats=dom&latitude=32.75&longitude=-116.35`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=2017&make=ford&model=mustang&car_type=used&radius=100&stats=dom&latitude=32.75&longitude=-116.35`)
       .then(localAverage => {
         if (localAverage.stats.dom.mean) {
           this.setState({ localAverage: localAverage.stats.dom.mean })
         }
       })
-    this.fetchingData(`http://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=2017&make=ford&model=mustang&car_type=used&radius=100&stats=dom`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=2017&make=ford&model=mustang&car_type=used&radius=100&stats=dom`)
       .then(nationalAverage => {
         if (nationalAverage.stats.dom.mean) {
           this.setState({ nationalAverage: nationalAverage.stats.dom.mean })
@@ -222,19 +222,19 @@ class Vdp extends React.Component {
   }
 
   dealerReviews (id) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/dealer/${id}/reviews?api_key=${process.env.API_VAR}`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/dealer/${id}/reviews?api_key=${process.env.API_VAR}`)
       .then(dealerReviews => {
         this.setState({ dealerReviews })
       })
 
-    this.fetchingData(` http://${process.env.API_HOST}/v1/dealer/${id}/ratings?api_key=${process.env.API_VAR}`)
+    this.fetchingData(` https://${process.env.API_HOST}/v1/dealer/${id}/ratings?api_key=${process.env.API_VAR}`)
       .then(dealerRatings => {
         this.setState({dealerRatings})
       })
   }
 
   modelPopularityFetch (year, make, model, trim, bodyType) {
-    this.fetchingData(`http://${process.env.API_HOST}/v1/popularity?year=${year}&make=${make}&model=${model}&trim=${trim}&nodedup=true&body_type=${bodyType}&api_key=${process.env.API_VAR}`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/popularity?year=${year}&make=${make}&model=${model}&trim=${trim}&nodedup=true&body_type=${bodyType}&api_key=${process.env.API_VAR}`)
       .then(modelPopularity => {
         this.setState({ modelPopularity })
       })
