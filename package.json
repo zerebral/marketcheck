@@ -16,7 +16,7 @@
     "pretest": "npm run lint",
     "test": "jest",
     "test-ci": "jest -ci -b --debug",
-    "deploy": "now -e API_VAR=@api_var API_HOST=@api_host",
+    "deploy": "now",
     "postdeploy": "now alias"
   },
   "dependencies": {
@@ -76,7 +76,11 @@
       "marketcheck",
       "marketcheck.pixel2html.com"
     ],
-    "public": false
+    "public": false,
+    "env": {
+      "API_HOST": "@api_host",
+      "API_VAR": "@api_var"
+    }
   },
   "jest": {
     "snapshotSerializers": [
