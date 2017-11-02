@@ -1,5 +1,18 @@
 import SRP from '~/SRP'
-import srpdata from './srpdata'
+import srpData from './srpdata'
 
-export default () =>
-  <SRP {...srpdata} />
+class SrpContainer extends React.Component {
+
+  constructor() {
+    super()
+
+    this.state = srpData
+  }
+
+  render () {
+  	return  <SRP {...this.state} />
+  }
+
+}
+
+export default SrpContainer
