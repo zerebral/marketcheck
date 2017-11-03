@@ -12,15 +12,18 @@ import {
   Wheels
 } from './Icons'
 
-export default () =>
-  <Section title='Included Features' summary='12 Similarly Equiped Carts Curently Available'>
+export default ({ features, scatterSimilar}) =>
+  <Section title='Included Features' summary={`${scatterSimilar.length} Similarly Equiped Carts Curently Available`}>
     <FlexRow noMargin justify='space-around'>
-      <Feature icon={Bluetooth} name='Bluetooth' />
+    {features && features.slice(0, 5).map( (feature) => {
+        return <Feature /*icon={}*/ name={feature} />
+    })}
+      {/* <Feature icon={Bluetooth} name='Bluetooth' />
       <Feature icon={Cam} name='Rear Cam' />
       <Feature icon={Wheels} name='Alloy wheels' />
       <Feature icon={Geo} name='Navigation' />
       <Feature icon={Air} name='Air Conditioner' />
       <Feature icon={Brake} name='Brake Assistance' />
-      <Feature icon={Keyless} name='Keyless Start' />
+      <Feature icon={Keyless} name='Keyless Start' /> */}
     </FlexRow>
   </Section>

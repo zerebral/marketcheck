@@ -3,6 +3,7 @@ import External from './external.svg'
 import { colors } from '%/styles'
 import { FlexRow } from '~/layout'
 import StatCol from './StatCol.js'
+import Moment from 'react-moment';
 
 const Listing = styled.div`
   margin-bottom: 40px;
@@ -28,15 +29,15 @@ const Vendor = styled.a`
   }
 `
 
-export default () =>
+export default (props) =>
   <Listing>
-    <DateRange>June 23 2017 - July 10, 2017</DateRange>
-    <Vendor>
-      Drew International Auto Sales
-      <External />
-    </Vendor>
+    <DateRange><Moment format="MMM DD, YYYY">{props.initialDate}</Moment> - <Moment format="MMM DD, YYYY">{props.lastDate}</Moment></DateRange>
+        <Vendor href={props.source} target="_blank">
+          {props.sellerName}
+          <External />
+        </Vendor>
     <FlexRow noMargin >
-      <StatCol money gain />
-      <StatCol />
+      <StatCol money gain={props.priceDifference > 0} price={props.price} carMiles={props.miles} priceDifference={props.priceDifference}/> 
+      <StatCol gain={props.milesDifference > 0} carMiles={props.miles} milesDifference={props.milesDifference}/>   
     </FlexRow>
   </Listing>
