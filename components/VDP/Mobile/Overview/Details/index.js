@@ -16,15 +16,17 @@ const FlexRow = styled(FR)`
 export default ({
   price,
   discount,
-  miles
+  miles,
+  averages,
+  vdpUrl
 }) =>
   <Container>
     <FlexRow noMargin >
       <Price>{currency(price)}</Price>
-      <Button primary lowercase >Request Best Price</Button>
+      <Button primary lowercase href={vdpUrl} target="_blank">Request Best Price</Button>
     </FlexRow>
-    <Text>{currency(discount)} less than market average</Text>
-    <Text>{number(miles)} miles less than market average</Text>
+    <Text>{price > averages.price ? currency(price - averages.price) + " more" : currency(averages.price - price) + " less"} than market average</Text>
+    <Text>{miles > averages.miles ? number(miles - averages.miles) + " miles more" : number(averages.miles - miles) + " miles less"} than market average</Text>
     <FlexRow noMargin >
       <Icon href='#'><Like /></Icon>
       <Icon href='#'><Share /></Icon>

@@ -25,7 +25,8 @@ export default ({
   sliderPics,
   price,
   discount,
-  miles
+  miles,
+  averages,
 }) =>
   <Wrapper>
     <TopRow>
@@ -54,8 +55,8 @@ export default ({
           </FlexCol>
           <FlexCol cols={3}>
             <Price>{currency(price)}</Price>
-            <Text>{currency(discount)} less than market average</Text>
-            <Text>{number(miles)} miles less than market average</Text>
+            <Text>{price > averages.price ? currency(price - averages.price) + " more" : currency(averages.price - price) + " less"} than market average</Text>
+            <Text>{miles > averages.miles ? number(miles - averages.miles) + " miles more" : number(averages.miles - miles) + " miles less"} than market average</Text>
           </FlexCol>
         </FlexRow>
       </Container>

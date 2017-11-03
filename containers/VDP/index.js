@@ -2,6 +2,7 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  averages,
   similarModelsGraph,
   modelPopularity,
   vinHistory,
@@ -24,6 +25,7 @@ export default ({
   price,
   miles,
   vin,
+  vdp_url: vdpUrl,
   inventory_type: type,
   stock_no: stockNumber,
   exterior_color: exteriorColor,
@@ -44,6 +46,9 @@ export default ({
     highway_miles: highwayMiles,
     body_type: body,
     fuel_type: fuel,
+  },
+  extra : {
+    features
   }
 }) =>
 
@@ -89,5 +94,8 @@ export default ({
   vinHistory={vinHistory}
   modelPopularity={modelPopularity}
   similarModelsGraph={similarModelsGraph}
+  averages={averages}
+  vdpUrl={vdpUrl}
+  features={features}
   {...props} 
   />

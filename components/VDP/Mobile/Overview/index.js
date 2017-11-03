@@ -13,7 +13,9 @@ export default ({
   sliderPics,
   price,
   discount,
-  miles
+  miles,
+  averages,
+  vdpUrl
 }) =>
   <OverviewWrapper>
     <TopRow>
@@ -24,5 +26,5 @@ export default ({
       <Brief>{brief}</Brief>
       <Slideshow slides={sliderPics} />
     </Container>
-    <Details price={price} discount={discount} miles={miles} />
+    <Details price={price} discount={discount} miles={miles} averages={averages} vdpUrl={vdpUrl}/>
   </OverviewWrapper>
