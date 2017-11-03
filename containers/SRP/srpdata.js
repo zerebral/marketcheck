@@ -37,7 +37,13 @@ const srpData = {
 			airConditioner: false
 		},
 		listedDate: 0
-	}
+	},
+	location: {
+		latitude: 0,
+		longitude: 0
+	},
+	dealsList: {},
+	modelsList: {}
 }
 
 export default srpData

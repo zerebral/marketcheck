@@ -41,7 +41,7 @@ class HomeFormContainer extends Component {
 
   fetchModels(make) {
     this.setState({ loadingModels: true });
-    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=model&make=${make}&rows=0`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=model&make=${make}&rows=00&nodedup=true`)
       .then( models => {
         if(models.facets.model) {
           this.setState({ models: models.facets.model });
@@ -72,14 +72,21 @@ class HomeFormContainer extends Component {
     this.setState({ selectedModel: e.target.value})
   }
 
-  findLatLng(lat, lng) {
+  findLatLng(lat, lng, address) {
     this.setState({
       latitude: lat,
-      longitude: lng
+      longitude: lng,
+      address: address
     });
   }
 
-  
+  submitSearchSession(e, state) {
+    e.preventDefault()
+
+    sessionStorage.setItem("searchSession", JSON.stringify(this.state));
+    console.log(sessionStorage.getItem("searchSession"))
+    //window.location.href = "/srp";
+  }
 
   componentDidMount() {
     this.fetchMakes();
@@ -87,11 +94,12 @@ class HomeFormContainer extends Component {
 
   render() {
     return (
-      <Form {...this.state} 
+      <Form {...this.state}
       carTypeSelect={this.carTypeSelect} 
       makeSelect={this.makeSelect} 
       modelSelect={this.modelSelect} 
       findLatLng={this.findLatLng}
+      onSubmit={this.submitSearchSession.bind(this)}
       />
     );
   }
