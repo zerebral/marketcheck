@@ -38,18 +38,33 @@ const PillNumber = styled.span`
   display: block;
 `
 
+const isNumber = (x) => !isNaN(parseFloat(x)) 
+
 export default ({
   money,
   gain,
   noPill,
   price,
-  carMiles
+  carMiles,
+  priceDifference,
+  milesDifference
 }) =>
   <StatCol>
-    <StatNumber>{money ? currency(price) : miles(carMiles)}</StatNumber>
-    {!noPill &&
+    {money &&
+     <StatNumber>{isNumber(price) ? currency(price) : 'NA'}</StatNumber>
+    }
+    {!money &&
+      <StatNumber>{isNumber(carMiles) ? miles(carMiles) : 'NA'}</StatNumber>
+    }
+    {money && isNumber(priceDifference) && 
       <StatPill gain={gain}>
-        <PillNumber>{money ? currency(956) : miles(1456)}</PillNumber>
+        <PillNumber>{currency(Math.abs(priceDifference)) }</PillNumber>
+        <Arrow />
+      </StatPill>
+    }
+    {!money && isNumber(milesDifference) && 
+      <StatPill gain={gain}>
+        <PillNumber>{miles(Math.abs(milesDifference))}</PillNumber>
         <Arrow />
       </StatPill>
     }
