@@ -16,7 +16,7 @@ export default ({props}) =>
     <OutContainer>
       <StyledFlexRow>
         <Sidebar {...props} />
-        <Results />
+        <Results {...props} />
       </StyledFlexRow>
     </OutContainer>
   </Wrapper>

@@ -1,6 +1,6 @@
 import FetchingData from '%/factory/fetchingData'
 
-const srpData = {
+var srpData = {
 	filters: {
 		sortBy: '',
 		location: '',
@@ -18,7 +18,8 @@ const srpData = {
 			max: 0
 		},
 		deals: '',
-		models: '',
+		maker: '',
+		model: '',
 		year: 0,
 		sellerType: '',
 		color: {},
@@ -39,6 +40,7 @@ const srpData = {
 		listedDate: 0
 	},
 	location: {
+		address: '',
 		latitude: 0,
 		longitude: 0
 	},

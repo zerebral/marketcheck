@@ -84,8 +84,8 @@ class HomeFormContainer extends Component {
     e.preventDefault()
 
     sessionStorage.setItem("searchSession", JSON.stringify(this.state));
-    console.log(sessionStorage.getItem("searchSession"))
-    //window.location.href = "/srp";
+    //console.log(sessionStorage.getItem("searchSession"))
+    window.location.href = "/srp";
   }
 
   componentDidMount() {

@@ -2,7 +2,7 @@ import { LayoutSecondary } from '~/layout'
 import FilterBar from './FilterBar'
 import Contents from './Contents'
 
-const SRP = props =>
+const SRP = ({props}) =>
   <LayoutSecondary>
     <FilterBar {...props} />
     <Contents {...props} />

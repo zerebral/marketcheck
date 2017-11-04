@@ -53,8 +53,11 @@ class Results extends Component {
   constructor (props) {
     super(props)
 
+    this.props = props
     this.listFilters = listFilters
     this.result = result
+
+    console.log(props)
   }
 
   render () {
