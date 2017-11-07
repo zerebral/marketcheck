@@ -66,12 +66,12 @@ class Results extends Component {
     this.newList = []
 
     this.state = {
-      list: this.props.list
+      list: props.list
     }
   }
 
   deleteFilter (index) {
-    this.newList = this.state.list
+    this.newList = this.props.list
     delete this.newList[index]
 
     this.setState({
@@ -82,7 +82,7 @@ class Results extends Component {
   render () {
     return (
       <Container>
-        {this.state.list.map(function (item, index) {
+        {this.props.list.map(function (item, index) {
           return (
             <Filter key={index}>
               <Label>{item.label}</Label>

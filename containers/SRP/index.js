@@ -1,41 +1,91 @@
 import SRP from '~/SRP'
+import Spinner from 'react-loading-animation'
 import srpData from './srpdata'
+import defaultSearch from './defaultsearch'
 
 class SrpContainer extends React.Component {
 
   constructor (props) {
     super(props)
 
+    this.sessionSearch = {} 
+    this.savedSearch = {}
 
+    this.state = {
+      sessionSearch: srpData(),
+      ready: false
+    }
+  }
 
-    this.sessionSearch = {}
+  saveSearch () {
+    localStorage.setItem("searchSession", JSON.stringify(this.state))
+  }
 
-    this.state = srpData
+  updateCarType (value) {
+    this.sessionSearch.carType = value
+
+    this.refreshState()
+  }
+
+  updateDistance (value) {
+    this.sessionSearch.distance = value[0]
+
+    this.refreshState()
+  }
+
+  updatePrice (value) {
+    this.sessionSearch.price = {
+      min: value[0],
+      max: value[1]
+    }
+
+    this.refreshState()
+  }
+
+  updateMilesRange (value) {
+    this.sessionSearch.milesRange = {
+      min: value[0],
+      max: value[1]
+    }
+
+    this.refreshState()
+  }
+
+  refreshState() {
+    this.setState({
+      sessionSearch: srpData(this.sessionSearch)
+    }, () => {
+       console.log("Refresh State: ", this.state)
+    })
   }
 
   componentDidMount () {
-    this.sessionSearch = JSON.parse(sessionStorage.getItem("searchSession"))
+    const searchParams = sessionStorage.getItem("searchSession")
+    this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : defaultSearch
 
-    this.state.location.address = this.sessionSearch.address
-    this.state.location.latitude = this.sessionSearch.latitude
-    this.state.location.longitude = this.sessionSearch.longitude
-    this.state.filters.type = this.sessionSearch.carType
-    this.state.filters.maker = this.sessionSearch.selectedMake
-    this.state.filters.model = this.sessionSearch.selectedModel
+    this.savedSearch = JSON.parse(localStorage.getItem("searchSession"))
 
-    //console.log(this.state)
-  }
+    this.setState(
+      this.savedSearch ?
+        this.savedSearch :
+        {
+          sessionSearch: srpData(this.sessionSearch),
+          saveSearch: this.saveSearch.bind(this),
+          updateCarType: this.updateCarType.bind(this),
+          updateDistance: this.updateDistance.bind(this),
+          updatePrice: this.updatePrice.bind(this),
+          updateMilesRange: this.updateMilesRange.bind(this),
+          ready: true
+        }
+    )
 
-  setSearchSession (searchSession) {
-    this.setState({
-      searchSession: searchSession
-    })
-
-    console.log(this.state)
   }
 
   render () {
-    return  <SRP {...this.state} searchSession={this.sessionSearch} setSearchSession={this.setSearchSession} />
+    const {ready} = this.state
+    return  ready ?
+    (<SRP {...this.state} />) : 
+    (<Spinner style={{marginTop: '35vh'}} />)
   }
 
 }

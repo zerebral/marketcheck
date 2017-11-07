@@ -149,14 +149,14 @@ const SidebarFlexCol = styled(FlexCol)`
   `}
 `
 
-export default ({props}) =>
+export default (props) =>
   <SidebarFlexCol>
     <Wrapper>
       <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
-      <InputRange {...props} label='Distance' min={0} max={300} step={10} value={40} />
-      <DoubleRange {...props} label='Price' currency min={400} max={50000} step={10} value={[400, 50000]} />
-      <DoubleRange {...props} label='Miles Range' min={400} max={50000} step={10} value={[400, 50000]} />
+      <InputRange label='Distance' min={0} max={300} step={10} value={40} updateSuperState={props.updateDistance} />
+      <DoubleRange label='Price' currency min={400} max={50000} step={10} value={[400, 50000]} updateSuperState={props.updatePrice} />
+      <DoubleRange label='Miles Range' min={400} max={50000} step={10} value={[400, 50000]} updateSuperState={props.updateMilesRange} />
       <SimpleCheckbox {...props} label='Deals' list={list} />
       <SearchCheckbox {...props} label='Models' list={searchablelist} resetBtn />
       <InputYear {...props} label='Year' />

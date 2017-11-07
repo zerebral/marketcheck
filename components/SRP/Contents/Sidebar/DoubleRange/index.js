@@ -50,6 +50,8 @@ class DoubleRange extends Component {
     this.setState({
       value
     })
+
+    this.props.updateSuperState(value)
   }
 
   handleApply = () => {

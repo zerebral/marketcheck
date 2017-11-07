@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
+import { capitalize } from '%/format'
 import { FlexCol } from '~/layout'
 import Wrapper from './Wrapper'
 import SearchArgument from './SearchArgument'
@@ -13,25 +14,6 @@ import ListsBy from './ListsBy'
 import TotalFound from './TotalFound'
 
 import result from './data.js'
-
-const listFilters = [
-  {
-    label: 'Make:',
-    filter: 'Toyota'
-  },
-  {
-    label: 'Type:',
-    filter: 'New'
-  },
-  {
-    label: 'Model:',
-    filter: 'Sienna'
-  },
-  {
-    label: 'Transmission:',
-    filter: 'Automatic'
-  }
-]
 
 const StyledFlexCol = styled(FlexCol)`
   ${mediaMax.desktop`
@@ -53,19 +35,51 @@ class Results extends Component {
   constructor (props) {
     super(props)
 
-    this.props = props
-    this.listFilters = listFilters
     this.result = result
+    this.saveSearch = props.saveSearch
+  }
 
-    console.log(props)
+  searchArgument (state) {
+    const argument = 
+      capitalize(this.props.sessionSearch.filters.type) + " " +
+      (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + " " : "" ) +
+      (this.props.sessionSearch.filters.maker ? this.props.sessionSearch.filters.maker + " " : "" ) +
+      (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + " " : "" ) +
+      " in " +
+      this.props.sessionSearch.location.address + " "
+
+    return argument
+  }
+
+  filterTags (state) {
+    const listFilters = [
+      {
+        label: 'Make:',
+        filter: state.filters.maker
+      },
+      {
+        label: 'Type:',
+        filter: capitalize(state.filters.type)
+      },
+      {
+        label: 'Model:',
+        filter: state.filters.model
+      },
+      {
+        label: 'Transmission:',
+        filter: state.filters.transmission ? capitalize(state.filters.transmission) : " "
+      }
+    ]
+
+    return listFilters
   }
 
   render () {
     return (
       <StyledFlexCol>
         <Wrapper>
-          <SearchArgument argument='Used 2015 Audi A5 in Atlanta, GA' location='Atlanta, GA' />
-          <Filters list={this.listFilters} />
+          <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
+          <Filters list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={14} />
           {this.result.map((item, index) =>
             <AutoCard key={index} data={item} />

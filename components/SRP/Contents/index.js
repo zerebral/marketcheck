@@ -11,7 +11,7 @@ const StyledFlexRow = styled(FlexRow)`
   `}
 `
 
-export default ({props}) =>
+export default (props) =>
   <Wrapper>
     <OutContainer>
       <StyledFlexRow>

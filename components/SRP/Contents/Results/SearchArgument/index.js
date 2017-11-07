@@ -80,16 +80,20 @@ const Pin = styled(PinSvg)`
 
 export default ({
   argument,
+  saveSearch,
   location
-}) =>
-  <Container>
-    <div>
-      <SaveSearchTop>Save Search</SaveSearchTop>
-      <Argument>{ argument }</Argument>
-      <SaveSearchBottom>Save Search</SaveSearchBottom>
-    </div>
-    <Location>
-      {location}
-      <Pin />
-    </Location>
-  </Container>
+}) => {
+  return (
+    <Container>
+      <div>
+        <SaveSearchTop>Save Search</SaveSearchTop>
+        <Argument>{ argument }</Argument>
+        <SaveSearchBottom onClick={saveSearch}>Save Search</SaveSearchBottom>
+      </div>
+      <Location>
+        {location}
+        <Pin />
+      </Location>
+    </Container>
+  )
+}
