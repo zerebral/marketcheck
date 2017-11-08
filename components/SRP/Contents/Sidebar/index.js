@@ -33,54 +33,19 @@ const buttons = [
 const list = [
   {
     label: 'Great Deal',
-    value: 'grea-deal'
+    value: 'great'
   },
   {
     label: 'Good Deal',
-    value: 'good-deal'
+    value: 'good'
   },
   {
     label: 'Fair Deal',
-    value: 'fair-deal'
+    value: 'fair'
   },
   {
     label: 'Bad Deal',
-    value: 'bad-deal'
-  }
-]
-
-const searchablelist = [
-  {
-    label: 'Great Deal',
-    value: 'grea-deal'
-  },
-  {
-    label: 'Good Deal',
-    value: 'good-deal'
-  },
-  {
-    label: 'Fair Deal',
-    value: 'fair-deal'
-  },
-  {
-    label: 'Bad Deal',
-    value: 'bad-deal'
-  },
-  {
-    label: 'Great Deal',
-    value: 'grea-deal'
-  },
-  {
-    label: 'Good Deal',
-    value: 'good-deal'
-  },
-  {
-    label: 'Fair Deal',
-    value: 'fair-deal'
-  },
-  {
-    label: 'Bad Deal',
-    value: 'bad-deal'
+    value: 'bad'
   }
 ]
 
@@ -157,10 +122,10 @@ export default (props) =>
       <InputRange label='Distance' min={0} max={300} step={10} value={40} updateSuperState={props.updateDistance} />
       <DoubleRange label='Price' currency min={400} max={50000} step={10} value={[400, 50000]} updateSuperState={props.updatePrice} />
       <DoubleRange label='Miles Range' min={400} max={50000} step={10} value={[400, 50000]} updateSuperState={props.updateMilesRange} />
-      <SimpleCheckbox {...props} label='Deals' list={list} />
-      <SearchCheckbox {...props} label='Models' list={searchablelist} resetBtn />
-      <InputYear {...props} label='Year' />
-      <GroupIconBtn {...props} label='Seller Type' labelOne='Dealer' labelTwo='FSBO' />
+      <SimpleCheckbox label='Deals' list={list} updateSuperState={props.updateDealsRating} />
+      <SearchCheckbox label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn />
+      <InputYear label='Year' updateSuperState={props.updateYear} />
+      <GroupIconBtn label='Seller Type' labelOne='Dealer' labelTwo='FSBO' updateSuperState={props.updateSellerType} />
       <CheckColors {...props} label='Color' colorButtons={colorButtons} />
       <SimpleCheckbox {...props} label='Transmission' list={list} />
       <SimpleCheckbox {...props} label='Body' list={list} />

@@ -11,8 +11,9 @@ var srpData = (params = {}) => {
 			deals: '',
 			maker: params.selectedMake ? params.selectedMake : '',
 			model: params.selectedModel ? params.selectedModel : '',
-			year: 0,
-			sellerType: '',
+			modelList: params.modelList ? params.modelList : [],
+			year: parseInt(params.year ? params.year : 0),
+			sellerType: params.sellerType ? params.sellerType : '',
 			color: {},
 			transmission: '',
 			body: '',
@@ -20,7 +21,7 @@ var srpData = (params = {}) => {
 			dirvetrain: '',
 			cylinders: 0,
 			fuel: '',
-			dealerRatings: 0,
+			dealerRatings: params.dealRating ? params.dealRating : '',
 			features: {
 				blueatooth: false,
 				rearCam: false,
@@ -36,7 +37,7 @@ var srpData = (params = {}) => {
 			longitude: params.longitude ? params.longitude : ''
 		},
 		dealsList: {},
-		modelsList: {}
+		modelsList: params.models
 	}
 }
 

@@ -41,29 +41,27 @@ class GroupIconBtn extends Component {
     this.labelOne = this.props.labelOne
     this.labelTwo = this.props.labelTwo
 
-    this.selectedValue = ''
-
     this.state = {
       selected: null
     }
   }
 
-  handleSelectClick (index, value) {
-    this.selectedValue = value
-
+  handleSelectClick (value) {
     this.setState({
-      selected: index
+      selected: value
     })
+
+    this.props.updateSuperState(value)
   }
 
   render () {
     return (
       <Collapsible label={this.label}>
-        <Btn margin='0 1.5em 0 0'>
+        <Btn margin='0 1.5em 0 0' onClick={() => this.handleSelectClick.bind(this)('dealer')}>
           <StyledKeyIcon />
           <Label>{this.labelOne}</Label>
         </Btn>
-        <Btn margin='0 0 0 1.5em'>
+        <Btn margin='0 0 0 1.5em' onClick={() => this.handleSelectClick.bind(this)('fsbo')}>
           <StyledFsboIcon />
           <Label>{this.labelTwo}</Label>
         </Btn>
