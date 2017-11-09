@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { mediaMax } from '%/styles/mixins'
+import { cutString } from '%/format'
 import Seller from './Seller'
 
 const Container = styled.div`
@@ -12,14 +13,14 @@ const Container = styled.div`
   `}
 `
 
-export default ({data}) =>
+export default (props) =>
   <Container>
     <Seller
-      name='Drew International Sales'
-      location={data.location}
-      distance={data.miles}
-      rating={data.rating}
-      reviews={data.reviews}
-      website='#'
+      name={cutString(props.data.dealer.name, 25)}
+      location={props.data.dealer.city + ", " + props.data.dealer.country}
+      distance={0}
+      rating={0}
+      reviews={0}
+      website={props.data.vdp_url}
     />
   </Container>

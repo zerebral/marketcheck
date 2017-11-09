@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Spinner from 'react-loading-animation'
 import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
-import { capitalize } from '%/format'
+import { capitalize, cutString } from '%/format'
 import { FlexCol } from '~/layout'
 import Wrapper from './Wrapper'
 import SearchArgument from './SearchArgument'
@@ -13,7 +14,7 @@ import Recommended from './Recommended'
 import ListsBy from './ListsBy'
 import TotalFound from './TotalFound'
 
-import result from './data.js'
+import Result from './data.js'
 
 const StyledFlexCol = styled(FlexCol)`
   ${mediaMax.desktop`
@@ -35,8 +36,9 @@ class Results extends Component {
   constructor (props) {
     super(props)
 
-    this.result = result
+    this.result = Result()
     this.saveSearch = props.saveSearch
+    //console.log(this.props.responseFactory.listings)
   }
 
   searchArgument (state) {
@@ -80,11 +82,11 @@ class Results extends Component {
         <Wrapper>
           <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
           <Filters list={this.filterTags(this.props.sessionSearch)} />
-          <TotalFound total={14} />
-          {this.result.map((item, index) =>
+          <TotalFound total={this.props.responseFactory.num_found} />
+          {this.props.responseFactory.listings.map((item, index) =>
             <AutoCard key={index} data={item} />
           )}
-          <Paginator />
+          <Paginator totalFound={this.props.responseFactory.num_found} />
           <Recommended />
           <ListsBy />
         </Wrapper>

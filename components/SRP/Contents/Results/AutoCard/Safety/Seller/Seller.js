@@ -35,15 +35,18 @@ export default ({
       <LocText faded >{number(distance)} miles</LocText>
     </Location>
 
-    <Rating>
-      <Stars>
-        {starsArray(rating).map((e, i) =>
-          <Star key={i} full={e.full} />
-        )}
-      </Stars>
-      <Badge>{rating}</Badge>
-      <Reviews href={website}>{number(reviews)} Reviews</Reviews>
-    </Rating>
+    {false ? (
+      <Rating>
+        <Stars>
+          {starsArray(rating).map((e, i) =>
+            <Star key={i} full={e.full} />
+          )}
+        </Stars>
+        <Badge>{rating}</Badge>
+        <Reviews href={website}>{number(reviews)} Reviews</Reviews>
+      </Rating>) : 
+      null
+    }
 
     <Button>Request Best Price</Button>
   </Seller>

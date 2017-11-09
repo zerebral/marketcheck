@@ -40,10 +40,10 @@ const SliderSettings = {
   ]
 }
 
-const OverviewSlider = ({slides}) =>
+const OverviewSlider = (props) =>
   <SliderWrapper>
     <Slider {...SliderSettings}>
-      {slides.map((slide, index) =>
+      {props.data.media.photo_links.map((slide, index) =>
         <div key={index} >
           <Slide image={slide} />
         </div>

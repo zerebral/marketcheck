@@ -17,7 +17,8 @@ class SrpContainer extends React.Component {
     this.state = {
       sessionSearch: srpData(),
       responseFactory: {},
-      ready: false
+      readyFetch: false,
+      readyState: false
     }
   }
 
@@ -85,12 +86,34 @@ class SrpContainer extends React.Component {
     this.refreshState()
   }
 
+  updateTransmission (value) {
+    this.sessionSearch.transmission = value
+
+    this.refreshState()
+  }
+
+  updateBodyType (value) {
+    this.sessionSearch.bodyType = value
+
+    this.refreshState()
+  }
+
+  updatePagination (value) {
+    this.sessionSearch.filters.start = value.start
+    this.sessionSearch.filters.rows = value.rows
+
+    this.refreshState()
+  }
+
   refreshState() {
+
     this.setState({
       sessionSearch: srpData(this.sessionSearch)
     }, () => {
-       console.log("Refresh State: ", this.state)
+       //console.log("Refresh State: ", this.state)
     })
+
+    this.getAPIData()
   }
 
   componentDidMount () {
@@ -114,25 +137,49 @@ class SrpContainer extends React.Component {
         updateModelList: this.updateModelList.bind(this),
         updateYear: this.updateYear.bind(this),
         updateSellerType: this.updateSellerType.bind(this),
-        ready: true
+        updateTransmission: this.updateTransmission.bind(this),
+        updateBodyType: this.updateBodyType.bind(this),
+        readyState: true
       },
       () => {
-        this.getAPIData()
+        console.log(this.state)
       }
     )
+
+    this.getAPIData()
   }
 
   getAPIData () {
-    this.setState({
-      responseFactory: searchFactory.fetching(this.state.sessionSearch.filters)
+    let that = this
+    let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
+
+    fetchResult = fetchResult.then(response =>
+      response.json().then(data =>
+        ({
+          data: data,
+          status: response.status
+        })
+      )
+    )
+    .then(res => {      
+      if (res.status === 200 && res.data !== undefined) {
+        //console.log(res.status, res.data)
+        this.setState({
+          responseFactory: res.data,
+          readyFetch: true
+        },
+        () => {
+          console.log(this.state)
+        })
+      }
     })
 
-    //console.log(this.responseFactory)
+    return fetchResult
   }
 
   render () {
-    const {ready} = this.state
-    return  ready ?
+    const {readyState, readyFetch} = this.state
+    return  readyState && readyFetch ?
     (<SRP {...this.state} />) : 
     (<Spinner style={{marginTop: '35vh'}} />)
   }

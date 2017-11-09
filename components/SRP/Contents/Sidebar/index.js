@@ -97,6 +97,40 @@ const colorButtons = [
   }
 ]
 
+const transmissionList = [
+  {
+    label: 'Automatic',
+    value: 'automatic'
+  },
+  {
+    label: 'Manual',
+    value: 'manual'
+  }
+]
+
+const bodyList = [
+  {
+    label: 'Any',
+    value: 'Any',
+  },
+  {
+    label: 'Convertible',
+    value: 'Convertible',
+  },
+  {
+    label: 'Coupe',
+    value: 'Coupe',
+  },
+  {
+    label: 'Sedan',
+    value: 'Sedan',
+  },
+  {
+    label: 'Wagon',
+    value: 'Wagon',
+  },
+]
+
 const SidebarFlexCol = styled(FlexCol)`
   max-width: 250px;
   ${mediaMax.desktop`
@@ -120,15 +154,15 @@ export default (props) =>
       <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
       <InputRange label='Distance' min={0} max={300} step={10} value={40} updateSuperState={props.updateDistance} />
-      <DoubleRange label='Price' currency min={400} max={50000} step={10} value={[400, 50000]} updateSuperState={props.updatePrice} />
-      <DoubleRange label='Miles Range' min={400} max={50000} step={10} value={[400, 50000]} updateSuperState={props.updateMilesRange} />
+      <DoubleRange label='Price' currency min={4000} max={50000} step={10} value={[4000, 50000]} updateSuperState={props.updatePrice} />
+      <DoubleRange label='Miles Range' min={4000} max={50000} step={10} value={[4000, 50000]} updateSuperState={props.updateMilesRange} />
       <SimpleCheckbox label='Deals' list={list} updateSuperState={props.updateDealsRating} />
       <SearchCheckbox label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn />
       <InputYear label='Year' updateSuperState={props.updateYear} />
       <GroupIconBtn label='Seller Type' labelOne='Dealer' labelTwo='FSBO' updateSuperState={props.updateSellerType} />
       <CheckColors {...props} label='Color' colorButtons={colorButtons} />
-      <SimpleCheckbox {...props} label='Transmission' list={list} />
-      <SimpleCheckbox {...props} label='Body' list={list} />
+      <SimpleCheckbox label='Transmission' list={transmissionList} updateSuperState={props.updateTransmission} />
+      <SimpleCheckbox label='Body' list={bodyList} updateSuperState={props.updateBodyType} />
       <SimpleCheckbox {...props} label='Trim' list={list} resetBtn />
       <SimpleCheckbox {...props} label='Drivetrain' list={list} />
       <SimpleCheckbox {...props} label='Cylinders' list={list} />

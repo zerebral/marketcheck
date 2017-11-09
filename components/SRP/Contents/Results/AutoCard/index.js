@@ -126,8 +126,6 @@ class AutoCard extends Component {
   constructor (props) {
     super(props)
 
-    this.data = this.props.data
-
     this.state = {
       open: false
     }
@@ -151,12 +149,12 @@ class AutoCard extends Component {
     return (
       <Card className={this.state.open ? 'open' : 'close'}>
         <Container>
-          <PriceTop data={this.data} />
+          <PriceTop data={this.props.data} />
           <InnerContainer>
-            <Slideshow slides={this.data.sliderPics} />
-            <CarData data={this.data} />
+            <Slideshow data={this.props.data} />
+            <CarData data={this.props.data} />
           </InnerContainer>
-          <Safety data={this.data} />
+          <Safety data={this.props.data} />
 
           <HeartBtn>
             <SvgHeartIcon />
@@ -173,7 +171,7 @@ class AutoCard extends Component {
         </Container>
 
         <Collapsible open={this.state.open}>
-          <MoreInfo data={this.data} />
+          <MoreInfo data={this.props.data} />
         </Collapsible>
       </Card>
     )
