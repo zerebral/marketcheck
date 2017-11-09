@@ -1,6 +1,4 @@
-import FetchingData from '%/factory/fetchingData'
-
-var srpData = (params = {}) => {
+const srpData = (params = {}) => {
   return {
     filters: {
       sortBy: '',
@@ -24,8 +22,8 @@ var srpData = (params = {}) => {
       fuel: '',
       features: [],
       listedDate: '',
-		    start: 0,
-		    rows: 11
+      start: 0,
+      rows: 11
     },
     location: {
       address: params.address ? params.address : '',

@@ -1,3 +1,4 @@
+import React from 'react'
 import SRP from '~/SRP'
 import Spinner from 'react-loading-animation'
 import Factory from '%/factory/fetchingData'
@@ -10,7 +11,7 @@ class SrpContainer extends React.Component {
   constructor (props) {
     super(props)
 
-    this.sessionSearch = {}
+    this.sessionSearch = {}
     this.savedSearch = {}
 
     this.state = {
@@ -23,7 +24,7 @@ class SrpContainer extends React.Component {
   }
 
   saveSearch () {
-    localStorage.setItem('searchSession', JSON.stringify(this.state))
+    window.localStorage.setItem('searchSession', JSON.stringify(this.state))
   }
 
   updateCarType (value) {
@@ -110,7 +111,6 @@ class SrpContainer extends React.Component {
   }
 
   getAPIData () {
-    let that = this
     let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
 
     fetchResult = fetchResult.then(response =>
@@ -149,11 +149,11 @@ class SrpContainer extends React.Component {
   }
 
   componentDidMount () {
-    const searchParams = sessionStorage.getItem('searchSession')
+    const searchParams = window.sessionStorage.getItem('searchSession')
 
     this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : defaultSearch
 
-    this.savedSearch = JSON.parse(localStorage.getItem('searchSession'))
+    this.savedSearch = JSON.parse(window.localStorage.getItem('searchSession'))
 
     this.setState(
       this.savedSearch

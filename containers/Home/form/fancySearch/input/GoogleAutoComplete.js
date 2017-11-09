@@ -63,7 +63,7 @@ class GoogleAutoComplete extends React.Component {
       },
       autocompleteItemActive: { backgroundColor: '#efefef' },
       autocompleteItem: {color: '#666'},
-      input: { padding: '0'}
+      input: {padding: '0'}
     }
 
     const options = {
