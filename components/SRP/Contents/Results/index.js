@@ -38,7 +38,9 @@ class Results extends Component {
 
     this.result = Result()
     this.saveSearch = props.saveSearch
-    //console.log(this.props.responseFactory.listings)
+    this.state = {
+      ready: false
+    }
   }
 
   searchArgument (state) {
@@ -76,17 +78,25 @@ class Results extends Component {
     return listFilters
   }
 
+  componentWillReceiveProps () {
+    //console.log(this.props.readyFetch)
+  }
+
   render () {
+    //console.log(this.state.ready && this.props.readyFetch)
     return (
       <StyledFlexCol>
         <Wrapper>
           <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
           <Filters list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
-          {this.props.responseFactory.listings.map((item, index) =>
-            <AutoCard key={index} data={item} />
-          )}
-          <Paginator totalFound={this.props.responseFactory.num_found} />
+          {this.props.readyFetch ?
+            this.props.responseFactory.listings.map((item, index) =>
+                (<AutoCard key={index} data={item} />)
+            ) :
+            <Spinner style={{marginTop: '5vh'}} />
+          }
+          <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} />
           <Recommended />
           <ListsBy />
         </Wrapper>

@@ -99,10 +99,38 @@ class SrpContainer extends React.Component {
   }
 
   updatePagination (value) {
-    this.sessionSearch.filters.start = value.start
-    this.sessionSearch.filters.rows = value.rows
+    this.sessionSearch.start = value.start
+    this.sessionSearch.rows = value.rows
 
     this.refreshState()
+  }
+
+  getAPIData () {
+    let that = this
+    let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
+
+    fetchResult = fetchResult.then(response =>
+      response.json().then(data =>
+        ({
+          data: data,
+          status: response.status
+        })
+      )
+    )
+    .then(res => {      
+      if (res.status === 200 && res.data !== undefined) {
+        //console.log(res.status, res.data)
+        this.setState({
+          responseFactory: res.data,
+          readyFetch: true
+        },
+        () => {
+          //console.log(this.state)
+        })
+      }
+    })
+
+    return fetchResult
   }
 
   refreshState() {
@@ -139,42 +167,16 @@ class SrpContainer extends React.Component {
         updateSellerType: this.updateSellerType.bind(this),
         updateTransmission: this.updateTransmission.bind(this),
         updateBodyType: this.updateBodyType.bind(this),
+        updatePagination: this.updatePagination.bind(this),
+        readyFetch: this.state.readyFetch,
         readyState: true
       },
       () => {
-        console.log(this.state)
+        //console.log(this.state)
       }
     )
 
     this.getAPIData()
-  }
-
-  getAPIData () {
-    let that = this
-    let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
-
-    fetchResult = fetchResult.then(response =>
-      response.json().then(data =>
-        ({
-          data: data,
-          status: response.status
-        })
-      )
-    )
-    .then(res => {      
-      if (res.status === 200 && res.data !== undefined) {
-        //console.log(res.status, res.data)
-        this.setState({
-          responseFactory: res.data,
-          readyFetch: true
-        },
-        () => {
-          console.log(this.state)
-        })
-      }
-    })
-
-    return fetchResult
   }
 
   render () {

@@ -31,29 +31,101 @@ class Paginator extends Component {
   constructor (props) {
     super(props)
 
+    this.perPage = 11
+
     this.state = {
-      currentPage: 1,
+      currentPage: 0,
+      pageSize: 5,
       totalPages: 0,
-      showPages: 0,
+      limitPages: 0,
+      offsetShow: 0,
+      limitShow: 11,
       ready: false
     }
   }
 
   totalPages () {
-    const perPage = 11
     const numFounds = this.props.totalFound
 
-    return Math.floor(numFounds/perPage)
+    return Math.floor(numFounds/this.perPage)
   }
 
-  showPages () {
-    return Math.floor((this.totalPages() / 5) - 1)
+  limitPages () {
+    if ((this.totalPages() - (this.state.currentPage * this.state.pageSize)) > 0) { 
+      let limit = (Math.floor((this.state.currentPage/5)+1) * this.state.pageSize)
+      console.log("Limit pages:", Math.floor(this.state.currentPage))
+      return limit
+    } else {
+      return this.state.totalPages
+    }
+  }
+
+  showPages (start, end) {
+    return Array.from({length: (end - start)}, (v, k) => k + start);
+  }
+
+  prevPage () {
+    let prevPage = this.state.currentPage - 1;
+
+    if (prevPage < 0) return;
+
+    this.setState({
+      currentPage: prevPage,
+      offsetShow: (prevPage * this.perPage),
+    }, () => {
+      this.setState({
+        limitPages: this.limitPages()
+      })
+
+      this.props.updateSuperState({
+        start: this.state.offsetShow,
+        rows: this.state.offsetShow + this.perPage
+      })
+    })
+  }
+
+  nextPage () {
+    let nextPage = this.state.currentPage + 1;
+
+    if (nextPage > this.props.totalFound / this.state.pageSize) return;
+
+    this.setState({
+      currentPage: nextPage,
+      offsetShow: (nextPage * this.perPage)
+    }, () => {
+      //console.log(this.state.currentPage)
+      this.setState({
+        limitPages: this.limitPages()
+      })
+
+      this.props.updateSuperState({
+        start: this.state.offsetShow,
+        rows: this.state.offsetShow + this.perPage
+      })
+    })
+  }
+
+  handleSelectPage (page) {
+    this.setState({
+      currentPage: page,
+      offsetShow: (page * this.perPage)
+    }, () => {
+      //console.log(this.state.currentPage)
+      this.setState({
+        limitPages: this.limitPages()
+      })
+
+      this.props.updateSuperState({
+        start: this.state.offsetShow,
+        rows: this.state.offsetShow + this.perPage
+      })
+    })
   }
 
   componentDidMount () {
     this.setState({
       totalPages: this.totalPages(),
-      showPages: this.showPages(),
+      limitPages: this.limitPages(),
       ready: true
     })
   }
@@ -62,20 +134,20 @@ class Paginator extends Component {
     const {ready} = this.state
     return ready ? (
       <PagesContainer>
-        {this.state.currentPage > 1 ?
+        {this.state.currentPage > 0 ?
           (<span>
             <PageNumber>&#60;&#60;</PageNumber>
-            <PageNumber>&#60;</PageNumber>
+            <PageNumber onClick={this.prevPage.bind(this)}>&#60;</PageNumber>
           </span>)
         : null }
 
-        {Array(this.state.showPages).fill(1).map((page, index) => {
-          return <PageNumber key={index} className='current'>{page}</PageNumber>
+        {this.showPages((this.state.limitPages-this.state.pageSize),this.state.limitPages).map((page, index) => {
+          return <PageNumber onClick={() => this.handleSelectPage.bind(this)(page)} key={index} className={this.state.currentPage === page ? 'current' : ''}>{page+1}</PageNumber>
         })}
 
-        {this.state.currentPage < this.state.totalPages ?
+        {this.state.currentPage < (this.state.totalPages-1) ?
           (<span>
-            <PageNumber>&#062;</PageNumber>
+            <PageNumber onClick={this.nextPage.bind(this)}>&#062;</PageNumber>
             <PageNumber>&#062;&#062;</PageNumber>
           </span>)
         : null }
