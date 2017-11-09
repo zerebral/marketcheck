@@ -62,6 +62,8 @@ class SimpleCheckbox extends Component {
     }).bind(this)
 
     this.CheckValue = ''
+
+    this.props.updateSuperState(null)
   }
 
   handleCheckClick (index, value) {
@@ -70,6 +72,8 @@ class SimpleCheckbox extends Component {
     this.setState({
       checked: index
     })
+
+    this.props.updateSuperState(value)
   }
 
   render () {

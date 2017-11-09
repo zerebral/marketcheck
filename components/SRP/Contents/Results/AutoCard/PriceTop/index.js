@@ -79,12 +79,12 @@ const Average = styled.h6`
   `}
 `
 
-export default ({data}) => (
+export default (props) => (
   <Container>
     <PriceRow>
-      <Price>{currency(data.price)}</Price>
+      <Price>{currency(props.data.price)}</Price>
       <Deal>Great Deal!</Deal>
     </PriceRow>
-    <Average>{currency(data.lessPrice)} less than market average</Average>
+    <Average>{currency(props.data.ref_price)} less than market average</Average>
   </Container>
 )

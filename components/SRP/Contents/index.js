@@ -11,12 +11,12 @@ const StyledFlexRow = styled(FlexRow)`
   `}
 `
 
-export default ({props}) =>
+export default (props) =>
   <Wrapper>
     <OutContainer>
       <StyledFlexRow>
         <Sidebar {...props} />
-        <Results />
+        <Results {...props} />
       </StyledFlexRow>
     </OutContainer>
   </Wrapper>

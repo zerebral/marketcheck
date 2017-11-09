@@ -25,10 +25,10 @@ const Form = styled.form`
   `}
 `
 
-export default ({ onSubmit, models, makes, carTypeSelect, makeSelect, modelSelect, loadingModels, handleChange, handleSelect, address, findLatLng}) =>
+export default ({ getState, onSubmit, models, makes, carTypeSelect, makeSelect, modelSelect, loadingModels, handleChange, handleSelect, address, findLatLng}) =>
   <Form onSubmit={onSubmit}>
     <FancySelect blue onChange={carTypeSelect} >
-      <option value="used">Used</option>
+      <option value="used" selected>Used</option>
       <option value="new">New</option>
       <option value="newer">Newer</option>
       <option value="newest">Newest</option>
@@ -42,7 +42,7 @@ export default ({ onSubmit, models, makes, carTypeSelect, makeSelect, modelSelec
     <FancySelect onChange={modelSelect}>
       {!loadingModels && <option selected="selected">All Models</option>}
       {loadingModels && <option>Loading Models</option>}
-      {models.length > 1 &&  models.map( (model, key) =>  <option key={key}>{model.item}</option> )}
+      {models.length > 1 &&  models.map( (model, key) => <option key={key}>{model.item}</option> )}
     </FancySelect>
-    <Submit />
+    <Submit onClick={onSubmit} />
   </Form>

@@ -132,86 +132,89 @@ const Value = styled.span`
   `}
 `
 
-export default ({data}) =>
-  <Container>
-    <StyledFlexRow>
-      <LeftFlexCol>
-        <OtherName>{data.otherName}</OtherName>
-        <Type>{data.type}</Type>
-        <Multimedia>
-          <MultiInfo>
-            <SvgPhotoIcon />
-            <span>16 photos</span>
-          </MultiInfo>
-          <MultiInfo>
-            <SvgVideosIcon />
-            <span>2 videos</span>
-          </MultiInfo>
-          <MultiInfo>
-            <SvgView360Icon />
-            <span>360º view</span>
-          </MultiInfo>
-        </Multimedia>
-      </LeftFlexCol>
-      <FlexCol>
-        <DetFlexRow>
-          <DetFlexCol>
-            <DetailItem>
-              <Label>Model:</Label>
-              <Value>{data.model}</Value>
-            </DetailItem>
-            <DetailItem>
-              <Label>Year:</Label>
-              <Value>{data.year}</Value>
-            </DetailItem>
-            <DetailItem>
-              <Label>Door:</Label>
-              <Value>{data.doors}</Value>
-            </DetailItem>
-          </DetFlexCol>
-          <DetFlexCol>
-            <DetailItem>
-              <Label>MPG:</Label>
-              <Value>{data.mpg}</Value>
-            </DetailItem>
-            <DetailItem>
-              <Label>Transmission:</Label>
-              <Value>{data.transmission}</Value>
-            </DetailItem>
-            <DetailItem>
-              <Label>Drivetrain:</Label>
-              <Value>{data.drivetrain}</Value>
-            </DetailItem>
-          </DetFlexCol>
-          <DetFlexCol>
-            <DetailItem>
-              <Label>Cylinders:</Label>
-              <Value>{data.cylinders}</Value>
-            </DetailItem>
-            <DetailItem>
-              <Label>Body:</Label>
-              <Value>{data.body}</Value>
-            </DetailItem>
-            <DetailItem>
-              <Label>Trim:</Label>
-              <Value>{data.trim}</Value>
-            </DetailItem>
-          </DetFlexCol>
-          <DetFlexCol>
-            <DetailItem>
-              <Label>VIN:</Label>
-              <Value>{data.vin}</Value>
-            </DetailItem>
-            <DetailItem>
-              <Label>Engine:</Label>
-              <Value>{data.engine}</Value>
-            </DetailItem>
-            <DetailItem>
-              <Label>Fuel:</Label>
-              <Value>{data.fuel}</Value>
-            </DetailItem>
-          </DetFlexCol>
-        </DetFlexRow>
-      </FlexCol>
-    </StyledFlexRow>
-  </Container>
+export default (props) => {
+  //console.log(props)
+  return (
+    <Container>
+      <StyledFlexRow>
+        <LeftFlexCol>
+          <OtherName>{props.data.build.make + " " + props.data.build.model + " " + props.data.build.engine_size + " V" +props.data.build.cylinders}</OtherName>
+          <Type>{props.data.build.body_type}</Type>
+          <Multimedia>
+            <MultiInfo>
+              <SvgPhotoIcon />
+              <span>{props.data.media.photo_links.length} { props.data.media.photo_links.length > 0 ? 'photos' : 'photo'}</span>
+            </MultiInfo>
+            <MultiInfo>
+              <SvgVideosIcon />
+              <span>0 videos</span>
+            </MultiInfo>
+            <MultiInfo>
+              <SvgView360Icon />
+              <span>360º view</span>
+            </MultiInfo>
+          </Multimedia>
+        </LeftFlexCol>
+        <FlexCol>
+          <DetFlexRow>
+            <DetFlexCol>
+              <DetailItem>
+                <Label>Model:</Label>
+                <Value>{props.data.build.model}</Value>
+              </DetailItem>
+              <DetailItem>
+                <Label>Year:</Label>
+                <Value>{props.data.build.year}</Value>
+              </DetailItem>
+              <DetailItem>
+                <Label>Door:</Label>
+                <Value>{props.data.build.doors}</Value>
+              </DetailItem>
+            </DetFlexCol>
+            <DetFlexCol>
+              <DetailItem>
+                <Label>MPG:</Label>
+                <Value>{props.data.build.city_miles.substring(0,2)}/{props.data.build.highway_miles.substring(0,2)}</Value>
+              </DetailItem>
+              <DetailItem>
+                <Label>Transmission:</Label>
+                <Value>{props.data.build.transmission}</Value>
+              </DetailItem>
+              <DetailItem>
+                <Label>Drivetrain:</Label>
+                <Value>{props.data.build.drivetrain}</Value>
+              </DetailItem>
+            </DetFlexCol>
+            <DetFlexCol>
+              <DetailItem>
+                <Label>Cylinders:</Label>
+                <Value>{props.data.build.cylinders}</Value>
+              </DetailItem>
+              <DetailItem>
+                <Label>Body:</Label>
+                <Value>{props.data.build.body_type}</Value>
+              </DetailItem>
+              <DetailItem>
+                <Label>Trim:</Label>
+                <Value>{props.data.build.trim}</Value>
+              </DetailItem>
+            </DetFlexCol>
+            <DetFlexCol>
+              <DetailItem>
+                <Label>VIN:</Label>
+                <Value>{props.data.vin}</Value>
+              </DetailItem>
+              <DetailItem>
+                <Label>Engine:</Label>
+                <Value>{props.data.build.engine}</Value>
+              </DetailItem>
+              <DetailItem>
+                <Label>Fuel:</Label>
+                <Value>{props.data.build.fuel_type}</Value>
+              </DetailItem>
+            </DetFlexCol>
+          </DetFlexRow>
+        </FlexCol>
+      </StyledFlexRow>
+    </Container>)
+} 

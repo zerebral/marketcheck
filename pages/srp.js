@@ -4,8 +4,15 @@ import FontsHOC from '@/HOC/Fonts'
 import Loading from 'react-loading-animation'
 
 class Srp extends React.Component {
+
+  constructor (props) {
+    super(props)
+
+    this.props = props
+  }
+
   render () {
-    return <SRP />
+    return <SRP {...this.props} />
   }
 }
 

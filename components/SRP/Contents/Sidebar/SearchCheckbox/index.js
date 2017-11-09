@@ -72,29 +72,86 @@ class SearchCheckbox extends Component {
     super(props)
 
     this.label = this.props.label
-    this.list = this.props.list
-    this.CheckValue = ''
 
     this.state = {
-      checked: null,
+      modelList: this.props.list,
+      listLimit: 5,
       reset: false
     }
   }
 
   handleResetClick (value) {
     this.setState({
-      checked: null,
+      listLimit: 5,
       reset: value
     }).bind(this)
-
-    this.CheckValue = ''
   }
 
   handleCheckClick (index, value) {
-    this.CheckValue = value
+
+    const newList = this.state.modelList
+    newList[index].checked = true
+
+    const stateModelList = []
+
+    newList.map(function (model, index){
+      if (model.checked) {
+        stateModelList.push(model.item)
+      }
+    })
 
     this.setState({
-      checked: index
+      modelList: newList
+    })
+
+    this.props.updateSuperState(stateModelList)
+  }
+
+  handleOnChange (e) {
+    e.preventDefault()
+
+    const newList = this.filterList(this.state.modelList, e.target.value)
+
+    if (e.target.value !== "" || newList.length){
+      this.setState({
+        modelList: newList
+      }, () => {
+        //console.log(this.state.modelList)
+      })
+    } else {
+      this.setState({
+        modelList: this.props.list
+      }, () => {
+        //console.log(this.state.modelList)
+      })
+    }
+  }
+
+  updateListLimit (e) {
+    e.preventDefault()
+
+    const limit = this.state.listLimit + 5
+
+    this.setState({
+      listLimit: limit
+    })
+  }
+
+  filterList (array, argument) {
+    argument = argument.toLowerCase()
+
+    return array.filter(function(obj) {
+      return Object.keys(obj).some(function(k) {
+        if (k !== 'count') {
+          return obj[k].toLowerCase().indexOf(argument) !== -1;
+        }
+     })
+    })
+  }
+
+  componentWillReceiveProps (props) {
+    this.setState({
+      modelList: props.list
     })
   }
 
@@ -107,19 +164,19 @@ class SearchCheckbox extends Component {
               <SearchIcon />
             </StyledFlexCol>
             <FlexCol>
-              <SearchInput />
+              <SearchInput onChange={this.handleOnChange.bind(this)} />
             </FlexCol>
           </StyledFlexRow>
         </SearchBox>
-        {this.list.map(function (item, index) {
-          if (index < 5) {
+        {this.state.modelList.map(function (model, index) {
+          if (index < this.state.listLimit) {
             return (
               <StyledFlexRow key={index}>
                 <StyledFlexCol>
-                  <CheckBox className={this.state.checked === index ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item.value)} />
+                  <CheckBox className={model.checked ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, model.item)} />
                 </StyledFlexCol>
                 <FlexCol>
-                  <Label onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>{item.label}</Label>
+                  <Label onClick={() => this.handleCheckClick.bind(this)(index, model.item)}>{model.item}</Label>
                 </FlexCol>
               </StyledFlexRow>
             )
@@ -127,7 +184,10 @@ class SearchCheckbox extends Component {
             return null
           }
         }.bind(this))}
-        <MoreBtn>More</MoreBtn>
+        {this.state.modelList.length > this.state.listLimit ?
+            <MoreBtn onClick={this.updateListLimit.bind(this)}>More</MoreBtn> :
+            null
+        }
       </Collapsible>
     )
   }

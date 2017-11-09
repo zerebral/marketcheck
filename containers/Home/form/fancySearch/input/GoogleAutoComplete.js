@@ -27,7 +27,8 @@ class GoogleAutoComplete extends React.Component {
       .then((results) => getLatLng(results[0]))
       .then(({ lat, lng }) => {
         console.log(this.props)
-        this.props.findLatLng(lat, lng)
+        this.props.findLatLng(lat, lng, address)
+
         this.setState({
           loading: false,
           //latitude: lat,

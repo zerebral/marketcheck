@@ -23,10 +23,14 @@ class InputYear extends Component {
     this.label = this.props.label
   }
 
+  handleChange (e) {
+    this.props.updateSuperState(e.target.value)
+  }
+
   render () {
     return (
       <Collapsible label={this.label}>
-        <YearBox />
+        <YearBox onChange={this.handleChange.bind(this)} />
       </Collapsible>
     )
   }
