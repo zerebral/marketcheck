@@ -79,18 +79,18 @@ class Results extends Component {
   }
 
   componentWillReceiveProps () {
-    //console.log(this.props.readyFetch)
+    console.log(this.props.readyRefreshFetch)
   }
 
   render () {
-    //console.log(this.state.ready && this.props.readyFetch)
+    //console.log(this.state.ready && this.props.readyRefreshFetch)
     return (
       <StyledFlexCol>
         <Wrapper>
           <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
           <Filters list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
-          {this.props.readyFetch ?
+          {this.props.readyRefreshFetch ?
             this.props.responseFactory.listings.map((item, index) =>
                 (<AutoCard key={index} data={item} />)
             ) :

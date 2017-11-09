@@ -17,7 +17,8 @@ class SrpContainer extends React.Component {
     this.state = {
       sessionSearch: srpData(),
       responseFactory: {},
-      readyFetch: false,
+      readyFirstFetch: false,
+      readyRefreshFetch: false,
       readyState: false
     }
   }
@@ -99,6 +100,10 @@ class SrpContainer extends React.Component {
   }
 
   updatePagination (value) {
+    this.setState({
+      readyRefreshFetch: false,
+    })
+
     this.sessionSearch.start = value.start
     this.sessionSearch.rows = value.rows
 
@@ -122,7 +127,8 @@ class SrpContainer extends React.Component {
         //console.log(res.status, res.data)
         this.setState({
           responseFactory: res.data,
-          readyFetch: true
+          readyFirstFetch: true,
+          readyRefreshFetch: true
         },
         () => {
           //console.log(this.state)
@@ -168,7 +174,7 @@ class SrpContainer extends React.Component {
         updateTransmission: this.updateTransmission.bind(this),
         updateBodyType: this.updateBodyType.bind(this),
         updatePagination: this.updatePagination.bind(this),
-        readyFetch: this.state.readyFetch,
+        readyRefreshFetch: this.state.readyRefreshFetch,
         readyState: true
       },
       () => {
@@ -180,8 +186,8 @@ class SrpContainer extends React.Component {
   }
 
   render () {
-    const {readyState, readyFetch} = this.state
-    return  readyState && readyFetch ?
+    const {readyState, readyFirstFetch} = this.state
+    return  readyState && readyFirstFetch ?
     (<SRP {...this.state} />) : 
     (<Spinner style={{marginTop: '35vh'}} />)
   }
