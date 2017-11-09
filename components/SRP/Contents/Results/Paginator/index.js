@@ -34,7 +34,8 @@ class Paginator extends Component {
     this.state = {
       currentPage: 1,
       totalPages: 0,
-      showPages: 0
+      showPages: 0,
+      ready: false
     }
   }
 
@@ -42,42 +43,44 @@ class Paginator extends Component {
     const perPage = 11
     const numFounds = this.props.totalFound
 
-    return numFounds/perPage
+    return Math.floor(numFounds/perPage)
   }
 
   showPages () {
-    return this.totalPages() / 5
+    return Math.floor((this.totalPages() / 5) - 1)
   }
 
   componentDidMount () {
     this.setState({
       totalPages: this.totalPages(),
-      showPages: this.showPages()
+      showPages: this.showPages(),
+      ready: true
     })
   }
 
   render () {
-    console.log(this.state.currentPage, this.state.totalPages)
-    return (
+    const {ready} = this.state
+    return ready ? (
       <PagesContainer>
         {this.state.currentPage > 1 ?
-          (<PageNumber>&#60;&#60;</PageNumber>)
-          (<PageNumber>&#60;</PageNumber>)
+          (<span>
+            <PageNumber>&#60;&#60;</PageNumber>
+            <PageNumber>&#60;</PageNumber>
+          </span>)
         : null }
-        
-        <PageNumber>1</PageNumber>
-        <PageNumber className='current'>2</PageNumber>
-        <PageNumber>3</PageNumber>
-        <PageNumber>...</PageNumber>
-        <PageNumber>15</PageNumber>
-        <PageNumber>16</PageNumber>
 
-        {(this.state.currentPage < this.state.totalPages) ?
-          (<PageNumber>&#062;</PageNumber>)
-          (<PageNumber>&#062;&#062;</PageNumber>)
+        {Array(this.state.showPages).fill(1).map((page, index) => {
+          return <PageNumber key={index} className='current'>{page}</PageNumber>
+        })}
+
+        {this.state.currentPage < this.state.totalPages ?
+          (<span>
+            <PageNumber>&#062;</PageNumber>
+            <PageNumber>&#062;&#062;</PageNumber>
+          </span>)
         : null }
       </PagesContainer>
-    )
+    ) : null
   }
 }
 
