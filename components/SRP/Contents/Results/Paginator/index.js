@@ -53,7 +53,6 @@ class Paginator extends Component {
   limitPages () {
     if ((this.totalPages() - (this.state.currentPage * this.state.pageSize)) > 0) { 
       let limit = (Math.floor((this.state.currentPage/5)+1) * this.state.pageSize)
-      console.log("Limit pages:", Math.floor(this.state.currentPage))
       return limit
     } else {
       return this.state.totalPages
@@ -105,6 +104,38 @@ class Paginator extends Component {
     })
   }
 
+  firstPage () {
+    this.setState({
+      currentPage: 0
+    }, () => {
+      //console.log(this.state.currentPage)
+      this.setState({
+        limitPages: this.limitPages()
+      })
+
+      this.props.updateSuperState({
+        start: this.state.offsetShow,
+        rows: this.state.offsetShow + this.perPage
+      })
+    })
+  }
+
+  lastPage () {
+    this.setState({
+      currentPage: this.totalPages()-1
+    }, () => {
+      //console.log(this.state.currentPage)
+      this.setState({
+        limitPages: this.limitPages()
+      })
+
+      this.props.updateSuperState({
+        start: this.state.offsetShow,
+        rows: this.state.offsetShow + this.perPage
+      })
+    })
+  }
+
   handleSelectPage (page) {
     this.setState({
       currentPage: page,
@@ -136,7 +167,7 @@ class Paginator extends Component {
       <PagesContainer>
         {this.state.currentPage > 0 ?
           (<span>
-            <PageNumber>&#60;&#60;</PageNumber>
+            <PageNumber onClick={this.firstPage.bind(this)}>&#60;&#60;</PageNumber>
             <PageNumber onClick={this.prevPage.bind(this)}>&#60;</PageNumber>
           </span>)
         : null }
@@ -148,7 +179,7 @@ class Paginator extends Component {
         {this.state.currentPage < (this.state.totalPages-1) ?
           (<span>
             <PageNumber onClick={this.nextPage.bind(this)}>&#062;</PageNumber>
-            <PageNumber>&#062;&#062;</PageNumber>
+            <PageNumber onClick={this.lastPage.bind(this)}>&#062;&#062;</PageNumber>
           </span>)
         : null }
       </PagesContainer>
