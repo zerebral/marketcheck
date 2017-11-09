@@ -27,7 +27,7 @@ class Vdp extends React.Component {
 
     this.state = {
       // initial VIN state
-      vin: '1FA6P8CF2H5279752',
+      vin: 'KMHDH4AE1EU134863',
       latitude: 32.75,
       longitude: -116.35,
       vdp: {},

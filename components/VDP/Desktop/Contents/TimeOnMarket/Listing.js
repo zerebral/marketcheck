@@ -38,7 +38,7 @@ export default (props) =>
           <External />
         </Vendor>
       </div>
-      <StatCol money gain price={props.price} carMiles={props.miles}/> 
-      <StatCol carMiles={props.miles} />   
+      <StatCol money gain={props.priceDifference > 0} price={props.price} carMiles={props.miles} priceDifference={props.priceDifference}/> 
+      <StatCol gain={props.milesDifference > 0} carMiles={props.miles} milesDifference={props.milesDifference}/>   
     </FlexRow>
   </Listing>
