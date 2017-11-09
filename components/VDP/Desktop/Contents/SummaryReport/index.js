@@ -32,43 +32,43 @@ const Row = styled.div`
 export default ({summaryReport}) =>
   <Section title='VIN Summary Report'>
     <Wrapper>
-    {summaryReport[0].some_text &&
+      {summaryReport[0].some_text &&
       <Row>
         <Price />
         <p>{summaryReport[0].some_text}</p>
       </Row>
     }
-    {summaryReport[1].some_text &&
+      {summaryReport[1].some_text &&
       <Row>
         <Miles />
         <p>{summaryReport[1].some_text}</p>
       </Row>
     }
-    {summaryReport[2].some_text &&
+      {summaryReport[2].some_text &&
       <Row>
         <Cal />
         <p>{summaryReport[2].some_text}</p>
       </Row>
     }
-    {summaryReport[3].some_text &&
+      {summaryReport[3].some_text &&
       <Row>
         <Alert />
         <p>{summaryReport[3].some_text}</p>
       </Row>
     }
-    {summaryReport[4].some_text &&
+      {summaryReport[4].some_text &&
       <Row>
         <Lock />
         <p>{summaryReport[4].some_text}</p>
       </Row>
     }
-    {summaryReport[5].some_text &&
+      {summaryReport[5].some_text &&
       <Row>
         <Star />
         <p>{summaryReport[5].some_text}</p>
       </Row>
     }
-    {summaryReport[6].some_text &&
+      {summaryReport[6].some_text &&
       <Row>
         <Check />
         <p>{summaryReport[6].some_text}</p>

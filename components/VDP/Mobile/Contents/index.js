@@ -22,7 +22,7 @@ export default props =>
     <Container>
       <SummaryReport {...props} />
       <VehicleInformation {...props} />
-      <MarketComparison {...props}/>
+      <MarketComparison {...props} />
       <AveragesOverTimeContainer {...props} />
       <TimeOnMarket {...props} />
       <IncludedFeatures {...props} />

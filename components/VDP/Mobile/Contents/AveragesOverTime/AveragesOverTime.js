@@ -23,12 +23,12 @@ const Summary = styled.h4`
   font-size: 12px;
 `
 
-export default ({ trends, miles, averageMarketMiles , ...props}) =>
+export default ({ trends, miles, averageMarketMiles, ...props}) =>
   <Accordion title='Averages Over Time' blue className={props.className}>
     <FillBody first >
       <P>Based on {trends.length} Similar Vehicles Nearby</P>
       <H2>{number(miles)} mi</H2>
-      <P>{miles > averageMarketMiles ? number(miles - averageMarketMiles) + " miles more" : number(averageMarketMiles - miles) + " miles less"} than market average</P>
+      <P>{miles > averageMarketMiles ? number(miles - averageMarketMiles) + ' miles more' : number(averageMarketMiles - miles) + ' miles less'} than market average</P>
       <LineChart dataTrend={trends} />
     </FillBody>
     <FillBody noPadding customBackground={colors.darkblue} customColor={colors.white} >

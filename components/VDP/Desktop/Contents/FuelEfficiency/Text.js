@@ -34,7 +34,7 @@ const DataLabel = styled.p`
   font-size: 14px;
 `
 
-export default (props ) =>
+export default (props) =>
   <Drops>
     <DropRow>
       <DropCol>

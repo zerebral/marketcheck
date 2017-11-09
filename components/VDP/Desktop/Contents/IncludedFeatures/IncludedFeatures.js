@@ -15,9 +15,9 @@ import {
 export default ({ features, scatterSimilar}) =>
   <Section title='Included Features' summary={`${scatterSimilar.length} Similarly Equiped Carts Curently Available`}>
     <FlexRow noMargin justify='space-around'>
-    {features && features.slice(0, 5).map( (feature) => {
-        return <Feature /*icon={}*/ name={feature} />
-    })}
+      {features && features.slice(0, 5).map((feature) => {
+        return <Feature /* icon={} */ name={feature} />
+      })}
       {/* <Feature icon={Bluetooth} name='Bluetooth' />
       <Feature icon={Cam} name='Rear Cam' />
       <Feature icon={Wheels} name='Alloy wheels' />

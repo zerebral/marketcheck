@@ -41,7 +41,7 @@ class InputRange extends Component {
   }
 
   onBoundChange = (e) => {
-    this.setState({ bound: + e.target.value })
+    this.setState({ bound: +e.target.value })
   }
 
   onSliderChange = (value) => {

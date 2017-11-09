@@ -111,24 +111,24 @@ const transmissionList = [
 const bodyList = [
   {
     label: 'Any',
-    value: 'Any',
+    value: 'Any'
   },
   {
     label: 'Convertible',
-    value: 'Convertible',
+    value: 'Convertible'
   },
   {
     label: 'Coupe',
-    value: 'Coupe',
+    value: 'Coupe'
   },
   {
     label: 'Sedan',
-    value: 'Sedan',
+    value: 'Sedan'
   },
   {
     label: 'Wagon',
-    value: 'Wagon',
-  },
+    value: 'Wagon'
+  }
 ]
 
 const SidebarFlexCol = styled(FlexCol)`

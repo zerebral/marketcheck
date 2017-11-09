@@ -16,11 +16,10 @@ import AveragesOverTimeContainer from '@/VDP/AveragesOverTime/AveragesOverTimeCo
 import CompetitionContainer from '@/VDP/Competition/CompetitionContainer'
 import SimilarContainer from '@/VDP/Similar/SimilarContainer'
 
-
 export default props =>
   <ContentsWrapper>
     <SummaryReport {...props} />
-    <VehicleInformation {...props}/>
+    <VehicleInformation {...props} />
     <MarketComparison {...props} />
     <AveragesOverTimeContainer {...props} />
     <TimeOnMarket {...props} />

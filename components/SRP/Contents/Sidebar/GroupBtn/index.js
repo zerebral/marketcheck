@@ -67,7 +67,7 @@ class GroupBtn extends Component {
     })
   }
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps (newProps) {
     this.props = newProps
   }
 

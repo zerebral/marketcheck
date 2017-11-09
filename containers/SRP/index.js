@@ -7,11 +7,10 @@ import defaultSearch from './defaultsearch'
 const searchFactory = new Factory()
 
 class SrpContainer extends React.Component {
-
   constructor (props) {
     super(props)
 
-    this.sessionSearch = {} 
+    this.sessionSearch = {}
     this.savedSearch = {}
 
     this.state = {
@@ -24,7 +23,7 @@ class SrpContainer extends React.Component {
   }
 
   saveSearch () {
-    localStorage.setItem("searchSession", JSON.stringify(this.state))
+    localStorage.setItem('searchSession', JSON.stringify(this.state))
   }
 
   updateCarType (value) {
@@ -101,7 +100,7 @@ class SrpContainer extends React.Component {
 
   updatePagination (value) {
     this.setState({
-      readyRefreshFetch: false,
+      readyRefreshFetch: false
     })
 
     this.sessionSearch.start = value.start
@@ -122,16 +121,16 @@ class SrpContainer extends React.Component {
         })
       )
     )
-    .then(res => {      
+    .then(res => {
       if (res.status === 200 && res.data !== undefined) {
-        //console.log(res.status, res.data)
+        // console.log(res.status, res.data)
         this.setState({
           responseFactory: res.data,
           readyFirstFetch: true,
           readyRefreshFetch: true
         },
         () => {
-          //console.log(this.state)
+          // console.log(this.state)
         })
       }
     })
@@ -139,28 +138,27 @@ class SrpContainer extends React.Component {
     return fetchResult
   }
 
-  refreshState() {
-
+  refreshState () {
     this.setState({
       sessionSearch: srpData(this.sessionSearch)
     }, () => {
-       //console.log("Refresh State: ", this.state)
+       // console.log("Refresh State: ", this.state)
     })
 
     this.getAPIData()
   }
 
   componentDidMount () {
-    const searchParams = sessionStorage.getItem("searchSession")
+    const searchParams = sessionStorage.getItem('searchSession')
 
     this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : defaultSearch
 
-    this.savedSearch = JSON.parse(localStorage.getItem("searchSession"))
+    this.savedSearch = JSON.parse(localStorage.getItem('searchSession'))
 
     this.setState(
-      this.savedSearch ?
-      this.savedSearch :
-      {
+      this.savedSearch
+      ? this.savedSearch
+      : {
         sessionSearch: srpData(this.sessionSearch),
         saveSearch: this.saveSearch.bind(this),
         updateCarType: this.updateCarType.bind(this),
@@ -178,7 +176,7 @@ class SrpContainer extends React.Component {
         readyState: true
       },
       () => {
-        //console.log(this.state)
+        // console.log(this.state)
       }
     )
 
@@ -187,11 +185,10 @@ class SrpContainer extends React.Component {
 
   render () {
     const {readyState, readyFirstFetch} = this.state
-    return  readyState && readyFirstFetch ?
-    (<SRP {...this.state} />) : 
-    (<Spinner style={{marginTop: '35vh'}} />)
+    return readyState && readyFirstFetch
+    ? (<SRP {...this.state} />)
+    : (<Spinner style={{marginTop: '35vh'}} />)
   }
-
 }
 
 export default SrpContainer

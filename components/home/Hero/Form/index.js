@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
 import { rem } from 'polished'
-import Loading from 'react-simple-loading';
+import Loading from 'react-simple-loading'
 
 import FancySelect from './FancySelect'
 import GoogleAutoComplete from './FancySearch'
-//import GoogleAutoComplete from '@/Home/form/fancySearch/input/GoogleAutoComplete'
+// import GoogleAutoComplete from '@/Home/form/fancySearch/input/GoogleAutoComplete'
 import Submit from './Submit'
 
 const Form = styled.form`
@@ -28,21 +28,21 @@ const Form = styled.form`
 export default ({ getState, onSubmit, models, makes, carTypeSelect, makeSelect, modelSelect, loadingModels, handleChange, handleSelect, address, findLatLng}) =>
   <Form onSubmit={onSubmit}>
     <FancySelect blue onChange={carTypeSelect} >
-      <option value="used" selected>Used</option>
-      <option value="new">New</option>
-      <option value="newer">Newer</option>
-      <option value="newest">Newest</option>
+      <option value='used' selected>Used</option>
+      <option value='new'>New</option>
+      <option value='newer'>Newer</option>
+      <option value='newest'>Newest</option>
     </FancySelect>
-    <GoogleAutoComplete findLatLng={findLatLng}/>
+    <GoogleAutoComplete findLatLng={findLatLng} />
     <FancySelect onChange={makeSelect}>
       <option>All Makes</option>
       {makes.length > 1 && makes.map((make, key) => <option key={key} value={make.item}>{make.item}</option>)}
     </FancySelect>
- 
+
     <FancySelect onChange={modelSelect}>
-      {!loadingModels && <option selected="selected">All Models</option>}
+      {!loadingModels && <option selected='selected'>All Models</option>}
       {loadingModels && <option>Loading Models</option>}
-      {models.length > 1 &&  models.map( (model, key) => <option key={key}>{model.item}</option> )}
+      {models.length > 1 && models.map((model, key) => <option key={key}>{model.item}</option>)}
     </FancySelect>
     <Submit onClick={onSubmit} />
   </Form>

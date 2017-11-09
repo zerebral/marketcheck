@@ -44,13 +44,13 @@ class Results extends Component {
   }
 
   searchArgument (state) {
-    const argument = 
-      capitalize(this.props.sessionSearch.filters.type) + " " +
-      (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + " " : "" ) +
-      (this.props.sessionSearch.filters.maker ? this.props.sessionSearch.filters.maker + " " : "" ) +
-      (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + " " : "" ) +
-      " in " +
-      this.props.sessionSearch.location.address + " "
+    const argument =
+      capitalize(this.props.sessionSearch.filters.type) + ' ' +
+      (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + ' ' : '') +
+      (this.props.sessionSearch.filters.maker ? this.props.sessionSearch.filters.maker + ' ' : '') +
+      (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + ' ' : '') +
+      ' in ' +
+      this.props.sessionSearch.location.address + ' '
 
     return argument
   }
@@ -71,7 +71,7 @@ class Results extends Component {
       },
       {
         label: 'Transmission:',
-        filter: state.filters.transmission ? capitalize(state.filters.transmission) : " "
+        filter: state.filters.transmission ? capitalize(state.filters.transmission) : ' '
       }
     ]
 
@@ -83,18 +83,18 @@ class Results extends Component {
   }
 
   render () {
-    //console.log(this.state.ready && this.props.readyRefreshFetch)
+    // console.log(this.state.ready && this.props.readyRefreshFetch)
     return (
       <StyledFlexCol>
         <Wrapper>
           <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
           <Filters list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
-          {this.props.readyRefreshFetch ?
-            this.props.responseFactory.listings.map((item, index) =>
+          {this.props.readyRefreshFetch
+            ? this.props.responseFactory.listings.map((item, index) =>
                 (<AutoCard key={index} data={item} />)
-            ) :
-            <Spinner style={{marginTop: '5vh'}} />
+            )
+            : <Spinner style={{marginTop: '5vh'}} />
           }
           <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} />
           <Recommended />
