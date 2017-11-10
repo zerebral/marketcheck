@@ -18,22 +18,22 @@ var srpData = (params = {}) => {
 			color: 'Silver',
 			transmission: params.transmission ? params.transmission : 'automatic',
 			body_type: params.bodyType ? params.bodyType : 'Sedan',
-			trim: '',
-			dirvetrain: '',
-			cylinders: 4,
-			fuel: '',
+			trim: params.trim ? params.trim : '',
+			dirvetrain: params.dirvetrain ? params.dirvetrain : '',
+			cylinders: params.cylinders ? params.cylinders : 4,
+			fuel_type: params.fuelType ? params.fuelType : '',
 			features: [],
-			listedDate: '',
+			last_seen_at: params.dayListed ? params.dayListed : 0,
+		    facets: 'trim,drivetrain,cylinders,fuel_type',
 		    start: 0,
-		    rows: 11,
+		    rows: 11
 		},
 		location: {
 			address: params.address ? params.address : '',
 			latitude: params.latitude ? params.latitude : '',
 			longitude: params.longitude ? params.longitude : ''
 		},
-		dealsList: {},
-		modelsList: params.models
+		modelsList: params.models ? params.models : {},
 	}
 }
 

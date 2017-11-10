@@ -79,7 +79,7 @@ class Results extends Component {
   }
 
   componentWillReceiveProps () {
-    console.log(this.props.readyRefreshFetch)
+    console.log("Ready to refresh:", this.props.readyRefreshFetch)
   }
 
   render () {

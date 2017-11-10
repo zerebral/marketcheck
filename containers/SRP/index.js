@@ -100,9 +100,6 @@ class SrpContainer extends React.Component {
   }
 
   updatePagination (value) {
-    this.setState({
-      readyRefreshFetch: false,
-    })
 
     this.sessionSearch.start = value.start
     this.sessionSearch.rows = value.rows
@@ -110,7 +107,39 @@ class SrpContainer extends React.Component {
     this.refreshState()
   }
 
-  getAPIData () {
+  updateTrim (value) {
+    this.sessionSearch.trim = value
+
+    this.refreshState()
+  }
+
+  updateDrivetrain (value) {
+    this.sessionSearch.drivetrain = value
+
+    this.refreshState()
+  }
+
+  updateCylinders (value) {
+    this.sessionSearch.cylinders = value
+
+    this.refreshState()
+  }
+
+  updateFuelType (value) {
+    this.sessionSearch.fuelType = value
+
+    this.refreshState()
+  }
+
+  updateDayListed (value) {
+    let date = new Date()
+
+    this.sessionSearch.dayListed = date.setDate(date.getDate() - value)
+
+    this.refreshState()
+  }
+
+  getCarsData () {
     let that = this
     let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
 
@@ -124,7 +153,6 @@ class SrpContainer extends React.Component {
     )
     .then(res => {      
       if (res.status === 200 && res.data !== undefined) {
-        //console.log(res.status, res.data)
         this.setState({
           responseFactory: res.data,
           readyFirstFetch: true,
@@ -142,12 +170,13 @@ class SrpContainer extends React.Component {
   refreshState() {
 
     this.setState({
+      readyRefreshFetch: false,
       sessionSearch: srpData(this.sessionSearch)
     }, () => {
        //console.log("Refresh State: ", this.state)
     })
 
-    this.getAPIData()
+    this.getCarsData()
   }
 
   componentDidMount () {
@@ -173,6 +202,11 @@ class SrpContainer extends React.Component {
         updateSellerType: this.updateSellerType.bind(this),
         updateTransmission: this.updateTransmission.bind(this),
         updateBodyType: this.updateBodyType.bind(this),
+        updateTrim: this.updateTrim.bind(this),
+        updateDrivetrain: this.updateDrivetrain.bind(this),
+        updateCylinders: this.updateCylinders.bind(this),
+        updateFuelType: this.updateFuelType.bind(this),
+        updateDayListed: this.updateDayListed.bind(this),
         updatePagination: this.updatePagination.bind(this),
         readyRefreshFetch: this.state.readyRefreshFetch,
         readyState: true
@@ -182,7 +216,7 @@ class SrpContainer extends React.Component {
       }
     )
 
-    this.getAPIData()
+    this.getCarsData()
   }
 
   render () {

@@ -15,6 +15,19 @@ import RatingStars from './RatingStars'
 import SwitchBtns from './SwitchBtns'
 import ClearAllBtn from './ClearAllBtn'
 
+const listGenerator = (response) => {
+  let list = []
+
+  response.map((trim, index) => {
+    list.push({
+      label: trim.item,
+      value: trim.item
+    })
+  })
+
+  return list
+}
+
 const buttons = [
   {
     label: 'Used',
@@ -131,6 +144,30 @@ const bodyList = [
   },
 ]
 
+
+const dateList = [
+  {
+    label: '1 day ago',
+    value: '1'
+  },
+  {
+    label: '3 day ago',
+    value: '3'
+  },
+  {
+    label: '7 day ago',
+    value: '7'
+  },
+  {
+    label: '2 week ago',
+    value: '15'
+  },
+  {
+    label: 'One month ago',
+    value: '30'
+  }
+]
+
 const SidebarFlexCol = styled(FlexCol)`
   max-width: 250px;
   ${mediaMax.desktop`
@@ -148,8 +185,9 @@ const SidebarFlexCol = styled(FlexCol)`
   `}
 `
 
-export default (props) =>
-  <SidebarFlexCol>
+export default (props) => {
+
+  return (<SidebarFlexCol>
     <Wrapper>
       <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
@@ -163,12 +201,13 @@ export default (props) =>
       <CheckColors {...props} label='Color' colorButtons={colorButtons} />
       <SimpleCheckbox label='Transmission' list={transmissionList} updateSuperState={props.updateTransmission} />
       <SimpleCheckbox label='Body' list={bodyList} updateSuperState={props.updateBodyType} />
-      <SimpleCheckbox {...props} label='Trim' list={list} resetBtn />
-      <SimpleCheckbox {...props} label='Drivetrain' list={list} />
-      <SimpleCheckbox {...props} label='Cylinders' list={list} />
-      <SimpleCheckbox {...props} label='Fuel' list={list} />
-      <RatingStars {...props} label='Dealer Ratings' />
-      <SwitchBtns {...props} label='Features' />
-      <SimpleCheckbox {...props} label='Listed' list={list} />
+      <SimpleCheckbox label='Trim' list={listGenerator(props.responseFactory.facets.trim)} updateSuperState={props.updateTrim} resetBtn />
+      <SimpleCheckbox label='Drivetrain'  list={listGenerator(props.responseFactory.facets.drivetrain)} updateSuperState={props.updateDrivetrain} />
+      <SimpleCheckbox label='Cylinders' list={listGenerator(props.responseFactory.facets.cylinders)} updateSuperState={props.updateCylinders} />
+      <SimpleCheckbox label='Fuel' list={listGenerator(props.responseFactory.facets.fuel_type)} updateSuperState={props.updateFuelType} />
+      {false ? <RatingStars {...props} label='Dealer Ratings' /> : null}      
+      {false ? <SwitchBtns {...props} label='Features' /> : null}
+      <SimpleCheckbox label='Listed' list={dateList} updateSuperState={props.updateDayListed} />
     </Wrapper>
-  </SidebarFlexCol>
+  </SidebarFlexCol>)
+}

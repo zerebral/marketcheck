@@ -83,7 +83,8 @@ class HomeFormContainer extends Component {
   submitSearchSession(e, state) {
     e.preventDefault()
 
-    sessionStorage.setItem("searchSession", JSON.stringify(this.state));
+    sessionStorage.removeItem("searchSession")
+    sessionStorage.setItem("searchSession", JSON.stringify(this.state))
     //console.log(sessionStorage.getItem("searchSession"))
     window.location.href = "/srp";
   }

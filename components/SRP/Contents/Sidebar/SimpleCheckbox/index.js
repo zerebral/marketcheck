@@ -46,11 +46,12 @@ class SimpleCheckbox extends Component {
     super(props)
 
     this.label = this.props.label
-    this.list = this.props.list
     this.CheckValue = ''
 
     this.state = {
       checked: null,
+      list: this.props.list,
+      listLimit: 5,
       reset: false
     }
   }
@@ -58,6 +59,7 @@ class SimpleCheckbox extends Component {
   handleResetClick (value) {
     this.setState({
       checked: null,
+      listLimit: 5,
       reset: value
     }).bind(this)
 
@@ -76,22 +78,37 @@ class SimpleCheckbox extends Component {
     this.props.updateSuperState(value)
   }
 
+  updateListLimit (e) {
+    e.preventDefault()
+
+    const limit = this.state.listLimit + 5
+
+    this.setState({
+      listLimit: limit
+    })
+  }
+
   render () {
     return (
       <Collapsible {...this.props} parentReset={this.handleResetClick.bind(this)}>
-        {this.list.map(function (item, index) {
-          return (
-            <StyledFlexRow key={index}>
-              <StyledFlexCol>
-                <CheckBox className={this.state.checked === index ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item.value)} />
-              </StyledFlexCol>
-              <FlexCol>
-                <Label onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>{item.label}</Label>
-              </FlexCol>
-            </StyledFlexRow>
-          )
+        {this.state.list.map(function (item, index) {
+
+          if (index < this.state.listLimit) {
+            return (
+              <StyledFlexRow key={index}>
+                <StyledFlexCol>
+                  <CheckBox className={this.state.checked === index ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item.value)} />
+                </StyledFlexCol>
+                <FlexCol>
+                  <Label onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>{item.label}</Label>
+                </FlexCol>
+              </StyledFlexRow>
+            )
+          } else {
+            return null
+          }
         }.bind(this))}
-        { this.props.resetBtn ? <MoreBtn>More</MoreBtn> : ''}
+        { this.props.resetBtn && this.state.list.length > this.state.listLimit ? <MoreBtn onClick={this.updateListLimit.bind(this)}>More</MoreBtn> : ''}
       </Collapsible>
     )
   }
