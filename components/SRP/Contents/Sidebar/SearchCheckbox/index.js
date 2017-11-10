@@ -90,7 +90,8 @@ class SearchCheckbox extends Component {
   handleCheckClick (index, value) {
 
     const newList = this.state.modelList
-    newList[index].checked = true
+    
+    newList[index].checked = newList[index].checked ? false : true
 
     const stateModelList = []
 
@@ -153,6 +154,18 @@ class SearchCheckbox extends Component {
     this.setState({
       modelList: props.list
     })
+
+    if (this.props.resetState) {
+      const newList = this.state.modelList
+
+      newList.map(function (model, index){
+        model.checked = false
+      })
+
+      this.setState({
+        modelList: newList
+      })
+    }
   }
 
   render () {

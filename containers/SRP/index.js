@@ -11,6 +11,7 @@ class SrpContainer extends React.Component {
   constructor (props) {
     super(props)
 
+    this.firstSession = {}
     this.sessionSearch = {} 
     this.savedSearch = {}
 
@@ -19,12 +20,26 @@ class SrpContainer extends React.Component {
       responseFactory: {},
       readyFirstFetch: false,
       readyRefreshFetch: false,
-      readyState: false
+      readyState: false,
+      resetState: false
     }
   }
 
   saveSearch () {
     localStorage.setItem("searchSession", JSON.stringify(this.state))
+  }
+
+  resetButton () {
+    this.sessionSearch = JSON.parse(this.firstSession) ? JSON.parse(this.firstSession) : defaultSearch
+
+    this.setState({
+      sessionSearch: srpData(this.sessionSearch),
+      resetState: true
+    }, () => {
+      //console.log(this.state.sessionSearch)
+    })
+
+    this.refreshState()
   }
 
   updateCarType (value) {
@@ -156,7 +171,8 @@ class SrpContainer extends React.Component {
         this.setState({
           responseFactory: res.data,
           readyFirstFetch: true,
-          readyRefreshFetch: true
+          readyRefreshFetch: true,
+          resetState: false
         },
         () => {
           //console.log(this.state)
@@ -180,9 +196,9 @@ class SrpContainer extends React.Component {
   }
 
   componentDidMount () {
-    const searchParams = sessionStorage.getItem("searchSession")
+    this.firstSession = sessionStorage.getItem("searchSession")
 
-    this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : defaultSearch
+    this.sessionSearch = JSON.parse(this.firstSession) ? JSON.parse(this.firstSession) : defaultSearch
 
     this.savedSearch = JSON.parse(localStorage.getItem("searchSession"))
 
@@ -192,6 +208,7 @@ class SrpContainer extends React.Component {
       {
         sessionSearch: srpData(this.sessionSearch),
         saveSearch: this.saveSearch.bind(this),
+        resetButton: this.resetButton.bind(this),
         updateCarType: this.updateCarType.bind(this),
         updateDistance: this.updateDistance.bind(this),
         updatePrice: this.updatePrice.bind(this),
@@ -200,6 +217,7 @@ class SrpContainer extends React.Component {
         updateModelList: this.updateModelList.bind(this),
         updateYear: this.updateYear.bind(this),
         updateSellerType: this.updateSellerType.bind(this),
+        updateColor: this.updateColor.bind(this),
         updateTransmission: this.updateTransmission.bind(this),
         updateBodyType: this.updateBodyType.bind(this),
         updateTrim: this.updateTrim.bind(this),
@@ -209,7 +227,8 @@ class SrpContainer extends React.Component {
         updateDayListed: this.updateDayListed.bind(this),
         updatePagination: this.updatePagination.bind(this),
         readyRefreshFetch: this.state.readyRefreshFetch,
-        readyState: true
+        readyState: true,
+        resetState: false
       },
       () => {
         //console.log(this.state)

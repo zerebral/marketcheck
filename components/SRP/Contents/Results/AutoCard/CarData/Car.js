@@ -1,4 +1,4 @@
-import { cutString } from '%/format'
+import { cutString, currency } from '%/format'
 import {
   Car,
   Wrapper,
@@ -26,15 +26,13 @@ import {
   Share
 } from './Icons'
 
-import { currency } from '%/format'
-
 export default (props) =>
   <Wrapper>
     <Car>
       <NewBadge>New</NewBadge>
 
       <Title>
-        <Name>{cutString(props.data.build.year + " " + props.data.build.make + " " + props.data.build.model + " " + props.data.exterior_color, 35)}</Name>
+        <Name>{cutString(props.data.build.year + " " + props.data.build.make + " " + props.data.build.model + " " + props.data.exterior_color, 33)}</Name>
         <Certified />
       </Title>
 

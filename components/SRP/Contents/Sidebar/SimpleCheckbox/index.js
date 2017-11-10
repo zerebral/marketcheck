@@ -63,18 +63,14 @@ class SimpleCheckbox extends Component {
       reset: value
     }).bind(this)
 
-    this.CheckValue = ''
-
     this.props.updateSuperState(null)
   }
 
   handleCheckClick (index, value) {
-    this.CheckValue = value
 
     this.setState({
       checked: index
     })
-
     this.props.updateSuperState(value)
   }
 
@@ -86,6 +82,14 @@ class SimpleCheckbox extends Component {
     this.setState({
       listLimit: limit
     })
+  }
+
+  componentWillReceiveProps () {
+    if (this.props.resetState) {
+      this.setState({
+        checked: null
+      })
+    }
   }
 
   render () {

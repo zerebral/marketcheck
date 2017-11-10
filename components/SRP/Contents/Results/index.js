@@ -67,7 +67,7 @@ class Results extends Component {
       },
       {
         label: 'Model:',
-        filter: state.filters.model
+        filter: Array.isArray(state.filters.model) ? state.filters.model.join(',') : state.filters.model
       },
       {
         label: 'Transmission:',
@@ -79,7 +79,7 @@ class Results extends Component {
   }
 
   componentWillReceiveProps () {
-    console.log("Ready to refresh:", this.props.readyRefreshFetch)
+    //console.log("Ready to refresh:", this.props.readyRefreshFetch)
   }
 
   render () {
