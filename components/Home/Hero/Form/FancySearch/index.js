@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Input from './Input'
 import Geolocation from './GeoLocation'
 import { mediaMin } from '%/styles/mixins'
 import GoogleAutoComplete from '@/Home/form/fancySearch/input/GoogleAutoComplete'

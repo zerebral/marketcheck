@@ -2,17 +2,17 @@ import Section from '~/VDP/Section'
 import Feature from './Feature.js'
 import { FlexRow } from '~/layout'
 
-import {
-  Air,
-  Bluetooth,
-  Brake,
-  Cam,
-  Geo,
-  Keyless,
-  Wheels
-} from './Icons'
+// import {
+//   Air,
+//   Bluetooth,
+//   Brake,
+//   Cam,
+//   Geo,
+//   Keyless,
+//   Wheels
+// } from './Icons'
 
-export default ({ features, scatterSimilar}) =>
+export default ({features, scatterSimilar}) =>
   <Section title='Included Features' summary={`${scatterSimilar.length} Similarly Equiped Carts Curently Available`}>
     <FlexRow noMargin justify='space-around'>
       {features && features.slice(0, 5).map((feature) => {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { colors } from '%/styles'
 import Listing from './Listing.js'
+// import { colors } from '%/styles'
 
 const Summary = styled.div`
   margin-bottom: 15px;
@@ -12,13 +12,13 @@ const Title = styled.p`
   text-transform: uppercase;
 `
 
-const MoreLink = styled.a`
-  text-align: center;
-  display: block;
-  color: ${colors.softblue};
-  font-size: 14px;
-  line-height: 16.8px;
-`
+// const MoreLink = styled.a`
+//   text-align: center;
+//   display: block;
+//   color: ${colors.softblue};
+//   font-size: 14px;
+//   line-height: 16.8px;
+// `
 
 export default (props) =>
   <Summary>

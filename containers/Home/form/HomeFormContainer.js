@@ -59,16 +59,16 @@ class HomeFormContainer extends Component {
   }
 
   carTypeSelect (e) {
-    this.setState({ carType: e.target.value})
+    this.setState({carType: e.target.value})
   }
 
   makeSelect (e) {
-    this.setState({ selectedMake: e.target.value})
+    this.setState({selectedMake: e.target.value})
     this.fetchModels(e.target.value)
   }
 
   modelSelect (e) {
-    this.setState({ selectedModel: e.target.value})
+    this.setState({selectedModel: e.target.value})
   }
 
   findLatLng (lat, lng, address) {
@@ -82,7 +82,7 @@ class HomeFormContainer extends Component {
   submitSearchSession (e, state) {
     e.preventDefault()
 
-    sessionStorage.setItem('searchSession', JSON.stringify(this.state))
+    window.sessionStorage.setItem('searchSession', JSON.stringify(this.state))
     // console.log(sessionStorage.getItem("searchSession"))
     window.location.href = '/srp'
   }

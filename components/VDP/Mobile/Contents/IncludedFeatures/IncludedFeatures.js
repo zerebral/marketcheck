@@ -3,15 +3,15 @@ import styled from 'styled-components'
 
 import Feature from './Feature.js'
 
-import {
-  Air,
-  Bluetooth,
-  Brake,
-  Cam,
-  Geo,
-  Keyless,
-  Wheels
-} from './Icons'
+// import {
+//   Air,
+//   Bluetooth,
+//   Brake,
+//   Cam,
+//   Geo,
+//   Keyless,
+//   Wheels
+// } from './Icons'
 
 const AtAGlance = styled.p`
   opacity: 0.54;
