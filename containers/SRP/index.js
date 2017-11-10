@@ -154,6 +154,30 @@ class SrpContainer extends React.Component {
     this.refreshState()
   }
 
+  removeMake() {
+    this.sessionSearch.selectedMake = ' '
+
+    this.refreshState()
+  }
+
+  removeType() {
+    this.sessionSearch.carType = ' '
+
+    this.refreshState()
+  }
+
+  removeModel() {
+    this.sessionSearch.modelList = ' '
+
+    this.refreshState()
+  }
+
+  removeTransmission() {
+    this.sessionSearch.transmission = ' '
+
+    this.refreshState()
+  }
+
   getCarsData () {
     let that = this
     let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
@@ -226,6 +250,10 @@ class SrpContainer extends React.Component {
         updateFuelType: this.updateFuelType.bind(this),
         updateDayListed: this.updateDayListed.bind(this),
         updatePagination: this.updatePagination.bind(this),
+        removeMake: this.removeMake.bind(this),
+        removeType: this.removeType.bind(this),
+        removeModel: this.removeModel.bind(this),
+        removeTransmission: this.removeTransmission.bind(this),
         readyRefreshFetch: this.state.readyRefreshFetch,
         readyState: true,
         resetState: false

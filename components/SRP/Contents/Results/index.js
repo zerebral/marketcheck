@@ -59,19 +59,23 @@ class Results extends Component {
     const listFilters = [
       {
         label: 'Make:',
-        filter: state.filters.maker
+        filter: state.filters.maker,
+        remove: this.props.removeMake
       },
       {
         label: 'Type:',
-        filter: capitalize(state.filters.type)
+        filter: capitalize(state.filters.type),
+        remove: this.props.removeType
       },
       {
         label: 'Model:',
-        filter: Array.isArray(state.filters.model) ? state.filters.model.join(',') : state.filters.model
+        filter: Array.isArray(state.filters.model) ? state.filters.model.join(',') : state.filters.model,
+        remove: this.props.removeModel
       },
       {
         label: 'Transmission:',
-        filter: state.filters.transmission ? capitalize(state.filters.transmission) : " "
+        filter: state.filters.transmission ? capitalize(state.filters.transmission) : " ",
+        remove: this.props.removeTransmission
       }
     ]
 
@@ -88,7 +92,7 @@ class Results extends Component {
       <StyledFlexCol>
         <Wrapper>
           <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
-          <Filters list={this.filterTags(this.props.sessionSearch)} />
+          <Filters {...this.props} list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
           {this.props.readyRefreshFetch ?
             this.props.responseFactory.listings.map((item, index) =>

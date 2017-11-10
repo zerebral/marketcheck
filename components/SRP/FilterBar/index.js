@@ -23,6 +23,21 @@ const FlexColRight = styled(FlexCol)`
   `}
 `
 
+const list = [
+  {
+    label: 'Nearest First',
+    value: '1'
+  },
+  {
+    label: 'Nearest Second',
+    value: '2'
+  },
+  {
+    label: 'Nearest Third',
+    value: '3'
+  }  
+]
+
 export default (props) => {
   return (
     <Wrapper>
@@ -35,7 +50,7 @@ export default (props) => {
           <FlexColRight>
             <Averages label='Avg. Miles' miles={props.responseFactory.stats.miles.mean + ' mi'} />
             <Averages label='Avg. Price' miles={currency(props.responseFactory.stats.price.mean)} />
-            <SortBy label='Sort By' selected='Nearest First' items={['Nearest First', 'Nearest Second', 'Nearest Third']} />
+            <SortBy label='Sort By' selected='0' items={list} />
           </FlexColRight>
         </FlexRow>
       </OutContainer>

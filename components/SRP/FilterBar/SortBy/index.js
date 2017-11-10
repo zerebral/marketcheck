@@ -39,7 +39,7 @@ const DropdownContent = styled.div`
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 9999999999;
   ${mediaMax.desktop`
    min-width: 130px;
   `}
@@ -107,14 +107,14 @@ class Dropdown extends Component {
     return (
       <SortBy>
         <Label>{this.label}</Label>
-        <Selected>{this.state.selected}</Selected>
+        <Selected>{this.items[this.props.selected].label}</Selected>
         <Btn onClick={this.handleOpenClick.bind(this)}>
           <ArrowStyled />
         </Btn>
 
         <DropdownContent visible={this.state.open}>
           {this.items.map(function (item, index) {
-            return <DropdownItem href='#' key={index} value={item} onClick={() => this.handleSelectClick.bind(this)(item, index)}>{item}</DropdownItem>
+            return <DropdownItem key={index} value={item.value} onClick={() => this.handleSelectClick.bind(this)(item.value, index)}>{item.label}</DropdownItem>
           }.bind(this))}
         </DropdownContent>
       </SortBy>
