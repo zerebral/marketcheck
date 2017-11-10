@@ -32,6 +32,13 @@ const StyledFlexCol = styled(FlexCol)`
   `}
 `
 
+const NoResults = styled.div`
+  margin-bottom: 1em;
+  ${mediaMax.phone`
+    display: none;
+  `}
+`
+
 class Results extends Component {
   constructor (props) {
     super(props)
@@ -95,12 +102,7 @@ class Results extends Component {
                 (<AutoCard key={index} data={item} />)
               ) :
               <Spinner style={{marginTop: '5vh'}} /> :
-            <div>
-              <p>
-                There are no results for the search
-              </p>
-              <br />
-            </div>
+            <NoResults>There are no results for the search</NoResults>
           }
           <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} />
           <Recommended />

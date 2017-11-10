@@ -27,19 +27,19 @@ const Form = styled.form`
 
 export default ({ getState, onSubmit, models, makes, carTypeSelect, makeSelect, modelSelect, loadingModels, handleChange, handleSelect, address, findLatLng}) =>
   <Form onSubmit={onSubmit}>
-    <FancySelect blue onChange={carTypeSelect} >
+    <FancySelect blue onChange={carTypeSelect} showForMobile={true}>
       <option value="used" selected>Used</option>
       <option value="new">New</option>
       <option value="newer">Newer</option>
       <option value="newest">Newest</option>
     </FancySelect>
     <GoogleAutoComplete findLatLng={findLatLng}/>
-    <FancySelect onChange={makeSelect}>
+    <FancySelect onChange={makeSelect} showForMobile={false}>
       <option>All Makes</option>
       {makes.length > 1 && makes.map((make, key) => <option key={key} value={make.item}>{make.item}</option>)}
     </FancySelect>
  
-    <FancySelect onChange={modelSelect}>
+    <FancySelect onChange={modelSelect} showForMobile={false}>
       {!loadingModels && <option selected="selected">All Models</option>}
       {loadingModels && <option>Loading Models</option>}
       {models.length > 1 &&  models.map( (model, key) => <option key={key}>{model.item}</option> )}

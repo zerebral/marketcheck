@@ -11,7 +11,7 @@ var srpData = (params = {}) => {
 			ref_miles_dt: params.milesRange ? params.milesRange[1] : 50000,
 			deal: params.dealRating ? params.dealRating : '',
 			maker: params.selectedMake ? params.selectedMake : 'Ford',
-			model: params.modelList ? params.modelList : params.selectedModel ? params.selectedModel : '',
+			model: params.modelList ? params.modelList : params.selectedModel ? params.selectedModel : 'Any',
 			year: parseInt(params.year ? params.year : 2010),
 			sellerType: params.sellerType ? params.sellerType : 'dealer',
 			color: params.color ? params.color : '',
@@ -35,7 +35,7 @@ var srpData = (params = {}) => {
 			latitude: params.latitude ? params.latitude : '',
 			longitude: params.longitude ? params.longitude : ''
 		},
-		modelsList: params.models ? params.models : {},
+		modelsList: (params.models || []).length === 0 ? params.models : [],
 	}
 }
 

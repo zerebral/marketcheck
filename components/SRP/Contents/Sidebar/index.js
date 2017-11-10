@@ -186,7 +186,6 @@ const SidebarFlexCol = styled(FlexCol)`
 `
 
 export default (props) => {
-
   return (<SidebarFlexCol>
     <Wrapper>
       <ClearAllBtn {...props} />

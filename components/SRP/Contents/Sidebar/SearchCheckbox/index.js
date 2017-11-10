@@ -117,13 +117,11 @@ class SearchCheckbox extends Component {
       this.setState({
         modelList: newList
       }, () => {
-        //console.log(this.state.modelList)
       })
     } else {
       this.setState({
         modelList: this.props.list
       }, () => {
-        //console.log(this.state.modelList)
       })
     }
   }
@@ -152,7 +150,7 @@ class SearchCheckbox extends Component {
 
   componentWillReceiveProps (props) {
     this.setState({
-      modelList: props.list
+      modelList: props.list,
     })
 
     if (this.props.resetState) {
@@ -181,25 +179,29 @@ class SearchCheckbox extends Component {
             </FlexCol>
           </StyledFlexRow>
         </SearchBox>
-        {this.state.modelList.map(function (model, index) {
-          if (index < this.state.listLimit) {
-            return (
-              <StyledFlexRow key={index}>
-                <StyledFlexCol>
-                  <CheckBox className={model.checked ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, model.item)} />
-                </StyledFlexCol>
-                <FlexCol>
-                  <Label onClick={() => this.handleCheckClick.bind(this)(index, model.item)}>{model.item}</Label>
-                </FlexCol>
-              </StyledFlexRow>
-            )
-          } else {
-            return null
-          }
-        }.bind(this))}
+        {
+        this.state.modelList.length ?
+          this.state.modelList.map(function (model, index) {
+            if (index < this.state.listLimit) {
+              return (
+                <StyledFlexRow key={index}>
+                  <StyledFlexCol>
+                    <CheckBox className={model.checked ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, model.item)} />
+                  </StyledFlexCol>
+                  <FlexCol>
+                    <Label onClick={() => this.handleCheckClick.bind(this)(index, model.item)}>{model.item}</Label>
+                  </FlexCol>
+                </StyledFlexRow>
+              )
+            } else {
+              return false
+            }
+          }.bind(this)) :
+        false
+        }
         {this.state.modelList.length > this.state.listLimit ?
             <MoreBtn onClick={this.updateListLimit.bind(this)}>More</MoreBtn> :
-            null
+            false
         }
       </Collapsible>
     )
