@@ -1,10 +1,8 @@
 import FetchingData from '%/factory/fetchingData'
 
 var srpData = (params = {}) => {
-	//console.log(params)
 	return {
 		filters: {
-			sortBy: '',
 			type: params.carType ? params.carType : 'used',
 			radius: params.distance ? params.distance : 40,
 			ref_price: params.price ? params.price[0] : 4000,
@@ -15,9 +13,9 @@ var srpData = (params = {}) => {
 			maker: params.selectedMake ? params.selectedMake : 'Ford',
 			model: params.modelList ? params.modelList : params.selectedModel ? params.selectedModel : '',
 			year: parseInt(params.year ? params.year : 2010),
-			sellerType: params.sellerType ? params.sellerType : 'fsbo',
+			sellerType: params.sellerType ? params.sellerType : 'dealer',
 			color: params.color ? params.color : '',
-			transmission: params.transmission ? params.transmission : 'automatic',
+			transmission: params.transmission ? params.transmission : 'manual',
 			body_type: params.bodyType ? params.bodyType : 'Sedan',
 			trim: params.trim ? params.trim : '',
 			dirvetrain: params.dirvetrain ? params.dirvetrain : '',
@@ -28,7 +26,8 @@ var srpData = (params = {}) => {
 		    facets: 'trim,drivetrain,cylinders,fuel_type',
 		    stats: 'miles,price',
 		    start: 0,
-		    rows: 11
+		    rows: 11,
+			sort_order: params.sortOrder ? params.sortOrder : 'desc'
 		},
 		location: {
 			address: params.address ? params.address : '',

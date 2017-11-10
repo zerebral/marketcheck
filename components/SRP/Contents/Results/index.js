@@ -82,23 +82,25 @@ class Results extends Component {
     return listFilters
   }
 
-  componentWillReceiveProps () {
-    //console.log("Ready to refresh:", this.props.readyRefreshFetch)
-  }
-
   render () {
-    //console.log(this.state.ready && this.props.readyRefreshFetch)
     return (
       <StyledFlexCol>
         <Wrapper>
           <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
           <Filters {...this.props} list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
-          {this.props.readyRefreshFetch ?
-            this.props.responseFactory.listings.map((item, index) =>
+          {this.props.responseFactory.num_found ?
+            this.props.readyRefreshFetch ?
+              this.props.responseFactory.listings.map((item, index) =>
                 (<AutoCard key={index} data={item} />)
-            ) :
-            <Spinner style={{marginTop: '5vh'}} />
+              ) :
+              <Spinner style={{marginTop: '5vh'}} /> :
+            <div>
+              <p>
+                There are no results for the search
+              </p>
+              <br />
+            </div>
           }
           <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} />
           <Recommended />

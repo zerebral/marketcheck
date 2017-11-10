@@ -26,15 +26,15 @@ const FlexColRight = styled(FlexCol)`
 const list = [
   {
     label: 'Nearest First',
-    value: '1'
+    value: 'desc'
   },
   {
     label: 'Nearest Second',
-    value: '2'
+    value: 'asc'
   },
   {
     label: 'Nearest Third',
-    value: '3'
+    value: 'desc'
   }  
 ]
 
@@ -50,7 +50,7 @@ export default (props) => {
           <FlexColRight>
             <Averages label='Avg. Miles' miles={props.responseFactory.stats.miles.mean + ' mi'} />
             <Averages label='Avg. Price' miles={currency(props.responseFactory.stats.price.mean)} />
-            <SortBy label='Sort By' selected='0' items={list} />
+            <SortBy label='Sort By' selected='0' items={list} updateSuperState={props.updateSortOrder} />
           </FlexColRight>
         </FlexRow>
       </OutContainer>

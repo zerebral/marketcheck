@@ -163,7 +163,7 @@ class Paginator extends Component {
 
   render () {
     const {ready} = this.state
-    return ready ? (
+    return ready && this.state.limitPages ? (
       <PagesContainer>
         {this.state.currentPage > 0 ?
           (<span>

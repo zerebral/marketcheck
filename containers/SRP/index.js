@@ -36,7 +36,6 @@ class SrpContainer extends React.Component {
       sessionSearch: srpData(this.sessionSearch),
       resetState: true
     }, () => {
-      //console.log(this.state.sessionSearch)
     })
 
     this.refreshState()
@@ -154,6 +153,12 @@ class SrpContainer extends React.Component {
     this.refreshState()
   }
 
+  updateSortOrder (value) {
+    this.sessionSearch.sortOrder = value
+
+    this.refreshState()
+  }
+
   removeMake() {
     this.sessionSearch.selectedMake = ' '
 
@@ -199,7 +204,6 @@ class SrpContainer extends React.Component {
           resetState: false
         },
         () => {
-          //console.log(this.state)
         })
       }
     })
@@ -213,7 +217,6 @@ class SrpContainer extends React.Component {
       readyRefreshFetch: false,
       sessionSearch: srpData(this.sessionSearch)
     }, () => {
-       //console.log("Refresh State: ", this.state)
     })
 
     this.getCarsData()
@@ -249,6 +252,7 @@ class SrpContainer extends React.Component {
         updateCylinders: this.updateCylinders.bind(this),
         updateFuelType: this.updateFuelType.bind(this),
         updateDayListed: this.updateDayListed.bind(this),
+        updateSortOrder: this.updateSortOrder.bind(this),
         updatePagination: this.updatePagination.bind(this),
         removeMake: this.removeMake.bind(this),
         removeType: this.removeType.bind(this),
@@ -259,11 +263,9 @@ class SrpContainer extends React.Component {
         resetState: false
       },
       () => {
-        //console.log(this.state)
+        this.getCarsData()
       }
     )
-
-    this.getCarsData()
   }
 
   render () {
