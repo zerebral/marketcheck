@@ -3,11 +3,9 @@ import styled from 'styled-components'
 import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
 import { rem } from 'polished'
-import Loading from 'react-simple-loading'
 
 import FancySelect from './FancySelect'
 import GoogleAutoComplete from './FancySearch'
-// import GoogleAutoComplete from '@/Home/form/fancySearch/input/GoogleAutoComplete'
 import Submit from './Submit'
 
 const Form = styled.form`
@@ -25,7 +23,7 @@ const Form = styled.form`
   `}
 `
 
-export default ({ getState, onSubmit, models, makes, carTypeSelect, makeSelect, modelSelect, loadingModels, handleChange, handleSelect, address, findLatLng}) =>
+export default ({getState, onSubmit, models, makes, carTypeSelect, makeSelect, modelSelect, loadingModels, handleChange, handleSelect, address, findLatLng}) =>
   <Form onSubmit={onSubmit}>
     <FancySelect blue onChange={carTypeSelect} >
       <option value='used' selected>Used</option>
