@@ -5,7 +5,7 @@ import { stdBackground, mediaMax } from '%/styles/mixins'
 const Slide = styled.div`
   ${stdBackground()}
   background-color: ${colors.softgray};
-  background-image: url(${props => props.image ? props.image : './defaultSlide.jpg' });
+  background-image: url(${props => props.image ? props.image : './defaultSlide.jpg'});
   min-height: 190px;
   height: 190px;
   transition: 0.3s;

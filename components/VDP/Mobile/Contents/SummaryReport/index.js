@@ -26,8 +26,8 @@ const Wrapper = styled.div`
 export default ({ summaryReport }) =>
   <Accordion title='VIN Summary Report' blue >
     <Wrapper>
-      
-       <Price />
+
+      <Price />
       {summaryReport[0].some_text &&
         <p>{summaryReport[0].some_text}</p>
       }

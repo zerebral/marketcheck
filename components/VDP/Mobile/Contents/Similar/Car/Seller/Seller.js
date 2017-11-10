@@ -52,7 +52,7 @@ export default ({
       <Reviews href={website}>{number(reviews)} Reviews</Reviews>
     </Flex>
     <Flex>
-      <Button href={vdpUrl} target="_blank">View on dealer website</Button>
+      <Button href={vdpUrl} target='_blank'>View on dealer website</Button>
       <More>
         View More
         <Caret />

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import AveragesOverTimeDesktop from '~/VDP/Desktop/Contents/AveragesOverTime/AveragesOverTime';
-import AveragesOverTimeMobile from '~/VDP/Mobile/Contents/AveragesOverTime/AveragesOverTime';
-import fetch from 'isomorphic-fetch';
-import Aux from 'react-aux';
+import React, { Component } from 'react'
+import AveragesOverTimeDesktop from '~/VDP/Desktop/Contents/AveragesOverTime/AveragesOverTime'
+import AveragesOverTimeMobile from '~/VDP/Mobile/Contents/AveragesOverTime/AveragesOverTime'
+import fetch from 'isomorphic-fetch'
+import Aux from 'react-aux'
 import styled from 'styled-components'
 import { mediaMin } from '%/styles/mixins'
 import Loading from 'react-loading-animation'
@@ -22,61 +22,59 @@ const Mobile = styled(AveragesOverTimeMobile)`
 `
 
 class AveragesOverTimeContainer extends Component {
-  constructor() {
-    super();
+  constructor () {
+    super()
 
-    this.trendsFetch = this.trendsFetch.bind(this);
+    this.trendsFetch = this.trendsFetch.bind(this)
 
     this.state = {
       trends: []
     }
   }
-  
-  trendsFetch(url) {
+
+  trendsFetch (url) {
     fetch(url)
       .then(response => {
         if (response.status !== 200) {
           console.log('Problem ' + response.status)
         }
-        return response.json();
+        return response.json()
       }).then(data => {
         if (data.trends) {
-
-          //Convert number strings to actual numbers in Obj
+          // Convert number strings to actual numbers in Obj
           for (var i = 0; i < data.trends.length; i++) {
-            var obj = data.trends[i];
+            var obj = data.trends[i]
             for (var prop in obj) {
               if (obj.hasOwnProperty(prop) && obj[prop] !== null && !isNaN(obj[prop])) {
-                obj[prop] = parseInt(+obj[prop]);
+                obj[prop] = parseInt(+obj[prop])
               }
             }
           }
 
           data.trends.forEach(item => {
-            item['name'] = item['month'] + "/" + item['year'];
-          });
+            item['name'] = item['month'] + '/' + item['year']
+          })
 
-          let overTimemiles = 0;
-          let averageOverTimeMiles = 0;
-          const trendsResponse = data.trends;
+          let overTimemiles = 0
+          let averageOverTimeMiles = 0
+          const trendsResponse = data.trends
           data.trends.map((car) => {
-            overTimemiles += car.miles;
-            averageOverTimeMiles = overTimemiles / trendsResponse.length;
-          });
-          //console.log(JSON.stringify(data.trends, null, 2));
-          this.setState({ trends: data.trends.reverse() });
+            overTimemiles += car.miles
+            averageOverTimeMiles = overTimemiles / trendsResponse.length
+          })
+          // console.log(JSON.stringify(data.trends, null, 2));
+          this.setState({ trends: data.trends.reverse() })
         }
-
       }).catch(error => {
         console.log('error message: ' + error.message)
       })
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.trendsFetch(`https://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=1FA6P8CF2H5279752&car_type=used`)
   }
 
-  render() {
+  render () {
     if (this.state.trends.length < 1) {
       return <Loading />
     }
@@ -89,4 +87,4 @@ class AveragesOverTimeContainer extends Component {
   }
 }
 
-export default AveragesOverTimeContainer;
+export default AveragesOverTimeContainer
