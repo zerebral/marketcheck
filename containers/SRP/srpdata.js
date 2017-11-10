@@ -27,6 +27,7 @@ var srpData = (params = {}) => {
 		    stats: 'miles,price',
 		    start: 0,
 		    rows: 11,
+		    sort_by: 'miles',
 			sort_order: params.sortOrder ? params.sortOrder : 'desc'
 		},
 		location: {
