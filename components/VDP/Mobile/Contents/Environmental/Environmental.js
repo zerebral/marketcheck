@@ -14,5 +14,5 @@ export default ({ environmentalScores }) =>
       Based upon EPA guidelines for measuring pollutants
     </Summary>
 
-    {Object.keys(environmentalScores).length > 1 && <Charts {...environmentalScores} />}
+    {Object.keys(environmentalScores).length > 1 && <Charts {...environmentalScores} />}   
   </Accordion>

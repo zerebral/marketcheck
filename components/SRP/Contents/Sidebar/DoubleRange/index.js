@@ -60,6 +60,15 @@ class DoubleRange extends Component {
     this.setState({ value: [bound] })
   }
 
+  componentWillReceiveProps () {
+    if (this.props.resetState) {
+      this.setState({
+        bound: this.props.value,
+        value: this.props.value
+      })
+    }
+  }
+
   render () {
     return (
       <Collapsible label={this.label}>

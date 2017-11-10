@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "lint:css": "stylelint './components/**/*.js'",
-    "lint:js": "standard --verbose | standard-reporter --stylish",
+    "lint:js": "standard --verbose | snazzy",
     "lint": "npm run lint:css; npm run lint:js",
     "dev": "node server",
     "build": "next build",
@@ -52,8 +52,7 @@
     "react-simple-loading": "^0.0.3",
     "react-slick": "^0.15.4",
     "recharts": "^1.0.0-apha.5",
-    "styled-components": "^2.2.1",
-    "vanilla-js-dropdown": "zoltantothcom/vanilla-js-dropdown"
+    "styled-components": "^2.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
@@ -68,7 +67,6 @@
     "react-test-renderer": "^16.0.0",
     "snazzy": "^7.0.0",
     "standard": "^10.0.3",
-    "standard-reporter": "^1.0.5",
     "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-processor-styled-components": "^1.0.0"

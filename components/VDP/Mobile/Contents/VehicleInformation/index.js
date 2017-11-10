@@ -51,7 +51,7 @@ export default ({
       <p>Interior <strong>{interiorColor}</strong></p>
       <p>Doors <strong>{doors}</strong></p>
       <p>Stock# <strong>{stockNumber}</strong></p>
-      <p>Model # <strong /></p>
+      <p>Model # <strong></strong></p>
       <p>VIN # <strong>{vin}</strong></p>
       <p>Mileage <strong>{number(miles)}</strong></p>
       <p>Engine <strong>{engine}</strong></p>

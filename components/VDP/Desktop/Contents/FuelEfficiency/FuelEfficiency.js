@@ -15,14 +15,14 @@ export default ({ fuelEfficiency }) =>
   <Section title='Fuel Efficiency' summary='Based upon avg. fuel prices across the US.'>
     <FlexRow>
       <FlexCol cols={5}>
-        <Drops {...fuelEfficiency} />
+        <Drops {...fuelEfficiency}/>
       </FlexCol>
       <FlexCol cols={5} offset={1}>
         <PriceHeader>$<Money>{fuelEfficiency.monthly_fuel_expense}</Money></PriceHeader>
         <FuelExpense>Monthly fue Expense</FuelExpense>
         <Separator />
-        {fuelEfficiency.annual_miles &&
-        <Text {...fuelEfficiency} />
+        {fuelEfficiency.annual_miles && 
+        <Text {...fuelEfficiency }/>
         }
       </FlexCol>
     </FlexRow>

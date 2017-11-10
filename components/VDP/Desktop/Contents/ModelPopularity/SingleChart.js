@@ -45,7 +45,7 @@ export default ({
       <FlexRow>
         <FlexCol cols={9}>
           <Versus>
-            {we}
+            {we} 
           </Versus>
           <LineChart
             value={value}

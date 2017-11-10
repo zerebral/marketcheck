@@ -16,10 +16,10 @@ import LineChartWrapper from './LineChartWrapper.js'
 
 export default ({ dataTrend }) =>
 
-  <LineChartWrapper>
+  <LineChartWrapper>   
     <ResponsiveContainer width='100%' height={200}>
       <AreaChart data={dataTrend} margin={{ bottom: 25 }}>
-        <XAxis hide dataKey='name' />
+        <XAxis hide dataKey='name'/>
         <YAxis hide />
         <Tooltip />
         <defs>

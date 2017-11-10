@@ -8,6 +8,6 @@ const Stats = styled.div`
 
 export default (props) =>
   <Stats>
-    <Text {...props} />
-    <Drops {...props} />
+    <Text {...props}/>
+    <Drops {...props}/>
   </Stats>

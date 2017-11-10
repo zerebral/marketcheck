@@ -26,7 +26,7 @@ export default ({
   price,
   discount,
   miles,
-  averages
+  averages,
 }) =>
   <Wrapper>
     <TopRow>
@@ -55,8 +55,8 @@ export default ({
           </FlexCol>
           <FlexCol cols={3}>
             <Price>{currency(price)}</Price>
-            <Text>{price > averages.price ? currency(price - averages.price) + ' more' : currency(averages.price - price) + ' less'} than market average</Text>
-            <Text>{miles > averages.miles ? number(miles - averages.miles) + ' miles more' : number(averages.miles - miles) + ' miles less'} than market average</Text>
+            <Text>{price > averages.price ? currency(price - averages.price) + " more" : currency(averages.price - price) + " less"} than market average</Text>
+            <Text>{miles > averages.miles ? number(miles - averages.miles) + " miles more" : number(averages.miles - miles) + " miles less"} than market average</Text>
           </FlexCol>
         </FlexRow>
       </Container>

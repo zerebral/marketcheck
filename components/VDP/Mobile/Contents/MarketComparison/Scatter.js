@@ -9,6 +9,8 @@ import {
   YAxis
 } from 'recharts'
 
+import { similar, nationalAvg, yourCar } from './seedData'
+
 import ChartWrapper from './ChartWrapper'
 
 export default (props) =>

@@ -1,21 +1,23 @@
 import React from 'react'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 import scriptLoader from 'react-async-script-loader'
+import styled from 'styled-components'
+
 
 class GoogleAutoComplete extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       address: '',
-      loading: false
-      // latitude: null,
-      // longitude: null,
+      loading: false,
+      //latitude: null,
+      //longitude: null,
     }
     this.handleSelect = this.handleSelect.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleSelect (address) {
+  handleSelect(address) {
     this.setState({
       address,
       loading: true
@@ -28,9 +30,9 @@ class GoogleAutoComplete extends React.Component {
         this.props.findLatLng(lat, lng, address)
 
         this.setState({
-          loading: false
-          // latitude: lat,
-          // longitude: lng
+          loading: false,
+          //latitude: lat,
+          //longitude: lng
         })
       })
       .catch((error) => {
@@ -41,29 +43,29 @@ class GoogleAutoComplete extends React.Component {
       })
   }
 
-  handleChange (address) {
+  handleChange(address) {
     this.setState({
-      address
-      // latitude: '',
-      // longitude: ''
-     // geocodeResults: null
+      address,
+      //latitude: '',
+      //longitude: ''
+     //geocodeResults: null
     })
   }
 
-  render () {
+  render() {
     const customStyles = {
-      autocompleteContainer: {
-        backgroundColor: '#e0e9f1',
+      autocompleteContainer: { 
+        backgroundColor: '#e0e9f1' ,
         border: 'none',
         left: '-47px',
         top: '125%',
         minWidth: '256px',
         textAlign: 'left',
-        lineHeight: '1.5'
+        lineHeight: '1.5',
       },
       autocompleteItemActive: { backgroundColor: '#efefef' },
       autocompleteItem: {color: '#666'},
-      input: {padding: '0'}
+      input: { padding: '0'},
     }
 
     const options = {
@@ -81,12 +83,12 @@ class GoogleAutoComplete extends React.Component {
       value: this.state.address,
       onChange: this.handleChange,
       placeholder: 'Enter Location',
-      name: 'autocomplete-input'
+      name: 'autocomplete-input',
     }
     const { isScriptLoaded, isScriptLoadSucceed } = this.props
-    return (
+    return (    
       <div>
-        {isScriptLoaded && isScriptLoadSucceed &&
+        {isScriptLoaded && isScriptLoadSucceed && 
           <PlacesAutocomplete
             onSelect={this.handleSelect}
             autocompleteItem={AutocompleteItem}

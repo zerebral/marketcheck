@@ -88,12 +88,14 @@ class SearchCheckbox extends Component {
   }
 
   handleCheckClick (index, value) {
+
     const newList = this.state.modelList
-    newList[index].checked = true
+    
+    newList[index].checked = newList[index].checked ? false : true
 
     const stateModelList = []
 
-    newList.map(function (model, index) {
+    newList.map(function (model, index){
       if (model.checked) {
         stateModelList.push(model.item)
       }
@@ -111,17 +113,17 @@ class SearchCheckbox extends Component {
 
     const newList = this.filterList(this.state.modelList, e.target.value)
 
-    if (e.target.value !== '' || newList.length) {
+    if (e.target.value !== "" || newList.length){
       this.setState({
         modelList: newList
       }, () => {
-        // console.log(this.state.modelList)
+        //console.log(this.state.modelList)
       })
     } else {
       this.setState({
         modelList: this.props.list
       }, () => {
-        // console.log(this.state.modelList)
+        //console.log(this.state.modelList)
       })
     }
   }
@@ -139,12 +141,12 @@ class SearchCheckbox extends Component {
   filterList (array, argument) {
     argument = argument.toLowerCase()
 
-    return array.filter(function (obj) {
-      return Object.keys(obj).some(function (k) {
+    return array.filter(function(obj) {
+      return Object.keys(obj).some(function(k) {
         if (k !== 'count') {
-          return obj[k].toLowerCase().indexOf(argument) !== -1
+          return obj[k].toLowerCase().indexOf(argument) !== -1;
         }
-      })
+     })
     })
   }
 
@@ -152,6 +154,18 @@ class SearchCheckbox extends Component {
     this.setState({
       modelList: props.list
     })
+
+    if (this.props.resetState) {
+      const newList = this.state.modelList
+
+      newList.map(function (model, index){
+        model.checked = false
+      })
+
+      this.setState({
+        modelList: newList
+      })
+    }
   }
 
   render () {
@@ -183,9 +197,9 @@ class SearchCheckbox extends Component {
             return null
           }
         }.bind(this))}
-        {this.state.modelList.length > this.state.listLimit
-            ? <MoreBtn onClick={this.updateListLimit.bind(this)}>More</MoreBtn>
-            : null
+        {this.state.modelList.length > this.state.listLimit ?
+            <MoreBtn onClick={this.updateListLimit.bind(this)}>More</MoreBtn> :
+            null
         }
       </Collapsible>
     )

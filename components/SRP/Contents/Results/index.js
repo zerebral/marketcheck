@@ -44,13 +44,13 @@ class Results extends Component {
   }
 
   searchArgument (state) {
-    const argument =
-      capitalize(this.props.sessionSearch.filters.type) + ' ' +
-      (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + ' ' : '') +
-      (this.props.sessionSearch.filters.maker ? this.props.sessionSearch.filters.maker + ' ' : '') +
-      (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + ' ' : '') +
-      ' in ' +
-      this.props.sessionSearch.location.address + ' '
+    const argument = 
+      capitalize(this.props.sessionSearch.filters.type) + " " +
+      (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + " " : "" ) +
+      (this.props.sessionSearch.filters.maker ? this.props.sessionSearch.filters.maker + " " : "" ) +
+      (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + " " : "" ) +
+      " in " +
+      this.props.sessionSearch.location.address + " "
 
     return argument
   }
@@ -59,19 +59,23 @@ class Results extends Component {
     const listFilters = [
       {
         label: 'Make:',
-        filter: state.filters.maker
+        filter: state.filters.maker,
+        remove: this.props.removeMake
       },
       {
         label: 'Type:',
-        filter: capitalize(state.filters.type)
+        filter: capitalize(state.filters.type),
+        remove: this.props.removeType
       },
       {
         label: 'Model:',
-        filter: state.filters.model
+        filter: Array.isArray(state.filters.model) ? state.filters.model.join(',') : state.filters.model,
+        remove: this.props.removeModel
       },
       {
         label: 'Transmission:',
-        filter: state.filters.transmission ? capitalize(state.filters.transmission) : ' '
+        filter: state.filters.transmission ? capitalize(state.filters.transmission) : " ",
+        remove: this.props.removeTransmission
       }
     ]
 
@@ -79,22 +83,22 @@ class Results extends Component {
   }
 
   componentWillReceiveProps () {
-    console.log(this.props.readyRefreshFetch)
+    //console.log("Ready to refresh:", this.props.readyRefreshFetch)
   }
 
   render () {
-    // console.log(this.state.ready && this.props.readyRefreshFetch)
+    //console.log(this.state.ready && this.props.readyRefreshFetch)
     return (
       <StyledFlexCol>
         <Wrapper>
           <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
-          <Filters list={this.filterTags(this.props.sessionSearch)} />
+          <Filters {...this.props} list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
-          {this.props.readyRefreshFetch
-            ? this.props.responseFactory.listings.map((item, index) =>
+          {this.props.readyRefreshFetch ?
+            this.props.responseFactory.listings.map((item, index) =>
                 (<AutoCard key={index} data={item} />)
-            )
-            : <Spinner style={{marginTop: '5vh'}} />
+            ) :
+            <Spinner style={{marginTop: '5vh'}} />
           }
           <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} />
           <Recommended />

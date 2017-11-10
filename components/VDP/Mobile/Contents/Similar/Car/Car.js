@@ -28,7 +28,7 @@ import {
   Soon
 } from './Icons'
 
-import { ellipsis, currency, number } from '%/format'
+import { ellipsis, currency,number } from '%/format'
 
 export default ({
   dealer,

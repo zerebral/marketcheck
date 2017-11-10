@@ -14,13 +14,13 @@ export default ({ safetyRatings, dealerReviews, dealerRatings, dealerWebsite }) 
           <Rating stars={safetyRatings.roll_over_rating} name='Roll Over' />
           <Rating stars={safetyRatings.driver_side_rating} name='Driver Side' />
           <Rating stars={safetyRatings.driver_front_rating} name='Driver Front' />
-          <Rating stars={safetyRatings.passenger_front_rating} name='Passenger Front' />
+          <Rating stars={safetyRatings.passenger_front_rating} name='Passenger Front' /> 
         </FlexRow>
       </FlexCol>
     </FlexRow>
 
-    {Object.keys(dealerRatings).length > 1 &&
-
+    {Object.keys(dealerRatings).length > 1 && 
+    
       <Seller
         name={dealerReviews.name}
         location={`${dealerReviews.city}, ${dealerReviews.state}`}

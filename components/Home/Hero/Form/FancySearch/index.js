@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import Input from './Input'
 import Geolocation from './GeoLocation'
 import { mediaMin } from '%/styles/mixins'
-import GoogleAutoComplete from '@/Home/form/fancySearch/input/GoogleAutoComplete'
+import GoogleAutoComplete from '@/Home/form/fancySearch/input/GoogleAutoComplete';
 
 const FancySearch = styled.div`
   position: relative;
@@ -16,5 +17,5 @@ const FancySearch = styled.div`
 export default (props) =>
   <FancySearch>
     <Geolocation />
-    <GoogleAutoComplete {...props} />
+    <GoogleAutoComplete {...props}/>
   </FancySearch>

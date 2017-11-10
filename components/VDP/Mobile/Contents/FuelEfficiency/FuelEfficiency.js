@@ -40,5 +40,5 @@ export default ({ fuelEfficiency }) =>
     <PriceHeader>$<Money>{fuelEfficiency.monthly_fuel_expense}</Money></PriceHeader>
     <FuelExpense>Monthly fuel Expense</FuelExpense>
     <Separator />
-    <Stats {...fuelEfficiency} />
+    <Stats { ...fuelEfficiency }/>
   </Accordion>

@@ -1,20 +1,21 @@
-import React, { Component } from 'react'
-import SimilarDesktop from '~/VDP/Desktop/Contents/Similar/Similar'
-import SimilarMobile from '~/VDP/Mobile/Contents/Similar/Similar'
-import fetch from 'isomorphic-fetch'
-import Aux from 'react-aux'
+import React, { Component } from 'react';
+import SimilarDesktop from '~/VDP/Desktop/Contents/Similar/Similar';
+import SimilarMobile from '~/VDP/Mobile/Contents/Similar/Similar';
+import fetch from 'isomorphic-fetch';
+import Aux from 'react-aux';
 import styled from 'styled-components'
 import { mediaMin } from '%/styles/mixins'
 import Loading from 'react-loading-animation'
+import { currency, number } from '%/format'
 
-const Desktop = styled(SimilarDesktop)`
+const Desktop = styled(SimilarDesktop) `
   display: none;
   ${mediaMin.laptop`
     display: block;
   `}
 `
 
-const Mobile = styled(SimilarMobile)`
+const Mobile = styled(SimilarMobile) `
   display: block;
   ${mediaMin.laptop`
     display: none;
@@ -22,12 +23,12 @@ const Mobile = styled(SimilarMobile)`
 `
 
 class SimilarContainer extends Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
 
-    this.similarFetch = this.similarFetch.bind(this)
-    this.dealerReviews = this.dealerReviews.bind(this)
-    this.fetchingData = this.fetchingData.bind(this)
+    this.similarFetch = this.similarFetch.bind(this);
+    this.dealerReviews = this.dealerReviews.bind(this);
+    this.fetchingData = this.fetchingData.bind(this);
 
     this.state = {
       cars: [],
@@ -37,33 +38,33 @@ class SimilarContainer extends Component {
     }
   }
 
-  // Method to shorten all fetches a bit
-  fetchingData (url) {
+  //Method to shorten all fetches a bit
+  fetchingData(url) {
     return fetch(url)
       .then(response => {
         if (response.status !== 200) {
           console.log('Problem ' + response.status)
         }
-        return response.json()
+        return response.json();
       })
   }
 
-  similarFetch (url) {
+  similarFetch(url) {
     fetch(url)
       .then(response => {
         if (response.status !== 200) {
           console.log('Problem ' + response.status)
         }
-        return response.json()
+        return response.json();
       }).then(data => {
-        // If we get data for listings proceed
+        //If we get data for listings proceed
         if (data.listings) {
-          this.setState({
+          this.setState({ 
             cars: data.listings,
             numFound: data.num_found
-          })
-          // Get Dealer id for each car
-          data.listings.map((car) => {
+          });
+          //Get Dealer id for each car
+          data.listings.map( (car) => {
             this.dealerReviews(car.dealer.id)
           })
         }
@@ -72,24 +73,24 @@ class SimilarContainer extends Component {
       })
   }
 
-  dealerReviews (id) {
+  dealerReviews(id) {
     this.fetchingData(`https://${process.env.API_HOST}/v1/dealer/${id}/reviews?api_key=${process.env.API_VAR}`)
       .then(carsDealerReviews => {
         this.setState({ similarCarsDealerReviews: [...this.state.similarCarsDealerReviews, carsDealerReviews] })
-      })
+      });
 
-    this.fetchingData(`https://${process.env.API_HOST}/v1/dealer/${id}/ratings?api_key=${process.env.API_VAR}`)
-        .then(carsDealerRatings => {
-          this.setState({similarCarsDealerRatings: [...this.state.similarCarsDealerRatings, carsDealerRatings]})
-        })
+      this.fetchingData(`https://${process.env.API_HOST}/v1/dealer/${id}/ratings?api_key=${process.env.API_VAR}`)
+        .then( carsDealerRatings => {
+          this.setState({ similarCarsDealerRatings: [...this.state.similarCarsDealerRatings, carsDealerRatings]})
+      });
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.similarFetch(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${this.props.vin}&latitude=34.05&longitude=-118.24&radius=100&car_type=used&start=0&rows=3`)
   }
 
-  render () {
-    if (this.state.cars.length < 1 || this.state.similarCarsDealerReviews < 1) {
+  render() {
+    if (this.state.cars.length < 1 || this.state.similarCarsDealerReviews < 1 ) {
       return <Loading />
     }
     return (
@@ -101,4 +102,4 @@ class SimilarContainer extends Component {
   }
 }
 
-export default SimilarContainer
+export default SimilarContainer;

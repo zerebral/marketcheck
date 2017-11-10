@@ -9,12 +9,12 @@ const Summary = styled.p`
   margin-bottom: 30px !important;
 `
 
-// const cars = data.listings
+//const cars = data.listings
 
 export default (props) =>
   <Accordion title='Similar Local Cars' className={props.className}>
     <Summary>{number(props.numFound)} Similar cars in Your Local Area</Summary>
-    {props.cars && props.cars.length > 1 &&
+   {props.cars && props.cars.length > 1 &&
       props.cars.map((car, key) => {
         return <Car
           key={car.id}

@@ -1,150 +1,150 @@
 var defaultSearch = {
-  'carType': '',
-  'selectedMake': 'Jeep',
-  'selectedModel': 'Liberty',
-  'loadingModels': false,
-  'latitude': 29.383845,
-  'longitude': -94.90270020000003,
-  'address': 'Texas City, Texas, Estados Unidos',
-  'models': [
+    "carType": "",
+    "selectedMake": "Jeep",
+    "selectedModel": "Liberty",
+    "loadingModels": false,
+    "latitude": 29.383845,
+    "longitude": -94.90270020000003,
+    "address": "Texas City, Texas, Estados Unidos",
+	"models": [
     {
-      'item': 'Grand Cherokee'
+        "item": "Grand Cherokee"
     },
     {
-      'item': 'Wrangler'
+        "item": "Wrangler"
     },
     {
-      'item': 'Cherokee'
+        "item": "Cherokee"
     },
     {
-      'item': 'Compass'
+        "item": "Compass"
     },
     {
-      'item': 'Renegade'
+        "item": "Renegade"
     },
     {
-      'item': 'Patriot'
+        "item": "Patriot"
     },
     {
-      'item': 'Liberty'
+        "item": "Liberty"
     },
     {
-      'item': 'Commander'
+        "item": "Commander"
     },
     {
-      'item': 'Wrangler Unlimited'
+        "item": "Wrangler Unlimited"
     },
     {
-      'item': 'Grand Cherokee SRT'
+        "item": "Grand Cherokee SRT"
     },
     {
-      'item': 'Wrangler JK'
+        "item": "Wrangler JK"
     },
     {
-      'item': 'Grand Wagoneer'
+        "item": "Grand Wagoneer"
     },
     {
-      'item': 'CJ-7'
+        "item": "CJ-7"
     },
     {
-      'item': 'Comanche'
+        "item": "Comanche"
     },
     {
-      'item': 'Wagoneer'
+        "item": "Wagoneer"
     },
     {
-      'item': 'GRAND CHEROKEE'
+        "item": "GRAND CHEROKEE"
     },
     {
-      'item': 'Scrambler'
+        "item": "Scrambler"
     },
     {
-      'item': 'Wrangler Laredo Fully Custom'
+        "item": "Wrangler Laredo Fully Custom"
     },
     {
-      'item': 'Cherokee Briarwood'
+        "item": "Cherokee Briarwood"
     }],
-  'makes': [
+    "makes": [
     {
-      'item': 'Ford',
-      'count': 892556
+        "item": "Ford",
+        "count": 892556
     },
     {
-      'item': 'Chevrolet',
-      'count': 882078
+        "item": "Chevrolet",
+        "count": 882078
     },
     {
-      'item': 'Toyota',
-      'count': 515895
+        "item": "Toyota",
+        "count": 515895
     },
     {
-      'item': 'Nissan',
-      'count': 460916
+        "item": "Nissan",
+        "count": 460916
     },
     {
-      'item': 'Honda',
-      'count': 367321
+        "item": "Honda",
+        "count": 367321
     },
     {
-      'item': 'Jeep',
-      'count': 334632
+        "item": "Jeep",
+        "count": 334632
     },
     {
-      'item': 'GMC',
-      'count': 275207
+        "item": "GMC",
+        "count": 275207
     },
     {
-      'item': 'Hyundai',
-      'count': 252866
+        "item": "Hyundai",
+        "count": 252866
     },
     {
-      'item': 'Ram',
-      'count': 226140
+        "item": "Ram",
+        "count": 226140
     },
     {
-      'item': 'Dodge',
-      'count': 195316
+        "item": "Dodge",
+        "count": 195316
     },
     {
-      'item': 'Kia',
-      'count': 183986
+        "item": "Kia",
+        "count": 183986
     },
     {
-      'item': 'Subaru',
-      'count': 171850
+        "item": "Subaru",
+        "count": 171850
     },
     {
-      'item': 'Volkswagen',
-      'count': 142314
+        "item": "Volkswagen",
+        "count": 142314
     },
     {
-      'item': 'BMW',
-      'count': 139788
+        "item": "BMW",
+        "count": 139788
     },
     {
-      'item': 'Mercedes-Benz',
-      'count': 132986
+        "item": "Mercedes-Benz",
+        "count": 132986
     },
     {
-      'item': 'Buick',
-      'count': 126125
+        "item": "Buick",
+        "count": 126125
     },
     {
-      'item': 'Mazda',
-      'count': 98295
+        "item": "Mazda",
+        "count": 98295
     },
     {
-      'item': 'Cadillac',
-      'count': 97463
+        "item": "Cadillac",
+        "count": 97463
     },
     {
-      'item': 'Chrysler',
-      'count': 96959
+        "item": "Chrysler",
+        "count": 96959
     },
     {
-      'item': 'Audi',
-      'count': 94838
-    }]
+        "item": "Audi",
+        "count": 94838
+    }],
 }
 
 export default defaultSearch

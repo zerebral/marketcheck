@@ -43,7 +43,7 @@ export default ({
   miles,
   cityMiles,
   highwayMiles,
-  vdpUrl
+  vdpUrl,
 }) =>
   <Wrapper>
     <Car>

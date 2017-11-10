@@ -26,5 +26,5 @@ export default ({
       <Brief>{brief}</Brief>
       <Slideshow slides={sliderPics} />
     </Container>
-    <Details price={price} discount={discount} miles={miles} averages={averages} vdpUrl={vdpUrl} />
+    <Details price={price} discount={discount} miles={miles} averages={averages} vdpUrl={vdpUrl}/>
   </OverviewWrapper>
