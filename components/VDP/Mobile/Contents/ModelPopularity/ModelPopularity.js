@@ -13,5 +13,5 @@ export default ({ modelPopularity }) =>
     <Summary>
       Based upon Days-on-Market ( DOM )
     </Summary>
-    {modelPopularity.length > 1 && <LineCharts modelPopularity={modelPopularity} />}  
+    {modelPopularity.length > 1 && <LineCharts modelPopularity={modelPopularity} />}
   </Accordion>

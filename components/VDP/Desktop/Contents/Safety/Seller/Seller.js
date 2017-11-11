@@ -44,6 +44,6 @@ export default ({
       <Badge>{rating}</Badge>
     </Rating>
 
-    <Reviews href={website} target="_blank">{number(reviews)} Reviews</Reviews>
-    <Button href={website} target="_blank">Request Best Price</Button>
+    <Reviews href={website} target='_blank'>{number(reviews)} Reviews</Reviews>
+    <Button href={website} target='_blank'>Request Best Price</Button>
   </Seller>

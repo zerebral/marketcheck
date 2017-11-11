@@ -29,7 +29,7 @@ export default ({
   ghg_emissions_rating: emissionsRating,
   ghg_emissions_indicator: emissionsIndicator,
   smog_indicator: smogIndicator,
-  smog_rating: smogRating,
+  smog_rating: smogRating
 }) =>
   <ChartsWrapper>
     <CircleWrapper>

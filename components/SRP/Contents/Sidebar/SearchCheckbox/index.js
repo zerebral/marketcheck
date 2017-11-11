@@ -88,14 +88,12 @@ class SearchCheckbox extends Component {
   }
 
   handleCheckClick (index, value) {
-
     const newList = this.state.modelList
-    
-    newList[index].checked = newList[index].checked ? false : true
+    newList[index].checked = true
 
     const stateModelList = []
 
-    newList.map(function (model, index){
+    newList.map(function (model, index) {
       if (model.checked) {
         stateModelList.push(model.item)
       }
@@ -113,15 +111,23 @@ class SearchCheckbox extends Component {
 
     const newList = this.filterList(this.state.modelList, e.target.value)
 
-    if (e.target.value !== "" || newList.length){
+    if (e.target.value !== '' || newList.length) {
       this.setState({
         modelList: newList
       }, () => {
+<<<<<<< HEAD
+=======
+        // console.log(this.state.modelList)
+>>>>>>> master
       })
     } else {
       this.setState({
         modelList: this.props.list
       }, () => {
+<<<<<<< HEAD
+=======
+        // console.log(this.state.modelList)
+>>>>>>> master
       })
     }
   }
@@ -139,12 +145,12 @@ class SearchCheckbox extends Component {
   filterList (array, argument) {
     argument = argument.toLowerCase()
 
-    return array.filter(function(obj) {
-      return Object.keys(obj).some(function(k) {
+    return array.filter(function (obj) {
+      return Object.keys(obj).some(function (k) {
         if (k !== 'count') {
-          return obj[k].toLowerCase().indexOf(argument) !== -1;
+          return obj[k].toLowerCase().indexOf(argument) !== -1
         }
-     })
+      })
     })
   }
 
@@ -152,18 +158,6 @@ class SearchCheckbox extends Component {
     this.setState({
       modelList: props.list,
     })
-
-    if (this.props.resetState) {
-      const newList = this.state.modelList
-
-      newList.map(function (model, index){
-        model.checked = false
-      })
-
-      this.setState({
-        modelList: newList
-      })
-    }
   }
 
   render () {
@@ -179,6 +173,7 @@ class SearchCheckbox extends Component {
             </FlexCol>
           </StyledFlexRow>
         </SearchBox>
+<<<<<<< HEAD
         {
         this.state.modelList.length ?
           this.state.modelList.map(function (model, index) {
@@ -202,6 +197,27 @@ class SearchCheckbox extends Component {
         {this.state.modelList.length > this.state.listLimit ?
             <MoreBtn onClick={this.updateListLimit.bind(this)}>More</MoreBtn> :
             false
+=======
+        {this.state.modelList.map(function (model, index) {
+          if (index < this.state.listLimit) {
+            return (
+              <StyledFlexRow key={index}>
+                <StyledFlexCol>
+                  <CheckBox className={model.checked ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, model.item)} />
+                </StyledFlexCol>
+                <FlexCol>
+                  <Label onClick={() => this.handleCheckClick.bind(this)(index, model.item)}>{model.item}</Label>
+                </FlexCol>
+              </StyledFlexRow>
+            )
+          } else {
+            return null
+          }
+        }.bind(this))}
+        {this.state.modelList.length > this.state.listLimit
+            ? <MoreBtn onClick={this.updateListLimit.bind(this)}>More</MoreBtn>
+            : null
+>>>>>>> master
         }
       </Collapsible>
     )

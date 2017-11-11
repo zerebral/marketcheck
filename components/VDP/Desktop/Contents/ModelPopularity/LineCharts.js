@@ -8,8 +8,8 @@ const ChartsWrapper = styled.div`
 export default (props) =>
   <ChartsWrapper>
 
-    {props.modelPopularity.map( (item, key ) => {
-      return <SingleChart value={item.left} remaining={item.right} we={item.text} key={key}/>
+    {props.modelPopularity.map((item, key) => {
+      return <SingleChart value={item.left} remaining={item.right} we={item.text} key={key} />
     })}
-    
+
   </ChartsWrapper>

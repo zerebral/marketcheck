@@ -10,10 +10,10 @@ const Wrapper = styled.div`
 
 export default ({ dom, localAverage, nationalAverage, vinHistory}) =>
   <Section title='Time on Market' summary={`Listed for sale for ${dom}`}>
- 
+
     <Wrapper>
-      <CircleGraphs dom={dom} localAverage={localAverage.toFixed(0)} nationalAverage={nationalAverage.toFixed(0)}/>
+      <CircleGraphs dom={dom} localAverage={localAverage.toFixed(0)} nationalAverage={nationalAverage.toFixed(0)} />
       <Summary vinHistory={vinHistory} />
     </Wrapper>
-  
+
   </Section>

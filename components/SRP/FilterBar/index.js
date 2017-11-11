@@ -1,5 +1,4 @@
 import { OutContainer, FlexRow, FlexCol } from '~/layout'
-import { currency } from '%/format'
 import { mediaMax } from '%/styles/mixins'
 import Wrapper from './Wrapper'
 import FilterBy from './FilterBy'

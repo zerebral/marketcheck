@@ -3,15 +3,15 @@ import styled from 'styled-components'
 
 import Feature from './Feature.js'
 
-import {
-  Air,
-  Bluetooth,
-  Brake,
-  Cam,
-  Geo,
-  Keyless,
-  Wheels
-} from './Icons'
+// import {
+//   Air,
+//   Bluetooth,
+//   Brake,
+//   Cam,
+//   Geo,
+//   Keyless,
+//   Wheels
+// } from './Icons'
 
 const AtAGlance = styled.p`
   opacity: 0.54;
@@ -27,7 +27,7 @@ export default ({ features, scatterSimilar }) =>
     <AtAGlance>{scatterSimilar.length} Similarly Equiped Carts Curently Available</AtAGlance>
     <Features>
       {features && features.slice(0, 5).map((feature) => {
-        return <Feature /*icon={}*/ name={feature} />
+        return <Feature /* icon={} */ name={feature} />
       })}
       {/* <Feature icon={Bluetooth} name='Bluetooth' />
       <Feature icon={Cam} name='Rear Cam' />
