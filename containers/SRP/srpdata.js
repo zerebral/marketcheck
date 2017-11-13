@@ -3,20 +3,20 @@ import FetchingData from '%/factory/fetchingData'
 var srpData = (params = {}) => {
 	return {
 		filters: {
-			car_type: params.carType ? params.carType : 'used',
+			type: params.carType ? params.carType : 'used',
 			radius: params.distance ? params.distance : 40,
-			price_range: (params.price ? params.price[0] : 4000) + "-" + (params.price ? params.price[1] : 50000),
-			miles_rage: (params.milesRange ? params.milesRange[0] : 4000) + "-" + (params.milesRange ? params.milesRange[1] : 50000),
+			price_range: (params.price ? params.price.min : 4000) + "-" + (params.price ? params.price.max : 50000),
+			miles_rage: (params.milesRange ? params.milesRange.min : 4000) + "-" + (params.milesRange ? params.milesRange.max : 50000),
 			deal: params.dealRating ? params.dealRating : '',
 			maker: params.selectedMake ? params.selectedMake : 'Ford',
 			model: params.modelList ? params.modelList : params.selectedModel ? params.selectedModel : 'Any',
-			year: parseInt(params.year ? params.year : 2011),
+			year: parseInt(params.year ? params.year : 2008),
 			seller_type: params.sellerType ? params.sellerType : 'dealer',
 			color: params.color ? params.color : '',
 			transmission: params.transmission ? params.transmission : 'manual',
 			body_type: params.bodyType ? params.bodyType : 'Sedan',
 			trim: params.trim ? params.trim : '',
-			dirvetrain: params.dirvetrain ? params.dirvetrain : '',
+			drivetrain: params.dirvetrain ? params.dirvetrain : '',
 			cylinders: params.cylinders ? params.cylinders : 4,
 			fuel_type: params.fuelType ? params.fuelType : '',
 			features: [],
@@ -33,7 +33,7 @@ var srpData = (params = {}) => {
 			latitude: params.latitude ? params.latitude : '',
 			longitude: params.longitude ? params.longitude : ''
 		},
-		modelsList: (params.models || []).length === 0 ? params.models : [],
+		modelsList: params.models ? params.models : [],
 	}
 }
 

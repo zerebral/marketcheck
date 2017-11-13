@@ -39,6 +39,7 @@ const list = [
 ]
 
 export default (props) => {
+  console.log(props)
   return (
     <Wrapper>
       <OutContainer>

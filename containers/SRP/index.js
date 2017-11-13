@@ -79,7 +79,6 @@ class SrpContainer extends React.Component {
 
   updateModelList (value) {
     this.sessionSearch.modelList = value
-
     this.refreshState()
   }
 
@@ -195,10 +194,19 @@ class SrpContainer extends React.Component {
         })
       )
     )
-    .then(res => {      
+    .then(res => {
       if (res.status === 200 && res.data !== undefined) {
         this.setState({
           responseFactory: res.data,
+          readyFirstFetch: true,
+          readyRefreshFetch: true,
+          resetState: false
+        },
+        () => {
+        })
+      } else {
+        this.setState({
+          responseFactory: {},
           readyFirstFetch: true,
           readyRefreshFetch: true,
           resetState: false
@@ -212,7 +220,6 @@ class SrpContainer extends React.Component {
   }
 
   refreshState() {
-
     this.setState({
       readyRefreshFetch: false,
       sessionSearch: srpData(this.sessionSearch)
