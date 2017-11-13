@@ -1,18 +1,17 @@
 import FetchingData from '%/factory/fetchingData'
 
 var srpData = (params = {}) => {
+	console.log(params)
 	return {
 		filters: {
 			type: params.carType ? params.carType : 'used',
 			radius: params.distance ? params.distance : 40,
-			ref_price: params.price ? params.price[0] : 4000,
-			ref_price_dt: params.price ? params.price[1] : 50000,
-			ref_miles: params.milesRange ? params.milesRange[0] : 4000,
-			ref_miles_dt: params.milesRange ? params.milesRange[1] : 50000,
+			price_range: (params.price ? params.price[0] : 4000) + "-" + (params.price ? params.price[1] : 50000),
+			miles_rage: (params.milesRange ? params.milesRange[0] : 4000) + "-" + (params.milesRange ? params.milesRange[1] : 50000),
 			deal: params.dealRating ? params.dealRating : '',
 			maker: params.selectedMake ? params.selectedMake : 'Ford',
 			model: params.modelList ? params.modelList : params.selectedModel ? params.selectedModel : 'Any',
-			year: parseInt(params.year ? params.year : 2010),
+			year: parseInt(params.year ? params.year : 2011),
 			sellerType: params.sellerType ? params.sellerType : 'dealer',
 			color: params.color ? params.color : '',
 			transmission: params.transmission ? params.transmission : 'manual',
