@@ -115,19 +115,11 @@ class SearchCheckbox extends Component {
       this.setState({
         modelList: newList
       }, () => {
-<<<<<<< HEAD
-=======
-        // console.log(this.state.modelList)
->>>>>>> master
       })
     } else {
       this.setState({
         modelList: this.props.list
       }, () => {
-<<<<<<< HEAD
-=======
-        // console.log(this.state.modelList)
->>>>>>> master
       })
     }
   }
@@ -173,7 +165,6 @@ class SearchCheckbox extends Component {
             </FlexCol>
           </StyledFlexRow>
         </SearchBox>
-<<<<<<< HEAD
         {
         this.state.modelList.length ?
           this.state.modelList.map(function (model, index) {
@@ -197,27 +188,6 @@ class SearchCheckbox extends Component {
         {this.state.modelList.length > this.state.listLimit ?
             <MoreBtn onClick={this.updateListLimit.bind(this)}>More</MoreBtn> :
             false
-=======
-        {this.state.modelList.map(function (model, index) {
-          if (index < this.state.listLimit) {
-            return (
-              <StyledFlexRow key={index}>
-                <StyledFlexCol>
-                  <CheckBox className={model.checked ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, model.item)} />
-                </StyledFlexCol>
-                <FlexCol>
-                  <Label onClick={() => this.handleCheckClick.bind(this)(index, model.item)}>{model.item}</Label>
-                </FlexCol>
-              </StyledFlexRow>
-            )
-          } else {
-            return null
-          }
-        }.bind(this))}
-        {this.state.modelList.length > this.state.listLimit
-            ? <MoreBtn onClick={this.updateListLimit.bind(this)}>More</MoreBtn>
-            : null
->>>>>>> master
         }
       </Collapsible>
     )
