@@ -27,7 +27,6 @@ import {
 } from './Icons'
 
 export default (props) => {
-  console.log(props.data)
   return (
     <Wrapper>
       <Car>

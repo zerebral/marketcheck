@@ -11,7 +11,7 @@ var srpData = (params = {}) => {
 			maker: params.selectedMake ? params.selectedMake : 'Ford',
 			model: params.modelList ? params.modelList : params.selectedModel ? params.selectedModel : 'Any',
 			year: parseInt(params.year ? params.year : 2011),
-			sellerType: params.sellerType ? params.sellerType : 'dealer',
+			seller_type: params.sellerType ? params.sellerType : 'dealer',
 			color: params.color ? params.color : '',
 			transmission: params.transmission ? params.transmission : 'manual',
 			body_type: params.bodyType ? params.bodyType : 'Sedan',
