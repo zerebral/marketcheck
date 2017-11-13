@@ -22,19 +22,37 @@ const FlexColRight = styled(FlexCol)`
   `}
 `
 
-export default () =>
-  <Wrapper>
-    <OutContainer>
-      <FlexRow>
-        <FlexColLeft>
-          <FilterBy name='Filter by' />
-          <ResetBtn name='Reset' link='#' />
-        </FlexColLeft>
-        <FlexColRight>
-          <Averages label='Avg. Miles' miles='68606 mi' />
-          <Averages label='Avg. Price' miles='$17013' />
-          <SortBy label='Sort By' selected='Nearest First' items={['Nearest First', 'Nearest Second', 'Nearest Third']} />
-        </FlexColRight>
-      </FlexRow>
-    </OutContainer>
-  </Wrapper>
+const list = [
+  {
+    label: 'Nearest First',
+    value: 'desc'
+  },
+  {
+    label: 'Nearest Second',
+    value: 'asc'
+  },
+  {
+    label: 'Nearest Third',
+    value: 'desc'
+  }  
+]
+
+export default (props) => {
+  return (
+    <Wrapper>
+      <OutContainer>
+        <FlexRow>
+          <FlexColLeft>
+            <FilterBy name='Filter by' />
+            <ResetBtn name='Reset' resetBtn={props.resetButton} />
+          </FlexColLeft>
+          <FlexColRight>
+            <Averages label='Avg. Miles' miles={props.responseFactory.stats.miles.mean + ' mi'} />
+            <Averages label='Avg. Price' miles={currency(props.responseFactory.stats.price.mean)} />
+            <SortBy label='Sort By' selected='0' items={list} updateSuperState={props.updateSortOrder} />
+          </FlexColRight>
+        </FlexRow>
+      </OutContainer>
+    </Wrapper>
+  )
+}

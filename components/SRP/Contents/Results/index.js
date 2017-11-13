@@ -32,6 +32,13 @@ const StyledFlexCol = styled(FlexCol)`
   `}
 `
 
+const NoResults = styled.div`
+  margin-bottom: 1em;
+  ${mediaMax.phone`
+    display: none;
+  `}
+`
+
 class Results extends Component {
   constructor (props) {
     super(props)
@@ -78,23 +85,20 @@ class Results extends Component {
     return listFilters
   }
 
-  componentWillReceiveProps () {
-    console.log(this.props.readyRefreshFetch)
-  }
-
   render () {
-    // console.log(this.state.ready && this.props.readyRefreshFetch)
     return (
       <StyledFlexCol>
         <Wrapper>
           <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
           <Filters list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
-          {this.props.readyRefreshFetch
-            ? this.props.responseFactory.listings.map((item, index) =>
+          {this.props.responseFactory.num_found ?
+            this.props.readyRefreshFetch ?
+              this.props.responseFactory.listings.map((item, index) =>
                 (<AutoCard key={index} data={item} />)
-            )
-            : <Spinner style={{marginTop: '5vh'}} />
+              ) :
+              <Spinner style={{marginTop: '5vh'}} /> :
+            <NoResults>There are no results for the search</NoResults>
           }
           <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} />
           <Recommended />

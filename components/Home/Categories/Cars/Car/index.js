@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { rgba } from 'polished'
 import { colors } from '%/styles'
 import { mediaMin } from '%/styles/mixins'
 import { rem } from 'polished'
@@ -12,7 +13,12 @@ const Car = styled.a`
   display: block;
   color: ${colors.black};
   padding: ${rem(20)} 0;
-  ${ResponsiveCar}
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+  ${ResponsiveCar});
 `
 
 const CarPic = styled.img`
