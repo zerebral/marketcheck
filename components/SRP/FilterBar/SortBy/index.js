@@ -75,10 +75,11 @@ class Dropdown extends Component {
   constructor (props) {
     super(props)
 
-    this.label = this.props.label
-    this.items = this.props.items
-
-    this.state = { open: false, selected: this.props.items[0], selectedValue: 0 }
+    this.state = {
+      open: false,
+      selected: this.props.items[0].label,
+      selectedValue: this.props.items[0].value
+    }
   }
 
   handleOpenClick () {
@@ -95,10 +96,10 @@ class Dropdown extends Component {
     }
   }
 
-  handleSelectClick (value, index) {
+  handleSelectClick (item, index) {
     this.setState({
-      selected: value,
-      selectedValue: index,
+      selected: item.label,
+      selectedValue: item.value,
       open: false
     })
 
@@ -108,15 +109,15 @@ class Dropdown extends Component {
   render () {
     return (
       <SortBy>
-        <Label>{this.label}</Label>
+        <Label>{this.props.label}</Label>
         <Selected>{this.state.selected}</Selected>
         <Btn onClick={this.handleOpenClick.bind(this)}>
           <ArrowStyled />
         </Btn>
 
         <DropdownContent visible={this.state.open}>
-          {this.items.map(function (item, index) {
-            return <DropdownItem href='#' key={index} value={item} onClick={() => this.handleSelectClick.bind(this)(item, index)}>{item}</DropdownItem>
+          {this.props.items.map(function (item, index) {
+            return <DropdownItem href='#' key={index} value={item.value} onClick={() => this.handleSelectClick.bind(this)(item, index)}>{item.label}</DropdownItem>
           }.bind(this))}
         </DropdownContent>
       </SortBy>

@@ -219,7 +219,7 @@ class SrpContainer extends React.Component {
     }, () => {
     })
 
-    this.getAPIData()
+    this.getCarsData()
   }
 
   componentDidMount () {

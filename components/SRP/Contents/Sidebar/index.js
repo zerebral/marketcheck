@@ -149,8 +149,8 @@ const SidebarFlexCol = styled(FlexCol)`
 `
 
 export default (props) => {
-  return
-  (<SidebarFlexCol>
+  return (
+  <SidebarFlexCol>
     <Wrapper>
       <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
@@ -172,5 +172,6 @@ export default (props) => {
       <SwitchBtns {...props} label='Features' />
       <SimpleCheckbox {...props} label='Listed' list={list} />
     </Wrapper>
-  </SidebarFlexCol>)
+  </SidebarFlexCol>
+  )
 }
