@@ -26,39 +26,43 @@ import {
   Share
 } from './Icons'
 
-export default (props) =>
-  <Wrapper>
-    <Car>
-      <NewBadge>New</NewBadge>
+export default (props) => {
+  console.log(props.data)
+  return (
+    <Wrapper>
+      <Car>
+        <NewBadge>New</NewBadge>
 
-      <Title>
-        <Name>{cutString(props.data.build.year + " " + props.data.build.make + " " + props.data.build.model + " " + props.data.exterior_color, 33)}</Name>
-        <Certified />
-      </Title>
+        <Title>
+          <Name href={'https://www.marketcheck.com/vdp/'+props.data.vin}>{cutString(props.data.build.year + " " + props.data.build.make + " " + props.data.build.model + " " + props.data.exterior_color, 33)}</Name>
+          <Certified />
+        </Title>
 
-      <Details>{props.data.build.transmission + " " + props.data.miles + "mi., " + props.data.build.city_miles.substring(0,2) + "/" + props.data.build.highway_miles.substring(0,2) + " MPG*"}</Details>
+        <Details>{props.data.build.transmission + " " + props.data.miles + "mi., " + props.data.build.city_miles.substring(0,2) + "/" + props.data.build.highway_miles.substring(0,2) + " MPG*"}</Details>
 
-      <PriceRow>
-        <Price>{currency(props.data.price)}</Price>
-        <Deal>Great Deal!</Deal>
-        <Like />
-        <Share />
-      </PriceRow>
+        <PriceRow>
+          <Price>{currency(props.data.price)}</Price>
+          <Deal>Great Deal!</Deal>
+          <Like />
+          <Share />
+        </PriceRow>
 
-      <Average>{currency(props.data.ref_price)} less than market average</Average>
+        <Average>{currency(props.data.ref_price)} less than market average</Average>
 
-      {false ? (
-        <Features>
-          <Bluetooth />
-          <Cam />
-          <Wheels />
-          <Geo />
-          <Air />
-          <Brake />
-          <Keyless />
-        </Features>
-      ) : 
-        null
-      }
-    </Car>
-  </Wrapper>
+        {false ? (
+          <Features>
+            <Bluetooth />
+            <Cam />
+            <Wheels />
+            <Geo />
+            <Air />
+            <Brake />
+            <Keyless />
+          </Features>
+        ) : 
+          null
+        }
+      </Car>
+    </Wrapper>
+  )
+}
