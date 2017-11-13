@@ -47,6 +47,7 @@ const DropdownContent = styled.div`
 
 const DropdownItem = styled.a`
   color: black;
+  cursor: pointer;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -94,13 +95,14 @@ class Dropdown extends Component {
     }
   }
 
-  handleSelectClick (item, index) {
+  handleSelectClick (value, index) {
     this.setState({
-      selected: item,
+      selected: value,
       selectedValue: index,
       open: false
-    }, function () {
     })
+
+    this.props.updateSuperState(value)
   }
 
   render () {

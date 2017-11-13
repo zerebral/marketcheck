@@ -24,7 +24,19 @@ class SrpContainer extends React.Component {
   }
 
   saveSearch () {
-    window.localStorage.setItem('searchSession', JSON.stringify(this.state))
+    localStorage.setItem("searchSession", JSON.stringify(this.state))
+  }
+
+  resetButton () {
+    this.sessionSearch = JSON.parse(this.firstSession) ? JSON.parse(this.firstSession) : defaultSearch
+
+    this.setState({
+      sessionSearch: srpData(this.sessionSearch),
+      resetState: true
+    }, () => {
+    })
+
+    this.refreshState()
   }
 
   updateCarType (value) {
@@ -110,7 +122,71 @@ class SrpContainer extends React.Component {
     this.refreshState()
   }
 
-  getAPIData () {
+  updateTrim (value) {
+    this.sessionSearch.trim = value
+
+    this.refreshState()
+  }
+
+  updateDrivetrain (value) {
+    this.sessionSearch.drivetrain = value
+
+    this.refreshState()
+  }
+
+  updateCylinders (value) {
+    this.sessionSearch.cylinders = value
+
+    this.refreshState()
+  }
+
+  updateFuelType (value) {
+    this.sessionSearch.fuelType = value
+
+    this.refreshState()
+  }
+
+  updateDayListed (value) {
+    let date = new Date()
+
+    this.sessionSearch.dayListed = date.setDate(date.getDate() - value)
+
+    this.refreshState()
+  }
+
+  updateSortOrder (value) {
+    console.log(value)
+    this.sessionSearch.sortOrder = value
+
+    this.refreshState()
+  }
+
+  removeMake() {
+    this.sessionSearch.selectedMake = ' '
+
+    this.refreshState()
+  }
+
+  removeType() {
+    this.sessionSearch.carType = ' '
+
+    this.refreshState()
+  }
+
+  removeModel() {
+    this.sessionSearch.modelList = ' '
+
+    this.refreshState()
+  }
+
+  removeTransmission() {
+    this.sessionSearch.transmission = ' '
+
+    this.refreshState()
+  }
+
+  getCarsData () {
+    let that = this
     let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
 
     fetchResult = fetchResult.then(response =>
@@ -130,7 +206,6 @@ class SrpContainer extends React.Component {
           readyRefreshFetch: true
         },
         () => {
-          // console.log(this.state)
         })
       }
     })
@@ -142,7 +217,6 @@ class SrpContainer extends React.Component {
     this.setState({
       sessionSearch: srpData(this.sessionSearch)
     }, () => {
-       // console.log("Refresh State: ", this.state)
     })
 
     this.getAPIData()
@@ -171,16 +245,20 @@ class SrpContainer extends React.Component {
         updateSellerType: this.updateSellerType.bind(this),
         updateTransmission: this.updateTransmission.bind(this),
         updateBodyType: this.updateBodyType.bind(this),
+        updateTrim: this.updateTrim.bind(this),
+        updateDrivetrain: this.updateDrivetrain.bind(this),
+        updateCylinders: this.updateCylinders.bind(this),
+        updateFuelType: this.updateFuelType.bind(this),
+        updateDayListed: this.updateDayListed.bind(this),
+        updateSortOrder: this.updateSortOrder.bind(this),
         updatePagination: this.updatePagination.bind(this),
         readyRefreshFetch: this.state.readyRefreshFetch,
         readyState: true
       },
       () => {
-        // console.log(this.state)
+        this.getCarsData()
       }
     )
-
-    this.getAPIData()
   }
 
   render () {

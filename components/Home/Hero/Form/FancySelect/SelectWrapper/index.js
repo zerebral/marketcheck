@@ -11,7 +11,7 @@ const SelectWrapper = styled.div`
   font-size: ${rem(12)};
   line-height: ${19 / 16};
   font-weight: 700;
-  display: none;
+  ${props => props.showForMobile ? '' : 'display: none;'}
   ${mediaMin.laptop`
     display: block;
     flex-grow: 2;
