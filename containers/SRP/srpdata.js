@@ -3,7 +3,7 @@ import FetchingData from '%/factory/fetchingData'
 var srpData = (params = {}) => {
 	return {
 		filters: {
-			type: params.carType ? params.carType : 'used',
+			car_type: params.carType ? params.carType : 'used',
 			radius: params.distance ? params.distance : 40,
 			price_range: (params.price ? params.price[0] : 4000) + "-" + (params.price ? params.price[1] : 50000),
 			miles_rage: (params.milesRange ? params.milesRange[0] : 4000) + "-" + (params.milesRange ? params.milesRange[1] : 50000),
