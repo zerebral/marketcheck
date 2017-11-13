@@ -1,3 +1,4 @@
+import React, {Component} from 'react'
 import SelectWrapper from './SelectWrapper'
 import Select from './Select'
 import Caret from './Caret'

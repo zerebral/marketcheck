@@ -70,15 +70,13 @@ class Results extends Component {
     }
   }
 
-  deleteFilter (index, remove) {
+  deleteFilter (index) {
     this.newList = this.props.list
     delete this.newList[index]
 
     this.setState({
       list: this.newList
     })
-
-    remove()
   }
 
   render () {
@@ -89,7 +87,7 @@ class Results extends Component {
             <Filter key={index}>
               <Label>{item.label}</Label>
               <Value>{item.filter}</Value>
-              <XBtn onClick={() => this.deleteFilter.bind(this)(index, item.remove)}>
+              <XBtn onClick={() => this.deleteFilter.bind(this)(index)}>
                 <SvgXIcon />
               </XBtn>
             </Filter>

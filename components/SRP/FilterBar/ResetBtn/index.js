@@ -3,8 +3,7 @@ import { mediaMax } from '%/styles/mixins'
 import { em } from 'polished'
 import { colors } from '%/styles'
 
-const ResetBtn = styled.button`
-  cursor: pointer;
+const ResetBtn = styled.div`
   display: inline-block;
 `
 
@@ -25,8 +24,8 @@ const Text = styled.a`
 
 export default ({
   name,
-  resetBtn
+  link
 }) =>
-  <ResetBtn onClick={resetBtn}>
-    <Text>{ name }</Text>
+  <ResetBtn>
+    <Text href={link}>{ name }</Text>
   </ResetBtn>

@@ -27,21 +27,21 @@ export default ({
         <H6>{rightText}</H6>
       </Column>
     </Flex>
-    {resaleValue[0] && 
+    {resaleValue[0] &&
     <SimilarLabel
       dotColor='blue'
       modelName={resaleValue[0].name}
       value={resaleValue[0][timeValue]}
     />
     }
-    {resaleValue[1] && 
+    {resaleValue[1] &&
     <SimilarLabel
       dotColor='orange'
       modelName={resaleValue[1].name}
       value={resaleValue[1][timeValue]}
     />
     }
-    {resaleValue[2] && 
+    {resaleValue[2] &&
     <SimilarLabel
       dotColor='green'
       modelName={resaleValue[2].name}

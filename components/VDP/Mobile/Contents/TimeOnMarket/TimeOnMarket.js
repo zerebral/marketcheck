@@ -12,7 +12,7 @@ export default ({ dom, localAverage, nationalAverage, vinHistory }) =>
   <Accordion title='Time on Market' blue >
     <FillBody first >
       <P>Listed for sale for {dom} days</P>
-      <CircleGraphs dom={dom} localAverage={localAverage.toFixed(0)} nationalAverage={nationalAverage.toFixed(0)}/>
+      <CircleGraphs dom={dom} localAverage={localAverage.toFixed(0)} nationalAverage={nationalAverage.toFixed(0)} />
     </FillBody>
     <FillBody customBackground='transparent'>
       <Summary vinHistory={vinHistory} />

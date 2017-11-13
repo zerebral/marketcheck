@@ -21,7 +21,7 @@ export default ({ trends, miles, averageMarketMiles, ...props }) =>
   <Section title='Averages Over Time' summary={`Based on ${trends.length} Similar Vehicles Nearby`} className={props.className}>
     <Right>
       <H2>{number(miles)} mi</H2>
-      <P>{miles > averageMarketMiles ? number(miles - averageMarketMiles) + " miles more" : number(averageMarketMiles - miles) + " miles less"} than market average</P>
+      <P>{miles > averageMarketMiles ? number(miles - averageMarketMiles) + ' miles more' : number(averageMarketMiles - miles) + ' miles less'} than market average</P>
     </Right>
-    <LineChart dataTrend={trends}/>
+    <LineChart dataTrend={trends} />
   </Section>

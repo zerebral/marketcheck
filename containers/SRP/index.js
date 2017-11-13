@@ -1,3 +1,4 @@
+import React from 'react'
 import SRP from '~/SRP'
 import Spinner from 'react-loading-animation'
 import Factory from '%/factory/fetchingData'
@@ -7,12 +8,10 @@ import defaultSearch from './defaultsearch'
 const searchFactory = new Factory()
 
 class SrpContainer extends React.Component {
-
   constructor (props) {
     super(props)
 
-    this.firstSession = {}
-    this.sessionSearch = {} 
+    this.sessionSearch = {}
     this.savedSearch = {}
 
     this.state = {
@@ -20,8 +19,7 @@ class SrpContainer extends React.Component {
       responseFactory: {},
       readyFirstFetch: false,
       readyRefreshFetch: false,
-      readyState: false,
-      resetState: false
+      readyState: false
     }
   }
 
@@ -114,6 +112,9 @@ class SrpContainer extends React.Component {
   }
 
   updatePagination (value) {
+    this.setState({
+      readyRefreshFetch: false
+    })
 
     this.sessionSearch.start = value.start
     this.sessionSearch.rows = value.rows
@@ -196,13 +197,13 @@ class SrpContainer extends React.Component {
         })
       )
     )
-    .then(res => {      
+    .then(res => {
       if (res.status === 200 && res.data !== undefined) {
+        // console.log(res.status, res.data)
         this.setState({
           responseFactory: res.data,
           readyFirstFetch: true,
-          readyRefreshFetch: true,
-          resetState: false
+          readyRefreshFetch: true
         },
         () => {
         })
@@ -212,31 +213,28 @@ class SrpContainer extends React.Component {
     return fetchResult
   }
 
-  refreshState() {
-
+  refreshState () {
     this.setState({
-      readyRefreshFetch: false,
       sessionSearch: srpData(this.sessionSearch)
     }, () => {
     })
 
-    this.getCarsData()
+    this.getAPIData()
   }
 
   componentDidMount () {
-    this.firstSession = sessionStorage.getItem("searchSession")
+    const searchParams = window.sessionStorage.getItem('searchSession')
 
-    this.sessionSearch = JSON.parse(this.firstSession) ? JSON.parse(this.firstSession) : defaultSearch
+    this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : defaultSearch
 
-    this.savedSearch = JSON.parse(localStorage.getItem("searchSession"))
+    this.savedSearch = JSON.parse(window.localStorage.getItem('searchSession'))
 
     this.setState(
-      this.savedSearch ?
-      this.savedSearch :
-      {
+      this.savedSearch
+      ? this.savedSearch
+      : {
         sessionSearch: srpData(this.sessionSearch),
         saveSearch: this.saveSearch.bind(this),
-        resetButton: this.resetButton.bind(this),
         updateCarType: this.updateCarType.bind(this),
         updateDistance: this.updateDistance.bind(this),
         updatePrice: this.updatePrice.bind(this),
@@ -245,7 +243,6 @@ class SrpContainer extends React.Component {
         updateModelList: this.updateModelList.bind(this),
         updateYear: this.updateYear.bind(this),
         updateSellerType: this.updateSellerType.bind(this),
-        updateColor: this.updateColor.bind(this),
         updateTransmission: this.updateTransmission.bind(this),
         updateBodyType: this.updateBodyType.bind(this),
         updateTrim: this.updateTrim.bind(this),
@@ -255,13 +252,8 @@ class SrpContainer extends React.Component {
         updateDayListed: this.updateDayListed.bind(this),
         updateSortOrder: this.updateSortOrder.bind(this),
         updatePagination: this.updatePagination.bind(this),
-        removeMake: this.removeMake.bind(this),
-        removeType: this.removeType.bind(this),
-        removeModel: this.removeModel.bind(this),
-        removeTransmission: this.removeTransmission.bind(this),
         readyRefreshFetch: this.state.readyRefreshFetch,
-        readyState: true,
-        resetState: false
+        readyState: true
       },
       () => {
         this.getCarsData()
@@ -271,11 +263,10 @@ class SrpContainer extends React.Component {
 
   render () {
     const {readyState, readyFirstFetch} = this.state
-    return  readyState && readyFirstFetch ?
-    (<SRP {...this.state} />) : 
-    (<Spinner style={{marginTop: '35vh'}} />)
+    return readyState && readyFirstFetch
+    ? (<SRP {...this.state} />)
+    : (<Spinner style={{marginTop: '35vh'}} />)
   }
-
 }
 
 export default SrpContainer

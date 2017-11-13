@@ -13,6 +13,6 @@ export default (props) =>
     <Summary>
       Similar cars currently for sale
     </Summary>
-    <Averages {...props}/>
+    <Averages {...props} />
     <Similar {...props} />
   </Accordion>

@@ -24,29 +24,29 @@ export default (props) =>
       </TCol>
     </THeader>
 
-    {props.data &&  Array.isArray(props.data) &&
+    {props.data && Array.isArray(props.data) &&
 
     props.data.map((row, key) => {
-     return (
-      <TRow key={key}>
-        {Object.keys(row).map((keyName, keyIndex) => {
-         return (
-          <TCol key={row[keyName]}>
-            <Text>{row[keyName]}</Text>
-          </TCol>)
-        })}
-      </TRow>)
-    })} 
+      return (
+        <TRow key={key}>
+          {Object.keys(row).map((keyName, keyIndex) => {
+            return (
+              <TCol key={row[keyName]}>
+                <Text>{row[keyName]}</Text>
+              </TCol>)
+          })}
+        </TRow>)
+    })}
 
     {props.data && props.currentCar &&
 
       <TRow>
         {Object.keys(props.data).map((keyName, keyIndex) => {
-         return (
-          <TCol key={props.data[keyName]}>
-            <Text>{props.data[keyName]}</Text>
-          </TCol>)
+          return (
+            <TCol key={props.data[keyName]}>
+              <Text>{props.data[keyName]}</Text>
+            </TCol>)
         })}
       </TRow>
-    } 
+    }
   </Table>

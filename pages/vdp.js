@@ -6,24 +6,23 @@ import Loading from 'react-loading-animation'
 import autobind from 'class-autobind'
 
 class Vdp extends React.Component {
+  constructor () {
+    super()
 
-  constructor() {
-    super();
-
-    this.listingFetch = this.listingFetch.bind(this);
-    this.fetchingData = this.fetchingData.bind(this);
-    this.fetchScatterData = this.fetchScatterData.bind(this);
-    this.findIdByVIN = this.findIdByVIN.bind(this);
-    this.environmentalFriendliness = this.environmentalFriendliness.bind(this);
-    this.summaryReport = this.summaryReport.bind(this);
-    this.safetyRatings = this.safetyRatings.bind(this);
-    this.dealerReviews = this.dealerReviews.bind(this);
-    this.resaleValueFetch = this.resaleValueFetch.bind(this);
-    this.fuelEfficiencyFetch = this.fuelEfficiencyFetch.bind(this);
-    this.getDOMAverage = this.getDOMAverage.bind(this);
-    this.historyFetch = this.historyFetch.bind(this);
-    this.modelPopularityFetch = this.modelPopularityFetch.bind(this);
-    this.averagesFetch = this.averagesFetch.bind(this);
+    this.listingFetch = this.listingFetch.bind(this)
+    this.fetchingData = this.fetchingData.bind(this)
+    this.fetchScatterData = this.fetchScatterData.bind(this)
+    this.findIdByVIN = this.findIdByVIN.bind(this)
+    this.environmentalFriendliness = this.environmentalFriendliness.bind(this)
+    this.summaryReport = this.summaryReport.bind(this)
+    this.safetyRatings = this.safetyRatings.bind(this)
+    this.dealerReviews = this.dealerReviews.bind(this)
+    this.resaleValueFetch = this.resaleValueFetch.bind(this)
+    this.fuelEfficiencyFetch = this.fuelEfficiencyFetch.bind(this)
+    this.getDOMAverage = this.getDOMAverage.bind(this)
+    this.historyFetch = this.historyFetch.bind(this)
+    this.modelPopularityFetch = this.modelPopularityFetch.bind(this)
+    this.averagesFetch = this.averagesFetch.bind(this)
 
     this.state = {
       // initial VIN state
@@ -47,21 +46,21 @@ class Vdp extends React.Component {
       vinHistory: [],
       modelPopularity: [],
       averages: {},
-      similarModelsGraph: [],
+      similarModelsGraph: []
     }
     autobind(this)
   }
 
-  componentDidMount() {
-    this.findIdByVIN(this.state.vin);
-    this.summaryReport(this.state.vin);
-    this.fetchScatterData(this.state.vin);
-    this.environmentalFriendliness(this.state.vin);
-    this.safetyRatings(this.state.vin);
-    this.resaleValueFetch(this.state.vin);
-    this.fuelEfficiencyFetch(this.state.vin);
-    this.historyFetch(this.state.vin);
-    this.averagesFetch(this.state.vin);
+  componentDidMount () {
+    this.findIdByVIN(this.state.vin)
+    this.summaryReport(this.state.vin)
+    this.fetchScatterData(this.state.vin)
+    this.environmentalFriendliness(this.state.vin)
+    this.safetyRatings(this.state.vin)
+    this.resaleValueFetch(this.state.vin)
+    this.fuelEfficiencyFetch(this.state.vin)
+    this.historyFetch(this.state.vin)
+    this.averagesFetch(this.state.vin)
   }
 
   findIdByVIN (vin) {
@@ -90,14 +89,14 @@ class Vdp extends React.Component {
       })
   }
 
-  averagesFetch(vin) {
+  averagesFetch (vin) {
     this.fetchingData(`https://${process.env.API_HOST}//v1/averages?vin=${vin}&api_key=${process.env.API_VAR}`)
-      .then( averages => {
+      .then(averages => {
         this.setState({ averages })
       })
   }
 
-  safetyRatings(vin) {
+  safetyRatings (vin) {
     this.fetchingData(`https://${process.env.API_HOST}/v1/safety?vin=${vin}&api_key=${process.env.API_VAR}`)
       .then(safetyRatings => {
         this.setState({ safetyRatings })
@@ -176,24 +175,24 @@ class Vdp extends React.Component {
 
   resaleValueFetch (vin) {
     this.fetchingData(`https://${process.env.API_HOST}/v1/depreciation?vin=${vin}&api_key=${process.env.API_VAR}`)
-    .then( resaleValue => {
-      //console.log(resaleValue);
-      this.setState({ resaleValue: resaleValue.similar_models });
-      const similarModels = resaleValue.similar_models;
-      let currentYear = new Date().getFullYear();
+    .then(resaleValue => {
+      // console.log(resaleValue);
+      this.setState({ resaleValue: resaleValue.similar_models })
+      const similarModels = resaleValue.similar_models
+      let currentYear = new Date().getFullYear()
       let dataArray = [
         { name: currentYear, key: 'current_value' },
         { name: currentYear + 1, key: 'one_year_from_now' },
         { name: currentYear + 2, key: 'two_year_from_now' },
         { name: currentYear + 5, key: 'five_year_from_now' }
-      ];
+      ]
 
       dataArray.forEach(function (dataElement) {
         similarModels.forEach(function (similarModel, index) {
-          dataElement['car' + (index + 1)] = similarModel[dataElement.key];
-        });
-      });
-      this.setState({ similarModelsGraph: dataArray})
+          dataElement['car' + (index + 1)] = similarModel[dataElement.key]
+        })
+      })
+      this.setState({similarModelsGraph: dataArray})
      // console.log(dataArray);
     })
   }
