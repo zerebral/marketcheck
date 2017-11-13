@@ -5,3 +5,11 @@ test:
     - npm run test-ci
   only:
     - master
+
+staging:
+  image: node:6
+  script:
+    - yarn install
+    - yarn deploy
+  only:
+    - development
