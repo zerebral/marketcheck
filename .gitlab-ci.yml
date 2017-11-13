@@ -11,6 +11,6 @@ staging:
   script:
     - npm install -g now
     - yarn install
-    - yarn deploy
+    - now --token="$NOW_TOKEN"
   only:
     - development
