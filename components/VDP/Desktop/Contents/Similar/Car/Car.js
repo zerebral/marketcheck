@@ -1,7 +1,6 @@
 import Seller from './Seller'
 import {
   Car,
-  Wrapper,
   NewBadge,
   Features,
   Name,
@@ -11,7 +10,8 @@ import {
   Price,
   Deal,
   Average,
-  PicWrapper
+  PicWrapper,
+  Info
 } from './Components.js'
 
 import {
@@ -45,8 +45,15 @@ export default ({
   highwayMiles,
   vdpUrl
 }) =>
-  <Wrapper>
-    <Car>
+  <Car>
+    <PicWrapper>
+      {picture
+            ? <img src={picture} />
+            : <Soon />
+        }
+    </PicWrapper>
+
+    <Info>
       <NewBadge>New</NewBadge>
 
       <Title>
@@ -75,23 +82,17 @@ export default ({
         <Keyless />
       </Features>
 
-      <PicWrapper>
-        {picture
-            ? <img src={picture} />
-            : <Soon />
-        }
-      </PicWrapper>
-    </Car>
-    {reviews && rating &&
-    <Seller
-      name={dealer.name}
-      city={dealer.city}
-      state={dealer.state}
-      distance={24}
-      rating={rating.overall_rating}
-      reviews={reviews.overall_reviews}
-      website={website}
-      vdpUrl={vdpUrl}
-    />
+    </Info>
+    { reviews && rating &&
+      <Seller
+        name={dealer.name}
+        city={dealer.city}
+        state={dealer.state}
+        distance={24}
+        rating={rating.overall_rating}
+        reviews={reviews.overall_reviews}
+        website={website}
+        vdpUrl={vdpUrl}
+      />
     }
-  </Wrapper>
+  </Car>
