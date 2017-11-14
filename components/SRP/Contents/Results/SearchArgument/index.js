@@ -88,7 +88,7 @@ export default ({
       <div>
         <SaveSearchTop>Save Search</SaveSearchTop>
         <Argument>{ argument }</Argument>
-        <SaveSearchBottom onClick={saveSearch}>Save Search</SaveSearchBottom>
+        { false ? <SaveSearchBottom onClick={saveSearch}>Save Search</SaveSearchBottom> : false}
       </div>
       <Location>
         {location}
