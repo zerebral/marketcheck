@@ -153,7 +153,9 @@ class SrpContainer extends React.Component {
   }
 
   updateSortOrder (value) {
-    this.sessionSearch.sortOrder = value
+    let order = value.split('|')
+    this.sessionSearch.sort_by = order[0]
+    this.sessionSearch.sort_order = order[1]
 
     this.refreshState()
   }

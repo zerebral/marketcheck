@@ -25,21 +25,56 @@ const FlexColRight = styled(FlexCol)`
 
 const list = [
   {
-    label: 'Nearest First',
-    value: 'desc'
+    label: 'Nearest first',
+    value: 'dist|asc'
   },
   {
-    label: 'Nearest Second',
-    value: 'asc'
+    label: 'Farthest first',
+    value: 'dist|desc'
   },
   {
-    label: 'Nearest Third',
-    value: 'desc'
-  }  
+    label: 'Lowest price first',
+    value: 'price|asc'
+  },
+  {
+    label: 'Highest price first',
+    value: 'price|desc'
+  },
+  {
+    label: 'Lowest mileage first',
+    value: 'miles|asc'
+  },
+  {
+    label: 'Highest mileage first',
+    value: 'miles|desc'
+  },
+  {
+    label: 'Oldest first',
+    value: 'year|asc'
+  },
+  {
+    label: 'Newest first',
+    value: 'year|desc'
+  },
+  {
+    label: 'DOM Oldest first',
+    value: 'dom|asc'
+  },
+  {
+    label: 'DOM Newest first',
+    value: 'dom|desc'
+  },
+  {
+    label: 'Newest listings first',
+    value: 'last_seen|asc'
+  },
+  {
+    label: 'Oldest listings first',
+    value: 'last_seen|desc'
+  }
 ]
 
 export default (props) => {
-  console.log(props)
   return (
     <Wrapper>
       <OutContainer>
@@ -51,7 +86,7 @@ export default (props) => {
           <FlexColRight>
             <Averages label='Avg. Miles' miles={props.responseFactory.stats.miles.mean + ' mi'} />
             <Averages label='Avg. Price' miles={currency(props.responseFactory.stats.price.mean)} />
-            <SortBy label='Sort By' selected='0' items={list} updateSuperState={props.updateSortOrder} />
+            <SortBy label='Sort By' items={list} updateSuperState={props.updateSortOrder} />
           </FlexColRight>
         </FlexRow>
       </OutContainer>

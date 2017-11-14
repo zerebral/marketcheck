@@ -78,7 +78,10 @@ class Dropdown extends Component {
     this.label = this.props.label
     this.items = this.props.items
 
-    this.state = { open: false, selected: this.props.items[0], selectedValue: 0 }
+    this.state = {
+      open: false,
+      selected: 0
+    }
   }
 
   handleOpenClick () {
@@ -97,8 +100,7 @@ class Dropdown extends Component {
 
   handleSelectClick (value, index) {
     this.setState({
-      selected: value,
-      selectedValue: index,
+      selected: index,
       open: false
     })
 
@@ -109,7 +111,7 @@ class Dropdown extends Component {
     return (
       <SortBy>
         <Label>{this.label}</Label>
-        <Selected>{this.items[this.props.selected].label}</Selected>
+        <Selected>{this.items[this.state.selected].label}</Selected>
         <Btn onClick={this.handleOpenClick.bind(this)}>
           <ArrowStyled />
         </Btn>

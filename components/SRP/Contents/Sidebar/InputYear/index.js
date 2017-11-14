@@ -21,16 +21,27 @@ class InputYear extends Component {
   constructor (props) {
     super(props)
     this.label = this.props.label
+
+    this.timeOut = false
+
     this.state = {
       resetData: ''
     }
   }
 
   handleChange (e) {
+    clearTimeout(this.timeOut)
+
     this.setState({
       resetData: e.target.value
     })
-    this.props.updateSuperState(e.target.value)
+  }
+
+  habdleStopType (e) {
+    const value = e.target.value
+    this.timeOut = setTimeout(() => {
+      this.props.updateSuperState(value)
+    }, 1500)
   }
 
   componentWillReceiveProps(props) {
@@ -44,7 +55,7 @@ class InputYear extends Component {
   render () {
     return (
       <Collapsible label={this.label}>
-        <YearBox onChange={this.handleChange.bind(this)} value={this.state.resetData} />
+        <YearBox onKeyUp={this.habdleStopType.bind(this)} onChange={this.handleChange.bind(this)} value={this.state.resetData} />
       </Collapsible>
     )
   }
