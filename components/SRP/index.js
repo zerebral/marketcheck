@@ -1,4 +1,3 @@
-import React from 'react'
 import { LayoutSecondary } from '~/layout'
 import FilterBar from './FilterBar'
 import Contents from './Contents'

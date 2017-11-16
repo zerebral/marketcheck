@@ -51,8 +51,10 @@ const List = styled.div`
   display: block;
 `
 
-const ListItem = styled.p`
+const ListItem = styled.a`
   color: ${colors.black};
+  cursor: pointer;
+  display: block;
   font-size: 0.9em;
   margin-bottom: 1em;
   ${mediaMax.desktop`

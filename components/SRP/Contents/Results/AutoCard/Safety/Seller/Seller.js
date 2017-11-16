@@ -44,8 +44,8 @@ export default ({
         </Stars>
         <Badge>{rating}</Badge>
         <Reviews href={website}>{number(reviews)} Reviews</Reviews>
-      </Rating>)
-      : null
+      </Rating>) : 
+      null
     }
 
     <Button>Request Best Price</Button>

@@ -39,7 +39,7 @@ const DropdownContent = styled.div`
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 9999999999;
   ${mediaMax.desktop`
    min-width: 130px;
   `}
@@ -98,7 +98,7 @@ class Dropdown extends Component {
     }
   }
 
-  handleSelectClick (item, index) {
+  handleSelectClick (value, index) {
     this.setState({
       selected: index,
       open: false
@@ -117,8 +117,8 @@ class Dropdown extends Component {
         </Btn>
 
         <DropdownContent visible={this.state.open}>
-          {this.props.items.map(function (item, index) {
-            return <DropdownItem href='#' key={index} value={item.value} onClick={() => this.handleSelectClick.bind(this)(item, index)}>{item.label}</DropdownItem>
+          {this.items.map(function (item, index) {
+            return <DropdownItem key={index} value={item.value} onClick={() => this.handleSelectClick.bind(this)(item.value, index)}>{item.label}</DropdownItem>
           }.bind(this))}
         </DropdownContent>
       </SortBy>
