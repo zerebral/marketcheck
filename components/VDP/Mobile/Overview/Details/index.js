@@ -19,16 +19,18 @@ export default ({
   miles,
   averages,
   vdpUrl
-}) =>
-  <Container>
-    <FlexRow noMargin >
-      <Price>{currency(price)}</Price>
-      <Button primary lowercase href={vdpUrl} target='_blank'>Request Best Price</Button>
-    </FlexRow>
-    <Text>{price > averages.price ? currency(price - averages.price) + ' more' : currency(averages.price - price) + ' less'} than market average</Text>
-    <Text>{miles > averages.miles ? number(miles - averages.miles) + ' miles more' : number(averages.miles - miles) + ' miles less'} than market average</Text>
-    <FlexRow noMargin >
-      <Icon href='#'><Like /></Icon>
-      <Icon href='#'><Share /></Icon>
-    </FlexRow>
-  </Container>
+}) => {
+  return (
+    <Container>
+      <FlexRow noMargin >
+        <Price>{currency(price)}</Price>
+        <Button primary lowercase href={vdpUrl} target='_blank'>Request Best Price</Button>
+      </FlexRow>
+      <Text>{price > averages.price ? currency(price - averages.price) + ' more' : currency(averages.price - price) + ' less'} than market average</Text>
+      <Text>{miles > averages.miles ? number(miles - averages.miles) + ' miles more' : number(averages.miles - miles) + ' miles less'} than market average</Text>
+      <FlexRow noMargin >
+        <Icon href='#'><Like /></Icon>
+        <Icon href='#'><Share /></Icon>
+      </FlexRow>
+    </Container>)
+}

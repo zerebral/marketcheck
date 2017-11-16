@@ -16,15 +16,17 @@ export default ({
   miles,
   averages,
   vdpUrl
-}) =>
-  <OverviewWrapper>
-    <TopRow>
-      <Return />
-      <CarName>{name}</CarName>
-    </TopRow>
-    <Container>
-      <Brief>{brief}</Brief>
-      <Slideshow slides={sliderPics} />
-    </Container>
-    <Details price={price} discount={discount} miles={miles} averages={averages} vdpUrl={vdpUrl} />
-  </OverviewWrapper>
+}) => {
+  return(
+    <OverviewWrapper>
+      <TopRow>
+        <Return />
+        <CarName>{name}</CarName>
+      </TopRow>
+      <Container>
+        <Brief>{brief}</Brief>
+        <Slideshow slides={sliderPics} />
+      </Container>
+      <Details price={price} discount={discount} miles={miles} averages={averages} vdpUrl={vdpUrl} />
+    </OverviewWrapper>)
+  }

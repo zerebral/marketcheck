@@ -199,7 +199,6 @@ class SrpContainer extends React.Component {
     )
     .then(res => {
       if (res.status === 200 && res.data !== undefined) {
-        // console.log(res.status, res.data)
         this.setState({
           responseFactory: res.data,
           readyFirstFetch: true,

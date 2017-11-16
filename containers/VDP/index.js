@@ -50,9 +50,9 @@ export default ({
   extra: {
     features
   }
-}) =>
-
-  <VDP
+}) => {
+  return (
+    <VDP
     {...vdpdata}
     name={`${make} ${model}`}
     brief={`Stock # ${stockNumber}, ${engine}, ${transmission}, ${miles} mi., ${parseInt(cityMiles)}/${parseInt(highwayMiles)} MPG*`}
@@ -98,4 +98,5 @@ export default ({
     vdpUrl={vdpUrl}
     features={features}
     {...props}
-  />
+  />)
+}
