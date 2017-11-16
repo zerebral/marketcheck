@@ -77,7 +77,6 @@ class SrpContainer extends React.Component {
 
   updateModelList (value) {
     this.sessionSearch.modelList = value
-
     this.refreshState()
   }
 
@@ -155,8 +154,9 @@ class SrpContainer extends React.Component {
   }
 
   updateSortOrder (value) {
-    console.log(value)
-    this.sessionSearch.sortOrder = value
+    let order = value.split('|')
+    this.sessionSearch.sort_by = order[0]
+    this.sessionSearch.sort_order = order[1]
 
     this.refreshState()
   }
@@ -204,6 +204,15 @@ class SrpContainer extends React.Component {
           responseFactory: res.data,
           readyFirstFetch: true,
           readyRefreshFetch: true
+        },
+        () => {
+        })
+      } else {
+        this.setState({
+          responseFactory: {},
+          readyFirstFetch: true,
+          readyRefreshFetch: true,
+          resetState: false
         },
         () => {
         })

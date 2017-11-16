@@ -174,7 +174,7 @@ export default (props) => {
             <DetFlexCol>
               <DetailItem>
                 <Label>MPG:</Label>
-                <Value>{props.data.build.city_miles.substring(0, 2)}/{props.data.build.highway_miles.substring(0, 2)}</Value>
+                <Value>{props.data.build.city_miles !== undefined ? props.data.build.city_miles.substring(0,2) : ''}/{props.data.build.highway_miles ? props.data.build.highway_miles.substring(0,2) : ''}</Value>
               </DetailItem>
               <DetailItem>
                 <Label>Transmission:</Label>

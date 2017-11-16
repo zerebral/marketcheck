@@ -1,6 +1,5 @@
 import Section from '~/VDP/Section'
 import { number } from '%/format'
-import data from './data.json'
 import Car from './Car'
 
 // const cars = data.listings

@@ -2,16 +2,21 @@ import styled from 'styled-components'
 import { colors } from '%/styles'
 import { FillBody } from '~/general/Accordion'
 
-export const Wrapper = styled.div`
-  padding: 25px 0;
+export const Car = styled.div`
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 2px rgba(51,51,51,0.14);
+  margin-bottom: 20px;
 
-  & + & {
-    border-top: 1px solid #ccc;
+  &:first-child {
+    margin-top: 50px;
   }
 `
 
-export const Car = styled.div`
-  position: relative;
+export const Info = styled.div`
+  max-width: ${380 / 1050 * 100}%;
+  flex-basis: ${380 / 1050 * 100}%;
+  padding: 10px 25px;
 `
 
 export const NewBadge = styled.span`
@@ -111,10 +116,14 @@ export const Average = styled.h6`
 
 export const PicWrapper = styled(FillBody)`
   padding: 0;
+  max-width: ${352 / 1050 * 100}%;
+  flex-basis: ${352 / 1050 * 100}%;
 
   img,
   svg {
     display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `
