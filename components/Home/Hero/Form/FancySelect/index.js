@@ -45,7 +45,6 @@ class Dropdown extends Component {
   }
 
   render () {
-    console.log(this.props.loading)
     return (
       <SelectWrapper blue={this.props.blue} showForMobile={this.props.showForMobile}>
         <Selected {...this.props} onClick={this.handleOpenClick.bind(this)}>

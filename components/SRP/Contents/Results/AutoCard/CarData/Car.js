@@ -37,7 +37,13 @@ export default (props) => {
           <Certified />
         </Title>
 
-        <Details>{props.data.build.transmission + " " + props.data.miles + "mi., " + props.data.build.city_miles.substring(0,2) + "/" + props.data.build.highway_miles.substring(0,2) + " MPG*"}</Details>
+        <Details>{(props.data.build.transmission !== undefined ? props.data.build.transmission : '') + " " +
+                  (props.data.miles !== undefined ? props.data.miles : '') + "mi., " +
+                  (props.data.build.city_miles !== undefined ? props.data.build.city_miles.substring(0,2) : '') +
+                  "/" +
+                  (props.data.build.highway_miles !== undefined ? props.data.build.highway_miles.substring(0,2) : '') +
+                  " MPG*"}
+        </Details>
 
         <PriceRow>
           <Price>{currency(props.data.price)}</Price>

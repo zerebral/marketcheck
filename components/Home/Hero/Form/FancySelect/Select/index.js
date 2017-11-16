@@ -13,7 +13,22 @@ const Selected = styled.span`
   line-height: ${em(60)};
   vertical-align: middle;
   ${mediaMax.desktop`
-   font-size: ${em(11)};
+   font-size: ${em(22)};
+  `}
+  ${mediaMax.laptop`
+    font-size: 1.5em;
+    line-height: 3.5em;
+    width: 5em;
+  `}
+  ${mediaMax.largeTablet`
+    font-size: 1.5em;
+    line-height: 3.5em;
+    width: 5em;
+  `}
+  ${mediaMax.phone`
+    font-size: 1.5em;
+    line-height: 3.5em;
+    width: 5em;
   `}
 `
 
@@ -69,6 +84,9 @@ const DropdownItem = styled.a`
   font-weight: normal;
   ${mediaMax.desktop`
    font-size: ${em(12)};
+  `}
+  ${mediaMax.phone`
+    font-size: 1em;
   `}
 
   &:hover {
