@@ -11,9 +11,7 @@ import {
   Rating,
   Reviews,
   Button,
-  Flex,
-  More,
-  Caret
+  Flex
 } from './Components.js'
 
 import {number} from '%/format'
@@ -53,9 +51,5 @@ export default ({
     </Flex>
     <Flex>
       <Button href={vdpUrl} target='_blank'>View on dealer website</Button>
-      {/* <More>
-        View More
-        <Caret />
-      </More> */}
     </Flex>
   </Seller>

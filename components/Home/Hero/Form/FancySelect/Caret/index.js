@@ -4,6 +4,7 @@ import SVG from './caret.svg'
 import { em } from 'polished'
 
 const Caret = styled(SVG)`
+  cursor: pointer;
   ${align('vertical')}
   right: ${em(10)};
   width: ${em(9)};

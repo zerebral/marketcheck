@@ -5,3 +5,12 @@ test:
     - npm run test-ci
   only:
     - master
+
+staging:
+  image: node:6
+  script:
+    - npm install -g now
+    - yarn install
+    - now --token="$NOW_TOKEN"
+  only:
+    - development
