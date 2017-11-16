@@ -1,11 +1,67 @@
+import React, { Component } from 'react'
+import { capitalize } from '%/format'
 import SelectWrapper from './SelectWrapper'
-import Select from './Select'
+import {Selected, DropdownContent, DropdownItem} from './Select'
 import Caret from './Caret'
 
-export default (props) =>
-  <SelectWrapper blue={props.blue} showForMobile={props.showForMobile}>
-    <Select {...props}>
-      { props.children }
-    </Select>
-    <Caret />
-  </SelectWrapper>
+
+class Dropdown extends Component {
+  constructor (props) {
+    super(props)
+
+    this.items = this.props.items
+
+    this.state = {
+      open: false,
+      label: this.props.defaultLabel,
+      selected: 0,
+      selectedValue: this.props.defaultValue
+    }
+  }
+
+  handleOpenClick () {
+    if (this.state.open) {
+      this.setState({
+        open: false
+      }, function () {
+      })
+    } else {
+      this.setState({
+        open: true
+      }, function () {
+      })
+    }
+  }
+
+  handleSelectClick (value, index) {
+    this.setState({
+      selected: index,
+      label: value,
+      selectedValue: value,
+      open: false
+    })
+
+    this.props.handleSelect(value)
+  }
+
+  render () {
+    console.log(this.props.loading)
+    return (
+      <SelectWrapper blue={this.props.blue} showForMobile={this.props.showForMobile}>
+        <Selected {...this.props} onClick={this.handleOpenClick.bind(this)}>
+            {!this.props.loading ? capitalize(this.state.label) : 'Loading...'}
+        </Selected>
+        <DropdownContent visible={this.state.open}>
+          {this.props.list !== undefined && Array.isArray(this.props.list) && !this.props.loading ? this.props.list.map((data, index) => {
+             return <DropdownItem key={index} onClick={() => this.handleSelectClick.bind(this)(data.item, index)}>{capitalize(data.item)}</DropdownItem>
+          }) :
+             false
+          }
+        </DropdownContent>
+        <Caret onClick={this.handleOpenClick.bind(this)} />
+      </SelectWrapper>
+    )
+  }
+}
+
+export default Dropdown

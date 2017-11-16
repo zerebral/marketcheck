@@ -25,24 +25,25 @@ const Form = styled.form`
   `}
 `
 
-export default ({ getState, onSubmit, models, makes, carTypeSelect, makeSelect, modelSelect, loadingModels, handleChange, handleSelect, address, findLatLng}) =>
+export default ({
+  getState,
+  onSubmit,
+  models,
+  makes,
+  carTypeSelect,
+  makeSelect,
+  modelSelect,
+  loadingModels,
+  loadingMakers,
+  handleChange,
+  handleSelect,
+  address,
+  findLatLng
+}) =>
   <Form onSubmit={onSubmit}>
-    <FancySelect blue onChange={carTypeSelect} showForMobile={true}>
-      <option value="used" selected>Used</option>
-      <option value="new">New</option>
-      <option value="newer">Newer</option>
-      <option value="newest">Newest</option>
-    </FancySelect>
+    <FancySelect blue handleSelect={carTypeSelect} showForMobile={true} defaultLabel='Used' defaultValue='used' loading={false} list={[{item: 'used'}, {item: 'new'}, {item: 'newer'}, {item: 'newest'}]} />
     <GoogleAutoComplete findLatLng={findLatLng}/>
-    <FancySelect onChange={makeSelect} showForMobile={false}>
-      <option>All Makes</option>
-      {makes.length > 1 && makes.map((make, key) => <option key={key} value={make.item}>{make.item}</option>)}
-    </FancySelect>
- 
-    <FancySelect onChange={modelSelect} showForMobile={false}>
-      {!loadingModels && <option selected="selected">All Models</option>}
-      {loadingModels && <option>Loading Models</option>}
-      {models.length > 1 &&  models.map( (model, key) => <option key={key}>{model.item}</option> )}
-    </FancySelect>
+    <FancySelect handleSelect={makeSelect} showForMobile={false} defaultLabel='All Makes' defaultValue='' loading={loadingMakers} list={makes} />
+    <FancySelect handleSelect={modelSelect} showForMobile={false} defaultLabel='All Models' defaultValue='' loading={loadingModels} list={models} />
     <Submit onClick={onSubmit} />
   </Form>

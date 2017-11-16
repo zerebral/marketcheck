@@ -24,6 +24,7 @@ class HomeFormContainer extends Component {
       selectedMake: null,
       selectedModel: null,
       loadingModels: false,
+      loadingMakers: false,
       latitude: '',
       longitude: '',
     }
@@ -51,25 +52,30 @@ class HomeFormContainer extends Component {
   }
 
   fetchMakes() {
+    this.setState({ loadingMakers: true });
     this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=make&rows=0&nodedup=true`)
       .then(makes => {
         if (makes.facets.make) {
           this.setState({ makes: makes.facets.make })
+          this.setState({ loadingMakers: false });
         }
       })
   }
 
-  carTypeSelect(e) {
-    this.setState({ carType : e.target.value})
+  carTypeSelect(value) {
+    console.log(value)
+    this.setState({ carType : value})
   }
 
-  makeSelect(e) {
-    this.setState({ selectedMake: e.target.value})
-    this.fetchModels(e.target.value);
+  makeSelect(value) {
+    console.log(value)
+    this.setState({ selectedMake: value})
+    this.fetchModels(value);
   }
 
-  modelSelect(e) {
-    this.setState({ selectedModel: e.target.value})
+  modelSelect(value) {
+    console.log(value)
+    this.setState({ selectedModel: value})
   }
 
   findLatLng(lat, lng, address) {
@@ -86,7 +92,6 @@ class HomeFormContainer extends Component {
     localStorage.removeItem("searchSession")
     sessionStorage.removeItem("searchSession")
     sessionStorage.setItem("searchSession", JSON.stringify(this.state))
-    //console.log(sessionStorage.getItem("searchSession"))
     window.location.href = "/srp";
   }
 
