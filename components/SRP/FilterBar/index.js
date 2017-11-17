@@ -84,8 +84,8 @@ export default (props) => {
             <ResetBtn name='Reset' resetBtn={props.resetButton} />
           </FlexColLeft>
           <FlexColRight>
-            <Averages label='Avg. Miles' miles={props.responseFactory.stats.miles.mean + ' mi'} />
-            <Averages label='Avg. Price' miles={currency(props.responseFactory.stats.price.mean)} />
+            <Averages label='Avg. Miles' miles={props.responseFactory.stats.miles.mean ? props.responseFactory.stats.miles.mean : '-' + ' mi'} />
+            <Averages label='Avg. Price' miles={props.responseFactory.stats.price.mean? currency(props.responseFactory.stats.price.mean) : '-'} />
             <SortBy label='Sort By' items={list} updateSuperState={props.updateSortOrder} />
           </FlexColRight>
         </FlexRow>
