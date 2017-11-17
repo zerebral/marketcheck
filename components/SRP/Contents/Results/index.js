@@ -104,7 +104,10 @@ class Results extends Component {
               <Spinner style={{marginTop: '5vh'}} /> :
             <NoResults>There are no results for the search</NoResults>
           }
-          <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} />
+          {this.props.responseFactory.num_found ?
+            <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} /> :
+            null
+          }
           <Recommended />
           <ListsBy />
         </Wrapper>
