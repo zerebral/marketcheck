@@ -52,7 +52,7 @@ class Results extends Component {
 
   searchArgument (state) {
     const argument = 
-      capitalize(this.props.sessionSearch.filters.type) + " " +
+      capitalize(this.props.sessionSearch.filters.car_type) + " " +
       (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + " " : "" ) +
       (this.props.sessionSearch.filters.maker ? this.props.sessionSearch.filters.maker + " " : "" ) +
       (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + " " : "" ) +
@@ -71,7 +71,7 @@ class Results extends Component {
       },
       {
         label: 'Type:',
-        filter: capitalize(state.filters.type),
+        filter: capitalize(state.filters.car_type),
         remove: this.props.removeType
       },
       {

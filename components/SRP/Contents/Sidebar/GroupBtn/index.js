@@ -74,7 +74,7 @@ class GroupBtn extends Component {
           {this.buttons.map(function (item, index) {
             return (
               <StyledFlexCol key={index}>
-                <Btn value={item.value} key={index} className={this.props.sessionSearch.filters.type === item.value ? 'selected' : ''} onClick={() => this.handleSelectClick.bind(this)(index, item.value)}>
+                <Btn value={item.value} key={index} className={this.props.sessionSearch.filters.car_type === item.value ? 'selected' : ''} onClick={() => this.handleSelectClick.bind(this)(index, item.value)}>
                   {item.label}
                 </Btn>
               </StyledFlexCol>
