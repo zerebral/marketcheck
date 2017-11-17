@@ -204,9 +204,9 @@ export default (props) => {
       <SimpleCheckbox {...props} label='Drivetrain'  list={listGenerator(props.responseFactory.facets.drivetrain)} updateSuperState={props.updateDrivetrain} />
       <SimpleCheckbox {...props} label='Cylinders' list={listGenerator(props.responseFactory.facets.cylinders)} updateSuperState={props.updateCylinders} />
       <SimpleCheckbox {...props} label='Fuel' list={listGenerator(props.responseFactory.facets.fuel_type)} updateSuperState={props.updateFuelType} />
-      {false ? <RatingStars {...props} label='Dealer Ratings' /> : null}      
+      {false ? <RatingStars {...props} label='Dealer Ratings' /> : null}
       {false ? <SwitchBtns {...props} label='Features' /> : null}
-      <SimpleCheckbox {...props} label='Listed' list={dateList} updateSuperState={props.updateDayListed} />
+      {false ? <SimpleCheckbox {...props} label='Listed' list={dateList} updateSuperState={props.updateDayListed} /> : null}
     </Wrapper>
   </SidebarFlexCol>)
 }
