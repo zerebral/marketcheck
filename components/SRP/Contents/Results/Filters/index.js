@@ -79,13 +79,14 @@ class Results extends Component {
     })
 
     remove()
+
   }
 
   render () {
     return (
       <Container>
         {this.props.list.map(function (item, index) {
-          return (
+          return item.filter !== ' ' ? (
             <Filter key={index}>
               <Label>{item.label}</Label>
               <Value>{item.filter}</Value>
@@ -93,7 +94,7 @@ class Results extends Component {
                 <SvgXIcon />
               </XBtn>
             </Filter>
-          )
+          ) : null
         }.bind(this))}
       </Container>
     )

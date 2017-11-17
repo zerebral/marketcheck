@@ -111,10 +111,6 @@ class SrpContainer extends React.Component {
   }
 
   updatePagination (value) {
-    this.setState({
-      readyRefreshFetch: false
-    })
-
     this.sessionSearch.start = value.start
     this.sessionSearch.rows = value.rows
 
@@ -161,28 +157,33 @@ class SrpContainer extends React.Component {
     this.refreshState()
   }
 
-  removeMake() {
+  removeMake () {
     this.sessionSearch.selectedMake = ' '
 
     this.refreshState()
   }
 
-  removeType() {
+  removeType () {
     this.sessionSearch.carType = ' '
 
     this.refreshState()
   }
 
-  removeModel() {
+  removeModel () {
     this.sessionSearch.modelList = ' '
 
     this.refreshState()
   }
 
-  removeTransmission() {
+  removeTransmission () {
     this.sessionSearch.transmission = ' '
 
     this.refreshState()
+  }
+
+  resetPagination () {
+    this.sessionSearch.start = 0
+    this.sessionSearch.rows = 5
   }
 
   getCarsData () {
@@ -223,10 +224,16 @@ class SrpContainer extends React.Component {
 
   refreshState () {
     this.setState({
-      sessionSearch: srpData(this.sessionSearch)
-    }, () => {
+      readyRefreshFetch: false
     })
 
+    this.setState({
+      sessionSearch: srpData(this.sessionSearch)
+    }, () => {
+      console.log(this.state.sessionSearch)
+    })
+
+    this.resetPagination()
     this.getCarsData()
   }
 
@@ -249,7 +256,6 @@ class SrpContainer extends React.Component {
         updateMilesRange: this.updateMilesRange.bind(this),
         updateDealsRating: this.updateDealsRating.bind(this),
         updateModelList: this.updateModelList.bind(this),
-        updateYear: this.updateYear.bind(this),
         updateSellerType: this.updateSellerType.bind(this),
         updateTransmission: this.updateTransmission.bind(this),
         updateBodyType: this.updateBodyType.bind(this),
@@ -260,6 +266,10 @@ class SrpContainer extends React.Component {
         updateDayListed: this.updateDayListed.bind(this),
         updateSortOrder: this.updateSortOrder.bind(this),
         updatePagination: this.updatePagination.bind(this),
+        removeMake: this.removeMake.bind(this),
+        removeModel: this.removeModel.bind(this),
+        removeType: this.removeType.bind(this),
+        removeTransmission: this.removeTransmission.bind(this),
         readyRefreshFetch: this.state.readyRefreshFetch,
         readyState: true
       },
