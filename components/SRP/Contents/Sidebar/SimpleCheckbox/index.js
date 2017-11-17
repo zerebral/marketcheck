@@ -96,7 +96,6 @@ class SimpleCheckbox extends Component {
     return (
       <Collapsible {...this.props} parentReset={this.handleResetClick.bind(this)}>
         {this.state.list.map(function (item, index) {
-
           if (index < this.state.listLimit) {
             return (
               <StyledFlexRow key={index}>
@@ -104,7 +103,7 @@ class SimpleCheckbox extends Component {
                   <CheckBox className={this.state.checked === index ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item.value)} />
                 </StyledFlexCol>
                 <FlexCol>
-                  <Label onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>{item.label}</Label>
+                  <Label onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>{item.label} {item.count ? '('+item.count+')' : ''}</Label>
                 </FlexCol>
               </StyledFlexRow>
             )

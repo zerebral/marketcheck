@@ -21,7 +21,8 @@ const listGenerator = (response) => {
   response.map((trim, index) => {
     list.push({
       label: trim.item,
-      value: trim.item
+      value: trim.item,
+      count: trim.count
     })
   })
 
@@ -110,40 +111,6 @@ const colorButtons = [
   }
 ]
 
-const transmissionList = [
-  {
-    label: 'Automatic',
-    value: 'automatic'
-  },
-  {
-    label: 'Manual',
-    value: 'manual'
-  }
-]
-
-const bodyList = [
-  {
-    label: 'Any',
-    value: 'Any',
-  },
-  {
-    label: 'Convertible',
-    value: 'Convertible',
-  },
-  {
-    label: 'Coupe',
-    value: 'Coupe',
-  },
-  {
-    label: 'Sedan',
-    value: 'Sedan',
-  },
-  {
-    label: 'Wagon',
-    value: 'Wagon',
-  },
-]
-
 
 const dateList = [
   {
@@ -198,8 +165,8 @@ export default (props) => {
       <InputYear {...props} label='Year' updateSuperState={props.updateYear} />
       <GroupIconBtn {...props} label='Seller Type' labelOne='Dealer' labelTwo='FSBO' updateSuperState={props.updateSellerType} />
       <CheckColors {...props} label='Color' colorButtons={colorButtons} updateSuperState={props.updateColor} />
-      <SimpleCheckbox {...props} label='Transmission' list={transmissionList} updateSuperState={props.updateTransmission} />
-      <SimpleCheckbox {...props} label='Body' list={bodyList} updateSuperState={props.updateBodyType} />
+      <SimpleCheckbox {...props} label='Transmission' list={listGenerator(props.responseFactory.facets.transmission)} updateSuperState={props.updateTransmission} />
+      <SimpleCheckbox {...props} label='Body' list={listGenerator(props.responseFactory.facets.body_type)} updateSuperState={props.updateBodyType} />
       <SimpleCheckbox {...props} label='Trim' list={listGenerator(props.responseFactory.facets.trim)} updateSuperState={props.updateTrim} resetBtn />
       <SimpleCheckbox {...props} label='Drivetrain'  list={listGenerator(props.responseFactory.facets.drivetrain)} updateSuperState={props.updateDrivetrain} />
       <SimpleCheckbox {...props} label='Cylinders' list={listGenerator(props.responseFactory.facets.cylinders)} updateSuperState={props.updateCylinders} />
