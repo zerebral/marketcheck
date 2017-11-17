@@ -39,6 +39,18 @@ const NoResults = styled.div`
   `}
 `
 
+const Button = styled.a`
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 15.6px;
+  color: #fff;
+  background: ${colors.green};
+  text-align: center;
+  padding: 10px 12px;
+  display: inline-block;
+  border-radius: 4px;
+`
+
 class Results extends Component {
   constructor (props) {
     super(props)
@@ -102,7 +114,10 @@ class Results extends Component {
                 (<AutoCard key={index} data={item} />)
               ) :
               <Spinner style={{marginTop: '5vh'}} /> :
-            <NoResults>There are no results for the search</NoResults>
+            (<div style={{textAlign: 'center', padding: '4em'}}>
+              <NoResults>Sorry, we could not get you that!</NoResults>
+              <Button href="/">Lets start over</Button>
+            </div>)
           }
           {this.props.responseFactory.num_found ?
             <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} /> :
