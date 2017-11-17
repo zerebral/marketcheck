@@ -153,13 +153,15 @@ const SidebarFlexCol = styled(FlexCol)`
 `
 
 export default (props) => {
+  const miles = props.responseFactory.stats.miles
+  const price = props.responseFactory.stats.price
   return (<SidebarFlexCol>
     <Wrapper>
       <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
       <InputRange {...props} label='Distance' min={0} max={300} step={10} value={40} updateSuperState={props.updateDistance} />
-      <DoubleRange {...props} label='Price' currency min={4000} max={50000} step={10} value={[4000, 50000]} updateSuperState={props.updatePrice} />
-      <DoubleRange {...props} label='Miles Range' min={4000} max={50000} step={10} value={[4000, 50000]} updateSuperState={props.updateMilesRange} />
+      <DoubleRange {...props} label='Price' currency min={miles.min ? miles.min : 0} max={miles.max ? miles.max : 30000} step={10} value={[miles.min ? miles.min : 0, miles.max ? miles.max : 30000]} updateSuperState={props.updatePrice} />
+      <DoubleRange {...props} label='Miles Range' min={price.min ? price.min : 0} max={price.max ? price.max : 30000} step={10} value={[price.min ? price.min : 0, price.max ? price.max : 30000]} updateSuperState={props.updateMilesRange} />
       <SimpleCheckbox {...props} {...props} label='Deals' list={list} updateSuperState={props.updateDealsRating} />
       <SearchCheckbox {...props} label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn />
       <InputYear {...props} label='Year' updateSuperState={props.updateYear} />

@@ -33,6 +33,7 @@ const StyledFlexCol = styled(FlexCol)`
 `
 
 const NoResults = styled.div`
+  font-size: 2em;
   margin-bottom: 1em;
   ${mediaMax.phone`
     display: none;
