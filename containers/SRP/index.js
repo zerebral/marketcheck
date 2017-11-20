@@ -161,6 +161,8 @@ class SrpContainer extends React.Component {
     this.sessionSearch.selectedMake = ' '
 
     this.refreshState()
+
+    window.location.href = '/'
   }
 
   removeType () {
