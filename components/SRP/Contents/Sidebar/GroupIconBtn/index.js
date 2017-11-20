@@ -63,10 +63,13 @@ class GroupIconBtn extends Component {
           <StyledKeyIcon />
           <Label>{capitalize(this.props.items[0].item)}</Label>
         </Btn>
+        {this.props.items[1] !== undefined ?
         <Btn margin='0 0 0 1.5em' onClick={() => this.handleSelectClick.bind(this)(this.props.items[1].item)}>
           <StyledFsboIcon />
           <Label>{uppercase(this.props.items[1].item)}</Label>
         </Btn>
+        : null
+        }
       </Collapsible>
     )
   }
