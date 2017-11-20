@@ -165,7 +165,7 @@ export default (props) => {
       <SimpleCheckbox {...props} {...props} label='Deals' list={list} updateSuperState={props.updateDealsRating} />
       <SearchCheckbox {...props} label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn />
       <InputYear {...props} label='Year' updateSuperState={props.updateYear} />
-      <GroupIconBtn {...props} label='Seller Type' labelOne='Dealer' labelTwo='FSBO' updateSuperState={props.updateSellerType} />
+      <GroupIconBtn {...props} label='Seller Type' labelOne='Dealer' labelTwo='FSBO' items={props.responseFactory.facets.seller_type} updateSuperState={props.updateSellerType} />
       <CheckColors {...props} label='Color' colorButtons={colorButtons} updateSuperState={props.updateColor} />
       <SimpleCheckbox {...props} label='Transmission' list={listGenerator(props.responseFactory.facets.transmission)} updateSuperState={props.updateTransmission} />
       <SimpleCheckbox {...props} label='Body' list={listGenerator(props.responseFactory.facets.body_type)} updateSuperState={props.updateBodyType} />

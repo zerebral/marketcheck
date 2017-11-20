@@ -189,7 +189,6 @@ class SrpContainer extends React.Component {
   getCarsData () {
     let that = this
 
-    console.log(this.state.sessionSearch.filters)
     let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
 
     fetchResult = fetchResult.then(response =>
