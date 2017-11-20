@@ -67,7 +67,7 @@ class Results extends Component {
     const argument = 
       capitalize(this.props.sessionSearch.filters.car_type) + " " +
       (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + " " : "" ) +
-      (this.props.sessionSearch.filters.maker ? this.props.sessionSearch.filters.maker + " " : "" ) +
+      (this.props.sessionSearch.filters.make ? this.props.sessionSearch.filters.make + " " : "" ) +
       (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + " " : "" ) +
       " in " +
       this.props.sessionSearch.location.address + " "
@@ -79,7 +79,7 @@ class Results extends Component {
     const listFilters = [
       {
         label: 'Make:',
-        filter: state.filters.maker,
+        filter: state.filters.make,
         remove: this.props.removeMake
       },
       {

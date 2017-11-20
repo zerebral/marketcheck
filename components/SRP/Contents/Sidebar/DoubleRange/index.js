@@ -50,7 +50,9 @@ class DoubleRange extends Component {
     this.setState({
       value
     })
+  }
 
+  onAfterChange = (value) => {
     this.props.updateSuperState(value)
   }
 
@@ -78,6 +80,7 @@ class DoubleRange extends Component {
           max={this.max}
           value={this.state.value}
           onChange={this.onSliderChange.bind(this)}
+          onAfterChange={this.onAfterChange.bind(this)}
           trackStyle={[{ backgroundColor: colors.softblue }]}
           handleStyle={[{ backgroundColor: colors.softblue, border: 'none' }, { backgroundColor: colors.softblue, border: 'none' }]}
           railStyle={{ backgroundColor: colors.bordergray }} />

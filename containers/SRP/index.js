@@ -188,6 +188,8 @@ class SrpContainer extends React.Component {
 
   getCarsData () {
     let that = this
+
+    console.log(this.state.sessionSearch.filters)
     let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
 
     fetchResult = fetchResult.then(response =>
@@ -230,6 +232,7 @@ class SrpContainer extends React.Component {
     this.setState({
       sessionSearch: srpData(this.sessionSearch)
     }, () => {
+      this.getCarsData()
     })
 
     this.resetPagination()
