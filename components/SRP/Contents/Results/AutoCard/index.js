@@ -152,7 +152,7 @@ class AutoCard extends Component {
           <PriceTop data={this.props.data} />
           <InnerContainer>
             <Slideshow data={this.props.data} />
-            <CarData data={this.props.data} />
+            <CarData {...this.props}  data={this.props.data} />
           </InnerContainer>
           <Safety data={this.props.data} />
 

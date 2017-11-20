@@ -1,4 +1,4 @@
-import { cutString, currency } from '%/format'
+import { cutString, currency, capitalize } from '%/format'
 import {
   Car,
   Wrapper,
@@ -30,7 +30,7 @@ export default (props) => {
   return (
     <Wrapper>
       <Car>
-        <NewBadge>New</NewBadge>
+        <NewBadge>{capitalize(props.filters.car_type)}</NewBadge>
 
         <Title>
           <Name target="__blank" href={'/vdp/'+props.data.vin}>{cutString(props.data.build.year + " " + props.data.build.make + " " + props.data.build.model + " " + props.data.exterior_color, 33)}</Name>

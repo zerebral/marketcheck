@@ -112,7 +112,7 @@ class Results extends Component {
           {this.props.responseFactory.num_found ?
             this.props.readyRefreshFetch ?
               this.props.responseFactory.listings.map((item, index) =>
-                (<AutoCard key={index} data={item} />)
+                (<AutoCard {...this.props.sessionSearch} key={index} data={item} />)
               ) :
               <Spinner style={{marginTop: '5vh'}} /> :
             (<div style={{textAlign: 'center', padding: '4em'}}>
