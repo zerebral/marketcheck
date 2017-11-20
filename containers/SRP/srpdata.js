@@ -4,15 +4,15 @@ var srpData = (params = {}) => {
 	return {
 		filters: {
 			car_type: params.carType ? params.carType : 'used',
-			radius: params.distance ? params.distance : 10,
-			price_range: (params.price ? params.price.min : 1000) + "-" + (params.price ? params.price.max : 50000),
-			miles_rage: (params.milesRange ? params.milesRange.min : 1000) + "-" + (params.milesRange ? params.milesRange.max : 50000),
+			radius: params.distance ? params.distance : 25,
+			price_range: (params.price ? params.price.min : 0) + "-" + (params.price ? params.price.max : 10000),
+			miles_rage: (params.milesRange ? params.milesRange.min : 0) + "-" + (params.milesRange ? params.milesRange.max : 1000000),
 			deal: params.dealRating ? params.dealRating : '',
-			maker: params.selectedMake ? params.selectedMake : '',
+			make: params.selectedMake ? params.selectedMake : '',
 			model: params.modelList ? params.modelList : params.selectedModel ? params.selectedModel : '',
 			year: params.year ? parseInt(params.year) : '',
 			seller_type: params.sellerType ? params.sellerType : '',
-			color: params.color ? params.color : '',
+			exterior_color: params.color ? params.color : '',
 			transmission: params.transmission ? params.transmission : '',
 			body_type: params.bodyType ? params.bodyType : '',
 			trim: params.trim ? params.trim : '',
@@ -30,8 +30,8 @@ var srpData = (params = {}) => {
 		},
 		location: {
 			address: params.address ? params.address : '',
-			latitude: params.latitude ? params.latitude : '',
-			longitude: params.longitude ? params.longitude : ''
+			latitude: params.latitude ? params.latitude : '-32.78',
+			longitude: params.longitude ? params.longitude : '79.99'
 		},
 		modelsList: params.models ? params.models : [],
 	}

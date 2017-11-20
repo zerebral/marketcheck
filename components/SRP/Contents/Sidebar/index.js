@@ -160,8 +160,8 @@ export default (props) => {
       <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
       <InputRange {...props} label='Distance' min={0} max={300} step={10} value={40} updateSuperState={props.updateDistance} />
-      <DoubleRange {...props} label='Price' currency min={miles.min ? miles.min : 0} max={miles.max ? miles.max : 30000} step={10} value={[miles.min ? miles.min : 0, miles.max ? miles.max : 30000]} updateSuperState={props.updatePrice} />
-      <DoubleRange {...props} label='Miles Range' min={price.min ? price.min : 0} max={price.max ? price.max : 30000} step={10} value={[price.min ? price.min : 0, price.max ? price.max : 30000]} updateSuperState={props.updateMilesRange} />
+      <DoubleRange {...props} label='Price' currency min={miles.min} max={miles.max} step={10} value={[miles.min, miles.max]} updateSuperState={props.updatePrice} />
+      <DoubleRange {...props} label='Miles Range' min={price.min} max={price.max} step={10} value={[price.min, price.max]} updateSuperState={props.updateMilesRange} />
       <SimpleCheckbox {...props} {...props} label='Deals' list={list} updateSuperState={props.updateDealsRating} />
       <SearchCheckbox {...props} label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn />
       <InputYear {...props} label='Year' updateSuperState={props.updateYear} />

@@ -230,7 +230,6 @@ class SrpContainer extends React.Component {
     this.setState({
       sessionSearch: srpData(this.sessionSearch)
     }, () => {
-      console.log(this.state.sessionSearch)
     })
 
     this.resetPagination()
