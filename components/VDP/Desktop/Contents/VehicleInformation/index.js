@@ -62,12 +62,12 @@ export default ({
         <p>Stock# <strong>{stockNumber}</strong></p>
         <p>Model # <strong /></p>
         <p>VIN # <strong>{vin}</strong></p>
-        <p>Mileage <strong>{number(miles)}</strong></p>
+        <p>Mileage <strong>{miles ? number(miles) : ''}</strong></p>
         <p>Engine <strong>{engine}</strong></p>
         <p>Transmission <strong>{transmission}</strong></p>
         <p>Fuel <strong>{fuel}</strong></p>
         <p>Drive <strong>{drivetrain}</strong></p>
-        <p>MPG <strong>{parseInt(cityMiles)} City / {parseInt(highwayMiles)} Hwy</strong></p>
+        <p>MPG <strong>{cityMiles && highwayMiles ? (parseInt(cityMiles) + 'City / ' + parseInt(highwayMiles)) + 'Hwy' : ''}</strong></p>
       </Contents>
 
     </Wrapper>

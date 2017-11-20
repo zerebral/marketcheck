@@ -15,10 +15,13 @@ class Vdp extends React.Component {
   constructor (props) {
     super(props)
 
-    this.myInit = { method: 'GET',
-                    mode: 'cors',
-                    cache: 'default'
-                  }
+    console.log(props)
+
+    this.myInit = { 
+      method: 'GET',
+      mode: 'cors',
+      cache: 'default'
+    }
 
     this.listingFetch = this.listingFetch.bind(this)
     this.fetchingData = this.fetchingData.bind(this)
