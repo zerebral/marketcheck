@@ -45,6 +45,7 @@ class Dropdown extends Component {
   }
 
   render () {
+    console.log( this.props.list)
     return (
       <SelectWrapper blue={this.props.blue} showForMobile={this.props.showForMobile}>
         <Selected {...this.props} onClick={this.handleOpenClick.bind(this)}>
@@ -52,7 +53,7 @@ class Dropdown extends Component {
         </Selected>
         <DropdownContent visible={this.state.open}>
           {this.props.list !== undefined && Array.isArray(this.props.list) && !this.props.loading ? this.props.list.map((data, index) => {
-             return <DropdownItem key={index} onClick={() => this.handleSelectClick.bind(this)(data.item, index)}>{capitalize(data.item)}</DropdownItem>
+             return <DropdownItem key={index} onClick={() => this.handleSelectClick.bind(this)(data.item, index)}>{capitalize(data.item)}{data.count ? ' ('+data.count+')' : ''}</DropdownItem>
           }) :
              false
           }
