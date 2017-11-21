@@ -20,6 +20,8 @@ var srpData = (params = {}) => {
 			cylinders: params.cylinders ? params.cylinders : '',
 			fuel_type: params.fuelType ? params.fuelType : '',
 			features: [],
+			latitude: params.latitude ? params.latitude : '-32.78',
+			longitude: params.longitude ? params.longitude : '79.99',
 			last_seen_at: params.dayListed ? params.dayListed : 0,
 		    facets: 'transmission,trim,drivetrain,cylinders,fuel_type,body_type,year,model,exterior_color,seller_type',
 		    stats: 'miles,price',
