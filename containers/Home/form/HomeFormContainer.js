@@ -41,7 +41,7 @@ class HomeFormContainer extends Component {
 
   fetchModels (make) {
     this.setState({ loadingModels: true })
-    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=model&make=${make}&rows=00&nodedup=true`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=model|0|60&make=${make}&rows=00&nodedup=true`)
       .then(models => {
         if (models.facets.model) {
           this.setState({ models: models.facets.model })
@@ -52,7 +52,7 @@ class HomeFormContainer extends Component {
 
   fetchMakes() {
     this.setState({ loadingMakers: true });
-    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=make&rows=0&nodedup=true`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=make|0|60&rows=0&nodedup=true`)
       .then(makes => {
         if (makes.facets.make) {
           this.setState({ makes: makes.facets.make })
