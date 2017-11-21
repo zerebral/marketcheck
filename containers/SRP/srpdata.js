@@ -26,7 +26,7 @@ var srpData = (params = {}) => {
 		    facets: 'transmission,trim,drivetrain,cylinders,fuel_type,body_type,year,model,exterior_color,seller_type',
 		    stats: 'miles,price',
 		    start: params.start ? params.start : 0,
-		    rows: params.rows ? params.rows : 10,
+		    rows: params.rows ? params.rows : 11,
 		    sort_by: params.sort_by ? params.sort_by : '',
 			sort_order: params.sort_order ? params.sort_order : ''
 		},

@@ -237,7 +237,6 @@ class SrpContainer extends React.Component {
     })
 
     this.resetPagination()
-    this.getCarsData()
   }
 
   componentDidMount () {

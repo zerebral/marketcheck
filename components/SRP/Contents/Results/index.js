@@ -120,7 +120,7 @@ class Results extends Component {
               <Button href="/">Lets start over</Button>
             </div>)
           }
-          {this.props.responseFactory.num_found ?
+          {this.props.responseFactory.num_found &&  this.props.responseFactory.num_found > 11 ?
             <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} /> :
             null
           }
