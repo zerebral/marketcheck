@@ -56,14 +56,16 @@ class GroupIconBtn extends Component {
   }
 
   render () {
-    console.log(this.props.items)
     return (
       <Collapsible label={this.label}>
+        {this.props.items[0] !== undefined && this.props.items ?
         <Btn margin='0 1.5em 0 0' onClick={() => this.handleSelectClick.bind(this)(this.props.items[0].item)}>
           <StyledKeyIcon />
           <Label>{capitalize(this.props.items[0].item)}</Label>
         </Btn>
-        {this.props.items[1] !== undefined ?
+        : null
+        }
+        {this.props.items[1] !== undefined && this.props.items ?
         <Btn margin='0 0 0 1.5em' onClick={() => this.handleSelectClick.bind(this)(this.props.items[1].item)}>
           <StyledFsboIcon />
           <Label>{uppercase(this.props.items[1].item)}</Label>

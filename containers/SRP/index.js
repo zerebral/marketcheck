@@ -259,6 +259,8 @@ class SrpContainer extends React.Component {
         updateMilesRange: this.updateMilesRange.bind(this),
         updateDealsRating: this.updateDealsRating.bind(this),
         updateModelList: this.updateModelList.bind(this),
+        updateYear: this.updateYear.bind(this),
+        updateColor: this.updateColor.bind(this),
         updateSellerType: this.updateSellerType.bind(this),
         updateTransmission: this.updateTransmission.bind(this),
         updateBodyType: this.updateBodyType.bind(this),

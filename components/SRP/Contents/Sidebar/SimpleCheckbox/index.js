@@ -46,10 +46,8 @@ class SimpleCheckbox extends Component {
     super(props)
 
     this.label = this.props.label
-    this.CheckValue = ''
 
     this.state = {
-      checked: null,
       list: this.props.list,
       listLimit: 5,
       reset: false
@@ -58,20 +56,42 @@ class SimpleCheckbox extends Component {
 
   handleResetClick (value) {
     this.setState({
-      checked: null,
       listLimit: 5,
       reset: value
-    }).bind(this)
+    })
+
+    const newList = this.state.list
+
+    newList.map(function (model, index){
+      model.checked = false
+    })
+
+    this.setState({
+      list: newList
+    })
 
     this.props.updateSuperState(null)
   }
 
   handleCheckClick (index, value) {
 
-    this.setState({
-      checked: index
+    const newList = this.state.list
+    
+    newList[index].checked = newList[index].checked ? false : true
+
+    let stateModelList = []
+
+    newList.map(function (model, index){
+      if (model.checked) {
+        stateModelList.push(model.label)
+      }
     })
-    this.props.updateSuperState(value)
+
+    this.setState({
+      list: newList
+    })
+
+    this.props.updateSuperState(stateModelList)
   }
 
   updateListLimit (e) {
@@ -84,10 +104,16 @@ class SimpleCheckbox extends Component {
     })
   }
 
-  componentWillReceiveProps () {
+  componentWillReceiveProps (props) {
     if (this.props.resetState) {
+      const newList = this.state.list
+
+      newList.map(function (model, index){
+        model.checked = false
+      })
+
       this.setState({
-        checked: null
+        list: newList
       })
     }
   }
@@ -95,22 +121,25 @@ class SimpleCheckbox extends Component {
   render () {
     return (
       <Collapsible {...this.props} parentReset={this.handleResetClick.bind(this)}>
-        {this.state.list.map(function (item, index) {
-          if (index < this.state.listLimit) {
-            return (
-              <StyledFlexRow key={index}>
-                <StyledFlexCol>
-                  <CheckBox className={this.state.checked === index ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item.value)} />
-                </StyledFlexCol>
-                <FlexCol>
-                  <Label onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>{item.label} {item.count ? '('+item.count+')' : ''}</Label>
-                </FlexCol>
-              </StyledFlexRow>
-            )
-          } else {
-            return null
-          }
-        }.bind(this))}
+        {this.state.list.length ?
+          this.state.list.map(function (item, index) {
+            if (index < this.state.listLimit) {
+              return (
+                <StyledFlexRow key={index}>
+                  <StyledFlexCol>
+                    <CheckBox className={item.checked ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item)} />
+                  </StyledFlexCol>
+                  <FlexCol>
+                    <Label onClick={() => this.handleCheckClick.bind(this)(index, item)}>{item.label} {item.count ? '('+item.count+')' : ''}</Label>
+                  </FlexCol>
+                </StyledFlexRow>
+              )
+            } else {
+              return null
+            }
+          }.bind(this)) :
+        false
+        }
         { this.props.resetBtn && this.state.list.length > this.state.listLimit ? <MoreBtn onClick={this.updateListLimit.bind(this)}>More</MoreBtn> : ''}
       </Collapsible>
     )

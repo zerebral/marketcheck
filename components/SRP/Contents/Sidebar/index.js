@@ -163,10 +163,13 @@ export default (props) => {
       <DoubleRange {...props} label='Price' currency min={miles.min} max={miles.max} step={10} value={[miles.min, miles.max]} updateSuperState={props.updatePrice} />
       <DoubleRange {...props} label='Miles Range' min={price.min} max={price.max} step={10} value={[price.min, price.max]} updateSuperState={props.updateMilesRange} />
       <SimpleCheckbox {...props} {...props} label='Deals' list={list} updateSuperState={props.updateDealsRating} />
-      <SearchCheckbox {...props} label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn />
-      <InputYear {...props} label='Year' updateSuperState={props.updateYear} />
+      {false ? <SearchCheckbox {...props} label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn /> : null }
+      <SimpleCheckbox {...props} label='Models' list={listGenerator(props.sessionSearch.modelsList)} updateSuperState={props.updateModelList} resetBtn />
+      {false ? <InputYear {...props} label='Year' updateSuperState={props.updateYear} /> : null }
+      <SimpleCheckbox {...props} label='Year' list={listGenerator(props.responseFactory.facets.year)} updateSuperState={props.updateYear} resetBtn />
       <GroupIconBtn {...props} label='Seller Type' labelOne='Dealer' labelTwo='FSBO' items={props.responseFactory.facets.seller_type} updateSuperState={props.updateSellerType} />
-      <CheckColors {...props} label='Color' colorButtons={colorButtons} updateSuperState={props.updateColor} />
+      {false ? <CheckColors {...props} label='Color' colorButtons={colorButtons} updateSuperState={props.updateColor} /> : null }
+      <SimpleCheckbox {...props} label='Color' list={listGenerator(props.responseFactory.facets.exterior_color)} updateSuperState={props.updateColor} resetBtn />
       <SimpleCheckbox {...props} label='Transmission' list={listGenerator(props.responseFactory.facets.transmission)} updateSuperState={props.updateTransmission} />
       <SimpleCheckbox {...props} label='Body' list={listGenerator(props.responseFactory.facets.body_type)} updateSuperState={props.updateBodyType} />
       <SimpleCheckbox {...props} label='Trim' list={listGenerator(props.responseFactory.facets.trim)} updateSuperState={props.updateTrim} resetBtn />
