@@ -24,6 +24,7 @@ const Label = styled.span`
 
 const Selected = styled.span`
   color: ${colors.black};
+  cursor: pointer;
   display: inline-block;
   font-size: ${em(13)};
   font-weight: 300;
@@ -111,7 +112,7 @@ class Dropdown extends Component {
     return (
       <SortBy>
         <Label>{this.label}</Label>
-        <Selected>{this.items[this.state.selected].label}</Selected>
+        <Selected onClick={this.handleOpenClick.bind(this)}>{this.items[this.state.selected].label}</Selected>
         <Btn onClick={this.handleOpenClick.bind(this)}>
           <ArrowStyled />
         </Btn>
