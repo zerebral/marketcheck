@@ -9,6 +9,10 @@ const Listing = styled.div`
   margin-bottom: 40px;
 `
 
+const ListDateRange = styled.div`
+  min-width: 300px;
+`
+
 const DateRange = styled.h6`
   font-size: 14px;
   font-weight: 400;
@@ -31,13 +35,13 @@ const Vendor = styled.a`
 export default (props) =>
   <Listing>
     <FlexRow noMargin justify='space-between' >
-      <div>
+      <ListDateRange>
         <DateRange><Moment format='MMM DD, YYYY'>{props.initialDate}</Moment> - <Moment format='MMM DD, YYYY'>{props.lastDate}</Moment></DateRange>
         <Vendor href={props.source} target='_blank'>
           {props.sellerName}
           <External />
         </Vendor>
-      </div>
+      </ListDateRange>
       <StatCol money gain={props.priceDifference > 0} price={props.price} carMiles={props.miles} priceDifference={props.priceDifference} />
       <StatCol gain={props.milesDifference > 0} carMiles={props.miles} milesDifference={props.milesDifference} />
     </FlexRow>

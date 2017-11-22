@@ -27,7 +27,6 @@ import {
 } from './Icons'
 
 export default (props) => {
-  console.log(props.data.is_certified)
   return (
     <Wrapper>
       <Car>
