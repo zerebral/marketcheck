@@ -105,6 +105,10 @@ class SimpleCheckbox extends Component {
   }
 
   componentWillReceiveProps (props) {
+    this.setState({
+      list: props.list
+    })
+
     if (this.props.resetState) {
       const newList = this.state.list
 
