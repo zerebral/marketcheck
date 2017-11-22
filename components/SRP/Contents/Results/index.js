@@ -124,7 +124,7 @@ class Results extends Component {
             <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} /> :
             null
           }
-          <Recommended />
+          {false ? <Recommended /> : null }
           <ListsBy />
         </Wrapper>
       </StyledFlexCol>
