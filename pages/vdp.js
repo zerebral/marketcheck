@@ -1,4 +1,5 @@
 import React from 'react'
+import { initGA, logPageView } from '%/ga'
 import VDP from '@/VDP'
 import FontsHOC from '@/HOC/Fonts'
 import fetch from 'isomorphic-fetch'
@@ -65,6 +66,13 @@ class Vdp extends React.Component {
   }
 
   componentDidMount () {
+    if (!window.GA_INITIALIZED) {
+      initGA()
+      window.GA_INITIALIZED = true
+    }
+
+    logPageView()
+
     this.findIdByVIN(this.state.vin)
     this.summaryReport(this.state.vin)
     this.fetchScatterData(this.state.vin)
