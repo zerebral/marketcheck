@@ -52,6 +52,7 @@ const DropdownItem = styled.a`
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  min-width: 180px;
   ${mediaMax.desktop`
    font-size: ${em(12)};
   `}
