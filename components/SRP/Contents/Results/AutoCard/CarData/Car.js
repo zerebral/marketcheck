@@ -27,6 +27,7 @@ import {
 } from './Icons'
 
 export default (props) => {
+  console.log(props.data.is_certified)
   return (
     <Wrapper>
       <Car>
@@ -39,11 +40,11 @@ export default (props) => {
               props.data.build.year + " " +
               props.data.build.make + " " +
               props.data.build.model + " " +
-              props.data.exterior_color, 33
+              (props.data.exterior_color ? props.data.exterior_color : '')
             )
           }
           </Name>
-          <Certified />
+          {props.data.is_certified && props.data.is_certified == 1 ? <Certified /> : null }
         </Title>
 
         <Details>
