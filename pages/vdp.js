@@ -15,8 +15,6 @@ class Vdp extends React.Component {
   constructor (props) {
     super(props)
 
-    console.log(props)
-
     this.myInit = { 
       method: 'GET',
       mode: 'cors',

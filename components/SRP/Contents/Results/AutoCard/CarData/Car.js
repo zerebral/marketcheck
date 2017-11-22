@@ -33,16 +33,28 @@ export default (props) => {
         <NewBadge>{capitalize(props.filters.car_type)}</NewBadge>
 
         <Title>
-          <Name target="__blank" href={'/vdp/'+props.data.vin}>{cutString(props.data.build.year + " " + props.data.build.make + " " + props.data.build.model + " " + props.data.exterior_color, 33)}</Name>
+          <Name target="__blank" href={'/vdp/'+props.data.vin}>
+          { 
+            cutString(
+              props.data.build.year + " " +
+              props.data.build.make + " " +
+              props.data.build.model + " " +
+              props.data.exterior_color, 33
+            )
+          }
+          </Name>
           <Certified />
         </Title>
 
-        <Details>{(props.data.build.transmission !== undefined ? props.data.build.transmission : '') + " " +
-                  (props.data.miles !== undefined ? props.data.miles : '') + "mi., " +
-                  (props.data.build.city_miles !== undefined ? props.data.build.city_miles.substring(0,2) : '') +
-                  "/" +
-                  (props.data.build.highway_miles !== undefined ? props.data.build.highway_miles.substring(0,2) : '') +
-                  " MPG*"}
+        <Details>
+        {
+          (props.data.build.transmission ? props.data.build.transmission : '') + " " +
+          (props.data.miles ? props.data.miles : '') + "mi., " +
+          (props.data.build.city_miles ? props.data.build.city_miles.substring(0,2) : '') +
+          "/" +
+          (props.data.build.highway_miles ? props.data.build.highway_miles.substring(0,2) : '') +
+          " MPG*"
+        }
         </Details>
 
         <PriceRow>

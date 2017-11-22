@@ -9,15 +9,18 @@ const VDP = (props) => {
 	const pageTitle = () => {
 		let title = ''
 
-		title = title + (props.year ? props.year + ' ' : '')
-		title = title + (props.year ? props.make + ' ' : '')
-		title = title + (props.year ? props.model + ' ' : '')
-		title = title + (props.year ? props.exterior_color + ' ' : '')
+		if (props.heading) {
+			title = props.heading
+		} else {
+			title = title + (props.year ? props.year + ' ' : '')
+			title = title + (props.year ? props.make + ' ' : '')
+			title = title + (props.year ? props.model + ' ' : '')
+			title = title + (props.year ? props.exterior_color + ' ' : '')
+		}
 
 		return title
 	}
 
-	console.log(pageTitle())
 	return (
 		  <LayoutSecondary>
 			<Head>

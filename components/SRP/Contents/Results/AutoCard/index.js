@@ -152,7 +152,7 @@ class AutoCard extends Component {
           <PriceTop data={this.props.data} />
           <InnerContainer>
             <Slideshow data={this.props.data} />
-            <CarData {...this.props}  data={this.props.data} />
+            { this.props.data.build ? <CarData {...this.props}  data={this.props.data} /> : null }
           </InnerContainer>
           <Safety data={this.props.data} />
 
@@ -171,7 +171,7 @@ class AutoCard extends Component {
         </Container>
 
         <Collapsible open={this.state.open}>
-          <MoreInfo data={this.props.data} />
+          { this.props.data.build ? <MoreInfo data={this.props.data} /> : null }
         </Collapsible>
       </Card>
     )

@@ -62,18 +62,15 @@ class HomeFormContainer extends Component {
   }
 
   carTypeSelect(value) {
-    console.log(value)
     this.setState({ carType : value})
   }
 
   makeSelect(value) {
-    console.log(value)
     this.setState({ selectedMake: value})
     this.fetchModels(value);
   }
 
   modelSelect(value) {
-    console.log(value)
     this.setState({ selectedModel: value})
   }
 

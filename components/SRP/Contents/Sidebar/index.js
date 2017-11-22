@@ -18,13 +18,13 @@ import ClearAllBtn from './ClearAllBtn'
 const listGenerator = (response) => {
   let list = []
 
-  response.map((trim, index) => {
+  response && response.length ? response.map((trim, index) => {
     list.push({
       label: trim.item,
       value: trim.item,
       count: trim.count
     })
-  })
+  }) : false
 
   return list
 }
