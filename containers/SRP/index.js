@@ -185,7 +185,7 @@ class SrpContainer extends React.Component {
 
   resetPagination () {
     this.sessionSearch.start = 0
-    this.sessionSearch.rows = 5
+    this.sessionSearch.rows = 11
   }
 
   getCarsData () {
