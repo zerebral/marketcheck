@@ -9,7 +9,7 @@ var srpData = (params = {}) => {
 			miles_rage: (params.milesRange ? params.milesRange.min : 0) + "-" + (params.milesRange ? params.milesRange.max : 1000000),
 			deal: params.dealRating ? params.dealRating : '',
 			make: params.selectedMake ? params.selectedMake : '',
-			model: params.modelList ? params.modelList : params.selectedModel ? params.selectedModel : '',
+			model: params.modelList ? params.modelList : params.selectedModel ? params.selectedModel : null,
 			year: params.year ? parseInt(params.year) : '',
 			seller_type: params.sellerType ? params.sellerType : '',
 			exterior_color: params.color ? params.color : '',

@@ -158,7 +158,7 @@ class SrpContainer extends React.Component {
   }
 
   removeMake () {
-    this.sessionSearch.selectedMake = ' '
+    this.sessionSearch.selectedMake = []
 
     this.refreshState()
 
@@ -166,19 +166,19 @@ class SrpContainer extends React.Component {
   }
 
   removeType () {
-    this.sessionSearch.carType = ' '
+    this.sessionSearch.carType = 'used'
 
     this.refreshState()
   }
 
   removeModel () {
-    this.sessionSearch.modelList = ' '
+    this.sessionSearch.modelList = []
 
     this.refreshState()
   }
 
   removeTransmission () {
-    this.sessionSearch.transmission = ' '
+    this.sessionSearch.transmission = []
 
     this.refreshState()
   }

@@ -86,7 +86,7 @@ class Results extends Component {
     return (
       <Container>
         {this.props.list.map(function (item, index) {
-          return item.filter !== ' ' ? (
+          return item.filter !== ' ' && item.filter ? (
             <Filter key={index}>
               <Label>{item.label}</Label>
               <Value>{item.filter}</Value>
