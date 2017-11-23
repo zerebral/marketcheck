@@ -156,6 +156,7 @@ const SidebarFlexCol = styled(FlexCol)`
 export default (props) => {
   const miles = props.responseFactory.stats.miles
   const price = props.responseFactory.stats.price
+  console.log(props.responseFactory)
   return (<SidebarFlexCol>
     <Wrapper>
       <ClearAllBtn {...props} />
@@ -165,7 +166,7 @@ export default (props) => {
       <DoubleRange {...props} label='Miles Range' min={miles.min} max={miles.max} step={10} value={[miles.min, miles.max]} updateSuperState={props.updateMilesRange} />
       <SimpleCheckbox {...props} {...props} label='Deals' list={list} updateSuperState={props.updateDealsRating} />
       {false ? <SearchCheckbox {...props} label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn /> : null }
-      <SimpleCheckbox {...props} label='Models' list={listGenerator(props.sessionSearch.modelsList)} updateSuperState={props.updateModelList} resetBtn />
+      <SimpleCheckbox {...props} label='Models' list={listGenerator(props.responseFactory.facets.model)} updateSuperState={props.updateModelList} resetBtn />
       {false ? <InputYear {...props} label='Year' updateSuperState={props.updateYear} /> : null }
       <SimpleCheckbox {...props} label='Year' list={listGenerator(props.responseFactory.facets.year)} updateSuperState={props.updateYear} resetBtn />
       {false ? <GroupIconBtn {...props} label='Seller Type' items={props.responseFactory.facets.seller_type} updateSuperState={props.updateSellerType} /> : null }

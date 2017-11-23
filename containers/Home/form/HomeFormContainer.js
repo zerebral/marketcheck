@@ -17,8 +17,8 @@ class HomeFormContainer extends Component {
     // this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      models: {},
-      makes: {},
+      models: [],
+      makes: [],
       carType: '',
       selectedMake: null,
       selectedModel: null,

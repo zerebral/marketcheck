@@ -255,9 +255,9 @@ class SrpContainer extends React.Component {
     this.savedSearch = JSON.parse(window.localStorage.getItem('searchSession'))
 
     this.setState(
-      this.savedSearch
-      ? this.savedSearch
-      : {
+      this.savedSearch ?
+      this.savedSearch :
+      {
         sessionSearch: srpData(this.sessionSearch),
         saveSearch: this.saveSearch.bind(this),
         updateCarType: this.updateCarType.bind(this),
