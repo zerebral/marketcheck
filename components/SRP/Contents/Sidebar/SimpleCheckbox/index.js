@@ -48,8 +48,9 @@ class SimpleCheckbox extends Component {
     this.label = this.props.label
 
     this.state = {
-      list: this.props.list,
+      checked: false,
       listLimit: 5,
+      list: this.props.list,
       reset: false
     }
   }
@@ -60,7 +61,7 @@ class SimpleCheckbox extends Component {
       reset: value
     })
 
-    const newList = this.state.list
+    const newList = this.props.list
 
     newList.map(function (model, index){
       model.checked = false
@@ -68,15 +69,13 @@ class SimpleCheckbox extends Component {
 
     this.setState({
       list: newList
+    }, () => {
+      this.props.updateSuperState(null)
     })
-
-    this.props.updateSuperState(null)
   }
 
   handleCheckClick (index, value) {
-
-    const newList = this.state.list
-    
+    const newList = this.props.list
     newList[index].checked = newList[index].checked ? false : true
 
     let stateModelList = []
@@ -88,10 +87,11 @@ class SimpleCheckbox extends Component {
     })
 
     this.setState({
+      checked: index,
       list: newList
+    }, () => {
+      this.props.updateSuperState(stateModelList)
     })
-
-    this.props.updateSuperState(stateModelList)
   }
 
   updateListLimit (e) {
@@ -105,12 +105,8 @@ class SimpleCheckbox extends Component {
   }
 
   componentWillReceiveProps (props) {
-    this.setState({
-      list: props.list
-    })
-
     if (this.props.resetState) {
-      const newList = this.state.list
+      const newList = this.props.list
 
       newList.map(function (model, index){
         model.checked = false

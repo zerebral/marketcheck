@@ -41,7 +41,7 @@ const DropdownContent = styled.div`
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
   overflow-y: scroll;
-  max-height: 300px;
+  max-height: 305px;
   z-index: 9999999999;
 
   &::-webkit-scrollbar {

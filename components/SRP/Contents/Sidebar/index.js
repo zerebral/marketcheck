@@ -167,7 +167,8 @@ export default (props) => {
       <SimpleCheckbox {...props} label='Models' list={listGenerator(props.sessionSearch.modelsList)} updateSuperState={props.updateModelList} resetBtn />
       {false ? <InputYear {...props} label='Year' updateSuperState={props.updateYear} /> : null }
       <SimpleCheckbox {...props} label='Year' list={listGenerator(props.responseFactory.facets.year)} updateSuperState={props.updateYear} resetBtn />
-      <GroupIconBtn {...props} label='Seller Type' labelOne='Dealer' labelTwo='FSBO' items={props.responseFactory.facets.seller_type} updateSuperState={props.updateSellerType} />
+      {false ? <GroupIconBtn {...props} label='Seller Type' labelOne='Dealer' labelTwo='FSBO' items={props.responseFactory.facets.seller_type} updateSuperState={props.updateSellerType} /> : null }
+       <SimpleCheckbox {...props} label='Seller Type' list={listGenerator(props.responseFactory.facets.seller_type)} updateSuperState={props.updateSellerType} resetBtn />
       {false ? <CheckColors {...props} label='Color' colorButtons={colorButtons} updateSuperState={props.updateColor} /> : null }
       <SimpleCheckbox {...props} label='Color' list={listGenerator(props.responseFactory.facets.exterior_color)} updateSuperState={props.updateColor} resetBtn />
       <SimpleCheckbox {...props} label='Transmission' list={listGenerator(props.responseFactory.facets.transmission)} updateSuperState={props.updateTransmission} />

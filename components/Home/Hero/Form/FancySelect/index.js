@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { capitalize } from '%/format'
+import { capitalize, number } from '%/format'
 import SelectWrapper from './SelectWrapper'
 import {Selected, DropdownContent, DropdownItem} from './Select'
 import Caret from './Caret'
@@ -52,7 +52,7 @@ class Dropdown extends Component {
         </Selected>
         <DropdownContent visible={this.state.open}>
           {this.props.list !== undefined && Array.isArray(this.props.list) && !this.props.loading ? this.props.list.map((data, index) => {
-             return <DropdownItem key={index} onClick={() => this.handleSelectClick.bind(this)(data.item, index)}>{capitalize(data.item)}{data.count ? ' ('+data.count+')' : ''}</DropdownItem>
+             return <DropdownItem key={index} onClick={() => this.handleSelectClick.bind(this)(data.item, index)}>{capitalize(data.item)}{data.count ? ' ('+number(data.count)+')' : ''}</DropdownItem>
           }) :
              false
           }
