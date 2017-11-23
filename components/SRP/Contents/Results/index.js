@@ -121,7 +121,7 @@ class Results extends Component {
             </div>)
           }
           {this.props.responseFactory.num_found &&  this.props.responseFactory.num_found > 11 ?
-            <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} /> :
+            <Paginator {...this.props} totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} /> :
             null
           }
           {false ? <Recommended /> : null }

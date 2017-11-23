@@ -17,6 +17,7 @@ class SrpContainer extends React.Component {
     this.state = {
       sessionSearch: srpData(),
       responseFactory: {},
+      resetPagination: false,
       readyFirstFetch: false,
       readyRefreshFetch: false,
       readyState: false
@@ -114,7 +115,7 @@ class SrpContainer extends React.Component {
     this.sessionSearch.start = value.start
     this.sessionSearch.rows = value.rows
 
-    this.refreshState()
+    this.refreshState(true)
   }
 
   updateTrim (value) {
@@ -183,11 +184,6 @@ class SrpContainer extends React.Component {
     this.refreshState()
   }
 
-  resetPagination () {
-    this.sessionSearch.start = 0
-    this.sessionSearch.rows = 11
-  }
-
   getCarsData () {
     let that = this
 
@@ -225,9 +221,10 @@ class SrpContainer extends React.Component {
     return fetchResult
   }
 
-  refreshState () {
+  refreshState (pagination) {
     this.setState({
-      readyRefreshFetch: false
+      readyRefreshFetch: false,
+      resetPagination: false
     })
 
     this.setState({
@@ -236,7 +233,18 @@ class SrpContainer extends React.Component {
       this.getCarsData()
     })
 
-    this.resetPagination()
+    if (!pagination) {
+      this.resetPagination()
+    }
+  }
+
+  resetPagination () {
+    this.setState({
+      resetPagination: true
+    })
+
+    this.sessionSearch.start = 0
+    this.sessionSearch.rows = 11
   }
 
   componentDidMount () {

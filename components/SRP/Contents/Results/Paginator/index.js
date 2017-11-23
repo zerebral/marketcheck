@@ -51,7 +51,7 @@ class Paginator extends Component {
   }
 
   limitPages () {
-    if ((this.totalPages() - (this.state.currentPage * this.state.pageSize)) > 0) { 
+    if ((this.totalPages() - (this.state.currentPage * this.state.pageSize)) > 1) { 
       let limit = (Math.floor((this.state.currentPage/5)+1) * this.state.pageSize)
       return limit
     } else {
@@ -92,7 +92,6 @@ class Paginator extends Component {
       currentPage: nextPage,
       offsetShow: (nextPage * this.perPage)
     }, () => {
-      //console.log(this.state.currentPage)
       this.setState({
         limitPages: this.limitPages()
       })
@@ -108,7 +107,6 @@ class Paginator extends Component {
     this.setState({
       currentPage: 0
     }, () => {
-      //console.log(this.state.currentPage)
       this.setState({
         limitPages: this.limitPages()
       })
@@ -124,7 +122,6 @@ class Paginator extends Component {
     this.setState({
       currentPage: this.totalPages()-1
     }, () => {
-      //console.log(this.state.currentPage)
       this.setState({
         limitPages: this.limitPages()
       })
@@ -141,7 +138,6 @@ class Paginator extends Component {
       currentPage: page,
       offsetShow: (page * this.perPage)
     }, () => {
-      //console.log(this.state.currentPage)
       this.setState({
         limitPages: this.limitPages()
       })
@@ -159,6 +155,16 @@ class Paginator extends Component {
       totalPages: this.totalPages(),
       limitPages: this.limitPages(),
       ready: true
+    })
+  }
+
+  componentWillReceiveProps () {
+    this.setState({
+      currentPage: this.props.resetPagination ? 0 : this.state.currentPage
+    }, () => {
+      this.setState({
+        limitPages: this.limitPages()
+      })
     })
   }
 
