@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
 import { FlexCol } from '~/layout'
+import { capitalize } from '%/format'
 import Wrapper from './Wrapper'
 import GroupBtn from './GroupBtn'
 import InputRange from './InputRange'
@@ -20,7 +21,7 @@ const listGenerator = (response) => {
 
   response && response.length ? response.map((trim, index) => {
     list.push({
-      label: trim.item,
+      label: capitalize(trim.item),
       value: trim.item,
       count: trim.count
     })
@@ -167,7 +168,7 @@ export default (props) => {
       <SimpleCheckbox {...props} label='Models' list={listGenerator(props.sessionSearch.modelsList)} updateSuperState={props.updateModelList} resetBtn />
       {false ? <InputYear {...props} label='Year' updateSuperState={props.updateYear} /> : null }
       <SimpleCheckbox {...props} label='Year' list={listGenerator(props.responseFactory.facets.year)} updateSuperState={props.updateYear} resetBtn />
-      {false ? <GroupIconBtn {...props} label='Seller Type' labelOne='Dealer' labelTwo='FSBO' items={props.responseFactory.facets.seller_type} updateSuperState={props.updateSellerType} /> : null }
+      {false ? <GroupIconBtn {...props} label='Seller Type' items={props.responseFactory.facets.seller_type} updateSuperState={props.updateSellerType} /> : null }
        <SimpleCheckbox {...props} label='Seller Type' list={listGenerator(props.responseFactory.facets.seller_type)} updateSuperState={props.updateSellerType} resetBtn />
       {false ? <CheckColors {...props} label='Color' colorButtons={colorButtons} updateSuperState={props.updateColor} /> : null }
       <SimpleCheckbox {...props} label='Color' list={listGenerator(props.responseFactory.facets.exterior_color)} updateSuperState={props.updateColor} resetBtn />
