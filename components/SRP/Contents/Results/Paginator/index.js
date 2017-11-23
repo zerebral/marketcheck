@@ -78,7 +78,7 @@ class Paginator extends Component {
 
       this.props.updateSuperState({
         start: this.state.offsetShow,
-        rows: this.state.offsetShow + this.perPage
+        //rows: this.state.offsetShow + this.perPage
       })
     })
   }
@@ -98,7 +98,7 @@ class Paginator extends Component {
 
       this.props.updateSuperState({
         start: this.state.offsetShow,
-        rows: this.state.offsetShow + this.perPage
+        //rows: this.state.offsetShow + this.perPage
       })
     })
   }
@@ -113,7 +113,7 @@ class Paginator extends Component {
 
       this.props.updateSuperState({
         start: this.state.offsetShow,
-        rows: this.state.offsetShow + this.perPage
+        //rows: this.state.offsetShow + this.perPage
       })
     })
   }
@@ -128,7 +128,7 @@ class Paginator extends Component {
 
       this.props.updateSuperState({
         start: this.state.offsetShow,
-        rows: this.state.offsetShow + this.perPage
+        //rows: this.state.offsetShow + this.perPage
       })
     })
   }
@@ -145,7 +145,7 @@ class Paginator extends Component {
       this.props.updateSuperState({
         current: page,
         start: this.state.offsetShow,
-        rows: this.state.offsetShow + this.perPage
+        //rows: this.state.offsetShow + this.perPage
       })
     })
   }
