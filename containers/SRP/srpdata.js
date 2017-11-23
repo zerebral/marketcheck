@@ -1,7 +1,6 @@
 import FetchingData from '%/factory/fetchingData'
 
 var srpData = (params = {}) => {
-	console.log(params)
 	return {
 		filters: {
 			car_type: params.carType ? params.carType : 'used',
