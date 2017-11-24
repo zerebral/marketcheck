@@ -49,11 +49,10 @@ export default (props) => {
         <Details>
         {
           (props.data.build.transmission ? props.data.build.transmission : '') + " " +
-          (props.data.miles ? props.data.miles : '') + "mi., " +
+          (props.data.miles ? props.data.miles + "mi., " : '') +
           (props.data.build.city_miles ? props.data.build.city_miles.substring(0,2) : '') +
           "/" +
-          (props.data.build.highway_miles ? props.data.build.highway_miles.substring(0,2) : '') +
-          " MPG*"
+          (props.data.build.highway_miles ? props.data.build.highway_miles.substring(0,2) + " MPG*" : '') 
         }
         </Details>
 
