@@ -48,6 +48,10 @@ export default ({
     body_type: body,
     fuel_type: fuel
   },
+  dealer: {
+    city,
+    state
+  },
   extra: {
     features
   }
@@ -56,6 +60,8 @@ export default ({
     <VDP
     {...props}
     {...vdpdata}
+    city={city}
+    state={state}
     heading={heading}
     name={`${make} ${model}`}
     brief={`Stock # ${stockNumber ? stockNumber : '-'}, ${engine ? engine + ',' : ''} ${transmission ? transmission + ',' : ''} ${miles ? miles + ' mi,' : ''} ${cityMiles && highwayMiles ? (parseInt(cityMiles)+'/'+parseInt(highwayMiles))+' MPG*' : '' } `}

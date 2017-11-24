@@ -10,12 +10,16 @@ const VDP = (props) => {
 		let title = ''
 
 		if (props.heading) {
-			title = props.heading
+			title = props.heading + ' ' +
+					(props.city  ? props.city + ' ': ' ') +
+					(props.state  ? props.state + ' ': ' ')
 		} else {
-			title = title + (props.year ? props.year + ' ' : '')
-			title = title + (props.year ? props.make + ' ' : '')
-			title = title + (props.year ? props.model + ' ' : '')
-			title = title + (props.year ? props.exterior_color + ' ' : '')
+			title = title + (props.year ? props.year + ' ' : ' ')
+			title = title + (props.make ? props.make + ' ' : ' ')
+			title = title + (props.model ? props.model + ' ' : ' ')
+			title = title + (props.exterior_color  ? props.exterior_color + ' ' : ' ')
+			title = title + (props.city ? props.city + ', ' : ' ')
+			title = title + (props.state ? props.state + ' ' : ' ')
 		}
 
 		return title
