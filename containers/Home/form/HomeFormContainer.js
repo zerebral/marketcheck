@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import urlEncodeParams from '%/factory/urlEncodeParams'
 import Form from '~/Home/Hero/Form/index'
 import fetch from 'isomorphic-fetch'
 
@@ -15,8 +16,17 @@ class HomeFormContainer extends Component {
     this.findLatLng = this.findLatLng.bind(this)
     // this.handleSelect = this.handleSelect.bind(this);
     // this.handleChange = this.handleChange.bind(this);
+    
+    this.urlParams = {
+      cart_type: '',
+      latitude: '',
+      longitude: '',
+      make: '',
+      model: ''
+    }
 
     this.state = {
+      refreshURL: '',
       models: [],
       makes: [],
       carType: '',
@@ -62,23 +72,57 @@ class HomeFormContainer extends Component {
   }
 
   carTypeSelect(value) {
-    this.setState({ carType : value})
+    this.urlParams.cart_type = value
+
+    this.setState({
+      carType : value
+    }, () => {
+      this.refreshURL()
+    })
   }
 
   makeSelect(value) {
-    this.setState({ selectedMake: value})
-    this.fetchModels(value);
+    this.urlParams.make = value
+
+    this.setState({
+      selectedMake: value
+    }, () => {
+      this.refreshURL()
+    })
+
+    this.fetchModels(value)
   }
 
   modelSelect(value) {
-    this.setState({ selectedModel: value})
+    this.urlParams.model = value
+
+    this.setState({
+      selectedModel: value
+    }, () => {
+      this.refreshURL()
+    })
   }
 
   findLatLng (lat, lng, address) {
+    this.urlParams.latitude = lat,
+    this.urlParams.longitude = lng
+
     this.setState({
       latitude: lat,
       longitude: lng,
       address: address
+    }, () => {
+      this.refreshURL()
+    })
+  }
+
+  refreshURL () {
+    let newURL = this.state.refreshURL
+
+    this.setState({
+      refreshURL: urlEncodeParams(this.urlParams)
+    }, () => {
+      window.history.pushState(this.state, 'Marketcheck', '/?' + this.state.refreshURL)
     })
   }
 
@@ -88,7 +132,7 @@ class HomeFormContainer extends Component {
     localStorage.removeItem("searchSession")
     sessionStorage.removeItem("searchSession")
     sessionStorage.setItem("searchSession", JSON.stringify(this.state))
-    window.location.href = "/srp";
+    window.location.href = "/srp?" + this.state.refreshURL;
   }
 
   componentDidMount () {
