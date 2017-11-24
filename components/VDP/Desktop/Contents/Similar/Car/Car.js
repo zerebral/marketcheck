@@ -72,6 +72,7 @@ export default ({
 
       <Average>{currency(874)} less than market average</Average>
 
+      {false ?
       <Features>
         <Bluetooth />
         <Cam />
@@ -80,7 +81,9 @@ export default ({
         <Air />
         <Brake />
         <Keyless />
-      </Features>
+      </Features> :
+      null
+      }
 
     </Info>
     { reviews && rating &&
