@@ -237,7 +237,7 @@ class SrpContainer extends React.Component {
       this.refreshURL()
     })
 
-    if (!pagination) {
+    if (!pagination && pagination !== undefined) {
       this.resetPagination()
     }
   }
