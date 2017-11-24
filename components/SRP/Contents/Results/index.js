@@ -109,7 +109,7 @@ class Results extends Component {
           <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
           <Filters {...this.props} list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
-          {this.props.responseFactory.num_found ?
+          {this.props.responseFactory.num_found && this.props.responseFactory.listings.length ?
             this.props.readyRefreshFetch ?
               this.props.responseFactory.listings.map((item, index) =>
                 (<AutoCard {...this.props.sessionSearch} key={index} data={item} />)

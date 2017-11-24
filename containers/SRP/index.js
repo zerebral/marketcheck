@@ -257,7 +257,7 @@ class SrpContainer extends React.Component {
     this.setState({
       refreshURL: urlEncodeParams(this.state.sessionSearch.filters)
     }, () => {
-      window.history.pushState(this.state.sessionSearch.filters, 'Marketcheck SRP', '/?' + this.state.refreshURL)
+      window.history.pushState(this.state.sessionSearch.filters, 'Marketcheck SRP', '/srp?' + this.state.refreshURL)
     })
   }
 

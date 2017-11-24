@@ -51,8 +51,15 @@ class Paginator extends Component {
   }
 
   limitPages () {
-    if ((this.totalPages() - (this.state.currentPage * this.state.pageSize)) > 1) { 
-      let limit = (Math.floor((this.state.currentPage/5)+1) * this.state.pageSize)
+    let limit = 0
+
+    if ((this.totalPages() - (this.state.currentPage * this.state.pageSize)) > 1) {
+      if(this.totalPages() <= this.state.pageSize) {
+        limit = this.totalPages()
+      } else {
+        limit = (Math.floor((this.state.currentPage/5)+1) * this.state.pageSize)
+      }
+
       return limit
     } else {
       return this.state.totalPages
@@ -179,7 +186,7 @@ class Paginator extends Component {
           </span>)
         : null }
 
-        {this.showPages((this.state.limitPages-this.state.pageSize),this.state.limitPages).map((page, index) => {
+        {this.showPages((this.state.limitPages-this.state.pageSize > 0 ?  this.state.limitPages-this.state.pageSize : 0),this.state.limitPages).map((page, index) => {
           return <PageNumber onClick={() => this.handleSelectPage.bind(this)(page)} key={index} className={this.state.currentPage === page ? 'current' : ''}>{page+1}</PageNumber>
         })}
 
