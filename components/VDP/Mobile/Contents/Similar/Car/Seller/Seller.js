@@ -53,9 +53,8 @@ export default ({
     </Flex>
     <Flex>
       <Button href={vdpUrl} target='_blank'>View on dealer website</Button>
-      <More>
-        View More
-        <Caret />
-      </More>
+      {false ? 
+        <More>View More <Caret /></More> :
+        null }
     </Flex>
   </Seller>
