@@ -156,7 +156,6 @@ const SidebarFlexCol = styled(FlexCol)`
 export default (props) => {
   const miles = props.responseFactory.stats.miles
   const price = props.responseFactory.stats.price
-  console.log(props.responseFactory)
   return (<SidebarFlexCol>
     <Wrapper>
       <ClearAllBtn {...props} />

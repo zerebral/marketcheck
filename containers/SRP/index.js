@@ -1,6 +1,7 @@
 import React from 'react'
 import SRP from '~/SRP'
 import Spinner from 'react-loading-animation'
+import urlEncodeParams from '%/factory/urlEncodeParams'
 import Factory from '%/factory/fetchingData'
 import srpData from './srpdata'
 import defaultSearch from './defaultsearch'
@@ -13,8 +14,10 @@ class SrpContainer extends React.Component {
 
     this.sessionSearch = {}
     this.savedSearch = {}
+    this.window = {}
 
     this.state = {
+      refreshURL: '',
       sessionSearch: srpData(),
       responseFactory: {},
       resetPagination: false,
@@ -231,6 +234,7 @@ class SrpContainer extends React.Component {
       sessionSearch: srpData(this.sessionSearch)
     }, () => {
       this.getCarsData()
+      this.refreshURL()
     })
 
     if (!pagination) {
@@ -247,7 +251,18 @@ class SrpContainer extends React.Component {
     this.sessionSearch.rows = 11
   }
 
+  refreshURL () {
+    let newURL = this.state.refreshURL
+
+    this.setState({
+      refreshURL: urlEncodeParams(this.state.sessionSearch.filters)
+    }, () => {
+      window.history.pushState(this.state.sessionSearch.filters, 'Marketcheck SRP', '/?' + this.state.refreshURL)
+    })
+  }
+
   componentDidMount () {
+
     const searchParams = window.sessionStorage.getItem('searchSession')
 
     this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : defaultSearch
@@ -287,6 +302,7 @@ class SrpContainer extends React.Component {
       },
       () => {
         this.getCarsData()
+        this.refreshURL()
       }
     )
   }
