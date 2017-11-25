@@ -104,9 +104,29 @@ class SimpleCheckbox extends Component {
     })
   }
 
-  componentWillReceiveProps (props) {
-    if (this.props.resetState) {
-      const newList = this.props.list
+  componentWillReceiveProps(nextProps) {
+    const checked = this.state.checked
+
+    let prevList = this.state.list
+    let newList = nextProps.list
+    
+    if (checked !== false && checked !== undefined) {
+      prevList[checked].checked = !prevList[checked].checked
+
+      newList.map(function (item, index){
+        if (item.label == prevList[checked].label) {
+          item.checked = true
+        }
+      })
+    }
+
+    this.setState({
+      list: newList
+    }, () => {
+    })
+
+    if (nextProps.resetState) {
+      const newList = nextProps.list
 
       newList.map(function (model, index){
         model.checked = false
