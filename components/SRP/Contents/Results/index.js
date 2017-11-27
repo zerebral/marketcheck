@@ -106,7 +106,7 @@ class Results extends Component {
     return (
       <StyledFlexCol>
         <Wrapper>
-          <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
+          <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} total={this.props.responseFactory.num_found} />
           <Filters {...this.props} list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
           {this.props.responseFactory.num_found && this.props.responseFactory.listings.length ?

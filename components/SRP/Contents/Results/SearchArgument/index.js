@@ -81,13 +81,14 @@ const Pin = styled(PinSvg)`
 export default ({
   argument,
   saveSearch,
-  location
+  location,
+  total
 }) => {
   return (
     <Container>
       <div>
         <SaveSearchTop>Save Search</SaveSearchTop>
-        <Argument>{ argument }</Argument>
+        <Argument>Found {total ? total : 0} { argument }</Argument>
         { false ? <SaveSearchBottom onClick={saveSearch}>Save Search</SaveSearchBottom> : false}
       </div>
       <Location>
