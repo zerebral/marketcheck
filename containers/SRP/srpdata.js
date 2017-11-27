@@ -16,7 +16,7 @@ var srpData = (params = {}) => {
 			transmission: params.transmission ? params.transmission : '',
 			body_type: params.bodyType ? params.bodyType : '',
 			trim: params.trim ? params.trim : '',
-			drivetrain: params.dirvetrain ? params.dirvetrain : '',
+			drivetrain: params.drivetrain ? params.drivetrain : '',
 			cylinders: params.cylinders ? params.cylinders : '',
 			fuel_type: params.fuelType ? params.fuelType : '',
 			features: [],

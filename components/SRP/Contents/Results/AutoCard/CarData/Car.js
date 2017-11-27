@@ -36,10 +36,12 @@ export default (props) => {
           <Name target="__blank" href={'/vdp/'+props.data.vin}>
           { 
             cutString(
-              props.data.build.year + " " +
-              props.data.build.make + " " +
-              props.data.build.model + " " +
-              (props.data.exterior_color ? props.data.exterior_color : '')
+              (
+                props.data.build.year + " " +
+                props.data.build.make + " " +
+                props.data.build.model + " " +
+                (props.data.exterior_color ? props.data.exterior_color : '')
+              ), 35
             )
           }
           </Name>

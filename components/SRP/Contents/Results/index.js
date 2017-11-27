@@ -78,14 +78,14 @@ class Results extends Component {
   filterTags (state) {
     const listFilters = [
       {
-        label: 'Make:',
-        filter: state.filters.make,
-        remove: this.props.removeMake
-      },
-      {
         label: 'Type:',
         filter: capitalize(state.filters.car_type),
         remove: this.props.removeType
+      },
+      {
+        label: 'Make:',
+        filter: state.filters.make,
+        remove: this.props.removeMake
       },
       {
         label: 'Model:',
@@ -93,10 +93,55 @@ class Results extends Component {
         remove: this.props.removeModel
       },
       {
-        label: 'Transmission:',
-        filter: state.filters.transmission ? capitalize(state.filters.transmission) : " ",
+        label: 'Year:',
+        filter: state.filters.year ? state.filters.year : " ",
         remove: this.props.removeTransmission
-      }
+      },
+      {
+        label: 'Deal:',
+        filter: state.filters.deal ? state.filters.deal : " ",
+        remove: this.props.removeDeal
+      },
+      {
+        label: 'Seller:',
+        filter: state.filters.seller_type ? state.filters.seller_type : " ",
+        remove: this.props.removeSellerType
+      },
+      {
+        label: 'Color:',
+        filter: state.filters.exterior_color ? state.filters.exterior_color : " ",
+        remove: this.props.removeExteriorColor
+      },
+      {
+        label: 'Transmission:',
+        filter: Array.isArray(state.filters.transmission) ? state.filters.transmission.join(',') : state.filters.transmission,
+        remove: this.props.removeTransmission
+      },
+      {
+        label: 'Body:',
+        filter: Array.isArray(state.filters.body_type) ? state.filters.body_type.join(',') : state.filters.body_type,
+        remove: this.props.removeBody
+      },
+      {
+        label: 'Trim:',
+        filter: Array.isArray(state.filters.trim) ? state.filters.trim.join(',') : state.filters.trim,
+        remove: this.props.removeTrim
+      },
+      {
+        label: 'Drive Train:',
+        filter: Array.isArray(state.filters.drivetrain) ? state.filters.drivetrain.join(',') : state.filters.drivetrain,
+        remove: this.props.removeDriveTrain
+      },
+      {
+        label: 'Cylinders:',
+        filter: state.filters.cylinders ? state.filters.cylinders : '',
+        remove: this.props.removeCylinders
+      },
+      {
+        label: 'Fuel:',
+        filter: Array.isArray(state.filters.fuel_type) ? state.filters.fuel_type.join(',') : state.filters.fuel_type,
+        remove: this.props.removeFuel
+      },
     ]
 
     return listFilters

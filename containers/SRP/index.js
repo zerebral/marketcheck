@@ -187,6 +187,54 @@ class SrpContainer extends React.Component {
     this.refreshState()
   }
 
+  removeDeal () {
+    this.sessionSearch.deal = []
+
+    this.refreshState()
+  }
+
+  removeSellerType () {
+    this.sessionSearch.seller_type = []
+
+    this.refreshState()
+  }
+
+  removeExteriorColor () {
+    this.sessionSearch.exterior_color = []
+
+    this.refreshState()
+  }
+
+  removeBody () {
+    this.sessionSearch.body_type = []
+
+    this.refreshState()
+  }
+
+  removeTrim () {
+    this.sessionSearch.trim = []
+
+    this.refreshState()
+  }
+
+  removeDriveTrain () {
+    this.sessionSearch.drivetrain = []
+
+    this.refreshState()
+  }
+
+  removeCylinders () {
+    this.sessionSearch.cylinders = ''
+
+    this.refreshState()
+  }
+
+  removeFuel () {
+    this.sessionSearch.fuel_type = []
+
+    this.refreshState()
+  }
+
   getCarsData () {
     let that = this
 
@@ -297,6 +345,14 @@ class SrpContainer extends React.Component {
         removeModel: this.removeModel.bind(this),
         removeType: this.removeType.bind(this),
         removeTransmission: this.removeTransmission.bind(this),
+        removeDeal: this.removeDeal.bind(this),
+        removeSellerType: this.removeSellerType.bind(this),
+        removeExteriorColor: this.removeExteriorColor.bind(this),
+        removeBody: this.removeBody.bind(this),
+        removeTrim: this.removeTrim.bind(this),
+        removeDriveTrain: this.removeDriveTrain.bind(this),
+        removeCylinders: this.removeCylinders.bind(this),
+        removeFuel: this.removeFuel.bind(this),
         readyRefreshFetch: this.state.readyRefreshFetch,
         readyState: true
       },
