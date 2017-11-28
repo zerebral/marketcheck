@@ -158,7 +158,7 @@ class SrpContainer extends React.Component {
     this.sessionSearch.sort_by = order[0]
     this.sessionSearch.sort_order = order[1]
 
-    this.refreshState()
+    this.refreshState(false)
   }
 
   removeMake () {

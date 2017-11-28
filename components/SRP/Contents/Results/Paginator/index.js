@@ -165,9 +165,9 @@ class Paginator extends Component {
     })
   }
 
-  componentWillReceiveProps () {
+  componentWillReceiveProps (props) {
     this.setState({
-      currentPage: this.props.resetPagination ? 0 : this.state.currentPage
+      currentPage: props.resetPagination ? 0 : this.state.currentPage
     }, () => {
       this.setState({
         limitPages: this.limitPages()
