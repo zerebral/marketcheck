@@ -94,22 +94,22 @@ class Results extends Component {
       },
       {
         label: 'Year:',
-        filter: state.filters.year ? state.filters.year : " ",
+        filter: state.filters.year ? state.filters.year : '',
         remove: this.props.removeTransmission
       },
       {
         label: 'Deal:',
-        filter: state.filters.deal ? state.filters.deal : " ",
+        filter: state.filters.deal ? state.filters.deal : '',
         remove: this.props.removeDeal
       },
       {
         label: 'Seller:',
-        filter: state.filters.seller_type ? state.filters.seller_type : " ",
+        filter: state.filters.seller_type ? state.filters.seller_type : '',
         remove: this.props.removeSellerType
       },
       {
         label: 'Color:',
-        filter: state.filters.exterior_color ? state.filters.exterior_color : " ",
+        filter: state.filters.exterior_color ? state.filters.exterior_color : '',
         remove: this.props.removeExteriorColor
       },
       {

@@ -188,37 +188,37 @@ class SrpContainer extends React.Component {
   }
 
   removeDeal () {
-    this.sessionSearch.deal = []
+    this.sessionSearch.dealRating = []
 
     this.refreshState()
   }
 
   removeSellerType () {
-    this.sessionSearch.seller_type = []
+    this.sessionSearch.sellerType = ''
 
     this.refreshState()
   }
 
   removeExteriorColor () {
-    this.sessionSearch.exterior_color = []
+    this.sessionSearch.color = ''
 
     this.refreshState()
   }
 
   removeBody () {
-    this.sessionSearch.body_type = []
+    this.sessionSearch.bodyType = ''
 
     this.refreshState()
   }
 
   removeTrim () {
-    this.sessionSearch.trim = []
+    this.sessionSearch.trim = ''
 
     this.refreshState()
   }
 
   removeDriveTrain () {
-    this.sessionSearch.drivetrain = []
+    this.sessionSearch.drivetrain = ''
 
     this.refreshState()
   }
@@ -230,7 +230,7 @@ class SrpContainer extends React.Component {
   }
 
   removeFuel () {
-    this.sessionSearch.fuel_type = []
+    this.sessionSearch.fuelType = ''
 
     this.refreshState()
   }
@@ -270,6 +270,10 @@ class SrpContainer extends React.Component {
     })
 
     return fetchResult
+  }
+
+  resetSidebarControl (sidebarControl) {
+    sidebarControl()
   }
 
   refreshState (pagination) {
@@ -353,8 +357,9 @@ class SrpContainer extends React.Component {
         removeDriveTrain: this.removeDriveTrain.bind(this),
         removeCylinders: this.removeCylinders.bind(this),
         removeFuel: this.removeFuel.bind(this),
+        resetSidebarControl: this.resetSidebarControl.bind(),
         readyRefreshFetch: this.state.readyRefreshFetch,
-        readyState: true
+        readyState: true,
       },
       () => {
         this.getCarsData()
