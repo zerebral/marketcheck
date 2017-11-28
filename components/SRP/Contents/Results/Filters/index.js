@@ -6,7 +6,6 @@ import SvgXIcon from './x.svg'
 
 const Container = styled.div`
   background-color: ${colors.white};
-  margin-bottom: 1em;
   ${mediaMax.largeTablet`
     margin-bottom: 0.5em;
   `}
@@ -24,6 +23,7 @@ const Filter = styled.div`
   font-size: 0.8em;
   font-weight: 300;
   margin-right: 1em;
+  margin-bottom: 1em;
   padding: 0.5em 1em;
   ${mediaMax.largeTablet`
     margin-right: 0.5em;
