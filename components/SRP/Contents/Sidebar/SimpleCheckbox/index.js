@@ -109,7 +109,7 @@ class SimpleCheckbox extends Component {
 
     let prevList = this.state.list
     let newList = nextProps.list
-    
+
     if (checked !== false && checked !== undefined && checked !== null) {
       if (prevList[checked] !== undefined) {
         prevList[checked].checked = prevList[checked].checked ? false : true
@@ -120,6 +120,12 @@ class SimpleCheckbox extends Component {
           }
         })
       }
+    }
+
+    if (nextProps.active) {
+      newList.map(function (item, index){
+        item.checked = false
+      })
     }
 
     this.setState({

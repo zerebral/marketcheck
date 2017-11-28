@@ -16,6 +16,22 @@ class SrpContainer extends React.Component {
     this.savedSearch = {}
     this.window = {}
 
+    this.activeFilters = {
+      type: false,
+      make: false,
+      model: false,
+      deals: false,
+      year: false,
+      transmission: false,
+      sellerType: false,
+      exteriorColor: false,
+      bodyType: false,
+      trim: false,
+      driveTrain: false,
+      cylinders: false,
+      fuel: false
+    }
+
     this.state = {
       refreshURL: '',
       sessionSearch: srpData(),
@@ -45,6 +61,8 @@ class SrpContainer extends React.Component {
 
   updateCarType (value) {
     this.sessionSearch.carType = value
+
+    this.activeFilters.type = false
 
     this.refreshState()
   }
@@ -76,16 +94,21 @@ class SrpContainer extends React.Component {
   updateDealsRating (value) {
     this.sessionSearch.dealRating = value
 
+    this.activeFilters.deals = false
+
     this.refreshState()
   }
 
   updateModelList (value) {
     this.sessionSearch.modelList = value
+    this.activeFilters.model = false
     this.refreshState()
   }
 
   updateYear (value) {
     this.sessionSearch.year = value
+
+    this.activeFilters.year = false
 
     this.refreshState()
   }
@@ -93,11 +116,15 @@ class SrpContainer extends React.Component {
   updateSellerType (value) {
     this.sessionSearch.sellerType = value
 
+    this.activeFilters.sellerType = false
+
     this.refreshState()
   }
 
   updateColor (value) {
     this.sessionSearch.color = value
+
+    this.activeFilters.exteriorColor = false
 
     this.refreshState()
   }
@@ -105,11 +132,15 @@ class SrpContainer extends React.Component {
   updateTransmission (value) {
     this.sessionSearch.transmission = value
 
+    this.activeFilters.transmission = false
+
     this.refreshState()
   }
 
   updateBodyType (value) {
     this.sessionSearch.bodyType = value
+
+    this.activeFilters.bodyType = false
 
     this.refreshState()
   }
@@ -124,11 +155,15 @@ class SrpContainer extends React.Component {
   updateTrim (value) {
     this.sessionSearch.trim = value
 
+    this.activeFilters.trim = false
+
     this.refreshState()
   }
 
   updateDrivetrain (value) {
     this.sessionSearch.drivetrain = value
+
+    this.activeFilters.driveTrain = false
 
     this.refreshState()
   }
@@ -136,11 +171,15 @@ class SrpContainer extends React.Component {
   updateCylinders (value) {
     this.sessionSearch.cylinders = value
 
+    this.activeFilters.cylinders = false
+
     this.refreshState()
   }
 
   updateFuelType (value) {
     this.sessionSearch.fuelType = value
+
+    this.activeFilters.fuel = false
 
     this.refreshState()
   }
@@ -164,6 +203,8 @@ class SrpContainer extends React.Component {
   removeMake () {
     this.sessionSearch.selectedMake = []
 
+    this.activeFilters.make = true
+
     this.refreshState()
 
     window.location.href = '/'
@@ -172,11 +213,15 @@ class SrpContainer extends React.Component {
   removeType () {
     this.sessionSearch.carType = 'used'
 
+    this.activeFilters.type = true
+
     this.refreshState()
   }
 
   removeModel () {
     this.sessionSearch.modelList = []
+
+    this.activeFilters.model = true
 
     this.refreshState()
   }
@@ -184,11 +229,15 @@ class SrpContainer extends React.Component {
   removeTransmission () {
     this.sessionSearch.transmission = []
 
+    this.activeFilters.transmission = true
+
     this.refreshState()
   }
 
   removeDeal () {
     this.sessionSearch.dealRating = []
+
+    this.activeFilters.deals = true
 
     this.refreshState()
   }
@@ -196,11 +245,15 @@ class SrpContainer extends React.Component {
   removeSellerType () {
     this.sessionSearch.sellerType = ''
 
+    this.activeFilters.sellerType = true
+
     this.refreshState()
   }
 
   removeExteriorColor () {
     this.sessionSearch.color = ''
+
+    this.activeFilters.exteriorColor = true
 
     this.refreshState()
   }
@@ -208,11 +261,15 @@ class SrpContainer extends React.Component {
   removeBody () {
     this.sessionSearch.bodyType = ''
 
+    this.activeFilters.bodyType = true
+
     this.refreshState()
   }
 
   removeTrim () {
     this.sessionSearch.trim = ''
+
+    this.activeFilters.trim = true
 
     this.refreshState()
   }
@@ -220,17 +277,23 @@ class SrpContainer extends React.Component {
   removeDriveTrain () {
     this.sessionSearch.drivetrain = ''
 
+    this.activeFilters.driveTrain = true
+
     this.refreshState()
   }
 
   removeCylinders () {
     this.sessionSearch.cylinders = ''
 
+    this.activeFilters.cylinders = true
+
     this.refreshState()
   }
 
   removeFuel () {
     this.sessionSearch.fuelType = ''
+
+    this.activeFilters.fuel = true
 
     this.refreshState()
   }
@@ -360,6 +423,7 @@ class SrpContainer extends React.Component {
         resetSidebarControl: this.resetSidebarControl.bind(),
         readyRefreshFetch: this.state.readyRefreshFetch,
         readyState: true,
+        activeFilters: this.activeFilters
       },
       () => {
         this.getCarsData()
