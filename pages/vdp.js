@@ -16,7 +16,7 @@ class Vdp extends React.Component {
   constructor (props) {
     super(props)
 
-    this.myInit = { 
+    this.myInit = {
       method: 'GET',
       mode: 'cors',
       cache: 'default'
@@ -140,10 +140,11 @@ class Vdp extends React.Component {
   }
 
   fetchScatterData (vin) {
-    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${vin}&car_type=used&start=0&rows=10&nodedup=true`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${vin}&start=0&row=10&nodedup=true`)
     .then(response => {
       let averagePrice = 0
       let averageMiles = 0
+      console.log('Response', response)
       const cars = response.listings.filter((car) => {
         return (car.price && car.miles)
       })

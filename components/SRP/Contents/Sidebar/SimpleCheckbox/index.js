@@ -104,7 +104,7 @@ class SimpleCheckbox extends Component {
     })
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     const checked = this.state.checked
 
     let prevList = this.state.list
@@ -114,8 +114,8 @@ class SimpleCheckbox extends Component {
       if (prevList[checked] !== undefined) {
         prevList[checked].checked = prevList[checked].checked ? false : true
 
-        newList.map(function (item, index){
-          if (item.label == prevList[checked].label) {
+        newList.map(function (item, index) {
+          if (item.label === prevList[checked].label) {
             item.checked = true
           }
         })
@@ -123,9 +123,21 @@ class SimpleCheckbox extends Component {
     }
 
     if (nextProps.active) {
-      newList.map(function (item, index){
+      newList.map(function (item, index) {
         item.checked = false
       })
+    } else {
+        if (checked !== false && checked !== undefined && checked !== null) {
+          if (prevList[checked] !== undefined) {
+            prevList[checked].checked = prevList[checked].checked ? false : true
+
+            newList.map(function (item, index) {
+              if (item.label === prevList[checked].label) {
+                item.checked = true
+              }
+            })
+          }
+        }
     }
 
     this.setState({
@@ -136,7 +148,7 @@ class SimpleCheckbox extends Component {
     if (nextProps.resetState) {
       const newList = nextProps.list
 
-      newList.map(function (model, index){
+      newList.map(function (model, index) {
         model.checked = false
       })
 

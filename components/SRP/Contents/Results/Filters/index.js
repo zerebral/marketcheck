@@ -79,7 +79,6 @@ class Results extends Component {
     })
 
     remove()
-
   }
 
   render () {
