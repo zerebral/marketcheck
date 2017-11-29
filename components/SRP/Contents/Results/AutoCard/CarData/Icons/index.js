@@ -6,7 +6,7 @@ import Certified from './certified.svg'
 import Geo from './geo.svg'
 import Keyless from './keyless.svg'
 import Like from './like.svg'
-import Share from './share.svg'
+import ShareIcon from './share.svg'
 import Soon from './soon.svg'
 import Wheels from './wheels.svg'
 
@@ -19,7 +19,7 @@ export {
   Geo,
   Keyless,
   Like,
-  Share,
+  ShareIcon,
   Soon,
   Wheels
 }
