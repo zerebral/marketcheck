@@ -144,7 +144,6 @@ class Vdp extends React.Component {
     .then(response => {
       let averagePrice = 0
       let averageMiles = 0
-      console.log('Response', response)
       const cars = response.listings.filter((car) => {
         return (car.price && car.miles)
       })
