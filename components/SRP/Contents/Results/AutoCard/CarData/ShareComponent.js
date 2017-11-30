@@ -108,7 +108,7 @@ class Share extends Component {
                         <ShareSocialLink href={"mailto:?subject=" + this.props.title + "&body=" + this.props.title + " https://" + window.location.hostname + this.props.link}>
                             <EmailIcon style={{height: '50px', width: '50px'}} />
                         </ShareSocialLink>
-                        <ShareSocialLink onClick={() => this.handlePopUp.bind(this)('https://www.facebook.com/sharer/sharer.php?u=' + encodeURI('https://' + window.location.hostname + this.props.link))}>
+                        <ShareSocialLink onClick={() => this.handlePopUp.bind(this)('https://www.facebook.com/sharer/sharer.php?u=' + encodeURI('https://' + window.location.hostname + this.props.link) + '&quote=' + this.props.title + " https://" + window.location.hostname + this.props.link)}>
                             <FbIcon style={{height: '50px', width: '50px'}} />
                         </ShareSocialLink>
                         <ShareSocialLink  onClick={() => this.handlePopUp.bind(this)('https://twitter.com/intent/tweet?text=' + this.props.title + encodeURI(' https://' + window.location.hostname + this.props.link))}>
