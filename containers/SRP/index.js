@@ -200,6 +200,14 @@ class SrpContainer extends React.Component {
     this.refreshState(false)
   }
 
+  updateLocation (value) {
+        this.sessionSearch.address = value.address
+        this.sessionSearch.latitude = value.lat
+        this.sessionSearch.longitude = value.lng
+
+        this.refreshState()
+  }
+
   removeMake () {
     this.sessionSearch.selectedMake = []
 
@@ -408,6 +416,7 @@ class SrpContainer extends React.Component {
         updateDayListed: this.updateDayListed.bind(this),
         updateSortOrder: this.updateSortOrder.bind(this),
         updatePagination: this.updatePagination.bind(this),
+        updateLocation: this.updateLocation.bind(this),
         removeMake: this.removeMake.bind(this),
         removeModel: this.removeModel.bind(this),
         removeType: this.removeType.bind(this),

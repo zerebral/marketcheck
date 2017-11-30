@@ -1,8 +1,11 @@
+import React from 'react'
 import styled from 'styled-components'
 import { em } from 'polished'
 import { colors } from '%/styles'
 import { mediaMax, mediaMin } from '%/styles/mixins'
 import PinSvg from './pin.svg'
+import { GeolocationContainer, Geolocation } from './Geolocation'
+import AutoComplete from './AutoComplete'
 
 const Container = styled.div`
   background-color: ${colors.white};
@@ -78,23 +81,55 @@ const Pin = styled(PinSvg)`
   width: 15px;
 `
 
-export default ({
-  argument,
-  saveSearch,
-  location,
-  total
-}) => {
-  return (
-    <Container>
-      <div>
-        <SaveSearchTop>Save Search</SaveSearchTop>
-        <Argument>Found {total ? total : 0} { argument }</Argument>
-        { false ? <SaveSearchBottom onClick={saveSearch}>Save Search</SaveSearchBottom> : false}
-      </div>
-      <Location>
-        {location}
-        <Pin />
-      </Location>
-    </Container>
-  )
+const CloseLocation = styled.a`
+  color: #666666;
+  cursor: pointer;
+`
+
+class SrpContainer extends React.Component {
+    constructor (props) {
+        super(props)
+
+        this.state = {
+            activeLocation: false
+        }
+    }
+
+    handleShowLocation () {
+        this.setState({
+            activeLocation: true
+        })
+    }
+
+    handleHideLocation () {
+        this.setState({
+            activeLocation: false
+        })
+    }
+
+    render () {
+        return (
+          <Container>
+            <div>
+              <SaveSearchTop>Save Search</SaveSearchTop>
+              <Argument>Found {this.props.total ? this.props.total : 0} { this.props.argument }</Argument>
+              { false ? <SaveSearchBottom onClick={this.props.saveSearch}>Save Search</SaveSearchBottom> : false}
+            </div>
+            {!this.state.activeLocation ?
+                <Location onClick={this.handleShowLocation.bind(this)}>
+                  {this.props.location.address}
+                  <Pin />
+                </Location>
+            :
+                <GeolocationContainer>
+                    <CloseLocation onClick={this.handleHideLocation.bind(this)}>&#10006;&nbsp;&nbsp;</CloseLocation>
+                    <AutoComplete hideLocation={this.handleHideLocation.bind(this)} findLatLng={this.props.updateLocation}/>
+                    <Geolocation />
+                </GeolocationContainer>
+            }
+          </Container>
+        )
+    }
 }
+
+export default SrpContainer

@@ -16,7 +16,7 @@ class HomeFormContainer extends Component {
     this.findLatLng = this.findLatLng.bind(this)
     // this.handleSelect = this.handleSelect.bind(this);
     // this.handleChange = this.handleChange.bind(this);
-    
+
     this.urlParams = {
       cart_type: '',
       latitude: '',
@@ -60,7 +60,7 @@ class HomeFormContainer extends Component {
       })
   }
 
-  fetchMakes() {
+  fetchMakes () {
     this.setState({ loadingMakers: true });
     this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=make|0|60&rows=0&nodedup=true`)
       .then(makes => {
@@ -71,7 +71,7 @@ class HomeFormContainer extends Component {
       })
   }
 
-  carTypeSelect(value) {
+  carTypeSelect (value) {
     this.urlParams.cart_type = value
 
     this.setState({
@@ -81,7 +81,7 @@ class HomeFormContainer extends Component {
     })
   }
 
-  makeSelect(value) {
+  makeSelect (value) {
     this.urlParams.make = value
 
     this.setState({
@@ -93,7 +93,7 @@ class HomeFormContainer extends Component {
     this.fetchModels(value)
   }
 
-  modelSelect(value) {
+  modelSelect (value) {
     this.urlParams.model = value
 
     this.setState({

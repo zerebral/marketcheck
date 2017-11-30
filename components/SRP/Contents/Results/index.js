@@ -64,7 +64,7 @@ class Results extends Component {
   }
 
   searchArgument (state) {
-    const argument = 
+    const argument =
       capitalize(this.props.sessionSearch.filters.car_type) + " " +
       (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + " " : "" ) +
       (this.props.sessionSearch.filters.make ? this.props.sessionSearch.filters.make + " " : "" ) +
@@ -151,7 +151,7 @@ class Results extends Component {
     return (
       <StyledFlexCol>
         <Wrapper>
-          <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} total={this.props.responseFactory.num_found} />
+          <SearchArgument {...this.props} argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location} total={this.props.responseFactory.num_found} />
           <Filters {...this.props} list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
           {this.props.responseFactory.num_found && this.props.responseFactory.listings.length ?
