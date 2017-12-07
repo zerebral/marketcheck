@@ -140,18 +140,19 @@ class Vdp extends React.Component {
   }
 
   fetchScatterData (vin) {
-    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${vin}&start=0&row=10&nodedup=true`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=${vin}&car_type=used&nodedup=true`)
     .then(response => {
       let averagePrice = 0
       let averageMiles = 0
-      const cars = response.listings.filter((car) => {
-        return (car.price && car.miles)
+      const cars = response.trends.filter((car) => {
+        return (parseFloat(car.price) && parseFloat(car.miles))
       })
       .map((car) => {
-        averagePrice += car.price
-        averageMiles += car.miles
-        return { x: car.miles, y: car.price }
+        averagePrice += parseFloat(car.price)
+        averageMiles += parseFloat(car.miles)
+        return { x: parseFloat(car.miles), y: parseFloat(car.price) }
       })
+      console.log(averagePrice)
       averagePrice = averagePrice / cars.length
       averageMiles = Math.round(averageMiles / cars.length)
       // averageMiles = averageMiles.toFixed(0);
