@@ -306,9 +306,15 @@ class SrpContainer extends React.Component {
     this.refreshState()
   }
 
-  getCarsData () {
-    let that = this
+  removeYear () {
+    this.sessionSearch.year = ''
 
+    this.activeFilters.year = true
+
+    this.refreshState()
+  }
+
+  getCarsData () {
     let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
 
     fetchResult = fetchResult.then(response =>
@@ -429,6 +435,7 @@ class SrpContainer extends React.Component {
         removeDriveTrain: this.removeDriveTrain.bind(this),
         removeCylinders: this.removeCylinders.bind(this),
         removeFuel: this.removeFuel.bind(this),
+        removeYear: this.removeYear.bind(this),
         resetSidebarControl: this.resetSidebarControl.bind(),
         readyRefreshFetch: this.state.readyRefreshFetch,
         readyState: true,

@@ -95,7 +95,7 @@ class Results extends Component {
       {
         label: 'Year:',
         filter: state.filters.year ? state.filters.year : '',
-        remove: this.props.removeTransmission
+        remove: this.props.removeYear
       },
       {
         label: 'Deal:',
