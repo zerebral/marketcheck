@@ -24,6 +24,7 @@ const Label = styled.span`
 
 const Selected = styled.span`
   color: ${colors.black};
+  cursor: pointer;
   display: inline-block;
   font-size: ${em(13)};
   font-weight: 300;
@@ -39,7 +40,7 @@ const DropdownContent = styled.div`
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 9999999999;
   ${mediaMax.desktop`
    min-width: 130px;
   `}
@@ -51,6 +52,7 @@ const DropdownItem = styled.a`
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  min-width: 180px;
   ${mediaMax.desktop`
    font-size: ${em(12)};
   `}
@@ -78,7 +80,10 @@ class Dropdown extends Component {
     this.label = this.props.label
     this.items = this.props.items
 
-    this.state = { open: false, selected: this.props.items[0], selectedValue: 0 }
+    this.state = {
+      open: false,
+      selected: 0
+    }
   }
 
   handleOpenClick () {
@@ -97,8 +102,7 @@ class Dropdown extends Component {
 
   handleSelectClick (value, index) {
     this.setState({
-      selected: value,
-      selectedValue: index,
+      selected: index,
       open: false
     })
 
@@ -109,14 +113,14 @@ class Dropdown extends Component {
     return (
       <SortBy>
         <Label>{this.label}</Label>
-        <Selected>{this.state.selected}</Selected>
+        <Selected onClick={this.handleOpenClick.bind(this)}>{this.items[this.state.selected].label}</Selected>
         <Btn onClick={this.handleOpenClick.bind(this)}>
           <ArrowStyled />
         </Btn>
 
         <DropdownContent visible={this.state.open}>
           {this.items.map(function (item, index) {
-            return <DropdownItem href='#' key={index} value={item} onClick={() => this.handleSelectClick.bind(this)(item, index)}>{item}</DropdownItem>
+            return <DropdownItem key={index} value={item.value} onClick={() => this.handleSelectClick.bind(this)(item.value, index)}>{item.label}</DropdownItem>
           }.bind(this))}
         </DropdownContent>
       </SortBy>

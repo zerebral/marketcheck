@@ -30,7 +30,7 @@ const SliderSettings = {
       breakpoint: breakpoints.largeTablet,
       settings: {
         slidesToShow: 1,
-        adaptiveHeight: true,
+        adaptiveHeight: false,
         arrows: false,
         dots: false,
         centerMode: true,

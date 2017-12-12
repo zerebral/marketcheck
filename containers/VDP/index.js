@@ -2,6 +2,7 @@ import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
 export default ({
+  heading,
   averages,
   similarModelsGraph,
   modelPopularity,
@@ -47,15 +48,23 @@ export default ({
     body_type: body,
     fuel_type: fuel
   },
+  dealer: {
+    city,
+    state
+  },
   extra: {
     features
   }
-}) =>
-
-  <VDP
+}) => {
+  return (
+    <VDP
+    {...props}
     {...vdpdata}
+    city={city}
+    state={state}
+    heading={heading}
     name={`${make} ${model}`}
-    brief={`Stock # ${stockNumber}, ${engine}, ${transmission}, ${miles} mi., ${parseInt(cityMiles)}/${parseInt(highwayMiles)} MPG*`}
+    brief={`Stock # ${stockNumber ? stockNumber : '-'}, ${engine ? engine + ',' : ''} ${transmission ? transmission + ',' : ''} ${miles ? miles + ' mi,' : ''} ${cityMiles && highwayMiles ? (parseInt(cityMiles)+'/'+parseInt(highwayMiles))+' MPG*' : '' } `}
     price={price}
     model={model}
     make={make}
@@ -98,4 +107,5 @@ export default ({
     vdpUrl={vdpUrl}
     features={features}
     {...props}
-  />
+  />)
+}

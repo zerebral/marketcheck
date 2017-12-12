@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import urlEncodeParams from '%/factory/urlEncodeParams'
 import Form from '~/Home/Hero/Form/index'
 import fetch from 'isomorphic-fetch'
 
@@ -16,13 +17,23 @@ class HomeFormContainer extends Component {
     // this.handleSelect = this.handleSelect.bind(this);
     // this.handleChange = this.handleChange.bind(this);
 
+    this.urlParams = {
+      cart_type: '',
+      latitude: '',
+      longitude: '',
+      make: '',
+      model: ''
+    }
+
     this.state = {
-      models: {},
-      makes: {},
+      refreshURL: '',
+      models: [],
+      makes: [],
       carType: '',
       selectedMake: null,
       selectedModel: null,
       loadingModels: false,
+      loadingMakers: false,
       latitude: '',
       longitude: ''
     }
@@ -40,7 +51,7 @@ class HomeFormContainer extends Component {
 
   fetchModels (make) {
     this.setState({ loadingModels: true })
-    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=model&make=${make}&rows=00&nodedup=true`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=model|0|60&make=${make}&rows=00&nodedup=true`)
       .then(models => {
         if (models.facets.model) {
           this.setState({ models: models.facets.model })
@@ -50,32 +61,68 @@ class HomeFormContainer extends Component {
   }
 
   fetchMakes () {
-    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=make&rows=0&nodedup=true`)
+    this.setState({ loadingMakers: true });
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&facets=make|0|60&rows=0&nodedup=true`)
       .then(makes => {
         if (makes.facets.make) {
           this.setState({ makes: makes.facets.make })
+          this.setState({ loadingMakers: false });
         }
       })
   }
 
-  carTypeSelect (e) {
-    this.setState({carType: e.target.value})
+  carTypeSelect (value) {
+    this.urlParams.cart_type = value
+
+    this.setState({
+      carType : value
+    }, () => {
+      this.refreshURL()
+    })
   }
 
-  makeSelect (e) {
-    this.setState({selectedMake: e.target.value})
-    this.fetchModels(e.target.value)
+  makeSelect (value) {
+    this.urlParams.make = value
+
+    this.setState({
+      selectedMake: value
+    }, () => {
+      this.refreshURL()
+    })
+
+    this.fetchModels(value)
   }
 
-  modelSelect (e) {
-    this.setState({selectedModel: e.target.value})
+  modelSelect (value) {
+    this.urlParams.model = value
+
+    this.setState({
+      selectedModel: value
+    }, () => {
+      this.refreshURL()
+    })
   }
 
   findLatLng (lat, lng, address) {
+    this.urlParams.latitude = lat,
+    this.urlParams.longitude = lng
+
     this.setState({
       latitude: lat,
       longitude: lng,
       address: address
+    }, () => {
+      this.refreshURL()
+    })
+  }
+
+  refreshURL () {
+    let newURL = this.state.refreshURL
+
+    this.setState({
+      refreshURL: urlEncodeParams(this.urlParams)
+    }, () => {
+      window.history.pushState(this.state, 'Marketcheck', '/?' + this.state.refreshURL)
     })
   }
 
@@ -85,7 +132,7 @@ class HomeFormContainer extends Component {
     localStorage.removeItem("searchSession")
     sessionStorage.removeItem("searchSession")
     sessionStorage.setItem("searchSession", JSON.stringify(this.state))
-    window.location.href = "/srp";
+    window.location.href = "/srp?" + this.state.refreshURL;
   }
 
   componentDidMount () {

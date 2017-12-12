@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
 import { FlexCol } from '~/layout'
+import { capitalize } from '%/format'
 import Wrapper from './Wrapper'
 import GroupBtn from './GroupBtn'
 import InputRange from './InputRange'
@@ -14,6 +15,20 @@ import CheckColors from './CheckColors'
 import RatingStars from './RatingStars'
 import SwitchBtns from './SwitchBtns'
 import ClearAllBtn from './ClearAllBtn'
+
+const listGenerator = (response) => {
+  let list = []
+
+  response && response.length ? response.map((trim, index) => {
+    list.push({
+      label: capitalize(trim.item),
+      value: trim.item,
+      count: trim.count
+    })
+  }) : false
+
+  return list
+}
 
 const buttons = [
   {
@@ -51,83 +66,73 @@ const list = [
 
 const colorButtons = [
   {
-    colorFrom: '#8B8B8B',
-    colorFinal: '#464546',
-    value: 'gray'
+    colorFrom: '#FFFFFF',
+    colorFinal: '#F2F2F2',
+    value: 'White'
   },
   {
-    colorFrom: '#FB6173',
-    colorFinal: '#FE364B',
-    value: 'red'
+    colorFrom: '#C0C0C0',
+    colorFinal: '#E8E8E8',
+    value: 'Silver'
   },
   {
-    colorFrom: '#8B8B8B',
-    colorFinal: '#464546',
-    value: 'gray'
+    colorFrom: '#000000',
+    colorFinal: '#444444',
+    value: 'Black'
   },
   {
-    colorFrom: '#8B8B8B',
-    colorFinal: '#464546',
-    value: 'gray'
+    colorFrom: '#808080',
+    colorFinal: '#A0A0A0',
+    value: 'Gray'
   },
   {
-    colorFrom: '#8B8B8B',
-    colorFinal: '#464546',
-    value: 'gray'
+    colorFrom: '#0000FF',
+    colorFinal: '#4C4CFF',
+    value: 'Blue'
   },
   {
-    colorFrom: '#8B8B8B',
-    colorFinal: '#464546',
-    value: 'gray'
+    colorFrom: '#FF0000',
+    colorFinal: '#FF4747',
+    value: 'Red'
   },
   {
-    colorFrom: '#8B8B8B',
-    colorFinal: '#464546',
-    value: 'gray'
+    colorFrom: '#800000',
+    colorFinal: '#7F3030',
+    value: 'Brown'
   },
   {
-    colorFrom: '#8B8B8B',
-    colorFinal: '#464546',
-    value: 'gray'
+    colorFrom: '#00961B',
+    colorFinal: '#54935E',
+    value: 'Green'
   },
   {
-    colorFrom: '#8B8B8B',
-    colorFinal: '#464546',
-    value: 'gray'
+    colorFrom: '#F5F5DC',
+    colorFinal: '#F4F4EB',
+    value: 'Beige'
   }
 ]
 
-const transmissionList = [
-  {
-    label: 'Automatic',
-    value: 'automatic'
-  },
-  {
-    label: 'Manual',
-    value: 'manual'
-  }
-]
 
-const bodyList = [
+const dateList = [
   {
-    label: 'Any',
-    value: 'Any'
+    label: '1 day ago',
+    value: '1'
   },
   {
-    label: 'Convertible',
-    value: 'Convertible'
+    label: '3 day ago',
+    value: '3'
   },
   {
-    label: 'Coupe',
-    value: 'Coupe'
+    label: '7 day ago',
+    value: '7'
   },
   {
-    label: 'Sedan',
-    value: 'Sedan'
+    label: '2 week ago',
+    value: '15'
   },
   {
-    label: 'Wagon',
-    value: 'Wagon'
+    label: 'One month ago',
+    value: '30'
   }
 ]
 
@@ -149,28 +154,33 @@ const SidebarFlexCol = styled(FlexCol)`
 `
 
 export default (props) => {
-  return
-  (<SidebarFlexCol>
+  const miles = props.responseFactory.stats.miles
+  const price = props.responseFactory.stats.price
+  return (<SidebarFlexCol>
     <Wrapper>
       <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
-      <InputRange label='Distance' min={0} max={300} step={10} value={40} updateSuperState={props.updateDistance} />
-      <DoubleRange label='Price' currency min={4000} max={50000} step={10} value={[4000, 50000]} updateSuperState={props.updatePrice} />
-      <DoubleRange label='Miles Range' min={4000} max={50000} step={10} value={[4000, 50000]} updateSuperState={props.updateMilesRange} />
-      <SimpleCheckbox label='Deals' list={list} updateSuperState={props.updateDealsRating} />
-      <SearchCheckbox label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn />
-      <InputYear label='Year' updateSuperState={props.updateYear} />
-      <GroupIconBtn label='Seller Type' labelOne='Dealer' labelTwo='FSBO' updateSuperState={props.updateSellerType} />
-      <CheckColors {...props} label='Color' colorButtons={colorButtons} />
-      <SimpleCheckbox label='Transmission' list={transmissionList} updateSuperState={props.updateTransmission} />
-      <SimpleCheckbox label='Body' list={bodyList} updateSuperState={props.updateBodyType} />
-      <SimpleCheckbox {...props} label='Trim' list={list} resetBtn />
-      <SimpleCheckbox {...props} label='Drivetrain' list={list} />
-      <SimpleCheckbox {...props} label='Cylinders' list={list} />
-      <SimpleCheckbox {...props} label='Fuel' list={list} />
-      <RatingStars {...props} label='Dealer Ratings' />
-      <SwitchBtns {...props} label='Features' />
-      <SimpleCheckbox {...props} label='Listed' list={list} />
+      <InputRange {...props} label='Distance' min={0} max={500} step={25} value={25} updateSuperState={props.updateDistance} />
+      <DoubleRange {...props} label='Price' currency min={price.min} max={price.max} step={10} value={[price.min, price.max]} updateSuperState={props.updatePrice} />
+      <DoubleRange {...props} label='Miles Range' min={miles.min} max={miles.max} step={10} value={[miles.min, miles.max]} updateSuperState={props.updateMilesRange} />
+      <SimpleCheckbox {...props} active={props.activeFilters.deals} label='Deals' list={list} updateSuperState={props.updateDealsRating} />
+      {false ? <SearchCheckbox {...props} label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn /> : null }
+      <SimpleCheckbox {...props} active={props.activeFilters.model} label='Models' list={listGenerator(props.responseFactory.facets.model)} updateSuperState={props.updateModelList} resetBtn />
+      {false ? <InputYear {...props} label='Year' updateSuperState={props.updateYear} /> : null }
+      <SimpleCheckbox {...props} active={props.activeFilters.year} label='Year' list={listGenerator(props.responseFactory.facets.year)} updateSuperState={props.updateYear} resetBtn />
+      {false ? <GroupIconBtn {...props} label='Seller Type' items={props.responseFactory.facets.seller_type} updateSuperState={props.updateSellerType} /> : null }
+       <SimpleCheckbox {...props} active={props.activeFilters.sellerType} label='Seller Type' list={listGenerator(props.responseFactory.facets.seller_type)} updateSuperState={props.updateSellerType} resetBtn />
+      {false ? <CheckColors {...props} label='Color' colorButtons={colorButtons} updateSuperState={props.updateColor} /> : null }
+      <SimpleCheckbox {...props} active={props.activeFilters.exteriorColor} label='Color' list={listGenerator(props.responseFactory.facets.exterior_color)} updateSuperState={props.updateColor} resetBtn />
+      <SimpleCheckbox {...props} active={props.activeFilters.transmission} label='Transmission' list={listGenerator(props.responseFactory.facets.transmission)} updateSuperState={props.updateTransmission} />
+      <SimpleCheckbox {...props} active={props.activeFilters.bodyType} label='Body' list={listGenerator(props.responseFactory.facets.body_type)} updateSuperState={props.updateBodyType} />
+      <SimpleCheckbox {...props} active={props.activeFilters.trim} label='Trim' list={listGenerator(props.responseFactory.facets.trim)} updateSuperState={props.updateTrim} resetBtn />
+      <SimpleCheckbox {...props} active={props.activeFilters.drivetrain} label='Drivetrain'  list={listGenerator(props.responseFactory.facets.drivetrain)} updateSuperState={props.updateDrivetrain} />
+      <SimpleCheckbox {...props} active={props.activeFilters.cylinders} label='Cylinders' list={listGenerator(props.responseFactory.facets.cylinders)} updateSuperState={props.updateCylinders} />
+      <SimpleCheckbox {...props} active={props.activeFilters.fuel} label='Fuel' list={listGenerator(props.responseFactory.facets.fuel_type)} updateSuperState={props.updateFuelType} />
+      {false ? <RatingStars {...props} label='Dealer Ratings' /> : null}
+      {false ? <SwitchBtns {...props} label='Features' /> : null}
+      {false ? <SimpleCheckbox {...props} label='Listed' list={dateList} updateSuperState={props.updateDayListed} /> : null}
     </Wrapper>
   </SidebarFlexCol>)
 }

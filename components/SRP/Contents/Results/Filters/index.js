@@ -6,7 +6,6 @@ import SvgXIcon from './x.svg'
 
 const Container = styled.div`
   background-color: ${colors.white};
-  margin-bottom: 1em;
   ${mediaMax.largeTablet`
     margin-bottom: 0.5em;
   `}
@@ -24,6 +23,7 @@ const Filter = styled.div`
   font-size: 0.8em;
   font-weight: 300;
   margin-right: 1em;
+  margin-bottom: 1em;
   padding: 0.5em 1em;
   ${mediaMax.largeTablet`
     margin-right: 0.5em;
@@ -70,28 +70,30 @@ class Results extends Component {
     }
   }
 
-  deleteFilter (index) {
+  deleteFilter (index, remove) {
     this.newList = this.props.list
     delete this.newList[index]
 
     this.setState({
       list: this.newList
     })
+
+    remove()
   }
 
   render () {
     return (
       <Container>
         {this.props.list.map(function (item, index) {
-          return (
+          return item.filter !== ' ' && item.filter ? (
             <Filter key={index}>
               <Label>{item.label}</Label>
               <Value>{item.filter}</Value>
-              <XBtn onClick={() => this.deleteFilter.bind(this)(index)}>
+              <XBtn onClick={() => this.deleteFilter.bind(this)(index, item.remove)}>
                 <SvgXIcon />
               </XBtn>
             </Filter>
-          )
+          ) : null
         }.bind(this))}
       </Container>
     )

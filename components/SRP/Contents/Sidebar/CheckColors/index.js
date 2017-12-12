@@ -33,29 +33,54 @@ class CheckColors extends Component {
     super(props)
 
     this.label = this.props.label
-    this.colorButtons = this.props.colorButtons
-    this.CheckValue = ''
 
     this.state = {
-      checked: null
+      colorButtons: this.props.colorButtons
     }
   }
 
   handleCheckClick (index, value) {
-    this.CheckValue = value
+
+    const newList = this.state.colorButtons
+
+    newList[index].checked = newList[index].checked ? false : true
+
+    const stateButtonsList = []
+
+    newList.map(function (button, index){
+      if (button.checked) {
+        stateButtonsList.push(button.value)
+      }
+    })
 
     this.setState({
-      checked: index
+      colorButtons: newList
     })
+
+    this.props.updateSuperState(stateButtonsList)
+  }
+
+  componentWillReceiveProps () {
+    if (this.props.resetState) {
+      const newList = this.state.colorButtons
+
+      newList.map(function (button, index){
+        button.checked = false
+      })
+
+      this.setState({
+        colorButtons: newList
+      })
+    }
   }
 
   render () {
     return (
       <Collapsible label={this.label}>
         <Content>
-          {this.colorButtons.map(function (item, index) {
+          {this.state.colorButtons.map(function (item, index) {
             return (
-              <CheckColor key={index} className={this.state.checked === index ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>
+              <CheckColor key={index} className={item.checked ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item.value)}>
                 <CircleColor colorFrom={item.colorFrom} colorFinal={item.colorFinal} />
               </CheckColor>
             )

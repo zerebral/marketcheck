@@ -32,13 +32,13 @@ class DoubleRange extends Component {
 
     this.label = this.props.label
     this.currency = this.props.currency
-    this.min = this.props.min
-    this.max = this.props.max
     this.value = this.props.value
 
     this.state = {
       bound: this.value,
-      value: this.value
+      value: this.value,
+      min: this.props.min,
+      max: this.props.max
     }
   }
 
@@ -50,7 +50,9 @@ class DoubleRange extends Component {
     this.setState({
       value
     })
+  }
 
+  onAfterChange = (value) => {
     this.props.updateSuperState(value)
   }
 
@@ -60,15 +62,31 @@ class DoubleRange extends Component {
     this.setState({ value: [bound] })
   }
 
+  componentWillReceiveProps (props) {
+    this.setState({
+      min: props.min,
+      max: props.max,
+      bound: props.value,
+      value: props.value
+    })
+    if (props.resetState) {
+      this.setState({
+        bound: this.props.value,
+        value: this.props.value
+      })
+    }
+  }
+
   render () {
     return (
       <Collapsible label={this.label}>
         <Control
           range
-          min={this.min}
-          max={this.max}
+          min={this.state.min}
+          max={this.state.max}
           value={this.state.value}
           onChange={this.onSliderChange.bind(this)}
+          onAfterChange={this.onAfterChange.bind(this)}
           trackStyle={[{ backgroundColor: colors.softblue }]}
           handleStyle={[{ backgroundColor: colors.softblue, border: 'none' }, { backgroundColor: colors.softblue, border: 'none' }]}
           railStyle={{ backgroundColor: colors.bordergray }} />

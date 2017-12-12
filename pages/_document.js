@@ -4,6 +4,10 @@ import Reset from '~/general/Reset'
 import { colors } from '%/styles'
 
 export default class MyDocument extends Document {
+  constructor () {
+    super()
+  }
+
   componentWillMount () {
     Reset()
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { capitalize, uppercase } from '%/format'
 import Collapsible from '../Collapsible'
 
 import SvgKeyIcon from './key-icon.svg'
@@ -57,14 +58,20 @@ class GroupIconBtn extends Component {
   render () {
     return (
       <Collapsible label={this.label}>
-        <Btn margin='0 1.5em 0 0' onClick={() => this.handleSelectClick.bind(this)('dealer')}>
+        {this.props.items[0] !== undefined && this.props.items ?
+        <Btn margin='0 1.5em 0 0' onClick={() => this.handleSelectClick.bind(this)(this.props.items[0].item)}>
           <StyledKeyIcon />
-          <Label>{this.labelOne}</Label>
+          <Label>{capitalize(this.props.items[0].item)}</Label>
         </Btn>
-        <Btn margin='0 0 0 1.5em' onClick={() => this.handleSelectClick.bind(this)('fsbo')}>
+        : null
+        }
+        {this.props.items[1] !== undefined && this.props.items ?
+        <Btn margin='0 0 0 1.5em' onClick={() => this.handleSelectClick.bind(this)(this.props.items[1].item)}>
           <StyledFsboIcon />
-          <Label>{this.labelTwo}</Label>
+          <Label>{uppercase(this.props.items[1].item)}</Label>
         </Btn>
+        : null
+        }
       </Collapsible>
     )
   }

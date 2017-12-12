@@ -133,12 +133,12 @@ const Value = styled.span`
 `
 
 export default (props) => {
-  // console.log(props)
+  //console.log(props)
   return (
     <Container>
       <StyledFlexRow>
         <LeftFlexCol>
-          <OtherName>{props.data.build.make + ' ' + props.data.build.model + ' ' + props.data.build.engine_size + ' V' + props.data.build.cylinders}</OtherName>
+          <OtherName>{props.data.build.make + " " + props.data.build.model + " " + props.data.build.engine_size + " V" +props.data.build.cylinders}</OtherName>
           <Type>{props.data.build.body_type}</Type>
           <Multimedia>
             <MultiInfo>
@@ -174,7 +174,7 @@ export default (props) => {
             <DetFlexCol>
               <DetailItem>
                 <Label>MPG:</Label>
-                <Value>{props.data.build.city_miles.substring(0, 2)}/{props.data.build.highway_miles.substring(0, 2)}</Value>
+                <Value>{props.data.build.city_miles !== undefined ? props.data.build.city_miles.substring(0,2) : ''}/{props.data.build.highway_miles ? props.data.build.highway_miles.substring(0,2) : ''}</Value>
               </DetailItem>
               <DetailItem>
                 <Label>Transmission:</Label>
@@ -217,4 +217,4 @@ export default (props) => {
         </FlexCol>
       </StyledFlexRow>
     </Container>)
-}
+} 

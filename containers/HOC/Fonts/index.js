@@ -19,7 +19,7 @@ const fontsHOC = WrappedComponent => {
     }
 
     render () {
-      return <WrappedComponent />
+      return <WrappedComponent {...this.props}/>
     }
   }
 }

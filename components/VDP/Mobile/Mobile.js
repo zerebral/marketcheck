@@ -11,8 +11,10 @@ const Mobile = styled.section`
   `}
 `
 
-export default props =>
-  <Mobile>
-    <Overview {...props} />
-    <Contents {...props} />
-  </Mobile>
+export default (props) => {
+	return (
+		  <Mobile>
+		    <Overview {...props} />
+		    <Contents {...props} />
+		  </Mobile>)
+}

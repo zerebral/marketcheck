@@ -43,21 +43,21 @@ export default ({
     <Wrapper>
       <Intro>Where to find this data? Raw performance, agility, unparalleled ride and handling...</Intro>
 
-      <p>Type <strong>{type}</strong></p>
-      <p>Model <strong>{model}</strong></p>
-      <p>Trim <strong>{trim}</strong></p>
-      <p>Body <strong>{body}</strong></p>
-      <p>Exterior <strong>{exteriorColor}</strong></p>
-      <p>Interior <strong>{interiorColor}</strong></p>
-      <p>Doors <strong>{doors}</strong></p>
-      <p>Stock# <strong>{stockNumber}</strong></p>
-      <p>Model # <strong /></p>
-      <p>VIN # <strong>{vin}</strong></p>
-      <p>Mileage <strong>{number(miles)}</strong></p>
-      <p>Engine <strong>{engine}</strong></p>
-      <p>Transmission <strong>{transmission}</strong></p>
-      <p>Fuel <strong>{fuel}</strong></p>
-      <p>Drive <strong>{drivetrain}</strong></p>
-      <p>MPG <strong>{parseInt(cityMiles)} City / {parseInt(highwayMiles)} Hwy</strong></p>
+        <p>Type <strong>{type ? type : 'NA'}</strong></p>
+        <p>Model <strong>{model ? model : 'NA'}</strong></p>
+        <p>Trim <strong>{trim ? trim : 'NA'}</strong></p>
+        <p>Body <strong>{body ? body : 'NA'}</strong></p>
+        <p>Exterior <strong>{exteriorColor ? exteriorColor : 'NA'}</strong></p>
+        <p>Interior <strong>{interiorColor ? interiorColor : 'NA'}</strong></p>
+        <p>Doors <strong>{doors ? doors : 'NA'}</strong></p>
+        <p>Stock# <strong>{stockNumber ? stockNumber : 'NA'}</strong></p>
+        <p>Model # <strong>NA</strong></p>
+        <p>VIN # <strong>{vin ? vin : 'NA'}</strong></p>
+        <p>Mileage <strong>{miles ? number(miles) : 'NA'}</strong></p>
+        <p>Engine <strong>{engine ? engine : 'NA'}</strong></p>
+        <p>Transmission <strong>{transmission ? transmission : 'NA'}</strong></p>
+        <p>Fuel <strong>{fuel ? fuel : 'NA'}</strong></p>
+        <p>Drive <strong>{drivetrain ? drivetrain : 'NA'}</strong></p>
+        <p>MPG <strong>{cityMiles && highwayMiles ? (parseInt(cityMiles) + 'City / ' + parseInt(highwayMiles)) + 'Hwy' : 'NA'}</strong></p>
     </Wrapper>
   </Accordion>

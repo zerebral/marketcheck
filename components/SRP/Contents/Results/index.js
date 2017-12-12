@@ -33,10 +33,23 @@ const StyledFlexCol = styled(FlexCol)`
 `
 
 const NoResults = styled.div`
+  font-size: 2em;
   margin-bottom: 1em;
   ${mediaMax.phone`
     display: none;
   `}
+`
+
+const Button = styled.a`
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 15.6px;
+  color: #fff;
+  background: ${colors.green};
+  text-align: center;
+  padding: 10px 12px;
+  display: inline-block;
+  border-radius: 4px;
 `
 
 class Results extends Component {
@@ -52,12 +65,12 @@ class Results extends Component {
 
   searchArgument (state) {
     const argument =
-      capitalize(this.props.sessionSearch.filters.type) + ' ' +
-      (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + ' ' : '') +
-      (this.props.sessionSearch.filters.maker ? this.props.sessionSearch.filters.maker + ' ' : '') +
-      (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + ' ' : '') +
-      ' in ' +
-      this.props.sessionSearch.location.address + ' '
+      capitalize(this.props.sessionSearch.filters.car_type) + " " +
+      (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + " " : "" ) +
+      (this.props.sessionSearch.filters.make ? this.props.sessionSearch.filters.make + " " : "" ) +
+      (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + " " : "" ) +
+      " in " +
+      this.props.sessionSearch.location.address + " "
 
     return argument
   }
@@ -65,21 +78,70 @@ class Results extends Component {
   filterTags (state) {
     const listFilters = [
       {
-        label: 'Make:',
-        filter: state.filters.maker
+        label: 'Type:',
+        filter: capitalize(state.filters.car_type),
+        remove: this.props.removeType
       },
       {
-        label: 'Type:',
-        filter: capitalize(state.filters.type)
+        label: 'Make:',
+        filter: state.filters.make,
+        remove: this.props.removeMake
       },
       {
         label: 'Model:',
-        filter: state.filters.model
+        filter: Array.isArray(state.filters.model) ? state.filters.model.join(',') : state.filters.model,
+        remove: this.props.removeModel
+      },
+      {
+        label: 'Year:',
+        filter: state.filters.year ? state.filters.year : '',
+        remove: this.props.removeYear
+      },
+      {
+        label: 'Deal:',
+        filter: state.filters.deal ? state.filters.deal : '',
+        remove: this.props.removeDeal
+      },
+      {
+        label: 'Seller:',
+        filter: state.filters.seller_type ? state.filters.seller_type : '',
+        remove: this.props.removeSellerType
+      },
+      {
+        label: 'Color:',
+        filter: state.filters.exterior_color ? state.filters.exterior_color : '',
+        remove: this.props.removeExteriorColor
       },
       {
         label: 'Transmission:',
-        filter: state.filters.transmission ? capitalize(state.filters.transmission) : ' '
-      }
+        filter: Array.isArray(state.filters.transmission) ? state.filters.transmission.join(',') : state.filters.transmission,
+        remove: this.props.removeTransmission
+      },
+      {
+        label: 'Body:',
+        filter: Array.isArray(state.filters.body_type) ? state.filters.body_type.join(',') : state.filters.body_type,
+        remove: this.props.removeBody
+      },
+      {
+        label: 'Trim:',
+        filter: Array.isArray(state.filters.trim) ? state.filters.trim.join(',') : state.filters.trim,
+        remove: this.props.removeTrim
+      },
+      {
+        label: 'Drive Train:',
+        filter: Array.isArray(state.filters.drivetrain) ? state.filters.drivetrain.join(',') : state.filters.drivetrain,
+        remove: this.props.removeDriveTrain
+      },
+      {
+        label: 'Cylinders:',
+        filter: state.filters.cylinders ? state.filters.cylinders : '',
+        remove: this.props.removeCylinders
+      },
+      {
+        label: 'Fuel:',
+        filter: Array.isArray(state.filters.fuel_type) ? state.filters.fuel_type.join(',') : state.filters.fuel_type,
+        remove: this.props.removeFuel
+      },
     ]
 
     return listFilters
@@ -89,19 +151,25 @@ class Results extends Component {
     return (
       <StyledFlexCol>
         <Wrapper>
-          <SearchArgument argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location.address} />
-          <Filters list={this.filterTags(this.props.sessionSearch)} />
+          <SearchArgument {...this.props} argument={this.searchArgument(this.props.sessionSearch)} saveSearch={this.saveSearch} location={this.props.sessionSearch.location} total={this.props.responseFactory.num_found} />
+          <Filters {...this.props} list={this.filterTags(this.props.sessionSearch)} />
           <TotalFound total={this.props.responseFactory.num_found} />
-          {this.props.responseFactory.num_found ?
+          {this.props.responseFactory.num_found && this.props.responseFactory.listings.length ?
             this.props.readyRefreshFetch ?
               this.props.responseFactory.listings.map((item, index) =>
-                (<AutoCard key={index} data={item} />)
+                (<AutoCard {...this.props.sessionSearch} key={index} data={item} />)
               ) :
               <Spinner style={{marginTop: '5vh'}} /> :
-            <NoResults>There are no results for the search</NoResults>
+            (<div style={{textAlign: 'center', padding: '4em'}}>
+              <NoResults>Sorry, we could not get you that!</NoResults>
+              <Button href="/">Lets start over</Button>
+            </div>)
           }
-          <Paginator totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} />
-          <Recommended />
+          {this.props.responseFactory.num_found &&  this.props.responseFactory.num_found > 11 ?
+            <Paginator {...this.props} totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} /> :
+            null
+          }
+          {false ? <Recommended /> : null }
           <ListsBy />
         </Wrapper>
       </StyledFlexCol>

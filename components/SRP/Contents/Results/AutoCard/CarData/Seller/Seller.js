@@ -30,7 +30,7 @@ export default ({
 }) =>
   <Seller>
     <Name href={website} target='_blank'>
-      {name}
+      {name ? name : website}
       <External />
     </Name>
     <Location>

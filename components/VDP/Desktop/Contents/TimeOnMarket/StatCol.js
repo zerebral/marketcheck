@@ -7,6 +7,7 @@ const miles = num => `${number(num)} mi`
 
 const StatCol = styled.div`
   margin-right: 20px;
+  min-width: 80px;
 `
 
 const StatNumber = styled.span`

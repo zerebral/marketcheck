@@ -11,6 +11,8 @@ import SvgHeartIcon from './heart.svg'
 import SvgShareIcon from './share.svg'
 import SvgArrowIcon from './arrow.svg'
 import PriceTop from './PriceTop'
+import Share from './CarData/ShareComponent'
+import { cutString, currency, capitalize } from '%/format'
 
 const Card = styled.div`
   background-color: ${colors.white};
@@ -131,6 +133,15 @@ class AutoCard extends Component {
     }
   }
 
+  getName () {
+      const name = this.props.data.build.year + " " +
+                  this.props.data.build.make + " " +
+                  this.props.data.build.model + " " +
+                  (this.props.data.exterior_color ? this.props.data.exterior_color : '')
+
+      return name
+  }
+
   handleOpenClick () {
     if (this.state.open) {
       this.setState({
@@ -152,7 +163,7 @@ class AutoCard extends Component {
           <PriceTop data={this.props.data} />
           <InnerContainer>
             <Slideshow data={this.props.data} />
-            <CarData data={this.props.data} />
+            { this.props.data.build ? <CarData {...this.props} data={this.props.data} /> : null }
           </InnerContainer>
           <Safety data={this.props.data} />
 
@@ -160,7 +171,7 @@ class AutoCard extends Component {
             <SvgHeartIcon />
           </HeartBtn>
           <ShareBtn>
-            <SvgShareIcon />
+            <Share title={this.getName()} link={'/vdp/' + this.props.data.vin} />
           </ShareBtn>
           <ViewMore onClick={this.handleOpenClick.bind(this)}>
             <Text>View More</Text>
@@ -171,7 +182,7 @@ class AutoCard extends Component {
         </Container>
 
         <Collapsible open={this.state.open}>
-          <MoreInfo data={this.props.data} />
+          { this.props.data.build ? <MoreInfo data={this.props.data} /> : null }
         </Collapsible>
       </Card>
     )

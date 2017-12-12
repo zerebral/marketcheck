@@ -1,6 +1,7 @@
 import React from 'react'
 import SRP from '~/SRP'
 import Spinner from 'react-loading-animation'
+import urlEncodeParams from '%/factory/urlEncodeParams'
 import Factory from '%/factory/fetchingData'
 import srpData from './srpdata'
 import defaultSearch from './defaultsearch'
@@ -13,10 +14,29 @@ class SrpContainer extends React.Component {
 
     this.sessionSearch = {}
     this.savedSearch = {}
+    this.window = {}
+
+    this.activeFilters = {
+      type: false,
+      make: false,
+      model: false,
+      deals: false,
+      year: false,
+      transmission: false,
+      sellerType: false,
+      exteriorColor: false,
+      bodyType: false,
+      trim: false,
+      driveTrain: false,
+      cylinders: false,
+      fuel: false
+    }
 
     this.state = {
+      refreshURL: '',
       sessionSearch: srpData(),
       responseFactory: {},
+      resetPagination: false,
       readyFirstFetch: false,
       readyRefreshFetch: false,
       readyState: false
@@ -41,6 +61,8 @@ class SrpContainer extends React.Component {
 
   updateCarType (value) {
     this.sessionSearch.carType = value
+
+    this.activeFilters.type = false
 
     this.refreshState()
   }
@@ -72,17 +94,21 @@ class SrpContainer extends React.Component {
   updateDealsRating (value) {
     this.sessionSearch.dealRating = value
 
+    this.activeFilters.deals = false
+
     this.refreshState()
   }
 
   updateModelList (value) {
     this.sessionSearch.modelList = value
-
+    this.activeFilters.model = false
     this.refreshState()
   }
 
   updateYear (value) {
     this.sessionSearch.year = value
+
+    this.activeFilters.year = false
 
     this.refreshState()
   }
@@ -90,11 +116,15 @@ class SrpContainer extends React.Component {
   updateSellerType (value) {
     this.sessionSearch.sellerType = value
 
+    this.activeFilters.sellerType = false
+
     this.refreshState()
   }
 
   updateColor (value) {
     this.sessionSearch.color = value
+
+    this.activeFilters.exteriorColor = false
 
     this.refreshState()
   }
@@ -102,28 +132,30 @@ class SrpContainer extends React.Component {
   updateTransmission (value) {
     this.sessionSearch.transmission = value
 
+    this.activeFilters.transmission = false
+
     this.refreshState()
   }
 
   updateBodyType (value) {
     this.sessionSearch.bodyType = value
 
+    this.activeFilters.bodyType = false
+
     this.refreshState()
   }
 
   updatePagination (value) {
-    this.setState({
-      readyRefreshFetch: false
-    })
-
     this.sessionSearch.start = value.start
     this.sessionSearch.rows = value.rows
 
-    this.refreshState()
+    this.refreshState(true)
   }
 
   updateTrim (value) {
     this.sessionSearch.trim = value
+
+    this.activeFilters.trim = false
 
     this.refreshState()
   }
@@ -131,17 +163,23 @@ class SrpContainer extends React.Component {
   updateDrivetrain (value) {
     this.sessionSearch.drivetrain = value
 
+    this.activeFilters.driveTrain = false
+
     this.refreshState()
   }
 
   updateCylinders (value) {
     this.sessionSearch.cylinders = value
 
+    this.activeFilters.cylinders = false
+
     this.refreshState()
   }
 
   updateFuelType (value) {
     this.sessionSearch.fuelType = value
+
+    this.activeFilters.fuel = false
 
     this.refreshState()
   }
@@ -155,38 +193,128 @@ class SrpContainer extends React.Component {
   }
 
   updateSortOrder (value) {
-    console.log(value)
-    this.sessionSearch.sortOrder = value
+    let order = value.split('|')
+    this.sessionSearch.sort_by = order[0]
+    this.sessionSearch.sort_order = order[1]
+
+    this.refreshState(false)
+  }
+
+  updateLocation (value) {
+        this.sessionSearch.address = value.address
+        this.sessionSearch.latitude = value.lat
+        this.sessionSearch.longitude = value.lng
+
+        this.refreshState()
+  }
+
+  removeMake () {
+    this.sessionSearch.selectedMake = []
+
+    this.activeFilters.make = true
+
+    this.refreshState()
+
+    window.location.href = '/'
+  }
+
+  removeType () {
+    this.sessionSearch.carType = 'used'
+
+    this.activeFilters.type = true
 
     this.refreshState()
   }
 
-  removeMake() {
-    this.sessionSearch.selectedMake = ' '
+  removeModel () {
+    this.sessionSearch.modelList = []
+
+    this.activeFilters.model = true
 
     this.refreshState()
   }
 
-  removeType() {
-    this.sessionSearch.carType = ' '
+  removeTransmission () {
+    this.sessionSearch.transmission = []
+
+    this.activeFilters.transmission = true
 
     this.refreshState()
   }
 
-  removeModel() {
-    this.sessionSearch.modelList = ' '
+  removeDeal () {
+    this.sessionSearch.dealRating = []
+
+    this.activeFilters.deals = true
 
     this.refreshState()
   }
 
-  removeTransmission() {
-    this.sessionSearch.transmission = ' '
+  removeSellerType () {
+    this.sessionSearch.sellerType = ''
+
+    this.activeFilters.sellerType = true
+
+    this.refreshState()
+  }
+
+  removeExteriorColor () {
+    this.sessionSearch.color = ''
+
+    this.activeFilters.exteriorColor = true
+
+    this.refreshState()
+  }
+
+  removeBody () {
+    this.sessionSearch.bodyType = ''
+
+    this.activeFilters.bodyType = true
+
+    this.refreshState()
+  }
+
+  removeTrim () {
+    this.sessionSearch.trim = ''
+
+    this.activeFilters.trim = true
+
+    this.refreshState()
+  }
+
+  removeDriveTrain () {
+    this.sessionSearch.drivetrain = ''
+
+    this.activeFilters.driveTrain = true
+
+    this.refreshState()
+  }
+
+  removeCylinders () {
+    this.sessionSearch.cylinders = ''
+
+    this.activeFilters.cylinders = true
+
+    this.refreshState()
+  }
+
+  removeFuel () {
+    this.sessionSearch.fuelType = ''
+
+    this.activeFilters.fuel = true
+
+    this.refreshState()
+  }
+
+  removeYear () {
+    this.sessionSearch.year = ''
+
+    this.activeFilters.year = true
 
     this.refreshState()
   }
 
   getCarsData () {
-    let that = this
     let fetchResult = searchFactory.fetching(this.state.sessionSearch.filters)
 
     fetchResult = fetchResult.then(response =>
@@ -199,11 +327,19 @@ class SrpContainer extends React.Component {
     )
     .then(res => {
       if (res.status === 200 && res.data !== undefined) {
-        // console.log(res.status, res.data)
         this.setState({
           responseFactory: res.data,
           readyFirstFetch: true,
           readyRefreshFetch: true
+        },
+        () => {
+        })
+      } else {
+        this.setState({
+          responseFactory: {},
+          readyFirstFetch: true,
+          readyRefreshFetch: true,
+          resetState: false
         },
         () => {
         })
@@ -213,16 +349,49 @@ class SrpContainer extends React.Component {
     return fetchResult
   }
 
-  refreshState () {
+  resetSidebarControl (sidebarControl) {
+    sidebarControl()
+  }
+
+  refreshState (pagination) {
+    this.setState({
+      readyRefreshFetch: false,
+      resetPagination: false
+    })
+
     this.setState({
       sessionSearch: srpData(this.sessionSearch)
     }, () => {
+      this.getCarsData()
+      this.refreshURL()
     })
 
-    this.getAPIData()
+    if (!pagination && pagination !== undefined) {
+      this.resetPagination()
+    }
+  }
+
+  resetPagination () {
+    this.setState({
+      resetPagination: true
+    })
+
+    this.sessionSearch.start = 0
+    this.sessionSearch.rows = 11
+  }
+
+  refreshURL () {
+    let newURL = this.state.refreshURL
+
+    this.setState({
+      refreshURL: urlEncodeParams(this.state.sessionSearch.filters)
+    }, () => {
+      window.history.pushState(this.state.sessionSearch.filters, 'Marketcheck SRP', '/srp?' + this.state.refreshURL)
+    })
   }
 
   componentDidMount () {
+
     const searchParams = window.sessionStorage.getItem('searchSession')
 
     this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : defaultSearch
@@ -230,9 +399,9 @@ class SrpContainer extends React.Component {
     this.savedSearch = JSON.parse(window.localStorage.getItem('searchSession'))
 
     this.setState(
-      this.savedSearch
-      ? this.savedSearch
-      : {
+      this.savedSearch ?
+      this.savedSearch :
+      {
         sessionSearch: srpData(this.sessionSearch),
         saveSearch: this.saveSearch.bind(this),
         updateCarType: this.updateCarType.bind(this),
@@ -242,6 +411,7 @@ class SrpContainer extends React.Component {
         updateDealsRating: this.updateDealsRating.bind(this),
         updateModelList: this.updateModelList.bind(this),
         updateYear: this.updateYear.bind(this),
+        updateColor: this.updateColor.bind(this),
         updateSellerType: this.updateSellerType.bind(this),
         updateTransmission: this.updateTransmission.bind(this),
         updateBodyType: this.updateBodyType.bind(this),
@@ -252,11 +422,28 @@ class SrpContainer extends React.Component {
         updateDayListed: this.updateDayListed.bind(this),
         updateSortOrder: this.updateSortOrder.bind(this),
         updatePagination: this.updatePagination.bind(this),
+        updateLocation: this.updateLocation.bind(this),
+        removeMake: this.removeMake.bind(this),
+        removeModel: this.removeModel.bind(this),
+        removeType: this.removeType.bind(this),
+        removeTransmission: this.removeTransmission.bind(this),
+        removeDeal: this.removeDeal.bind(this),
+        removeSellerType: this.removeSellerType.bind(this),
+        removeExteriorColor: this.removeExteriorColor.bind(this),
+        removeBody: this.removeBody.bind(this),
+        removeTrim: this.removeTrim.bind(this),
+        removeDriveTrain: this.removeDriveTrain.bind(this),
+        removeCylinders: this.removeCylinders.bind(this),
+        removeFuel: this.removeFuel.bind(this),
+        removeYear: this.removeYear.bind(this),
+        resetSidebarControl: this.resetSidebarControl.bind(),
         readyRefreshFetch: this.state.readyRefreshFetch,
-        readyState: true
+        readyState: true,
+        activeFilters: this.activeFilters
       },
       () => {
         this.getCarsData()
+        this.refreshURL()
       }
     )
   }

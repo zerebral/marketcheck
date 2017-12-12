@@ -7,6 +7,8 @@ import Proptypes from 'prop-types'
 const SelectWrapper = styled.div`
   position: relative;
   background-color: ${props => props.blue ? colors.blue : colors.white};
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   color: ${props => props.blue ? colors.white : colors.blue};
   font-size: ${rem(12)};
   line-height: ${19 / 16};
