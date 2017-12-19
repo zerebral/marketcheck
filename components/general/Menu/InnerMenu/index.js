@@ -16,7 +16,7 @@ export default () => (
   <Container>
     <InnerMenu>
       <Links />
-      <Icons />
+      {/*<Icons />*/}
     </InnerMenu>
   </Container>
 )

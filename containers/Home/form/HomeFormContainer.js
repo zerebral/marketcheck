@@ -18,7 +18,7 @@ class HomeFormContainer extends Component {
     // this.handleChange = this.handleChange.bind(this);
 
     this.urlParams = {
-      cart_type: '',
+      car_type: '',
       latitude: '',
       longitude: '',
       make: '',
@@ -72,7 +72,7 @@ class HomeFormContainer extends Component {
   }
 
   carTypeSelect (value) {
-    this.urlParams.cart_type = value
+    this.urlParams.car_type = value
 
     this.setState({
       carType : value

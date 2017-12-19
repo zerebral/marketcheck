@@ -74,24 +74,31 @@ class SimpleCheckbox extends Component {
     })
   }
 
-  handleCheckClick (index, value) {
-    const newList = this.props.list
-    newList[index].checked = newList[index].checked ? false : true
+  handleCheckClick (index, value, checked) {
+      const newList = this.props.list
+      newList[index].checked = newList[index].checked ? false : true
+      let stateModelList = []
 
-    let stateModelList = []
-
-    newList.map(function (model, index){
-      if (model.checked) {
-        stateModelList.push(model.label)
-      }
-    })
-
-    this.setState({
-      checked: index,
-      list: newList
-    }, () => {
-      this.props.updateSuperState(stateModelList)
-    })
+      newList.map(function (model, index) {
+          if (model.checked) {
+              stateModelList.push(model.label)
+          }
+      })
+    if((checked === false || checked === undefined) && checked !== null) {
+            this.setState({
+            checked: index,
+            list: newList
+        }, () => {
+            this.props.updateSuperState(stateModelList)
+        })
+    }else {
+        this.setState({
+            checked: false,
+            list: newList
+        }, () => {
+            this.props.updateSuperState(stateModelList)
+        })
+    }
   }
 
   updateListLimit (e) {
@@ -160,6 +167,7 @@ class SimpleCheckbox extends Component {
 
   render () {
     return (
+
       <Collapsible {...this.props} parentReset={this.handleResetClick.bind(this)}>
         {this.state.list.length ?
           this.state.list.map(function (item, index) {
@@ -167,7 +175,9 @@ class SimpleCheckbox extends Component {
               return (
                 <StyledFlexRow key={index}>
                   <StyledFlexCol>
-                    <CheckBox className={item.checked ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item)} />
+                      {item.label == "3 Series" ? console.log(this.props) : ''}
+
+                    <CheckBox className={item.checked ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item, item.checked)} />
                   </StyledFlexCol>
                   <FlexCol>
                     <Label onClick={() => this.handleCheckClick.bind(this)(index, item)}>{item.label} {item.count ? '('+item.count+')' : ''}</Label>

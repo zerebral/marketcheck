@@ -5,7 +5,7 @@ import { mediaMax } from '%/styles/mixins'
 
 const PagesContainer = styled.div`
   margin-bottom: 1em;
-  text-align: right;
+  text-align: center;
   ${mediaMax.phone`
     display: none;
   `}
@@ -31,15 +31,15 @@ class Paginator extends Component {
   constructor (props) {
     super(props)
 
-    this.perPage = 11
+    this.perPage = 10
 
     this.state = {
       currentPage: 0,
-      pageSize: 5,
+      pageSize: 10,
       totalPages: 0,
       limitPages: 0,
       offsetShow: 0,
-      limitShow: 11,
+      limitShow: 10,
       ready: false
     }
   }

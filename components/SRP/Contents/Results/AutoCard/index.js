@@ -167,9 +167,9 @@ class AutoCard extends Component {
           </InnerContainer>
           <Safety data={this.props.data} />
 
-          <HeartBtn>
-            <SvgHeartIcon />
-          </HeartBtn>
+          {/*<HeartBtn>*/}
+            {/*<SvgHeartIcon />*/}
+          {/*</HeartBtn>*/}
           <ShareBtn>
             <Share title={this.getName()} link={'/vdp/' + this.props.data.vin} />
           </ShareBtn>

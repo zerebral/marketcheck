@@ -1,14 +1,14 @@
 import Home from '~/Home'
 
 const carLinks = [
-  { name: 'SUV', route: '#' },
-  { name: 'Sedan', route: '#' },
-  { name: 'Pickup', route: '#' },
-  { name: 'Coupe', route: '#' },
-  { name: 'Hatchback', route: '#' },
-  { name: 'Convertible', route: '#' },
-  { name: 'Wagon', route: '#' },
-  { name: 'Crossover', route: '#' }
+  { name: 'SUV', route: 'javascript:;' },
+  { name: 'Sedan', route: 'javascript:;' },
+  { name: 'Pickup', route: 'javascript:;' },
+  { name: 'Coupe', route: 'javascript:;' },
+  { name: 'Hatchback', route: 'javascript:;' },
+  { name: 'Convertible', route: 'javascript:;' },
+  { name: 'Wagon', route: 'javascript:;' },
+  { name: 'Crossover', route: 'javascript:;' }
 ]
 
 export default () =>

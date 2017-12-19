@@ -64,14 +64,15 @@ class Results extends Component {
   }
 
   searchArgument (state) {
+    console.log("MAKE ::: "+ this.props.sessionSearch.filters.make )
     const argument =
       capitalize(this.props.sessionSearch.filters.car_type) + " " +
       (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + " " : "" ) +
-      (this.props.sessionSearch.filters.make ? this.props.sessionSearch.filters.make + " " : "" ) +
+      (this.props.sessionSearch.filters.make ? this.props.sessionSearch.filters.make + " " : "Cars " ) +
       (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + " " : "" ) +
       " in " +
       this.props.sessionSearch.location.address + " "
-
+      document.title = argument;
     return argument
   }
 
@@ -84,7 +85,7 @@ class Results extends Component {
       },
       {
         label: 'Make:',
-        filter: state.filters.make,
+        filter: Array.isArray(state.filters.make) ? state.filters.make.join(',') : state.filters.make,
         remove: this.props.removeMake
       },
       {
@@ -102,6 +103,7 @@ class Results extends Component {
         filter: state.filters.deal ? state.filters.deal : '',
         remove: this.props.removeDeal
       },
+
       {
         label: 'Seller:',
         filter: state.filters.seller_type ? state.filters.seller_type : '',
@@ -157,7 +159,7 @@ class Results extends Component {
           {this.props.responseFactory.num_found && this.props.responseFactory.listings.length ?
             this.props.readyRefreshFetch ?
               this.props.responseFactory.listings.map((item, index) =>
-                (<AutoCard {...this.props.sessionSearch} key={index} data={item} />)
+                (<AutoCard {...this.props.sessionSearch} key={index} data={item} stats={this.props.responseFactory.stats} />)
               ) :
               <Spinner style={{marginTop: '5vh'}} /> :
             (<div style={{textAlign: 'center', padding: '4em'}}>
@@ -165,12 +167,12 @@ class Results extends Component {
               <Button href="/">Lets start over</Button>
             </div>)
           }
-          {this.props.responseFactory.num_found &&  this.props.responseFactory.num_found > 11 ?
+          {this.props.responseFactory.num_found &&  this.props.responseFactory.num_found > 10 ?
             <Paginator {...this.props} totalFound={this.props.responseFactory.num_found} updateSuperState={this.props.updatePagination} /> :
             null
           }
           {false ? <Recommended /> : null }
-          <ListsBy />
+          {/*<ListsBy />*/}
         </Wrapper>
       </StyledFlexCol>
     )

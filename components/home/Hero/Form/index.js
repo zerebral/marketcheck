@@ -39,7 +39,7 @@ export default ({
   findLatLng
 }) =>
   <Form onSubmit={onSubmit}>
-    <FancySelect blue handleSelect={carTypeSelect} showForMobile={true} defaultLabel='Used' defaultValue='used' loading={false} list={[{item: 'used'}, {item: 'new'}, {item: 'newer'}, {item: 'newest'}]} />
+    <FancySelect blue handleSelect={carTypeSelect} showForMobile={true} defaultLabel='Used' defaultValue='used' loading={false} list={[{item: 'new'}, {item: 'used'}, {item: 'certified'}]} />
     <GoogleAutoComplete findLatLng={findLatLng}/>
     <FancySelect handleSelect={makeSelect} showForMobile={false} defaultLabel='All Makes' defaultValue='' loading={loadingMakers} list={makes} />
     <FancySelect handleSelect={modelSelect} showForMobile={false} defaultLabel='All Models' defaultValue='' loading={loadingModels} list={models} />

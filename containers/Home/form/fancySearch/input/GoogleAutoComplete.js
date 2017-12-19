@@ -5,6 +5,7 @@ import scriptLoader from 'react-async-script-loader'
 class GoogleAutoComplete extends React.Component {
   constructor (props) {
     super(props)
+      console.log(props)
     this.state = {
       address: '',
       loading: false
@@ -85,7 +86,9 @@ class GoogleAutoComplete extends React.Component {
     const { isScriptLoaded, isScriptLoadSucceed } = this.props
     return (
       <div>
+          {/*<Geolocation/>*/}
         {isScriptLoaded && isScriptLoadSucceed &&
+
           <PlacesAutocomplete
             onSelect={this.handleSelect}
             autocompleteItem={AutocompleteItem}

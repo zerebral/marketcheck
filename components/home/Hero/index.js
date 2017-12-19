@@ -14,7 +14,7 @@ const Hero = ({
   carLinks,
   onSubmit
 }) =>
-  <Wrapper image={imageRetina} imageRetina={imageRetina}>
+  <Wrapper id='home' image={imageRetina} imageRetina={imageRetina}>
     <AlignedContainer>
       <Container>
         <Row>

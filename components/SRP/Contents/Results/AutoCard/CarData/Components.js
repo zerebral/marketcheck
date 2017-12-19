@@ -21,7 +21,8 @@ export const Car = styled.div`
 `
 
 export const NewBadge = styled.span`
-  color: ${colors.green};
+  color: ${colors.white};
+  background: ${colors.green};
   display: inline-block;
   font-size: 13px;
   line-height: 15.6px;

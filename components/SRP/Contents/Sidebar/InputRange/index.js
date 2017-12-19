@@ -33,6 +33,7 @@ class InputRange extends Component {
     this.min = this.props.min
     this.max = this.props.max
     this.value = this.props.value
+    this.step = this.props.step
 
     this.state = {
       bound: this.value,
@@ -75,6 +76,7 @@ class InputRange extends Component {
           min={this.min}
           max={this.max}
           value={this.state.value}
+          step={this.step}
           onChange={this.onSliderChange.bind(this)}
           trackStyle={[{ backgroundColor: colors.softblue }]}
           handleStyle={[{ backgroundColor: colors.softblue, border: 'none' }]}

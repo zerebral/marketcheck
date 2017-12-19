@@ -61,8 +61,8 @@ export default (props) => {
 
         <PriceRow>
           <Price>{currency(props.data.price)}</Price>
-          <Deal>Great Deal!</Deal>
-          <Like />
+          {/*<Deal>Great Deal!</Deal>*/}
+          {/*<Like />*/}
           <Share title={
                 cutString(
                   (
@@ -77,7 +77,6 @@ export default (props) => {
               link={'/vdp/' + props.data.vin}
           />
         </PriceRow>
-
         <Average>{currency(props.data.ref_price)} less than market average</Average>
 
         {false ? (

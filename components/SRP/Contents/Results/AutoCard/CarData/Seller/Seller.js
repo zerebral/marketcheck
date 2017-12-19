@@ -51,7 +51,7 @@ export default ({
       <Reviews href={website}>{number(reviews)} Reviews</Reviews>
     </Flex>
     <Flex>
-      <Button>Request Best Price</Button>
+      {/*<Button>Request Best Price</Button>*/}
       <More>
         View More
         <Caret />

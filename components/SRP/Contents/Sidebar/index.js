@@ -156,22 +156,34 @@ const SidebarFlexCol = styled(FlexCol)`
 export default (props) => {
   const miles = props.responseFactory.stats.miles
   const price = props.responseFactory.stats.price
+
   return (<SidebarFlexCol>
     <Wrapper>
       <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
+
       <InputRange {...props} label='Distance' min={0} max={500} step={25} value={25} updateSuperState={props.updateDistance} />
-      <DoubleRange {...props} label='Price' currency min={price.min} max={price.max} step={10} value={[price.min, price.max]} updateSuperState={props.updatePrice} />
-      <DoubleRange {...props} label='Miles Range' min={miles.min} max={miles.max} step={10} value={[miles.min, miles.max]} updateSuperState={props.updateMilesRange} />
-      <SimpleCheckbox {...props} active={props.activeFilters.deals} label='Deals' list={list} updateSuperState={props.updateDealsRating} />
+
+      <DoubleRange {...props} label='Price' currency min={0} max={500000} step={100} value={[(Math.ceil(price.min / 100) * 100 - 100), (Math.ceil(price.max / 100) * 100)]} updateSuperState={props.updatePrice} />
+
+      <DoubleRange {...props} label='Miles Range'  defaultValue={[0,10000000]} min={miles.min} max={miles.max} step={1000} value={[miles.min, miles.max]} updateSuperState={props.updateMilesRange} />
+
+      {/*<SimpleCheckbox {...props} active={props.activeFilters.deals} label='Deals' list={list} updateSuperState={props.updateDealsRating} />*/}
+      {false ? <SearchCheckbox {...props} label='Makes' list={props.sessionSearch.makesList} updateSuperState={props.updateMakeList} resetBtn /> : null }
+      <SimpleCheckbox {...props} active={props.activeFilters.make} label='Makes' list={listGenerator(props.responseFactory.facets.make)} updateSuperState={props.updateMakeList} resetBtn />
+
       {false ? <SearchCheckbox {...props} label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn /> : null }
       <SimpleCheckbox {...props} active={props.activeFilters.model} label='Models' list={listGenerator(props.responseFactory.facets.model)} updateSuperState={props.updateModelList} resetBtn />
+
       {false ? <InputYear {...props} label='Year' updateSuperState={props.updateYear} /> : null }
       <SimpleCheckbox {...props} active={props.activeFilters.year} label='Year' list={listGenerator(props.responseFactory.facets.year)} updateSuperState={props.updateYear} resetBtn />
+
       {false ? <GroupIconBtn {...props} label='Seller Type' items={props.responseFactory.facets.seller_type} updateSuperState={props.updateSellerType} /> : null }
        <SimpleCheckbox {...props} active={props.activeFilters.sellerType} label='Seller Type' list={listGenerator(props.responseFactory.facets.seller_type)} updateSuperState={props.updateSellerType} resetBtn />
+
       {false ? <CheckColors {...props} label='Color' colorButtons={colorButtons} updateSuperState={props.updateColor} /> : null }
       <SimpleCheckbox {...props} active={props.activeFilters.exteriorColor} label='Color' list={listGenerator(props.responseFactory.facets.exterior_color)} updateSuperState={props.updateColor} resetBtn />
+
       <SimpleCheckbox {...props} active={props.activeFilters.transmission} label='Transmission' list={listGenerator(props.responseFactory.facets.transmission)} updateSuperState={props.updateTransmission} />
       <SimpleCheckbox {...props} active={props.activeFilters.bodyType} label='Body' list={listGenerator(props.responseFactory.facets.body_type)} updateSuperState={props.updateBodyType} />
       <SimpleCheckbox {...props} active={props.activeFilters.trim} label='Trim' list={listGenerator(props.responseFactory.facets.trim)} updateSuperState={props.updateTrim} resetBtn />

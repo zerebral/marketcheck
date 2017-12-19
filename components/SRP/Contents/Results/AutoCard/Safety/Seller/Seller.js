@@ -48,5 +48,5 @@ export default ({
       null
     }
 
-    <Button>Request Best Price</Button>
+    {/*<Button>Request Best Price</Button>*/}
   </Seller>

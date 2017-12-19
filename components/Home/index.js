@@ -28,11 +28,11 @@ const Home = ({
     <Deals />
     <Categories />
     <Trust />
-    <Testimonials />
+    {/*<Testimonials />*/}
     <Makers />
-    <Listings />
-    <Slider />
-    <QuickOverview />
+    {/*<Listings />*/}
+    {/*<Slider />*/}
+    {/*<QuickOverview />*/}
   </LayoutPrimary>
 
 Home.propTypes = {

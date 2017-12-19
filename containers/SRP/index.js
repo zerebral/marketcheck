@@ -105,11 +105,16 @@ class SrpContainer extends React.Component {
     this.refreshState()
   }
 
+    updateMakeList (value) {
+      this.sessionSearch.makeList = value
+      this.activeFilters.make = false
+      this.refreshState()
+    }
+
   updateYear (value) {
+    console.log(value)
     this.sessionSearch.year = value
-
     this.activeFilters.year = false
-
     this.refreshState()
   }
 
@@ -209,13 +214,13 @@ class SrpContainer extends React.Component {
   }
 
   removeMake () {
-    this.sessionSearch.selectedMake = []
+    this.sessionSearch.makeList = []
 
     this.activeFilters.make = true
 
     this.refreshState()
 
-    window.location.href = '/'
+    // window.location.href = '/'
   }
 
   removeType () {
@@ -377,7 +382,7 @@ class SrpContainer extends React.Component {
     })
 
     this.sessionSearch.start = 0
-    this.sessionSearch.rows = 11
+    this.sessionSearch.rows = 10
   }
 
   refreshURL () {
@@ -391,14 +396,30 @@ class SrpContainer extends React.Component {
   }
 
   componentDidMount () {
+    var pairs = location.search.slice(1).split('&');
+
+    var result = {};
+          pairs.forEach(function(pair) {
+              pair = pair.split('=');
+              if(pair[0] == "make"){pair[0] = "selectedMake"}
+              if(pair[0] == "model"){pair[0] = "selectedModel"}
+
+              result[pair[0]] = decodeURIComponent(pair[1] || '');
+          });
+    console.log("RESULT=============")
+    console.log(result)
 
     const searchParams = window.sessionStorage.getItem('searchSession')
 
-    this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : defaultSearch
+    this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : JSON.parse(JSON.stringify(result));
+
+    console.log(JSON.parse(searchParams))
+
 
     this.savedSearch = JSON.parse(window.localStorage.getItem('searchSession'))
 
     this.setState(
+
       this.savedSearch ?
       this.savedSearch :
       {
@@ -409,6 +430,7 @@ class SrpContainer extends React.Component {
         updatePrice: this.updatePrice.bind(this),
         updateMilesRange: this.updateMilesRange.bind(this),
         updateDealsRating: this.updateDealsRating.bind(this),
+        updateMakeList: this.updateMakeList.bind(this),
         updateModelList: this.updateModelList.bind(this),
         updateYear: this.updateYear.bind(this),
         updateColor: this.updateColor.bind(this),
@@ -436,6 +458,7 @@ class SrpContainer extends React.Component {
         removeCylinders: this.removeCylinders.bind(this),
         removeFuel: this.removeFuel.bind(this),
         removeYear: this.removeYear.bind(this),
+        // removePrice: this.removePrice.bind(this),
         resetSidebarControl: this.resetSidebarControl.bind(),
         readyRefreshFetch: this.state.readyRefreshFetch,
         readyState: true,

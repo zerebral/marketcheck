@@ -33,6 +33,7 @@ class DoubleRange extends Component {
     this.label = this.props.label
     this.currency = this.props.currency
     this.value = this.props.value
+    this.step =  this.props.step
 
     this.state = {
       bound: this.value,
@@ -84,6 +85,7 @@ class DoubleRange extends Component {
           range
           min={this.state.min}
           max={this.state.max}
+          step={this.step}
           value={this.state.value}
           onChange={this.onSliderChange.bind(this)}
           onAfterChange={this.onAfterChange.bind(this)}
