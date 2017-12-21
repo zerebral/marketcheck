@@ -21,14 +21,13 @@ export const Car = styled.div`
 `
 
 export const NewBadge = styled.span`
-  color: ${colors.white};
-  background: ${colors.green};
+  color: ${colors.green};
   display: inline-block;
   font-size: 13px;
   line-height: 15.6px;
   padding: 3px 10px;
   border-radius: 4px;
-  border: 1px solid currentColor;
+  border: 1px solid ${colors.green};
   text-align: center;
   margin-bottom: 10px;
   ${mediaMax.srpDesktop`
@@ -156,6 +155,22 @@ export const Average = styled.h6`
   font-size: 14px;
   line-height: 24px;
   color: ${colors.green};
+  margin-bottom: 5px;
+  ${mediaMax.srpDesktop`
+    font-size: 12px;
+  `}
+  ${mediaMax.desktop`
+    font-size: 11px;
+  `}
+  ${mediaMax.largeTablet`
+    display: none;
+  `}
+`
+
+
+export const Dom = styled.h6`
+  font-size: 14px;
+  line-height: 24px;
   margin-bottom: 5px;
   ${mediaMax.srpDesktop`
     font-size: 12px;

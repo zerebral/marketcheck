@@ -1,7 +1,8 @@
+import React, { Component } from 'react'
 import styled from 'styled-components'
-import { mediaMax, mediaMin } from '%/styles/mixins'
-import { colors } from '%/styles'
-import { currency } from '%/format'
+import {mediaMax, mediaMin} from '%/styles/mixins'
+import {colors} from '%/styles'
+import {currency} from '%/format'
 
 const Container = styled.div`
   padding: 15px 30px;
@@ -79,12 +80,28 @@ const Average = styled.h6`
   `}
 `
 
-export default (props) => (
-  <Container>
-    <PriceRow>
-      <Price>{currency(props.data.price)}</Price>
-      <Deal>Great Deal!</Deal>
-    </PriceRow>
-    <Average>{currency(props.data.ref_price)} less than market average</Average>
-  </Container>
-)
+class PriceTop extends Component {
+    constructor (props) {
+        super(props)
+    }
+
+    calculatePriceDelta(price, meanPrice) {
+        return currency(1000)
+    }
+
+
+    render() {
+        return (
+            <Container>
+                <PriceRow>
+                    <Price>{currency(this.props.data.price)}</Price>
+                    <Deal>Great Deal!</Deal>
+                </PriceRow>
+                <Average>{this.calculatePriceDelta(this.props.data.price, this.props.stats.price.mean)} less than market average</Average>
+            </Container>
+        )
+    }
+
+}
+
+export default PriceTop

@@ -11,7 +11,7 @@ import {
 } from '~/layout'
 
 export default ({ title, summary, center, children, ...props }) =>
-  <Section className={props.className}>
+  <Section className={props.className} id={props.id} name={props.id}>
     <Container>
       <FlexRow justify='center' wrap >
         <FlexCol cols={center ? 12 : 3}>

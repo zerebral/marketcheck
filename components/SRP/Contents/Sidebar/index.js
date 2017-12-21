@@ -30,6 +30,16 @@ const listGenerator = (response) => {
   return list
 }
 
+const calculateMax = (response, max_value) => {
+
+    let max = max_value
+    if((Math.ceil(response.max / 1000) * 1000) > max){
+        max =  (Math.ceil(response.max / 1000) * 1000)
+    }
+
+    return max
+}
+
 const buttons = [
   {
     label: 'Used',
@@ -156,6 +166,8 @@ const SidebarFlexCol = styled(FlexCol)`
 export default (props) => {
   const miles = props.responseFactory.stats.miles
   const price = props.responseFactory.stats.price
+  const max_price = calculateMax(price, 1000000)
+  const max_miles = calculateMax(miles, 1000000)
 
   return (<SidebarFlexCol>
     <Wrapper>
@@ -164,19 +176,23 @@ export default (props) => {
 
       <InputRange {...props} label='Distance' min={0} max={500} step={25} value={25} updateSuperState={props.updateDistance} />
 
-      <DoubleRange {...props} label='Price' currency min={0} max={500000} step={100} value={[(Math.ceil(price.min / 100) * 100 - 100), (Math.ceil(price.max / 100) * 100)]} updateSuperState={props.updatePrice} />
+      {false ? <InputYear {...props} label='Year' updateSuperState={props.updateYear} /> : null }
+      <SimpleCheckbox {...props} active={props.activeFilters.year} label='Year' list={listGenerator(props.responseFactory.facets.year)} updateSuperState={props.updateYear} resetBtn />
 
-      <DoubleRange {...props} label='Miles Range'  defaultValue={[0,10000000]} min={miles.min} max={miles.max} step={1000} value={[miles.min, miles.max]} updateSuperState={props.updateMilesRange} />
-
-      {/*<SimpleCheckbox {...props} active={props.activeFilters.deals} label='Deals' list={list} updateSuperState={props.updateDealsRating} />*/}
       {false ? <SearchCheckbox {...props} label='Makes' list={props.sessionSearch.makesList} updateSuperState={props.updateMakeList} resetBtn /> : null }
       <SimpleCheckbox {...props} active={props.activeFilters.make} label='Makes' list={listGenerator(props.responseFactory.facets.make)} updateSuperState={props.updateMakeList} resetBtn />
 
       {false ? <SearchCheckbox {...props} label='Models' list={props.sessionSearch.modelsList} updateSuperState={props.updateModelList} resetBtn /> : null }
       <SimpleCheckbox {...props} active={props.activeFilters.model} label='Models' list={listGenerator(props.responseFactory.facets.model)} updateSuperState={props.updateModelList} resetBtn />
 
-      {false ? <InputYear {...props} label='Year' updateSuperState={props.updateYear} /> : null }
-      <SimpleCheckbox {...props} active={props.activeFilters.year} label='Year' list={listGenerator(props.responseFactory.facets.year)} updateSuperState={props.updateYear} resetBtn />
+      <DoubleRange {...props} label='Price' currency min={0} max={max_price} step={1000} value={[(Math.ceil(price.min / 100) * 100 - 100), (Math.ceil(price.max / 1000) * 1000)]} updateSuperState={props.updatePrice} />
+
+      <DoubleRange {...props} label='Miles Range'  defaultValue={[0,10000000]} min={0} max={max_miles} step={1000} value={[miles.min > 0 ? (Math.ceil(miles.min / 100) * 100 - 100) : 0, (Math.ceil(miles.max / 1000) * 1000)]} updateSuperState={props.updateMilesRange} />
+
+      {/*<SimpleCheckbox {...props} active={props.activeFilters.deals} label='Deals' list={list} updateSuperState={props.updateDealsRating} />*/}
+
+
+
 
       {false ? <GroupIconBtn {...props} label='Seller Type' items={props.responseFactory.facets.seller_type} updateSuperState={props.updateSellerType} /> : null }
        <SimpleCheckbox {...props} active={props.activeFilters.sellerType} label='Seller Type' list={listGenerator(props.responseFactory.facets.seller_type)} updateSuperState={props.updateSellerType} resetBtn />

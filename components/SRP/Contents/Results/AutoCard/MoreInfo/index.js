@@ -58,7 +58,7 @@ const Type = styled.p`
 
 const Multimedia = styled.div`
   padding: 1em 0;
-  text-align: center;
+  text-align: left;
 `
 
 const MultiInfo = styled.div`
@@ -145,14 +145,14 @@ export default (props) => {
               <SvgPhotoIcon />
               <span>{props.data.media.photo_links.length} { props.data.media.photo_links.length > 0 ? 'photos' : 'photo'}</span>
             </MultiInfo>
-            <MultiInfo>
-              <SvgVideosIcon />
-              <span>0 videos</span>
-            </MultiInfo>
-            <MultiInfo>
-              <SvgView360Icon />
-              <span>360º view</span>
-            </MultiInfo>
+            {/*<MultiInfo>*/}
+              {/*<SvgVideosIcon />*/}
+              {/*<span>0 videos</span>*/}
+            {/*</MultiInfo>*/}
+            {/*<MultiInfo>*/}
+              {/*<SvgView360Icon />*/}
+              {/*<span>360º view</span>*/}
+            {/*</MultiInfo>*/}
           </Multimedia>
         </LeftFlexCol>
         <FlexCol>

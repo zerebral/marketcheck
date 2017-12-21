@@ -160,10 +160,11 @@ class AutoCard extends Component {
     return (
       <Card className={this.state.open ? 'open' : 'close'}>
         <Container>
-          <PriceTop data={this.props.data} />
+            {/*{console.log(this.props)}*/}
+          <PriceTop data={this.props.data} stats={this.props.stats} />
           <InnerContainer>
             <Slideshow data={this.props.data} />
-            { this.props.data.build ? <CarData {...this.props} data={this.props.data} /> : null }
+            { this.props.data.build ? <CarData {...this.props}  data={this.props.data} /> : null }
           </InnerContainer>
           <Safety data={this.props.data} />
 

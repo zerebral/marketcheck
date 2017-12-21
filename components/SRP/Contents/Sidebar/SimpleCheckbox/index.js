@@ -7,6 +7,12 @@ import Collapsible from '../Collapsible'
 
 const StyledFlexRow = styled(FlexRow)`
   padding-bottom: 0.5em;
+  &.checked {
+     .checkboxDiv{
+        background-color: ${colors.darkengray};
+    }
+  }
+  
 `
 
 const StyledFlexCol = styled(FlexCol)`
@@ -18,10 +24,6 @@ const CheckBox = styled.div`
   cursor: pointer;
   height: 15px;
   width: 15px;
-
-  &.checked {
-    background-color: ${colors.darkengray};
-  }
 `
 
 const Label = styled.label`
@@ -76,6 +78,7 @@ class SimpleCheckbox extends Component {
 
   handleCheckClick (index, value, checked) {
       const newList = this.props.list
+
       newList[index].checked = newList[index].checked ? false : true
       let stateModelList = []
 
@@ -120,7 +123,6 @@ class SimpleCheckbox extends Component {
     if (checked !== false && checked !== undefined && checked !== null) {
       if (prevList[checked] !== undefined) {
         prevList[checked].checked = prevList[checked].checked ? false : true
-
         newList.map(function (item, index) {
           if (item.label === prevList[checked].label) {
             item.checked = true
@@ -135,15 +137,15 @@ class SimpleCheckbox extends Component {
       })
     } else {
         if (checked !== false && checked !== undefined && checked !== null) {
-          if (prevList[checked] !== undefined) {
-            prevList[checked].checked = prevList[checked].checked ? false : true
+            if (prevList[checked] !== undefined) {
+                prevList[checked].checked = prevList[checked].checked ? false : true
 
-            newList.map(function (item, index) {
-              if (item.label === prevList[checked].label) {
-                item.checked = true
-              }
-            })
-          }
+                newList.map(function (item, index) {
+                    if (item.label === prevList[checked].label) {
+                        item.checked = true
+                    }
+                })
+            }
         }
     }
 
@@ -173,14 +175,12 @@ class SimpleCheckbox extends Component {
           this.state.list.map(function (item, index) {
             if (index < this.state.listLimit) {
               return (
-                <StyledFlexRow key={index}>
+                <StyledFlexRow className={item.checked ? 'checked' : ''} key={index}>
                   <StyledFlexCol>
-                      {item.label == "3 Series" ? console.log(this.props) : ''}
-
-                    <CheckBox className={item.checked ? 'checked' : ''} onClick={() => this.handleCheckClick.bind(this)(index, item, item.checked)} />
+                    <CheckBox className={"checkboxDiv"} onClick={() => this.handleCheckClick.bind(this)(index, item, item.checked)} />
                   </StyledFlexCol>
                   <FlexCol>
-                    <Label onClick={() => this.handleCheckClick.bind(this)(index, item)}>{item.label} {item.count ? '('+item.count+')' : ''}</Label>
+                    <Label onClick={() => this.handleCheckClick.bind(this)(index, item, item.checked)}>{item.label} {item.count ? '('+item.count+')' : ''}</Label>
                   </FlexCol>
                 </StyledFlexRow>
               )

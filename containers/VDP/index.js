@@ -1,6 +1,16 @@
 import VDP from '~/VDP'
 import vdpdata from './vdpdata'
 
+const pageTitle = (year, make, model, trim) => {
+    let title = ''
+        title = title + (year ? year + ' ' : ' ')
+        title = title + (make ? make + ' ' : ' ')
+        title = title + (model ? model + ' ' : ' ')
+        title = title + (trim  ? trim + ' ' : ' ')
+
+    return title
+}
+
 export default ({
   heading,
   averages,
@@ -43,6 +53,7 @@ export default ({
     drivetrain,
     doors,
     trim,
+    trim_r,
     city_miles: cityMiles,
     highway_miles: highwayMiles,
     body_type: body,
@@ -57,12 +68,14 @@ export default ({
   }
 }) => {
   return (
+
     <VDP
     {...props}
     {...vdpdata}
     city={city}
     state={state}
     heading={heading}
+    pageTitle={pageTitle(year, make, model, trim)}
     name={`${make} ${model}`}
     brief={`Stock # ${stockNumber ? stockNumber : '-'}, ${engine ? engine + ',' : ''} ${transmission ? transmission + ',' : ''} ${miles ? miles + ' mi,' : ''} ${cityMiles && highwayMiles ? (parseInt(cityMiles)+'/'+parseInt(highwayMiles))+' MPG*' : '' } `}
     price={price}
@@ -70,6 +83,7 @@ export default ({
     make={make}
     year={year}
     type={type}
+    trim_r={trim_r}
     stockNumber={stockNumber}
     trim={trim}
     body={body}

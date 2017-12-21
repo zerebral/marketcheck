@@ -4,7 +4,7 @@ import Seller from './Seller'
 import { FlexRow, FlexCol } from '~/layout'
 
 export default ({ safetyRatings, dealerReviews, dealerRatings, dealerWebsite }) =>
-  <Section title='Safety Ratings' summary='Define Where Data is Coming From'>
+  <Section id='safetyContainer' title='Safety Ratings' summary='Define Where Data is Coming From'>
     <FlexRow justify='center'>
       <FlexCol cols={8}>
         <FlexRow justify='center' noMargin >

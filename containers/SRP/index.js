@@ -112,7 +112,7 @@ class SrpContainer extends React.Component {
     }
 
   updateYear (value) {
-    console.log(value)
+    // console.log(value)
     this.sessionSearch.year = value
     this.activeFilters.year = false
     this.refreshState()
@@ -406,14 +406,12 @@ class SrpContainer extends React.Component {
 
               result[pair[0]] = decodeURIComponent(pair[1] || '');
           });
-    console.log("RESULT=============")
-    console.log(result)
 
     const searchParams = window.sessionStorage.getItem('searchSession')
 
     this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : JSON.parse(JSON.stringify(result));
 
-    console.log(JSON.parse(searchParams))
+    // console.log(JSON.parse(searchParams))
 
 
     this.savedSearch = JSON.parse(window.localStorage.getItem('searchSession'))

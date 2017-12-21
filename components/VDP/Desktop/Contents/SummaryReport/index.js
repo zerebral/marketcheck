@@ -30,7 +30,7 @@ const Row = styled.div`
 `
 
 export default ({summaryReport}) =>
-  <Section title='VIN Summary Report'>
+  <Section id='summaryContainer' title='VIN Summary Report'>
     <Wrapper>
       {summaryReport[0].some_text &&
       <Row>

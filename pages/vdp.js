@@ -152,7 +152,7 @@ class Vdp extends React.Component {
         averageMiles += parseFloat(car.miles)
         return { x: parseFloat(car.miles), y: parseFloat(car.price) }
       })
-      console.log(averagePrice)
+      // console.log(averagePrice)
       averagePrice = averagePrice / cars.length
       averageMiles = Math.round(averageMiles / cars.length)
       // averageMiles = averageMiles.toFixed(0);

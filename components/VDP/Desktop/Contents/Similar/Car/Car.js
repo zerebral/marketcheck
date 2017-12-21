@@ -65,8 +65,8 @@ export default ({
 
       <PriceRow>
         <Price>{currency(price)}</Price>
-        <Deal>Great Deal!</Deal>
-        <Like />
+        {/*<Deal>Great Deal!</Deal>*/}
+        {/*<Like />*/}
         <Share />
       </PriceRow>
 

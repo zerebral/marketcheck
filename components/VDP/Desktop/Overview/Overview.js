@@ -18,6 +18,7 @@ import {
 } from './Components'
 
 export default ({
+  pageTitle,
   props,
   name,
   brief,
@@ -28,33 +29,32 @@ export default ({
   averages,
   vin
 }) => {
-    console.log('props', props)
     return (
         <Wrapper>
           <TopRow>
             <Container>
               <FlexRow align='flex-end'>
-                <FlexCol cols={4}>
+                <FlexCol cols={9}>
                   <FlexRow noMargin align='center'>
-                    <CarName>{name}</CarName>
+                    <CarName>{pageTitle}</CarName>
                     <Icon href='#' style={{marginRight: '16px'}}><Like /></Icon>
-                    <Share title={name} link={'/vdp/' + vin} />
+                    <Share title={pageTitle} link={'/vdp/' + vin} />
                   </FlexRow>
                   <Brief>{brief}</Brief>
                 </FlexCol>
-                <FlexCol cols={3} offset={2}>
-                  <FlexRow noMargin justify='flex-end'>
-                    <TabLink active >
-                      <Slides />
-                    </TabLink>
-                    <TabLink>
-                      <Play />
-                    </TabLink>
-                    <TabLink>
-                      <ThreeSixty />
-                    </TabLink>
-                  </FlexRow>
-                </FlexCol>
+                {/*<FlexCol cols={3}>*/}
+                  {/*<FlexRow noMargin justify='flex-end'>*/}
+                    {/*<TabLink active >*/}
+                      {/*<Slides />*/}
+                    {/*</TabLink>*/}
+                    {/*<TabLink>*/}
+                      {/*<Play />*/}
+                    {/*</TabLink>*/}
+                    {/*<TabLink>*/}
+                      {/*<ThreeSixty />*/}
+                    {/*</TabLink>*/}
+                  {/*</FlexRow>*/}
+                {/*</FlexCol>*/}
                 <FlexCol cols={3}>
                   <Price>{currency(price)}</Price>
                   <Text>{price > averages.price ? currency(price - averages.price) + ' more' : currency(averages.price - price) + ' less'} than market average</Text>

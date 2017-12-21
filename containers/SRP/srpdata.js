@@ -1,7 +1,7 @@
 import FetchingData from '%/factory/fetchingData'
 
 var srpData = (params = {}) => {
-    console.log(params.make)
+    // console.log(params.make)
 	return {
 
 		filters: {

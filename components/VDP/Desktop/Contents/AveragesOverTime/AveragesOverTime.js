@@ -18,7 +18,7 @@ const Right = styled.div`
 `
 
 export default ({ trends, miles, averageMarketMiles, ...props }) =>
-  <Section title='Averages Over Time' summary={`Based on ${trends.length} Similar Vehicles Nearby`} className={props.className}>
+  <Section id={props.id} name={props.id} title='Averages Over Time' summary={`Based on ${trends.length} Similar Vehicles Nearby`} className={props.className}>
     <Right>
       <H2>{number(miles)} mi</H2>
       <P>{miles > averageMarketMiles ? number(miles - averageMarketMiles) + ' miles more' : number(averageMarketMiles - miles) + ' miles less'} than market average</P>

@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `
 
 export default ({ dom, localAverage, nationalAverage, vinHistory}) =>
-  <Section title='Time on Market' summary={`Listed for sale for ${dom} ${dom>1 ? 'days' : 'day'}`}>
+  <Section id='historyContainer' title='Time on Market' summary={`Listed for sale for ${dom} ${dom>1 ? 'days' : 'day'}`}>
 
     <Wrapper>
       <CircleGraphs dom={dom} localAverage={localAverage.toFixed(0)} nationalAverage={nationalAverage.toFixed(0)} />

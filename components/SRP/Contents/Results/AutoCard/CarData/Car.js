@@ -1,5 +1,7 @@
 import { cutString, currency, capitalize } from '%/format'
 import Share from './ShareComponent'
+import {colors} from '%/styles'
+
 import {
   Car,
   Wrapper,
@@ -12,7 +14,8 @@ import {
   Price,
   ModalContainer,
   Deal,
-  Average
+  Average,
+  Dom
 } from './Components.js'
 
 import {
@@ -26,6 +29,23 @@ import {
   Certified,
   Like
 } from './Icons'
+
+const calculateDelta = (stats, price) => {
+    let delta = 0
+    let mean = Math.round(stats.price.mean)
+    if(mean != null && price != null){
+      delta = price - mean
+    }
+
+    if(delta < 0) {
+        return (<Average>{currency(Math.abs(delta))} less than market average</Average>)
+    }else if (delta > 0){
+            return (<Average style={{color: colors.red }} >{currency(delta)} more than market average</Average>)
+    }else{
+        return (<Average ></Average>)
+    }
+
+}
 
 export default (props) => {
   return (
@@ -77,8 +97,8 @@ export default (props) => {
               link={'/vdp/' + props.data.vin}
           />
         </PriceRow>
-        <Average>{currency(props.data.ref_price)} less than market average</Average>
-
+          {calculateDelta(props.stats, props.data.price)}
+          <Dom>{props.data.dom_active} days on market</Dom>
         {false ? (
           <Features>
             <Bluetooth />

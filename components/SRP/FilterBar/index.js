@@ -57,12 +57,12 @@ const list = [
     value: 'year|desc'
   },
   {
-    label: 'DOM Oldest first',
-    value: 'dom|asc'
+      label: 'DOM Newest first',
+      value: 'dom_active|asc'
   },
   {
-    label: 'DOM Newest first',
-    value: 'dom|desc'
+    label: 'DOM Oldest first',
+    value: 'dom_active|desc'
   },
   {
     label: 'Newest listings first',

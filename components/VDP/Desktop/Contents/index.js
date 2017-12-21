@@ -21,14 +21,14 @@ export default props =>
     <SummaryReport {...props} />
     <VehicleInformation {...props} />
     <MarketComparison {...props} />
-    <AveragesOverTimeContainer {...props} />
+    <AveragesOverTimeContainer id='marketAveragesContainer' {...props} />
     <TimeOnMarket {...props} />
     <IncludedFeatures {...props} />
     <FuelEfficiency {...props} />
-    <Environmental {...props} />
+    {/*<Environmental {...props} />*/}
     <ModelPopularity {...props} />
-    <CompetitionContainer {...props} />
-    <ResaleValue {...props} />
-    <Safety {...props} />
-    <SimilarContainer {...props} />
+    {/*<CompetitionContainer {...props} />*/}
+    {/*<ResaleValue {...props} />*/}
+    {/*<Safety {...props} />*/}
+    <SimilarContainer id='similarContainer' name='similarContainer' {...props} />
   </ContentsWrapper>

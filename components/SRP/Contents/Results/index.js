@@ -64,13 +64,12 @@ class Results extends Component {
   }
 
   searchArgument (state) {
-    console.log("MAKE ::: "+ this.props.sessionSearch.filters.make )
     const argument =
       capitalize(this.props.sessionSearch.filters.car_type) + " " +
       (this.props.sessionSearch.filters.year ? this.props.sessionSearch.filters.year + " " : "" ) +
       (this.props.sessionSearch.filters.make ? this.props.sessionSearch.filters.make + " " : "Cars " ) +
       (this.props.sessionSearch.filters.model ? this.props.sessionSearch.filters.model + " " : "" ) +
-      " in " +
+      " Cars in " +
       this.props.sessionSearch.location.address + " "
       document.title = argument;
     return argument

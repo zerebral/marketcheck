@@ -12,7 +12,7 @@ import {
 import { FlexRow, FlexCol } from '~/layout'
 
 export default ({ fuelEfficiency }) =>
-  <Section title='Fuel Efficiency' summary='Based upon avg. fuel prices across the US.'>
+  <Section id='fuelContainer' title='Fuel Efficiency' summary='Based upon avg. fuel prices across the US.'>
     <FlexRow>
       <FlexCol cols={5}>
         <Drops {...fuelEfficiency} />

@@ -4,7 +4,7 @@ import Similar from './Similar.js'
 import Aux from 'react-aux'
 
 export default ({ resaleValue, similarModelsGraph }) =>
-  <Section title='Model Resale Value' summary='Based upon avg. depreciation rates'>
+  <Section id='resaleContainer' title='Model Resale Value' summary='Based upon avg. depreciation rates'>
     {resaleValue &&
     <Aux>
       <Similar leftText='Similar Models' rightText='Current Value' resaleValue={resaleValue} timeValue='current_value' />

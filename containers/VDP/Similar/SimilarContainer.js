@@ -93,7 +93,7 @@ class SimilarContainer extends Component {
       return <Loading />
     }
     return (
-      <Aux>
+      <Aux id='similarContainer' name='similarContainer'>
         <Desktop {...this.state} {...this.props} />
         <Mobile {...this.state} {...this.props} />
       </Aux>

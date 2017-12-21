@@ -9,7 +9,7 @@ const String = (amount) => {
 }
 
 export default (props) =>
-  <Section title='Similar Local Cars' summary={String(props.numFound)} center className={props.className}>
+  <Section id='similarContainer' title='Similar Local Cars' summary={String(props.numFound)} center className={props.className}>
     {props.cars && props.cars.length > 1 &&
     props.cars.map((car, key) => {
       return <Car

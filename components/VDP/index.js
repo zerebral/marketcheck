@@ -8,10 +8,10 @@ import FontsHOC from '@/HOC/Fonts'
 const VDP = (props) => {
 	const pageTitle = () => {
 		let title = ''
-
+		console.log()
 		if (props.heading) {
-			title = props.heading + ' ' +
-					(props.city  ? props.city + ' ': ' ') +
+			title = props.heading + ' in ' +
+					(props.city  ? props.city + ', ': ' ') +
 					(props.state  ? props.state + ' ': ' ')
 		} else {
 			title = title + (props.year ? props.year + ' ' : ' ')
