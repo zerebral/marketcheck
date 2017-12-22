@@ -28,7 +28,7 @@ class SimilarContainer extends Component {
     this.similarFetch = this.similarFetch.bind(this)
     this.dealerReviews = this.dealerReviews.bind(this)
     this.fetchingData = this.fetchingData.bind(this)
-
+console.log(this.props)
     this.state = {
       cars: [],
       numFound: '',

@@ -38,17 +38,17 @@ export default ({
       <LocText faded >{number(distance)} miles</LocText>
     </Location>
 
-    <Flex>
-      <Rating>
-        <Stars>
-          {starsArray(rating).map((e, i) =>
-            <Star key={i} full={e.full} />
-          )}
-        </Stars>
-        <Badge>{rating}</Badge>
-      </Rating>
-      <Reviews href={website}>{number(reviews)} Reviews</Reviews>
-    </Flex>
+    {/*<Flex>*/}
+      {/*<Rating>*/}
+        {/*<Stars>*/}
+          {/*{starsArray(rating).map((e, i) =>*/}
+            {/*<Star key={i} full={e.full} />*/}
+          {/*)}*/}
+        {/*</Stars>*/}
+        {/*<Badge>{rating}</Badge>*/}
+      {/*</Rating>*/}
+      {/*<Reviews href={website}>{number(reviews)} Reviews</Reviews>*/}
+    {/*</Flex>*/}
     <Flex>
       <Button href={vdpUrl} target='_blank'>View on dealer website</Button>
     </Flex>

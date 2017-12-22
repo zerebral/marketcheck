@@ -2,6 +2,7 @@ import { Container, FlexRow, FlexCol } from '~/layout'
 import Slideshow from './Slideshow'
 import { currency, number } from '%/format'
 import Share from '../../../SRP/Contents/Results/AutoCard/CarData/ShareComponent'
+import {colors} from '%/styles'
 import {
   TopRow,
   CarName,
@@ -17,6 +18,29 @@ import {
   TabLink
 } from './Components'
 
+const calculateDelta = (mean_value, value, label) => {
+    let delta = 0
+    let mean = Math.round(mean_value)
+    if(mean != null && value != null){
+        delta = value - mean
+    }
+    let formated_delta = ""
+    if(label === "price"){
+      formated_delta = currency(Math.abs(delta))
+    }else{
+      formated_delta = number(Math.abs(delta))
+    }
+
+    if(delta < 0) {
+      return(<Text>{formated_delta} {label === "miles" ? label : ''} less than market average</Text>)
+    }else if (delta > 0){
+        return(<Text style={{color: colors.red }}>{formated_delta} {label === "miles" ? label : ''} more than market average</Text>)
+    }else{
+        return (<Text ></Text>)
+    }
+
+}
+
 export default ({
   pageTitle,
   props,
@@ -27,11 +51,13 @@ export default ({
   discount,
   miles,
   averages,
-  vin
+  vin,
+  stats
 }) => {
     return (
         <Wrapper>
           <TopRow>
+              {console.log(stats)}
             <Container>
               <FlexRow align='flex-end'>
                 <FlexCol cols={9}>
@@ -57,8 +83,10 @@ export default ({
                 {/*</FlexCol>*/}
                 <FlexCol cols={3}>
                   <Price>{currency(price)}</Price>
-                  <Text>{price > averages.price ? currency(price - averages.price) + ' more' : currency(averages.price - price) + ' less'} than market average</Text>
-                  <Text>{miles > averages.miles ? number(miles - averages.miles) + ' miles more' : number(averages.miles - miles) + ' miles less'} than market average</Text>
+                    {calculateDelta(stats.price.mean, price, "price")}
+                    {calculateDelta(stats.miles.mean, miles, "miles")}
+                  {/*<Text>{price > stats.price.mean ? currency(price - stats.price.mean) + ' more' : currency(stats.price.mean - price) + ' less'} than market average</Text>*/}
+                  {/*<Text>{miles > stats.miles.mean ? number(miles - stats.miles.mean) + ' miles more' :  + ' miles less'} than market average</Text>*/}
                 </FlexCol>
               </FlexRow>
             </Container>

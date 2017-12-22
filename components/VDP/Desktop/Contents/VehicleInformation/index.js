@@ -49,7 +49,7 @@ export default ({
 }) =>
   <Section title='Vehicle Information'>
     <Wrapper>
-      <Intro>Where to get this data? Raw performance, agility, unparalleled ride and handling...</Intro>
+      {/*<Intro>Where to get this data? Raw performance, agility, unparalleled ride and handling...</Intro>*/}
 
       <Contents>
         <p>Type <strong>{type ? type : 'NA'}</strong></p>

@@ -6,7 +6,8 @@ import {
   Tooltip,
   Legend,
   XAxis,
-  YAxis
+  YAxis,
+    CartesianGrid
 } from 'recharts'
 
 import ChartWrapper from './ChartWrapper'
@@ -21,17 +22,17 @@ export default (props) => {
                 name='Price'
                 type='number'
                 domain={['auto', 'auto']}
-                tickCount={4}
+                tickCount={6}
               />
               <XAxis
                 dataKey='x'
                 name='Miles'
                 domain={['auto', 'auto']}
                 type='number'
-                tickCount={4}
+                tickCount={6}
               />
               <Scatter
-                name='Similar Carts'
+                name='Similar Cars'
                 data={props.scatterSimilar}
                 fill={colors.blue}
               />
@@ -44,6 +45,7 @@ export default (props) => {
                 name='Your Car'
                 data={props.scatterYourCar}
                 fill={colors.red}
+
               />
               <Tooltip cursor={{strokeDasharray: '3 3'}} />
               <Legend />

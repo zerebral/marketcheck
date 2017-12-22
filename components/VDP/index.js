@@ -32,7 +32,7 @@ const VDP = (props) => {
 		    </Head>
 		    <Mobile {...props} />
 		    <Desktop {...props} />
-		    <TrackCar {...props} />
+		    {/*<TrackCar {...props} />*/}
 		  </LayoutSecondary>)
 }
 

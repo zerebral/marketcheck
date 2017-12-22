@@ -15,7 +15,8 @@ export default ({
   discount,
   miles,
   averages,
-  vdpUrl
+  vdpUrl,
+  stats
 }) => {
   return(
     <OverviewWrapper>
@@ -27,6 +28,6 @@ export default ({
         <Brief>{brief}</Brief>
         <Slideshow slides={sliderPics} />
       </Container>
-      <Details price={price} discount={discount} miles={miles} averages={averages} vdpUrl={vdpUrl} />
+      <Details stats={stats} price={price} discount={discount} miles={miles} averages={averages} vdpUrl={vdpUrl} />
     </OverviewWrapper>)
   }

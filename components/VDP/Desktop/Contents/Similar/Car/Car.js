@@ -1,4 +1,5 @@
 import Seller from './Seller'
+import Slideshow from './Slideshow'
 import {
   Car,
   NewBadge,
@@ -28,9 +29,10 @@ import {
   Soon
 } from './Icons'
 
-import { ellipsis, currency, number } from '%/format'
+import { cutString, ellipsis, currency, number } from '%/format'
 
 export default ({
+  props,
   dealer,
   distance,
   rating,
@@ -38,7 +40,7 @@ export default ({
   website,
   name,
   price,
-  picture,
+  pictures,
   transmission,
   miles,
   cityMiles,
@@ -46,18 +48,30 @@ export default ({
   vdpUrl
 }) =>
   <Car>
-    <PicWrapper>
-      {picture
-            ? <img src={picture} />
-            : <Soon />
-        }
-    </PicWrapper>
+    <Slideshow data={props} />
+    {/*<PicWrapper>*/}
+      {/*{picture*/}
+            {/*? <img src={picture} />*/}
+            {/*: <Soon />*/}
+        {/*}*/}
+    {/*</PicWrapper>*/}
 
     <Info>
       <NewBadge>New</NewBadge>
 
       <Title>
-        <Name>{ellipsis(name)}</Name>
+        <Name target="__blank" href={'/vdp/'+props.vin}>
+            {
+                cutString(
+                    (
+                        props.build.year + " " +
+                        props.build.make + " " +
+                        props.build.model + " " +
+                        (props.exterior_color ? props.exterior_color : '')
+                    ), 35
+                )
+            }
+        </Name>
         <Certified />
       </Title>
 

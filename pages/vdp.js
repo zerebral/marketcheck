@@ -36,6 +36,7 @@ class Vdp extends React.Component {
     this.historyFetch = this.historyFetch.bind(this)
     this.modelPopularityFetch = this.modelPopularityFetch.bind(this)
     this.averagesFetch = this.averagesFetch.bind(this)
+    this.statsFetch = this.statsFetch.bind(this)
 
     this.state = {
       // initial VIN state
@@ -59,6 +60,7 @@ class Vdp extends React.Component {
       vinHistory: [],
       modelPopularity: [],
       averages: {},
+      stats: {},
       similarModelsGraph: [],
       fetchReady: false
     }
@@ -75,7 +77,7 @@ class Vdp extends React.Component {
 
     this.findIdByVIN(this.state.vin)
     this.summaryReport(this.state.vin)
-    this.fetchScatterData(this.state.vin)
+    // this.fetchScatterData(this.state.vin)
     this.environmentalFriendliness(this.state.vin)
     this.safetyRatings(this.state.vin)
     this.resaleValueFetch(this.state.vin)
@@ -111,7 +113,7 @@ class Vdp extends React.Component {
   }
 
   averagesFetch (vin) {
-    this.fetchingData(`https://${process.env.API_HOST}//v1/averages?api_key=${process.env.API_VAR}&vin=${vin}&nodedup=true`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/averages?api_key=${process.env.API_VAR}&vin=${vin}&nodedup=true`)
       .then(averages => {
         this.setState({ averages })
       })
@@ -139,30 +141,7 @@ class Vdp extends React.Component {
       })
   }
 
-  fetchScatterData (vin) {
-    this.fetchingData(`https://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=${vin}&car_type=used&nodedup=true`)
-    .then(response => {
-      let averagePrice = 0
-      let averageMiles = 0
-      const cars = response.trends.filter((car) => {
-        return (parseFloat(car.price) && parseFloat(car.miles))
-      })
-      .map((car) => {
-        averagePrice += parseFloat(car.price)
-        averageMiles += parseFloat(car.miles)
-        return { x: parseFloat(car.miles), y: parseFloat(car.price) }
-      })
-      // console.log(averagePrice)
-      averagePrice = averagePrice / cars.length
-      averageMiles = Math.round(averageMiles / cars.length)
-      // averageMiles = averageMiles.toFixed(0);
-      this.setState({
-        scatterSimilar: cars,
-        scatterNational: [{x: averageMiles, y: averagePrice}],
-        averageMarketMiles: averageMiles
-      })
-    })
-  }
+
 
   listingFetch (url) {
     fetch(url)
@@ -180,6 +159,8 @@ class Vdp extends React.Component {
         // Using VDP response we can extract Dealer ID to fetch it's review
         this.dealerReviews(data.dealer.id)
         this.getDOMAverage(data.build.year, data.make, data.model)
+        this.statsFetch(data.build.year, data.build.make, data.build.model, data.inventory_type)
+        this.fetchScatterData (data.build.year, data.build.make, data.build.model, data.inventory_type)
       }).catch(error => {
         console.log('error message: ' + error.message)
       })
@@ -196,6 +177,43 @@ class Vdp extends React.Component {
       })
   }
 
+    statsFetch (year, make, model, car_type) {
+        this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=${year}&make=${make}&model=${model}&car_type=${car_type}&start=1&rows=0&stats=price,miles,dom&latitude=36.778259&longitude=-119.417931&nodedup=true&radius=10000`)
+            .then(stats => {
+                this.setState({ stats: stats['stats'] })
+            })
+    }
+
+    fetchScatterData (year, make, model, car_type) {
+
+        //
+        // this.fetchingData(`https://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=${vin}&car_type=used&nodedup=true`)
+        this.fetchingData(`https://${process.env.API_HOST}/v1/plots?api_key=${process.env.API_VAR}&year=${year}&make=${make}&model=${model}&car_type=${car_type}&rows=1000&nodedup=true`)
+            .then(response => {
+                let averagePrice = 0
+                let averageMiles = 0
+                const cars = response.filter((car) => {
+                  if (parseInt(car.price) > 0 && parseInt(car.miles) > 0) {
+                      return (parseInt(car.price) && parseInt(car.miles))
+                  }
+                })
+                    .map((car) => {
+                        averagePrice += parseInt(car.price)
+                        averageMiles += parseInt(car.miles)
+                        return { x: parseInt(car.miles), y: parseInt(car.price) }
+                    })
+                // console.log(averagePrice)
+                averagePrice = Math.round(averagePrice / cars.length)
+                averageMiles = Math.round(averageMiles / cars.length)
+                // averageMiles = averageMiles.toFixed(0);
+                // console.log(cars)
+                this.setState({
+                    scatterSimilar: cars,
+                    scatterNational: [{x: averageMiles, y: averagePrice}],
+                    averageMarketMiles: averageMiles
+                })
+            })
+    }
   resaleValueFetch (vin) {
     this.fetchingData(`https://${process.env.API_HOST}/v1/depreciation?api_key=${process.env.API_VAR}&vin=${vin}&nodedup=true`)
     .then(resaleValue => {

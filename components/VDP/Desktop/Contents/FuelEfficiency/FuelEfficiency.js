@@ -19,7 +19,7 @@ export default ({ fuelEfficiency }) =>
       </FlexCol>
       <FlexCol cols={5} offset={1}>
         <PriceHeader>$<Money>{fuelEfficiency.monthly_fuel_expense}</Money></PriceHeader>
-        <FuelExpense>Monthly fue Expense</FuelExpense>
+        <FuelExpense>Monthly fuel Expense</FuelExpense>
         <Separator />
         {fuelEfficiency.annual_miles &&
         <Text {...fuelEfficiency} />

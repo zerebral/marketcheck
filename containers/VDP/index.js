@@ -14,6 +14,7 @@ const pageTitle = (year, make, model, trim) => {
 export default ({
   heading,
   averages,
+  stats,
   similarModelsGraph,
   modelPopularity,
   vinHistory,
@@ -118,6 +119,7 @@ export default ({
     modelPopularity={modelPopularity}
     similarModelsGraph={similarModelsGraph}
     averages={averages}
+    stats={stats}
     vdpUrl={vdpUrl}
     features={features}
     {...props}

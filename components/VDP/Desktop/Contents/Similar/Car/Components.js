@@ -54,7 +54,7 @@ export const Features = styled.div`
   }
 `
 
-export const Name = styled.h3`
+export const Name = styled.a`
   font-size: 18px;
   line-height: 21.6px;
 `

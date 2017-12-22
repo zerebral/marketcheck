@@ -41,7 +41,7 @@ export default ({
 }) =>
   <Accordion title='Vehicle Information' blue >
     <Wrapper>
-      <Intro>Where to find this data? Raw performance, agility, unparalleled ride and handling...</Intro>
+      {/*<Intro>Where to find this data? Raw performance, agility, unparalleled ride and handling...</Intro>*/}
 
         <p>Type <strong>{type ? type : 'NA'}</strong></p>
         <p>Model <strong>{model ? model : 'NA'}</strong></p>

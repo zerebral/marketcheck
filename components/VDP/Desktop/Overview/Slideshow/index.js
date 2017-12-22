@@ -20,20 +20,21 @@ const OverviewSlider = ({slides}) => {
     return (
       <SliderWrapper>
         <Slider {...SliderSettings}>
-          {slides.map((slide, index) => {
-            if (check404(slide)) {
+          {slides.slice(0, 20).map((slide, index) => {
+            // console.log(slide)
+            // if (check404(slide)) {
               return (
                 <div key={index} >
                   <Slide image={slide} />
                 </div>
               )
-            } else {
-              return (
-                <div key={index} >
-                  <Slide image="/static/img/vdp/notfound.jpg" />
-                </div>
-              )
-            }
+            // } else {
+            //   return (
+            //     <div key={index} >
+            //       <Slide image="/static/img/vdp/notfound.jpg" />
+            //     </div>
+            //   )
+            // }
           })}
         </Slider>
       </SliderWrapper>

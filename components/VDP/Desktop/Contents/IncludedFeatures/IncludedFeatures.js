@@ -13,7 +13,7 @@ import { FlexRow } from '~/layout'
 // } from './Icons'
 
 export default ({features, scatterSimilar}) =>
-  <Section id='featuresContainer' title='Included Features' summary={`${scatterSimilar.length} Similarly Equiped Carts Curently Available`}>
+  <Section id='featuresContainer' title='Included Features' summary={`${scatterSimilar.length} Similarly Equiped Cars Curently Available`}>
     <FlexRow noMargin justify='space-around'>
       {features && features.slice(0, 5).map((feature) => {
         return <Feature /* icon={} */ name={feature} />

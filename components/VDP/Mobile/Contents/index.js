@@ -13,6 +13,7 @@ import Safety from './Safety'
 import AveragesOverTimeContainer from '@/VDP/AveragesOverTime/AveragesOverTimeContainer'
 import CompetitionContainer from '@/VDP/Competition/CompetitionContainer'
 import SimilarContainer from '@/VDP/Similar/SimilarContainer'
+import Similar from './Similar'
 
 export default props =>
   <ContentsWrapper>
@@ -24,11 +25,11 @@ export default props =>
       <TimeOnMarket {...props} />
       <IncludedFeatures {...props} />
       <FuelEfficiency {...props} />
-      <Environmental {...props} />
+      {/*<Environmental {...props} />*/}
       <ModelPopularity {...props} />
-      <CompetitionContainer {...props} />
-      <ResaleValue {...props} />
-      <Safety {...props} />
-      <SimilarContainer {...props} />
+      {/*<CompetitionContainer {...props} />*/}
+      {/*<ResaleValue {...props} />*/}
+      {/*<Safety {...props} />*/}
+      <SimilarContainer  id='similarContainer' name='similarContainer' {...props} />
     </Container>
   </ContentsWrapper>
