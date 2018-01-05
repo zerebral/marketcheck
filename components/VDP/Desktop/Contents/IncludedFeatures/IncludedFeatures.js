@@ -13,17 +13,17 @@ import { FlexRow } from '~/layout'
 // } from './Icons'
 
 export default ({features, scatterSimilar}) =>
-  <Section id='featuresContainer' title='Included Features' summary={`${scatterSimilar.length} Similarly Equiped Cars Curently Available`}>
-    <FlexRow noMargin justify='space-around'>
-      {features && features.slice(0, 5).map((feature) => {
-        return <Feature /* icon={} */ name={feature} />
-      })}
-      {/* <Feature icon={Bluetooth} name='Bluetooth' />
+    <Section id='featuresContainer' title='Included Features' summary={`${scatterSimilar.length} Similarly Equiped Cars Curently Available`}>
+        <FlexRow style={{display: "block"}}noMargin justify='normal'>
+            {features && features.slice(0, 9).map((feature) => {
+                return <Feature /* icon={} */ name={feature} />
+            })}
+            {/* <Feature icon={Bluetooth} name='Bluetooth' />
       <Feature icon={Cam} name='Rear Cam' />
       <Feature icon={Wheels} name='Alloy wheels' />
       <Feature icon={Geo} name='Navigation' />
       <Feature icon={Air} name='Air Conditioner' />
       <Feature icon={Brake} name='Brake Assistance' />
       <Feature icon={Keyless} name='Keyless Start' /> */}
-    </FlexRow>
-  </Section>
+        </FlexRow>
+    </Section>

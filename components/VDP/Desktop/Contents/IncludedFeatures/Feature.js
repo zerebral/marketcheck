@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
 const Feature = styled.div`
-  text-align: center;
+  text-align: left;
   padding: 0 10px;
+  padding: 0 10px;
+  width: 33.33334% !important;
+  float: left;
 
   svg {
     display: block;

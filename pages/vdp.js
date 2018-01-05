@@ -158,7 +158,18 @@ class Vdp extends React.Component {
         })
         // Using VDP response we can extract Dealer ID to fetch it's review
         this.dealerReviews(data.dealer.id)
-        this.getDOMAverage(data.build.year, data.make, data.model)
+        let latitude = 32.75
+        let longitude =  -116.35
+         if(data.dealer.latitude !== null){
+             latitude = data.dealer.latitude
+         }
+
+        if(data.dealer.longitude !== null){
+            longitude = data.dealer.longitude
+        }
+
+
+        this.getDOMAverage(data.build.year, data.build.make, data.build.model, data.inventory_type, latitude, longitude)
         this.statsFetch(data.build.year, data.build.make, data.build.model, data.inventory_type)
         this.fetchScatterData (data.build.year, data.build.make, data.build.model, data.inventory_type)
       }).catch(error => {
@@ -180,8 +191,12 @@ class Vdp extends React.Component {
     statsFetch (year, make, model, car_type) {
         this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=${year}&make=${make}&model=${model}&car_type=${car_type}&start=1&rows=0&stats=price,miles,dom&latitude=36.778259&longitude=-119.417931&nodedup=true&radius=10000`)
             .then(stats => {
+              console.log(stats)
                 this.setState({ stats: stats['stats'] })
             })
+        console.log("=====================================")
+        console.log(this.state.stats)
+        console.log("=====================================")
     }
 
     fetchScatterData (year, make, model, car_type) {
@@ -193,7 +208,7 @@ class Vdp extends React.Component {
                 let averagePrice = 0
                 let averageMiles = 0
                 const cars = response.filter((car) => {
-                  if (parseInt(car.price) > 0 && parseInt(car.miles) > 0) {
+                  if (parseInt(car.price) > 0 && parseInt(car.miles) > 0 && parseInt(car.miles) < 700000) {
                       return (parseInt(car.price) && parseInt(car.miles))
                   }
                 })
@@ -246,14 +261,14 @@ class Vdp extends React.Component {
       })
   }
 
-  getDOMAverage (year, make, model) {
-    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=2017&make=ford&model=mustang&car_type=used&radius=100&stats=dom&latitude=32.75&longitude=-116.35&nodedup=true`)
+  getDOMAverage (year, make, model, car_type, latitude, longitude) {
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=${year}&make=${make}&model=${model}&car_type=${car_type}&rows=0&radius=100&stats=dom&latitude=${latitude}&longitude=${longitude}&nodedup=true`)
       .then(localAverage => {
         if (localAverage.stats.dom.mean) {
           this.setState({ localAverage: localAverage.stats.dom.mean })
         }
       })
-    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=2017&make=ford&model=mustang&car_type=used&radius=100&stats=dom&nodedup=true`)
+    this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=${year}&make=${make}&model=${model}&car_type=${car_type}&rows=0&radius=10000&stats=dom&latitude=${latitude}&longitude=${longitude}&nodedup=true`)
       .then(nationalAverage => {
         if (nationalAverage.stats.dom.mean) {
           this.setState({ nationalAverage: nationalAverage.stats.dom.mean })

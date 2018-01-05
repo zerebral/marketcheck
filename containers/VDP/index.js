@@ -62,7 +62,9 @@ export default ({
   },
   dealer: {
     city,
-    state
+    state,
+    latitude,
+    longitude
   },
   extra: {
     features
@@ -75,6 +77,8 @@ export default ({
     {...vdpdata}
     city={city}
     state={state}
+    latitude={latitude}
+    longitude={longitude}
     heading={heading}
     pageTitle={pageTitle(year, make, model, trim)}
     name={`${make} ${model}`}

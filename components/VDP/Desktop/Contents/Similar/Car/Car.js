@@ -1,5 +1,6 @@
 import Seller from './Seller'
 import Slideshow from './Slideshow'
+import {colors} from '%/styles'
 import {
   Car,
   NewBadge,
@@ -31,6 +32,29 @@ import {
 
 import { cutString, ellipsis, currency, number } from '%/format'
 
+const calculateDelta = (mean_value, value, label) => {
+    let delta = 0
+    let mean = Math.round(mean_value)
+    if(mean != null && value != null){
+        delta = value - mean
+    }
+    let formated_delta = ""
+    if(label === "price"){
+        formated_delta = currency(Math.abs(delta))
+    }else{
+        formated_delta = number(Math.abs(delta))
+    }
+
+    if(delta < 0) {
+        return(<Average>{formated_delta} {label === "miles" ? label : ''} less than market average</Average>)
+    }else if (delta > 0){
+        return(<Average style={{color: colors.red }}>{formated_delta} {label === "miles" ? label : ''} more than market average</Average>)
+    }else{
+        return (<Average ></Average>)
+    }
+
+}
+
 export default ({
   props,
   dealer,
@@ -45,7 +69,8 @@ export default ({
   miles,
   cityMiles,
   highwayMiles,
-  vdpUrl
+  vdpUrl,
+  stats
 }) =>
   <Car>
     <Slideshow data={props} />
@@ -75,7 +100,10 @@ export default ({
         <Certified />
       </Title>
 
-      <Details>{transmission}, {number(miles)} mi, {parseInt(cityMiles)}/{parseInt(highwayMiles)} MPG*</Details>
+      <Details>
+                {transmission ? transmission + ", " : ""}
+                {miles? number(miles) + " mi, " : ""}
+                {parseInt(cityMiles)}/{parseInt(highwayMiles)} MPG*</Details>
 
       <PriceRow>
         <Price>{currency(price)}</Price>
@@ -83,8 +111,8 @@ export default ({
         {/*<Like />*/}
         <Share />
       </PriceRow>
-
-      <Average>{currency(874)} less than market average</Average>
+        {(stats.price ? calculateDelta(stats.price.mean, price, "price") : "")}
+      {/*<Average>{currency(874)} less than market average</Average>*/}
 
       {false ?
       <Features>

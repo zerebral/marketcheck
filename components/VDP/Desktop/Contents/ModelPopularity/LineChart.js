@@ -22,7 +22,7 @@ export default ({
       <XAxis type='number' domain={['dataMin', 'dataMax']} hide />
       <YAxis type='category' hide />
       <Bar
-        label={<Label remaining={remaining} />}
+        // label={<Label remaining={remaining} />}
         stackId='a'
         dataKey='value'
         fill={more ? colors.chartgray : colors[color]}
@@ -32,6 +32,6 @@ export default ({
         dataKey='remaining'
         fill={more ? colors[color] : colors.chartgray}
       />
-      <Tooltip />
+      {/*<Tooltip />*/}
     </BarChart>
   </ResponsiveContainer>

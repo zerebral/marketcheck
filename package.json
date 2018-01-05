@@ -3,8 +3,8 @@
   "version": "0.1.2",
   "description": "frontend code of marketcheck",
   "main": "index.js",
-  "repository": "git@code.pixel2html.com:clients/project-4566.git",
-  "author": "Miguel Palau <mpalauzarza@gmail.com>",
+  "repository": "git@github.com:zerebral/marketcheck.git",
+  "author": "Aulison Dsilva <aulison@zerebral.co.in>",
   "license": "MIT",
   "scripts": {
     "lint:css": "stylelint './components/**/*.js'",
@@ -29,14 +29,18 @@
     "babel-plugin-transform-inline-environment-variables": "^0.2.0",
     "class-autobind": "^0.1.4",
     "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
     "es6-promise": "^4.1.1",
     "express": "^4.16.2",
     "fontfaceobserver": "^2.0.13",
+    "geo-loc-utils": "0.0.2",
+    "google-cloud": "^0.57.0",
     "isomorphic-fetch": "^2.2.1",
     "lru-cache": "^4.1.1",
     "moment": "^2.19.1",
     "next": "^4.1.0",
     "next-routes": "^1.1.0",
+    "node-geocoder": "^3.21.1",
     "nprogress": "^0.2.0",
     "polished": "^1.8.1",
     "prop-types": "^15.6.0",
@@ -47,7 +51,6 @@
     "react-collapse": "^4.0.3",
     "react-dom": "^16.0.0",
     "react-ga": "^2.3.5",
-    "react-geolocation": "^1.0.3",
     "react-loading-animation": "^1.4.0",
     "react-moment": "^0.6.5",
     "react-motion": "^0.5.2",
@@ -58,7 +61,8 @@
     "react-simple-loading": "^0.0.3",
     "react-slick": "^0.15.4",
     "recharts": "^1.0.0-apha.5",
-    "styled-components": "^2.2.1"
+    "styled-components": "^2.2.1",
+    "webpack": "^3.10.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
@@ -85,8 +89,8 @@
     ],
     "public": false,
     "env": {
-      "API_HOST": "@api_host",
-      "API_VAR": "@api_var"
+      "API_HOST": "p3OCLOt1HQpxfp1zNVUVopAdWumsStPv",
+      "API_VAR": "marketcheck-prod.apigee.net"
     }
   },
   "jest": {

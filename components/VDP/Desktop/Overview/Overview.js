@@ -57,7 +57,6 @@ export default ({
     return (
         <Wrapper>
           <TopRow>
-              {console.log(stats)}
             <Container>
               <FlexRow align='flex-end'>
                 <FlexCol cols={9}>
@@ -83,8 +82,10 @@ export default ({
                 {/*</FlexCol>*/}
                 <FlexCol cols={3}>
                   <Price>{currency(price)}</Price>
-                    {calculateDelta(stats.price.mean, price, "price")}
-                    {calculateDelta(stats.miles.mean, miles, "miles")}
+                    {(stats.price ? calculateDelta(stats.price.mean, price, "price") : "")}
+                    {(stats.miles ? calculateDelta(stats.miles.mean, miles, "miles") : "")}
+                    {/*{calculateDelta(stats.price.mean, price, "price")}*/}
+                    {/*{calculateDelta(stats.miles.mean, miles, "miles")}*/}
                   {/*<Text>{price > stats.price.mean ? currency(price - stats.price.mean) + ' more' : currency(stats.price.mean - price) + ' less'} than market average</Text>*/}
                   {/*<Text>{miles > stats.miles.mean ? number(miles - stats.miles.mean) + ' miles more' :  + ' miles less'} than market average</Text>*/}
                 </FlexCol>

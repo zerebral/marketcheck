@@ -8,7 +8,7 @@ import FontsHOC from '@/HOC/Fonts'
 const VDP = (props) => {
 	const pageTitle = () => {
 		let title = ''
-		console.log()
+
 		if (props.heading) {
 			title = props.heading + ' in ' +
 					(props.city  ? props.city + ', ': ' ') +

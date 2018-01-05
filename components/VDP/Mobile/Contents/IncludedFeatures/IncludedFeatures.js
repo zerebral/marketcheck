@@ -26,7 +26,7 @@ export default ({ features, scatterSimilar }) =>
   <Accordion title='Included Features'>
     <AtAGlance>{scatterSimilar.length} Similarly Equiped Carts Curently Available</AtAGlance>
     <Features>
-      {features && features.slice(0, 5).map((feature) => {
+      {features && features.map((feature) => {
         return <Feature /* icon={} */ name={feature} />
       })}
       {/* <Feature icon={Bluetooth} name='Bluetooth' />

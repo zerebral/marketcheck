@@ -5,7 +5,6 @@ import scriptLoader from 'react-async-script-loader'
 class GoogleAutoComplete extends React.Component {
   constructor (props) {
     super(props)
-      console.log(props)
     this.state = {
       address: '',
       loading: false
@@ -106,6 +105,6 @@ class GoogleAutoComplete extends React.Component {
 
 export default scriptLoader(
   [
-    'https://maps.googleapis.com/maps/api/js?key=AIzaSyCE-lumNdh7pMmlmz-wQlyyGMlzeWg2b-Y&libraries=places'
+    'https://maps.googleapis.com/maps/api/js?key=AIzaSyB3V3F_DKgv1ji-QKg-3RMfcby34O93_5g&libraries=places'
   ]
 )(GoogleAutoComplete)

@@ -15,7 +15,6 @@ const Desktop = styled.section`
 
 export default props =>
   <Desktop>
-      {console.log(props)}
     <Navigation {...props} />
     <Overview {...props} />
     <Contents {...props} />

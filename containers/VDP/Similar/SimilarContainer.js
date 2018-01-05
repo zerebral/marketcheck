@@ -28,7 +28,7 @@ class SimilarContainer extends Component {
     this.similarFetch = this.similarFetch.bind(this)
     this.dealerReviews = this.dealerReviews.bind(this)
     this.fetchingData = this.fetchingData.bind(this)
-console.log(this.props)
+
     this.state = {
       cars: [],
       numFound: '',
@@ -85,7 +85,7 @@ console.log(this.props)
   }
 
   componentDidMount () {
-    this.similarFetch(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${this.props.vin}&latitude=34.05&longitude=-118.24&radius=100&car_type=used&start=0&rows=3`)
+    this.similarFetch(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${this.props.vin}&latitude=${this.props.latitude}&longitude=${this.props.longitude}&radius=100&car_type=used&start=0&rows=4`)
   }
 
   render () {

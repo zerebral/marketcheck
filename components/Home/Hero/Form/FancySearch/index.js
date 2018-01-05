@@ -15,6 +15,7 @@ const FancySearch = styled.div`
 
 export default (props) =>
   <FancySearch>
+      {console.log(props)}
     <Geolocation />
-    <GoogleAutoComplete {...props} />
+    <GoogleAutoComplete {...props} defaultValue={props.address}/>
   </FancySearch>

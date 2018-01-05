@@ -46,13 +46,13 @@ export default ({
 }) => {
   return (
     <Container>
-        {/*{console.log(stats)}*/}
+        {console.log(stats)}
       <FlexRow noMargin >
         <Price>{currency(price)}</Price>
         <Button primary lowercase href={vdpUrl} target='_blank'>View on dealer website</Button>
       </FlexRow>
-        {calculateDelta(stats.price.mean, price, "price")}
-        {calculateDelta(stats.miles.mean, miles, "miles")}
+        {(stats.price ? calculateDelta(stats.price.mean, price, "price") : "")}
+        {(stats.miles ? calculateDelta(stats.miles.mean, miles, "miles") : "")}
       <FlexRow noMargin >
         <Icon href='#'><Share /></Icon>
       </FlexRow>
