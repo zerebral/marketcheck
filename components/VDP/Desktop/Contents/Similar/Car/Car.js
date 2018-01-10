@@ -1,6 +1,7 @@
 import Seller from './Seller'
 import Slideshow from './Slideshow'
 import {colors} from '%/styles'
+
 import {
   Car,
   NewBadge,
@@ -30,7 +31,7 @@ import {
   Soon
 } from './Icons'
 
-import { cutString, ellipsis, currency, number } from '%/format'
+import { cutString, ellipsis, currency, number, capitalize } from '%/format'
 
 const calculateDelta = (mean_value, value, label) => {
     let delta = 0
@@ -82,7 +83,7 @@ export default ({
     {/*</PicWrapper>*/}
 
     <Info>
-      <NewBadge>New</NewBadge>
+      <NewBadge>{capitalize(props.car_type? props.car_type : "used")}</NewBadge>
 
       <Title>
         <Name target="__blank" href={'/vdp/'+props.vin}>
