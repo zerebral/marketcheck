@@ -18,8 +18,8 @@ export default () =>
   <FlexRow justify='center' wrap>
     <FlexCol {...colsettings}>
       <SingleFeature
-        title='Free'
-        text='Make your car shopping experience as enjoyable as possible'
+        title='Free & Easy'
+        text='Make your car search experience as enjoyable as possible'
       >
         <Free />
       </SingleFeature>
@@ -27,8 +27,8 @@ export default () =>
 
     <FlexCol {...colsettings}>
       <SingleFeature
-        title='Flexible'
-        text='We analyses millions of Used and New car inventories'
+        title='Fast & Flexible'
+        text='We fetch and analyse millions of Used and New car listings from all over the web'
       >
         <Flexible />
       </SingleFeature>
@@ -37,7 +37,7 @@ export default () =>
     <FlexCol {...colsettings}>
       <SingleFeature
         title='Volume'
-        text='Listing over 8,500,000 used and new cars fron all across US'
+        text='Search through 14 Million live and 1 Billion historical listings!'
       >
         <Volume />
       </SingleFeature>

@@ -5,6 +5,7 @@ import { mediaMin } from '%/styles/mixins'
 
 export const Car = styled.a`
   text-align: center;
+  cursor: pointer;
   display: block;
   color: ${colors.black};
   padding: ${rem(20)} 0;

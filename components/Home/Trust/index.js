@@ -38,8 +38,8 @@ export default () =>
     <Container>
       <Row>
         <Column laptop={{ cols: 4, offset: 2 }}>
-          <H2>Trust and Transparency</H2>
-          <CustomP>For every listing, we show you time on market, price history, a full local-market price analysis and dealer reviews. Everything you need to know before you contact the dealer.</CustomP>
+          <H2>See more, know more!</H2>
+          <CustomP>For every listing we show you online listing history, price changes, local market analysis and more. Equip yourself with the right facts before you step in the dealership.</CustomP>
         </Column>
         <Column laptop={{ cols: 4, offset: 1 }}>
           <Shield />

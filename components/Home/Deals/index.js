@@ -34,8 +34,8 @@ export default () =>
     <Container>
       <Row>
         <Column laptop={{ cols: 4, offset: 2 }}>
-          <H2>Great Deals from Great Dealers</H2>
-          <P>With one search, find the best deals first. Organic rankings are based on market value and dealer reputation, not by how much a dealer pays (like the other guys).</P>
+          <H2>ONE AND DONE!</H2>
+          <P>Search great deals from over 65,000 dealer websites at one place!</P>
         </Column>
         <Column laptop={{ cols: 5 }}>
           <Ribbon />
