@@ -83,7 +83,7 @@ export default ({
     {/*</PicWrapper>*/}
 
     <Info>
-      <NewBadge>{capitalize(props.car_type? props.car_type : "used")}</NewBadge>
+      <NewBadge>{capitalize(props.car_type? props.inventory_type : "used")}</NewBadge>
 
       <Title>
         <Name target="__blank" href={'/vdp/'+props.vin}>
