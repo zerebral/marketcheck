@@ -191,12 +191,8 @@ class Vdp extends React.Component {
     statsFetch (year, make, model, car_type) {
         this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=${year}&make=${make}&model=${model}&car_type=${car_type}&start=1&rows=0&stats=price,miles,dom&latitude=36.778259&longitude=-119.417931&nodedup=true&radius=10000`)
             .then(stats => {
-              console.log(stats)
                 this.setState({ stats: stats['stats'] })
             })
-        console.log("=====================================")
-        console.log(this.state.stats)
-        console.log("=====================================")
     }
 
     fetchScatterData (year, make, model, car_type) {

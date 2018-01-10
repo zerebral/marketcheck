@@ -17,7 +17,7 @@ export default (props) =>
   <Container>
     <Seller
       name={cutString(props.data.dealer.name, 25)}
-      location={props.data.dealer.city + ", " + props.data.dealer.country}
+      location={props.data.dealer.city ? props.data.dealer.city + ", "+ props.data.dealer.state : "" + props.data.dealer.state}
       distance={props.data.dist ? props.data.dist : 0}
       rating={0}
       reviews={0}

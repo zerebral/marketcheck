@@ -1,8 +1,13 @@
 import React from 'react'
 import urlEncodeParams from '%/factory/urlEncodeParams'
-import { getNavigatorCoords, degreeToCardinal } from 'geo-loc-utils'
 
-class CarLinkAnchor extends React.Component {
+import { getNavigatorCoords, degreeToCardinal } from 'geo-loc-utils'
+import {Car, CarPic, CarTitle} from '~/Home/Categories/Cars/Components'
+// import CarPic from '~/Home/Categories/Cars/Components'
+// import CarTitle from '~/Home/Categories/Cars/Components'
+
+
+class ImageLinkAnchor extends React.Component {
     constructor (props) {
         super(props)
         this.urlParams = {
@@ -77,6 +82,7 @@ class CarLinkAnchor extends React.Component {
         event.preventDefault()
         // console.log(event)
         this.urlParams.body_type = data.props.link.name
+
         this.setState({
             bodyType: data.props.link.name,
             refreshURL: urlEncodeParams(this.urlParams)
@@ -100,11 +106,12 @@ class CarLinkAnchor extends React.Component {
 
     render () {
         return (
-            <div>
-                <a href="javascript:;" onClick={((e) => this.onItemClick(e, this))} >{this.props.link.name}</a>
-            </div>
+            <Car onClick={((e) => this.onItemClick(e, this))} >
+                <CarPic src={this.props.link.pic} />
+                <CarTitle>{this.props.link.name}</CarTitle>
+            </Car>
         )
     }
 }
 
-export default CarLinkAnchor
+export default ImageLinkAnchor

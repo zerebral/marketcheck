@@ -10,7 +10,6 @@ const String = (amount) => {
 
 export default (props) =>
   <Section id='similarContainer' title='Similar Local Cars' summary={String(props.numFound - 1)} center className={props.className}>
-      {console.log(props)}
     {props.cars && props.cars.length > 0 &&
     props.cars.map((car, key) => {
             if (props.vin !== car.vin) {

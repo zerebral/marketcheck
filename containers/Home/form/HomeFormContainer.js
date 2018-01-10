@@ -110,6 +110,7 @@ class HomeFormContainer extends Component {
   findLatLng (lat, lng, address) {
     this.urlParams.latitude = lat,
     this.urlParams.longitude = lng
+      this.urlParams.address = address
 
     this.setState({
       latitude: lat,
@@ -141,6 +142,7 @@ class HomeFormContainer extends Component {
         this.fetchingData(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latitude},${this.state.longitude}&result_type=locality&sensor=true&key=AIzaSyCIQkp6IJO170R9QTJESoNk8h0cR__qIdM`)
             .then(results => {
                 if (results["results"][0]) {
+                    this.urlParams.address = results["results"][0].formatted_address
                     this.setState({
                         address: results["results"][0].formatted_address
                     })
@@ -171,7 +173,7 @@ class HomeFormContainer extends Component {
 
   componentDidMount () {
     this.fetchMakes()
-    this.fetchingLatLong()
+    // this.fetchingLatLong()
     // this.getAddress()
   }
 

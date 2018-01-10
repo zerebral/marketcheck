@@ -49,13 +49,14 @@ const list = [
     value: 'miles|desc'
   },
   {
-    label: 'Oldest first',
-    value: 'year|asc'
+      label: 'Newest first',
+      value: 'last_seen|desc'
   },
   {
-    label: 'Newest first',
-    value: 'year|desc'
+    label: 'Oldest first',
+    value: 'last_seen|asc'
   },
+
   {
       label: 'DOM Newest first',
       value: 'dom_active|asc'
@@ -63,15 +64,15 @@ const list = [
   {
     label: 'DOM Oldest first',
     value: 'dom_active|desc'
-  },
-  {
-    label: 'Newest listings first',
-    value: 'last_seen|asc'
-  },
-  {
-    label: 'Oldest listings first',
-    value: 'last_seen|desc'
   }
+  // {
+  //   label: 'Newest listings first',
+  //   value: 'last_seen|asc'
+  // },
+  // {
+  //   label: 'Oldest listings first',
+  //   value: 'last_seen|desc'
+  // }
 ]
 
 export default (props) => {

@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { colors } from '%/styles'
 import { mediaMax } from '%/styles/mixins'
-import { rem } from 'polished'
+import { rem, em } from 'polished'
+import PinSvg from './pin.svg'
 
 import FancySelect from './FancySelect'
 import GoogleAutoComplete from './FancySearch'
@@ -23,7 +24,28 @@ const Form = styled.form`
   `}
 `
 
+const Location = styled.a.attrs({ href: '#' })`
+  color: ${colors.softblue};
+  font-size: ${em(13)};
+  display: inline-block;
+  text-align: right;
+  vertical-align: bottom;
+  ${mediaMax.largeTablet`
+    font-size: ${em(12)};
+  `}
+  ${mediaMax.phone`
+    display: none;
+  `}
+`
+
+const Pin = styled(PinSvg)`
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+`
+
 export default ({
+  props,
   getState,
   onSubmit,
   models,
@@ -37,10 +59,10 @@ export default ({
   handleSelect,
   address,
   findLatLng,
-    latitude, longitude
+  latitude,
+  longitude
 }) =>
   <Form onSubmit={onSubmit}>
-      {console.log(address)}
     <FancySelect blue handleSelect={carTypeSelect} showForMobile={true} defaultLabel='Used' defaultValue='used' loading={false} list={[{item: 'new'}, {item: 'used'}, {item: 'certified'}]} />
     <GoogleAutoComplete findLatLng={findLatLng} address={address}/>
     <FancySelect handleSelect={makeSelect} showForMobile={false} defaultLabel='All Makes' defaultValue='' loading={loadingMakers} list={makes} />

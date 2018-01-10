@@ -5,6 +5,7 @@ import urlEncodeParams from '%/factory/urlEncodeParams'
 import Factory from '%/factory/fetchingData'
 import srpData from './srpdata'
 import defaultSearch from './defaultsearch'
+import queryString from 'query-string';
 
 const searchFactory = new Factory()
 
@@ -407,15 +408,23 @@ class SrpContainer extends React.Component {
               result[pair[0]] = decodeURIComponent(pair[1] || '');
           });
 
+      // this.props.url.query.forEach(function(pair){
+      //
+      // })
+      this.props.url.query.refreshURL = this.props.url.asPath.replace("/srp?","")
+      this.props.url.query.bodyType = this.props.url.query.body_type
+      this.props.url.query.makeList = [this.props.url.query.make]
+      this.props.url.query.modelList = [this.props.url.query.model]
+      this.props.url.query.distance = this.props.url.query.radius
+      localStorage.removeItem("searchSession")
+      sessionStorage.removeItem("searchSession")
+      sessionStorage.setItem("searchSession", JSON.stringify(this.props.url.query))
+      // window.location.href = "/srp?" + this.state.refreshURL;
+
     const searchParams = window.sessionStorage.getItem('searchSession')
-
     this.sessionSearch = JSON.parse(searchParams) ? JSON.parse(searchParams) : JSON.parse(JSON.stringify(result));
-
-    // console.log(JSON.parse(searchParams))
-
-
     this.savedSearch = JSON.parse(window.localStorage.getItem('searchSession'))
-
+    
     this.setState(
 
       this.savedSearch ?

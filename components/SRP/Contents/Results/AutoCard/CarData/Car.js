@@ -98,7 +98,7 @@ export default (props) => {
           />
         </PriceRow>
           {calculateDelta(props.stats, props.data.price)}
-          <Dom>{props.data.dom_active} days on market</Dom>
+          <Dom>{props.data.dom_active} {props.data.dom_active>1 ? 'days' : 'day'} on market</Dom>
         {false ? (
           <Features>
             <Bluetooth />

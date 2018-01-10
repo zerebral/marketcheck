@@ -1,9 +1,8 @@
 import FetchingData from '%/factory/fetchingData'
 
 var srpData = (params = {}) => {
-    // console.log(params.make)
 	return {
-
+		// console.log(params)
 		filters: {
 			car_type: params.carType ? params.carType : 'used',
 			radius: params.distance ? params.distance : 25,

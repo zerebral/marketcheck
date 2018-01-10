@@ -46,7 +46,6 @@ export default ({
 }) => {
   return (
     <Container>
-        {console.log(stats)}
       <FlexRow noMargin >
         <Price>{currency(price)}</Price>
         <Button primary lowercase href={vdpUrl} target='_blank'>View on dealer website</Button>

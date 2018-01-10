@@ -14,11 +14,12 @@ const options = {
     offset: 650, // Scrolls to element + 50 pixels down the page
 
 }
+
 export default props =>
   <Navigation>
     <Container>
       <FlexRow noMargin align='center' justify='space-around'>
-        <NavLink href='javascript:;' onClick={ () => { scroll.scrollToTop(100); }}>Overview</NavLink>
+        <NavLink href='javascript:;' activeClass="active" onClick={ () => { scroll.scrollToTop(100); this.addClass('active') }} >Overview</NavLink>
         <NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('summaryContainer', options)}}>Summary</NavLink>
         <NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('marketContainer', options)}}>Market</NavLink>
         <NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('marketAveragesContainer', options)}}>Averages</NavLink>

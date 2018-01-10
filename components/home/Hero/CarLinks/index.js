@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 import { rem } from 'polished'
-import { mediaMax } from '%/styles/mixins'
-import React from 'react'
-import { colors } from '%/styles'
+import PropTypes from 'prop-types'
 import CarLinkAnchor from '@/Home/categories/CarLinkAnchor'
-//
+import { mediaMax } from '%/styles/mixins'
+
 const CarLinks = styled.ul`
   display: flex;
   align-items: center;
@@ -32,16 +31,21 @@ const CarLink = styled.li`
   `}
 `
 
-
-export default ({   props,
-                    bodytypes
-                }) =>
-    <CarLinks>
-        {console.log(props)}
-            {bodytypes.map((link, index) => (
-              <CarLink key={link + index}>
-                <CarLinkAnchor props={props} link={link}/>
-              </CarLink>
-            ))}
+const Rendered = ({links}) => (
+  <CarLinks>
+    {links.map((link, index) => (
+      <CarLink key={link + index}>
+          <CarLinkAnchor link={link}/>
+      </CarLink>
+    ))}
   </CarLinks>
+)
 
+Rendered.propTypes = {
+  links: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    route: PropTypes.string.isRequired
+  })).isRequired
+}
+
+export default Rendered

@@ -34,7 +34,7 @@ export default ({
       <External />
     </Name>
     <Location>
-      <LocText>{city}, {state}</LocText>
+      <LocText>{city ?  city + "," : ""} {state ? state + "," : ""}}</LocText>
       <Dot />
       <LocText faded >{number(distance)} miles</LocText>
     </Location>

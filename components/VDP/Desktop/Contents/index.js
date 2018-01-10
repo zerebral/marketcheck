@@ -18,7 +18,7 @@ import SimilarContainer from '@/VDP/Similar/SimilarContainer'
 
 export default props =>
   <ContentsWrapper>
-    <SummaryReport {...props} />
+    {/*<SummaryReport {...props} />*/}
     <VehicleInformation {...props} />
     <MarketComparison {...props} />
     <AveragesOverTimeContainer id='marketAveragesContainer' {...props} />

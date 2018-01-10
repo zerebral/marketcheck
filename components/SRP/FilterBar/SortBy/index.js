@@ -76,14 +76,40 @@ const ArrowStyled = styled(SvgArrow)`
 class Dropdown extends Component {
   constructor (props) {
     super(props)
+      var pairs = location.search.slice(1).split('&');
+
+    var sortby_selected = ""
+      var result = {};
+      pairs.forEach(function(pair) {
+          pair = pair.split('=');
+          if(pair[0] == "make"){pair[0] = "selectedMake"}
+          if(pair[0] == "model"){pair[0] = "selectedModel"}
+
+          result[pair[0]] = decodeURIComponent(pair[1] || '');
+      });
+      result = JSON.parse(JSON.stringify(result))
+
+      var selected_index = 0
+      sortby_selected = result.sort_by + "|" + result.sort_order
+      if((result.sort_by && result.sort_by !== "") || (result.sort_order && result.sort_order !== "")){
+
+          props.items.forEach(function(pair) {
+              if(pair['value'] === sortby_selected ){
+                  selected_index = props.items.indexOf(pair)
+              }
+          })
+      }else{
+
+      }
 
     this.label = this.props.label
     this.items = this.props.items
 
-    this.state = {
-      open: false,
-      selected: 0
-    }
+      this.state = {
+          open: false,
+          selected: selected_index
+      }
+
   }
 
   handleOpenClick () {
@@ -112,6 +138,7 @@ class Dropdown extends Component {
   render () {
     return (
       <SortBy>
+
         <Label>{this.label}</Label>
         <Selected onClick={this.handleOpenClick.bind(this)}>{this.items[this.state.selected].label}</Selected>
         <Btn onClick={this.handleOpenClick.bind(this)}>

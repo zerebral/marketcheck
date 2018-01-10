@@ -1,8 +1,12 @@
 import React from 'react'
 import urlEncodeParams from '%/factory/urlEncodeParams'
-import { getNavigatorCoords, degreeToCardinal } from 'geo-loc-utils'
 
-class CarLinkAnchor extends React.Component {
+import { getNavigatorCoords, degreeToCardinal } from 'geo-loc-utils'
+import {BrandColumn, Brand, Image} from '~/Home/Makers/Brands/Components'
+
+
+
+class ImageLinkAnchor extends React.Component {
     constructor (props) {
         super(props)
         this.urlParams = {
@@ -76,9 +80,10 @@ class CarLinkAnchor extends React.Component {
     onItemClick (event, data) {
         event.preventDefault()
         // console.log(event)
-        this.urlParams.body_type = data.props.link.name
+        this.urlParams.make = data.props.carData.name
+
         this.setState({
-            bodyType: data.props.link.name,
+            make: data.props.carData.name,
             refreshURL: urlEncodeParams(this.urlParams)
         }, () => {
             window.history.pushState(this.state, 'Marketcheck', '/?' + this.state.refreshURL)
@@ -100,11 +105,14 @@ class CarLinkAnchor extends React.Component {
 
     render () {
         return (
-            <div>
-                <a href="javascript:;" onClick={((e) => this.onItemClick(e, this))} >{this.props.link.name}</a>
-            </div>
+            <BrandColumn>
+                <Brand href={this.props.carData.link} onClick={((e) => this.onItemClick(e, this))}>
+                    <Image src={this.props.carData.img} />
+                </Brand>
+            </BrandColumn>
+
         )
     }
 }
 
-export default CarLinkAnchor
+export default ImageLinkAnchor

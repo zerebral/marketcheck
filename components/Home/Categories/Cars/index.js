@@ -1,5 +1,4 @@
-import Car from './Car'
-
+import ImageLinkAnchor from '@/Home/categories/ImageLinkAnchor'
 import { FlexCol, FlexRow } from '~/layout'
 
 const CarsArray = [
@@ -16,11 +15,7 @@ const CarsArray = [
 const renderCars = cars =>
   cars.map(c =>
     <FlexCol key={c.id} laptop={{ cols: 3 }} phablet={{ cols: 6 }}>
-      <Car
-        title={c.name}
-        pic={c.pic}
-        href={c.link}
-      />
+        <ImageLinkAnchor link={c}/>
     </FlexCol>
   )
 

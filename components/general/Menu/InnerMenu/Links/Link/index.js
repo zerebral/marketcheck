@@ -11,7 +11,7 @@ const Link = styled.a`
 
   &:hover,
   &:active {
-    text-decoration: underline;
+    text-decoration: none;
     font-weight: 700;
   }
 `
