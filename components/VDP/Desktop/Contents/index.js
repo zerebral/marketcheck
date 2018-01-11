@@ -24,7 +24,7 @@ export default props =>
     <AveragesOverTimeContainer id='marketAveragesContainer' {...props} />
     <TimeOnMarket {...props} />
     <IncludedFeatures {...props} />
-    <FuelEfficiency {...props} />
+    {/*<FuelEfficiency {...props} />*/}
     {/*<Environmental {...props} />*/}
     <ModelPopularity {...props} />
     {/*<CompetitionContainer {...props} />*/}

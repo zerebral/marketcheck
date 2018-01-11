@@ -174,7 +174,7 @@ export default (props) => {
       <ClearAllBtn {...props} />
       <GroupBtn {...props} label='Type' buttons={buttons} />
 
-      <InputRange {...props} label='Distance' min={0} max={500} step={25} value={25} updateSuperState={props.updateDistance} />
+      <InputRange {...props} label='Distance' min={0} max={500} step={25} value={props.sessionSearch.filters.radius} updateSuperState={props.updateDistance} />
 
       {false ? <InputYear {...props} label='Year' updateSuperState={props.updateYear} /> : null }
       <SimpleCheckbox {...props} active={props.activeFilters.year} label='Year' list={listGenerator(props.responseFactory.facets.year)} updateSuperState={props.updateYear} resetBtn />

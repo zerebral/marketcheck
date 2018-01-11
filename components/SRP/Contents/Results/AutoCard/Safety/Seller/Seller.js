@@ -22,10 +22,11 @@ export default ({
   distance,
   rating,
   reviews,
-  website
+  website,
+  vdpUrl
 }) =>
   <Seller>
-    <Name href={website} target='_blank'>
+    <Name href={vdpUrl} target='_blank'>
       {name}
       <External width='10' />
     </Name>

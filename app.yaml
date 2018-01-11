@@ -1,6 +1,5 @@
 env: flex
 runtime: nodejs
-version: 1
 skip_files:
   - yarn\.lock
 env_variables:
