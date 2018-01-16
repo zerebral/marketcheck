@@ -412,6 +412,7 @@ class SrpContainer extends React.Component {
       this.props.url.query.makeList = [this.props.url.query.make]
       this.props.url.query.modelList = [this.props.url.query.model]
       this.props.url.query.distance = this.props.url.query.radius
+      this.props.url.query.carType = this.props.url.query.car_type
       localStorage.removeItem("searchSession")
       sessionStorage.removeItem("searchSession")
       sessionStorage.setItem("searchSession", JSON.stringify(this.props.url.query))

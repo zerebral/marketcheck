@@ -5,7 +5,7 @@ var srpData = (params = {}) => {
 		// console.log(params)
 		filters: {
 			car_type: params.carType ? params.carType : 'used',
-			radius: params.distance ? params.distance : 25,
+			radius: params.distance && params.distance < 501 ? params.distance : 25,
 			price_range: (params.price ? params.price.min : 0) + "-" + (params.price ? params.price.max : 10000000),
 			miles_rage: (params.milesRange ? params.milesRange.min : 0) + "-" + (params.milesRange ? params.milesRange.max : 10000000),
 			deal: params.dealRating ? params.dealRating : '',
