@@ -1,6 +1,7 @@
 import Seller from './Seller'
 import Slideshow from './Slideshow'
 import {colors} from '%/styles'
+import Share from '../../../../../SRP/Contents/Results/AutoCard/CarData/ShareComponent'
 import {
   Car,
   NewBadge,
@@ -13,7 +14,8 @@ import {
   Deal,
   Average,
   PicWrapper,
-  Info
+  Info,
+  ShareBtn
 } from './Components.js'
 
 import {
@@ -26,11 +28,10 @@ import {
   Keyless,
   Certified,
   Like,
-  Share,
   Soon
 } from './Icons'
 
-import { cutString, ellipsis, currency, number } from '%/format'
+import { cutString, ellipsis, currency, number, capitalize } from '%/format'
 
 const calculateDelta = (mean_value, value, label) => {
     let delta = 0
@@ -53,6 +54,16 @@ const calculateDelta = (mean_value, value, label) => {
         return (<Average ></Average>)
     }
 
+}
+
+
+const getName = (data) => {
+    const name = data.build.year + " " +
+        data.build.make + " " +
+        data.build.model + " " +
+        (data.exterior_color ? data.exterior_color : '')
+
+    return name
 }
 
 export default ({
@@ -82,19 +93,12 @@ export default ({
     {/*</PicWrapper>*/}
 
     <Info>
-      <NewBadge>New</NewBadge>
+      <NewBadge>{capitalize(props.car_type? props.inventory_type : "used")}</NewBadge>
 
       <Title>
         <Name target="__blank" href={'/vdp/'+props.vin}>
             {
-                cutString(
-                    (
-                        props.build.year + " " +
-                        props.build.make + " " +
-                        props.build.model + " " +
-                        (props.exterior_color ? props.exterior_color : '')
-                    ), 35
-                )
+                cutString(getName(props), 35)
             }
         </Name>
         <Certified />
@@ -109,7 +113,9 @@ export default ({
         <Price>{currency(price)}</Price>
         {/*<Deal>Great Deal!</Deal>*/}
         {/*<Like />*/}
-        <Share />
+          <ShareBtn>
+              <Share title={getName(props)} link={'/vdp/' + props.vin} />
+          </ShareBtn>
       </PriceRow>
         {(stats.price ? calculateDelta(stats.price.mean, price, "price") : "")}
       {/*<Average>{currency(874)} less than market average</Average>*/}

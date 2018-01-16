@@ -8,7 +8,7 @@ const Link = styled.a`
   font-size: ${rem(14)};
   font-family: ${fonts.fontFamily};
   font-weight: 400;
-
+    
   &:hover,
   &:active {
     text-decoration: none;

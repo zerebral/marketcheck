@@ -25,7 +25,7 @@ export default props =>
         <NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('marketAveragesContainer', options)}}>Averages</NavLink>
         <NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('historyContainer', options)}}>History</NavLink>
         <NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('featuresContainer', options)}}>Features</NavLink>
-        <NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('fuelContainer', options)}} >Fuel</NavLink>
+        {/*<NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('fuelContainer', options)}} >Fuel</NavLink>*/}
         <NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('popularityContainer', options)}}>Popularity</NavLink>
         {/*<NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('similarContainer', options)}}>Similar Cars</NavLink>*/}
         <Cta href={props.vdpUrl} target='_blank'>View on dealer website</Cta>

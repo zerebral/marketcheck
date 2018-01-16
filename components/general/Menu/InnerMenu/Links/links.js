@@ -1,6 +1,6 @@
 const links = [
-  { name: 'Home', route: '#' },
-  { name: 'Developer API ', route: 'http://developer.marketcheck.com/', target: '_blank' }
+  { name: 'Developer API ', route: 'http://developer.marketcheck.com/', target: '_blank' },
+    { name: 'Home', route: '#' }
 ]
 
 export default links

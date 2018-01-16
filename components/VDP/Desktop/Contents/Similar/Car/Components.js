@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '%/styles'
 import { FillBody } from '~/general/Accordion'
+import { mediaMax } from '%/styles/mixins'
 
 export const Car = styled.div`
   display: flex;
@@ -125,5 +126,21 @@ export const PicWrapper = styled(FillBody)`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+`
+
+export const ShareBtn = styled.button`
+  cursor: pointer;
+  right: 0.5em;
+  top: 0.5em;
+  z-index: 9999999;
+  ${mediaMax.largeTablet`
+    top: 1.5em;
+    right: 1em;
+  `}
+
+  svg {
+    height: 16px;
+    width: 16px;
   }
 `

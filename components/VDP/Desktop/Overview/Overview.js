@@ -61,8 +61,8 @@ export default ({
               <FlexRow align='flex-end'>
                 <FlexCol cols={9}>
                   <FlexRow noMargin align='center'>
-                    <CarName>{pageTitle}</CarName>
-                    <Icon href='#' style={{marginRight: '16px'}}><Like /></Icon>
+                    <CarName style={{marginRight: "16px"}}>{pageTitle}</CarName>
+                    {/*<Icon href='#' style={{marginRight: '16px'}}><Like /></Icon>*/}
                     <Share title={pageTitle} link={'/vdp/' + vin} />
                   </FlexRow>
                   <Brief>{brief}</Brief>
