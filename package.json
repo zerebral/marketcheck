@@ -61,6 +61,7 @@
     "react-simple-loading": "^0.0.3",
     "react-slick": "^0.15.4",
     "recharts": "^1.0.0-apha.5",
+    "serve-static": "^1.13.1",
     "styled-components": "^2.2.1",
     "webpack": "^3.10.0",
     "yes-https": "^0.0.4"
