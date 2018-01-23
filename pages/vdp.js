@@ -25,7 +25,7 @@ class Vdp extends React.Component {
     this.listingFetch = this.listingFetch.bind(this)
     this.fetchingData = this.fetchingData.bind(this)
     this.fetchScatterData = this.fetchScatterData.bind(this)
-    this.findIdByVIN = this.findIdByVIN.bind(this)
+    // this.findIdByVIN = this.findIdByVIN.bind(this)
     this.environmentalFriendliness = this.environmentalFriendliness.bind(this)
     this.summaryReport = this.summaryReport.bind(this)
     this.safetyRatings = this.safetyRatings.bind(this)
@@ -74,33 +74,34 @@ class Vdp extends React.Component {
     }
 
     logPageView()
-
-    this.findIdByVIN(this.state.vin)
+    this.historyFetch(this.state.vin)
+    // this.findIdByVIN(this.state.vin)
     this.summaryReport(this.state.vin)
     // this.fetchScatterData(this.state.vin)
     this.environmentalFriendliness(this.state.vin)
     this.safetyRatings(this.state.vin)
     this.resaleValueFetch(this.state.vin)
     this.fuelEfficiencyFetch(this.state.vin)
-    this.historyFetch(this.state.vin)
+
     this.averagesFetch(this.state.vin)
   }
 
   findIdByVIN (vin) {
+
     this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vin=${vin}&nodedup=true`)
     .then(data => {
       if (data.listings) {
         // Get car id so we can use it for the Listing Fetch
         const carID = data.listings[0].id
-        // Get Year, Make, Model, Trim and Body Type so we can use it for the Model Popularity fetch
-        const year = data.listings[0].build.year
-        const make = data.listings[0].build.make
-        const model = data.listings[0].build.model
-        const trim = data.listings[0].build.trim
-        const bodyType = data.listings[0].build.body_type
+        // // Get Year, Make, Model, Trim and Body Type so we can use it for the Model Popularity fetch
+        // const year = data.listings[0].build.year
+        // const make = data.listings[0].build.make
+        // const model = data.listings[0].build.model
+        // const trim = data.listings[0].build.trim
+        // const bodyType = data.listings[0].build.body_type
         // We use the card ID to fetch car listing/VDP
         this.listingFetch(`https://${process.env.API_HOST}/v1/listing/${carID}?api_key=${process.env.API_VAR}&nodedup=true`)
-        this.modelPopularityFetch(year, make, model, trim, bodyType)
+        // this.modelPopularityFetch(year, make, model, trim, bodyType)
       }
     })
   }
@@ -130,7 +131,11 @@ class Vdp extends React.Component {
   historyFetch (vin) {
     this.fetchingData(`https://${process.env.API_HOST}/v1/history/${vin}?api_key=${process.env.API_VAR}&nodedup=true`)
       .then(vinHistory => {
-        this.setState({ vinHistory })
+          this.setState({ vinHistory })
+          if (vinHistory) {
+              const carID = vinHistory[0].id
+              this.listingFetch(`https://${process.env.API_HOST}/v1/listing/${carID}?api_key=${process.env.API_VAR}&nodedup=true`)
+          }
       })
   }
 
@@ -156,22 +161,33 @@ class Vdp extends React.Component {
           scatterYourCar: [{x: data.miles, y: data.price}],
           fetchReady: true
         })
+
+        console.log(data.dealer.longitude)
         // Using VDP response we can extract Dealer ID to fetch it's review
         this.dealerReviews(data.dealer.id)
         let latitude = 32.75
         let longitude =  -116.35
-         if(data.dealer.latitude !== null){
+         if(data.dealer.latitude && data.dealer.latitude !== null){
              latitude = data.dealer.latitude
          }
 
-        if(data.dealer.longitude !== null){
+        if(data.dealer.longitude && data.dealer.longitude !== null){
             longitude = data.dealer.longitude
         }
 
 
-        this.getDOMAverage(data.build.year, data.build.make, data.build.model, data.inventory_type, latitude, longitude)
-        this.statsFetch(data.build.year, data.build.make, data.build.model, data.inventory_type)
-        this.fetchScatterData (data.build.year, data.build.make, data.build.model, data.inventory_type)
+        const year = data.build.year
+        const make = data.build.make
+        const model = data.build.model
+        const trim = data.build.trim
+        const bodyType = data.build.body_type
+        const car_type = data.inventory_type? data.inventory_type : "used"
+
+
+        this.getDOMAverage(year, make, model, car_type, latitude, longitude)
+        this.statsFetch(year, make, model, car_type)
+        this.fetchScatterData (year, make, model, car_type)
+        this.modelPopularityFetch(year, make, model, trim, bodyType)
       }).catch(error => {
         console.log('error message: ' + error.message)
       })

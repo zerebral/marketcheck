@@ -85,12 +85,25 @@ class SimilarContainer extends Component {
   }
 
   componentDidMount () {
-    this.similarFetch(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${this.props.vin}&latitude=${this.props.latitude}&longitude=${this.props.longitude}&radius=100&car_type=used&start=0&rows=4`)
+      let latitude = 32.75
+      let longitude =  -116.35
+      if(this.props.latitude && this.props.latitude !== null){
+          latitude = this.props.latitude
+      }
+
+      if(this.props.longitude && this.props.longitude !== null){
+          longitude = this.props.longitude
+      }
+
+      console.log(latitude)
+      console.log(longitude)
+    this.similarFetch(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&vins=${this.props.vin}&latitude=${latitude}&longitude=${longitude}&radius=100&car_type=used&start=0&rows=4`)
   }
 
   render () {
+
     if (this.state.cars.length < 1 || this.state.similarCarsDealerReviews < 1) {
-      return <Loading />
+            return <Loading />
     }
     return (
       <Aux id='similarContainer' name='similarContainer'>
