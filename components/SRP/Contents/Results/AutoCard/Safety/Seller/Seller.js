@@ -26,12 +26,13 @@ export default ({
   vdpUrl
 }) =>
   <Seller>
+      {console.log(location)}
     <Name href={vdpUrl} target='_blank'>
       {name}
       <External width='10' />
     </Name>
     <Location>
-      <LocText>{location}</LocText>
+      <LocText>{location != 'undefined' ? location : "US"}</LocText>
       <Dot />
       <LocText faded >{number(distance)} miles</LocText>
     </Location>

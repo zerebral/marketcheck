@@ -71,7 +71,8 @@ class AveragesOverTimeContainer extends Component {
   }
 
   componentDidMount () {
-    this.trendsFetch(`https://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=${this.props.vin}&car_type=${this.props.type}`)
+
+    this.trendsFetch(`https://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=${this.props.vin}&car_type=${this.props.type? this.props.type : "used"}`)
   }
 
   render () {

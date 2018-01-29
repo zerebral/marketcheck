@@ -15,6 +15,7 @@ const Container = styled.div`
 
 export default (props) =>
   <Container>
+      {console.log(props.data.dealer.city)}
     <Seller
       name={cutString(props.data.dealer.name, 25)}
       location={props.data.dealer.city ? props.data.dealer.city + ", "+ props.data.dealer.state : "" + props.data.dealer.state}
