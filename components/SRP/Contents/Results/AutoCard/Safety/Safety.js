@@ -22,6 +22,6 @@ export default (props) =>
       distance={props.data.dist ? props.data.dist : 0}
       rating={0}
       reviews={0}
-      website={props.data.vdp_url}
+      vdpUrl={props.data.vdp_url}
     />
   </Container>

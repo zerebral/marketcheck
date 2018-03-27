@@ -27,7 +27,7 @@ export default ({
 }) =>
   <Seller>
       {console.log(location)}
-    <Name href={vdpUrl} target='_blank'>
+    <Name href={vdpUrl + "?utm_campaign=vdp_deeplink&utm_medium=referral&utm_source=marketcheck.com"} target='_blank'>
       {name}
       <External width='10' />
     </Name>

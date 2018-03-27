@@ -50,6 +50,6 @@ export default ({
       {/*<Reviews href={website}>{number(reviews)} Reviews</Reviews>*/}
     {/*</Flex>*/}
     <Flex>
-      <Button href={vdpUrl} target='_blank'>View on dealer website</Button>
+      <Button href={vdpUrl + "?utm_campaign=vdp_deeplink&utm_medium=referral&utm_source=marketcheck.coms"} target='_blank'>View on dealer website</Button>
     </Flex>
   </Seller>

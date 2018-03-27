@@ -28,7 +28,7 @@ export default props =>
         {/*<NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('fuelContainer', options)}} >Fuel</NavLink>*/}
         <NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('popularityContainer', options)}}>Popularity</NavLink>
         {/*<NavLink href='javascript:;' onClick={ () => { scroller.scrollTo('similarContainer', options)}}>Similar Cars</NavLink>*/}
-        <Cta href={props.vdpUrl} target='_blank'>View on dealer website</Cta>
+        <Cta href={props.vdpUrl + "?utm_campaign=vdp_deeplink&utm_medium=referral&utm_source=marketcheck.com"} target='_blank'>View on dealer website</Cta>
       </FlexRow>
     </Container>
   </Navigation>
