@@ -2,6 +2,7 @@ env: flex
 runtime: nodejs
 skip_files:
   - yarn\.lock
+  - node_modules/
 env_variables:
   API_VAR: 'p3OCLOt1HQpxfp1zNVUVopAdWumsStPv'
   API_HOST: 'marketcheck-prod.apigee.net'
