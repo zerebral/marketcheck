@@ -92,8 +92,8 @@
     ],
     "public": false,
     "env": {
-      "API_HOST": "p3OCLOt1HQpxfp1zNVUVopAdWumsStPv",
-      "API_VAR": "marketcheck-prod.apigee.net"
+      "API_HOST": "ifQw00jC3LtQS4c4rfSbJOJFY7EmTvWP",
+      "API_VAR": "marketcheck-test.apigee.net"
     }
   },
   "jest": {
