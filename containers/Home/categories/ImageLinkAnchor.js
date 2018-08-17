@@ -58,7 +58,7 @@ class ImageLinkAnchor extends React.Component {
     }
 
     getAddress(){
-        this.fetchingData(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latitude},${this.state.longitude}&result_type=locality&sensor=true&key=AIzaSyCIQkp6IJO170R9QTJESoNk8h0cR__qIdM`)
+        this.fetchingData(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.state.latitude},${this.state.longitude}&result_type=locality&sensor=true&key=AIzaSyB4sYQfdiOZh3izO23839OZjkdZBWUMrTs`)
             .then(results => {
                 if (results["results"][0]) {
                     this.urlParams.address = results["results"][0].formatted_address

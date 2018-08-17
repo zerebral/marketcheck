@@ -54,7 +54,7 @@ export default (props) => {
         <NewBadge>{capitalize(props.filters.car_type)}</NewBadge>
 
         <Title>
-          <Name target="__blank" href={'/vdp/'+props.data.vin}>
+          <Name target="__blank" href={props.data.vdp_url.includes("?") ? props.data.vdp_url + "&utm_campaign=vdp_deeplink&utm_medium=referral&utm_source=marketcheck.com" : props.data.vdp_url + "?utm_campaign=vdp_deeplink&utm_medium=referral&utm_source=marketcheck.com"}>
           {
             cutString(
               (

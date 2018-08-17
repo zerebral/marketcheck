@@ -108,6 +108,6 @@ class GoogleAutoComplete extends React.Component {
 
 export default scriptLoader(
   [
-    'https://maps.googleapis.com/maps/api/js?key=AIzaSyCIQkp6IJO170R9QTJESoNk8h0cR__qIdM&libraries=places'
+    'https://maps.googleapis.com/maps/api/js?key=AIzaSyB4sYQfdiOZh3izO23839OZjkdZBWUMrTs&libraries=places'
   ]
 )(GoogleAutoComplete)
