@@ -21,7 +21,7 @@ export default props =>
     {/*<SummaryReport {...props} />*/}
     <VehicleInformation {...props} />
     <MarketComparison {...props} />
-    <AveragesOverTimeContainer id='marketAveragesContainer' {...props} />
+    {/*<AveragesOverTimeContainer id='marketAveragesContainer' {...props} />*/}
     <TimeOnMarket {...props} />
     <IncludedFeatures {...props} />
     {/*<FuelEfficiency {...props} />*/}

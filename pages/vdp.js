@@ -215,11 +215,11 @@ class Vdp extends React.Component {
 
         //
         // this.fetchingData(`https://${process.env.API_HOST}/v1/trends?api_key=${process.env.API_VAR}&vin=${vin}&car_type=used&nodedup=true`)
-        this.fetchingData(`https://${process.env.API_HOST}/v1/plots?api_key=${process.env.API_VAR}&year=${year}&make=${make}&model=${model}&car_type=${car_type}&rows=1000`)
+        this.fetchingData(`https://${process.env.API_HOST}/v1/search?api_key=${process.env.API_VAR}&year=${year}&make=${make}&model=${model}&car_type=${car_type}&plot=true`)
             .then(response => {
                 let averagePrice = 0
                 let averageMiles = 0
-                const cars = response.filter((car) => {
+                const cars = response.listings.filter((car) => {
                   if (parseInt(car.price) > 0 && parseInt(car.miles) > 0 && parseInt(car.miles) < 700000) {
                       return (parseInt(car.price) && parseInt(car.miles))
                   }
