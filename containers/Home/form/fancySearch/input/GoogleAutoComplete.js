@@ -97,7 +97,7 @@ class GoogleAutoComplete extends React.Component {
             onEnterKeyDown={this.handleSelect}
             styles={customStyles}
             inputProps={inputProps}
-            googleLogo={false}
+            googleLogo={true}
             options={options}
           />
         }
