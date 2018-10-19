@@ -3,9 +3,15 @@ runtime: nodejs
 skip_files:
   - yarn\.lock
   - node_modules/
+  - .git/
 env_variables:
   API_VAR: 'ifQw00jC3LtQS4c4rfSbJOJFY7EmTvWP'
   API_HOST: 'marketcheck-test.apigee.net'
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 2
+  cpu_utilization:
+    target_utilization: 0.5
 #handlers:
 #- url: .*
 #  script: index.js
