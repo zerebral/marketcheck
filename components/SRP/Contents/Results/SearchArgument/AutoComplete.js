@@ -58,9 +58,14 @@ class AutoComplete extends React.Component {
         border: 'none',
         left: '-47px',
         top: '125%',
-        minWidth: '256px',
+        minWidth: '256px',  
         textAlign: 'left',
-        lineHeight: '1.5'
+        lineHeight: '1.5',
+        paddingBottom: '30px',
+        backgroundSize: 'auto 20px',
+        backgroundPosition: 'bottom right 1px',
+        backgroundRepeat: 'no-repeat',
+        backgroundImage: "url('https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png')"
       },
       autocompleteItemActive: { backgroundColor: '#efefef' },
       autocompleteItem: {color: '#666'},
