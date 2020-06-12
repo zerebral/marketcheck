@@ -21,8 +21,8 @@ const A = styled.a`
 `
 
 export default () => (
-  <A href='tel:8017353351'>
+  <A href='tel:8019186647'>
     <Phone />
-    801 735 3351
+    801 918 6647
   </A>
 )

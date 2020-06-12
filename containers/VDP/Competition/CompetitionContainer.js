@@ -46,7 +46,7 @@ class CompetitionContainer extends Component {
   }
 
   componentDidMount () {
-    this.competitionFetch(`https://${process.env.API_HOST}/v1/competition?vin=1FA6P8CF2H5279752&api_key=${process.env.API_VAR}`)
+    this.competitionFetch(`https://${process.env.API_HOST}/v2/competition/car?vin=1FA6P8CF2H5279752&api_key=${process.env.API_VAR}`)
   }
 
   render () {

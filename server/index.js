@@ -5,7 +5,7 @@ const cors = require('cors')
 const yes = require('yes-https')
 
 const dev = process.env.NODE_ENV !== 'production'
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 const app = next({ dev })
 const handler = routes.getRequestHandler(app)
 var robots = require('robots.txt')

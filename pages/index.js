@@ -13,8 +13,8 @@ class Index extends React.Component {
 }
 
     setVin () {
-        console.log(this.props.url.query.vin)
-        console.log(this)
+        //console.log(this.props.url.query.vin)
+        //console.log(this)
         // this.urlParams.vin = value
         if(this.props.url.query.vin) {
             this.setState({

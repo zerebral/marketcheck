@@ -19,6 +19,9 @@
     "deploy": "now",
     "postdeploy": "now alias"
   },
+  "engines": {
+    "node": "8.12.0"
+  },
   "dependencies": {
     "babel-plugin-inline-dotenv": "^1.1.1",
     "babel-plugin-inline-import": "^2.0.6",
@@ -92,8 +95,8 @@
     ],
     "public": false,
     "env": {
-      "API_HOST": "ifQw00jC3LtQS4c4rfSbJOJFY7EmTvWP",
-      "API_VAR": "marketcheck-test.apigee.net"
+      "API_HOST": "THErFHXGErewc0wCsE5ac7PAM8a6dmqz",
+      "API_VAR": "marketcheck-prod.apigee.net"
     }
   },
   "jest": {

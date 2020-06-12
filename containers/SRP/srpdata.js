@@ -12,7 +12,7 @@ var srpData = (params = {}) => {
 			make: params.makeList ? params.makeList : (params.selectedMake ? params.selectedMake : []),
 			model: params.modelList ? params.modelList : (params.selectedModel ? params.selectedModel : []),
 			year: params.year && params.year.length > 0 ? parseInt(params.year) : '',
-			seller_type: params.sellerType ? params.sellerType : '',
+			seller_type: params.sellerType ? params.sellerType : 'dealer',
 			exterior_color: params.color ? params.color : '',
 			transmission: params.transmission ? params.transmission : '',
 			body_type: params.bodyType ? params.bodyType : '',
